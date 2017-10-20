@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时函数</title>
+</head>
+<body>
+<script>
+    var p1 = document.createElement('p');
+    var p3 = document.createElement('p');
+   function t(){
+
+       /* 目标时间 */
+       var d1 = new Date('2017-03-27 12:59:45'); /* 记住时间参数格式 */
+       var y1 = d1.getFullYear();
+       var month1 = d1.getMonth() + 1;/* 月份要加 1 */
+       var da1 = d1.getDate();
+       var h1 = d1.getHours();
+       var m1 = d1.getMinutes();
+       var s1 = d1.getSeconds();
+
+       /* 现在时间 */
+       var d2 = new Date();
+       var y2 = d2.getFullYear();
+       var month2 = d2.getMonth() + 1;
+       var da2 = d2.getDate();
+       var h2 = d2.getUTCHours();
+       var m2 = d2.getMinutes();
+       var s2 = d2.getSeconds();
+
+       var sr1 = y1 + '年' + month1 + '月' + da1 + '日'+h1+'时'+m1+'分'+s1+'秒' ;  /* 目标时间变量 */
+
+       var y3=0;
+       var month3=0;
+       var da3=0;
+       var h3=0;
+       var m3=0;
+       var s3=0;
+
+       (s1-s2<0) ? s3=(s1+60)-s2 : s3=s1-s2;
+       (s3==(s1+60)-s2) ? m1-- : m1;
+
+       (m1-m2<0) ? m3=(m1+60)-m2 : m3=m1-m2;
+       (m3==(m1+60)-m2) ?h1-- : h1;
+
+       (h1-h2<0) ? h3=(h1+24)-h2 : h3=h1-h2;
+       (h3==(h1+24)-h2) ? da1-- : da1;
+
+       (da1-da2<0) ? da3=(da1+30)-da2 : da3=da1-da2;
+       (da3==(da1+30)-da2) ? month1-- : month1;
+
+       (month1-month2<0) ? month3=(month1+12)-month2 : month3=month1-month2;
+       (month3==(month1+12)-month2 ) ? y1--: y1;
+
+       y3=y1-y2;
+
+       var sr3 =y3+'年 '+month3+'个月 '+da3+'天 '+h3+'小时 '+m3+'分 '+s3+'秒';    /* 输出时间变量 */
+
+       p1.innerText = '目标时间：' + sr1;
+       p3.innerText = '距今还有：' + sr3;
+       document.getElementsByTagName('body')[0].appendChild(p1);
+       document.getElementsByTagName('body')[0].appendChild(p3);
+
+   }
+   t();
+   setInterval('t()',1000);
+
+</script>
+</body>
+</html>

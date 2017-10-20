@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            border: 1px solid red;
+            width: 200px;
+            height: 180px;
+        }
+
+        img {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">
+    <p>helloword!</p>
+    <a id="a1">www.baidu.com</a>
+    <a href="http://www.tudou.com">www.tudou.com</a>
+    <img src="left2.jpg">
+    <input type="text" >
+
+    <div>
+        <input type="checkbox">一
+        <input type="checkbox">二
+        <input type="checkbox" class="input3">三
+    </div>
+</div>
+
+<div id="d">我是文本 <p>ppppp</p> 我也是文本</div>
+<script>
+    div1.style.background='cyan';    /*用js更改的属性是在标签里面显示*/
+    div1.style.borderStyle='dashed';
+    div1.style.borderWidth='2px';
+    div1.style.width='300px';
+    div1.style.height='300px';
+    document.getElementsByTagName('p')[0].style.fontSize='30px';
+    document.getElementsByTagName('p')[0].innerHTML='你好，明天！高考啦';/*innerHTML  能读到标签 读到里面的所有东西 */
+    document.getElementsByTagName('p')[0].innerText='你好，明天！高考啦';/*innerText 只能读到内容 */
+    document.getElementsByTagName('a')[0].style.color='#f00';
+    document.getElementsByTagName('a')[1].style.color='#f00';
+    a1.style.fontSize='25px';
+    a1.innerHTML='到百度';
+
+    a1.href='http://www.baidu.com';/* 添加href属性*/
+
+    document.getElementsByTagName('img')[0].src='left1.jpg';
+    document.getElementsByTagName('img')[0].style.borderWidth='2px';
+    document.getElementsByTagName('img')[0].style.borderColor='#f00';
+    document.getElementsByTagName('img')[0].style.borderStyle='solid';
+    //   var x=   document.querySelector('input[placeholder='']');
+
+//    document.getElementsByTagName('input')[0].attributes[1].value='请输入你的电话号码';
+//    document.getElementsByTagName('input')[0].placeholder='placeholder1';
+    document.getElementsByTagName('input')[0].attributes[1]='placeholder2';/*在页面没有效果 能在控制台打印出来 设置属性不要用这种方法*/
+   console.log(  document.getElementsByTagName('input')[0].attributes[1]);
+   console.log(  document.getElementsByTagName('input')[0].attributes);
+
+    document.getElementsByTagName('input')[1].setAttribute('checked','checked');
+    document.getElementsByTagName('input')[2].setAttribute('checked','checked');
+    document.getElementsByTagName('input')[3].setAttribute('checked','checked');
+    var x1=document.getElementsByTagName('input')[3].getAttribute('checked');
+    var x2=document.getElementsByTagName('input')[3].getAttribute('class');
+    var x3=document.getElementsByTagName('input')[3].attributes[2];  /* 属性集合 */
+    var x4=x3.checked; /* 没有效果 */
+    console.log(x1);
+    console.log(x2);
+    console.log(x3);
+    console.log(x4);
+    var x=document.getElementById('d').innerHTML;
+    console.log(x);
+    var y=document.getElementById('d').innerText;
+    console.log(y);
+    console.log(typeof (y));
+    console.log(y[0]);
+
+
+</script>
+</body>
+</html>

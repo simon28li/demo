@@ -1,0 +1,129 @@
+1,判断下列表达式的结果
+'1.23' == 1.23            /*true*/
+
+0 == false                /*true*/
+   
+null == undefined         /*true*/
+null === undefined         /*false*/
+
+var a=[1,2]               变量名放在栈里面 数据放在堆里面  
+var b=[1,2]
+打印出 a==b的结果          /*false*/  引用类型比较的是地址   
+
+var obj1 = {a:2}
+var obj2 = {a:2}
+ 打印出 obj1 == obj2 的结果     /*false*/
+
+//NaN == NaN                   /*false*/
+
+typeof 100                  /*Number*/
+ 
+typeof true                 /*Boolean*/
+
+//typeof undefined          /*undefined */
+
+
+typeof {name:"小红"}        /*Object*/
+
+//typeof NaN                /*Number*/
+ 
+typeof null                 /*Object*/
+
+//1 == '1'                  /*true*/
+//1 === '1'                 /*false*/
+//1 + '2' === '1' + 2        /*true*/
+//1 + true === false + 2     /*true*/
+//1 + null  /*1*/  == /*NaN*/ undefined  + 1   /*false*/
+//'a' - 'b' == 'b' - 'a'        /*false*/
+//5 - '4'        
+//5 + '4'                 /*1*/
+//5 + null              /*5*/
+//4 == '4.00'            /*true*/
+//4 === '4.00'          /*false*/
+//null == undefined     /*true*/
+
+//0 == false            /*false*/
+//0 == null            /*false*/
+//null == false        /*false*/
+
+2,计算sum1和sum2的值
+var a,b,sum;
+var  a  = 5;
+var  b  = 100%7; /*2*/
+sum1 = a > b && a*b > 0 ;  /*true*/
+sum2 = ( (++a) + 3 ) / (2 - (--b) ) * 3;  /*27*/
+
+3,解释以下所得结果的原因
+var a = 10 ;
+var b = 10 ;
+console.log( a++ >  ++b );  /*false*/
+console.log('a=' + a );     /*a=11*/
+console.log('b=' + b );  /*b=11*/
+
+4,下面哪些选项会报错 控制台报错    不是返回false
+var userAge = 10;
+
+A.console.log( userAge++ > 10 && userName=='tom' );  /*false*/
+B.console.log( userAge++ >= 10 && userName=='tom' ); Uncaught ReferenceError: userName is not defined  
+
+C.console.log( ++userAge < 10 || userName=='tom' );Uncaught ReferenceError: userName is not defined
+D.console.log( ++userAge > 10 || userName=='tom' );
+
+5,做一个数字连加的小程序
+从1加到10 相加。
+
+
+6,由用户输入一个学生的语文成绩，
+若输入的值小于0或大于100，
+弹窗输出'成绩无效';
+若在80以上，
+输出'优秀';
+若在60以上，输出'及格'；
+否则输出不及格。
+
+7,由用户输入年龄,
+根据年龄进行人群分类,
+比如:少年 ，青年,老年等
+
+8,选做题
+1.打印九九乘法表
+1*1=1
+1*2=2  2*2=4
+1*3=3  2*3=6  3*3=9
+
+
+9.表单输入验证
+要求 验证 是否输入值
+验证 是否是数字
+选做：手机号码是否为11位。
+【提示 length】
+
+11.几个多选框，
+选自己喜欢的水果：
+全选，芒果，香蕉，哈密瓜，
+
+扩展题目：
+1)
+求解:一筐鸡蛋,这个框可以装的鸡蛋不超过1000个
+1个1个拿正好拿完,
+2个2个拿还剩1个,
+3个3个拿还剩1个,
+4个4个拿还剩1个,
+5个5个拿还剩1个,
+6个6个拿还剩1个,
+7个7个拿正好拿完;
+问框里有多少个鸡蛋..求答案?
+防治老年痴呆!
+看谁是数学天才.
+
+2)输入一串金额,在控制台显示大写金额
+0——零 1——壹 2——贰 3——叁 4——肆 5——伍 6——陆 7——柒 8——捌 9——玖
+var str = '46546546';
+str.length
+str[0]第一个
+str[1]第二个
+
+【For循环题集】
+1.求0-1000里，能被3整除的整数，并在控制台中打印出来
+2.求0-1000里，能被2整除又能被5整除的整数，并在控制台中打印出来
+3.有一个数(1000-1100的范围)，除以3余2，除以5余4，除以7余6。求这个数。【著名的韩信点兵】

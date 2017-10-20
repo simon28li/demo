@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>原生js轮播</title>
+    <style type="text/css">
+        .lunbo { position: relative; width: 918px; }
+        .lunbo > .item { display: none; }
+        .lunbo > .item:first-child { display: block; }
+        .lunbo > .item > a { }
+        .lunbo > .item > a > img { width: 918px; height: 368px; }
+        .lunbo > ul { margin: 0; padding: 0; position: absolute; bottom: 30px; right: 30px; }
+        .lunbo > ul > li { border:solid 2px #999; box-sizing:border-box; border-radius:50%; cursor: pointer; margin: 0; padding: 0; list-style: none; display: inline-block; width: 12px; height: 12px; background: rgba(100,100,100,0.75); }
+        .lunbo > ul > li.active { background: rgba(100,100,100,0.4); }
+    </style>
+</head>
+<body>
+    <div class="lunbo" id="lunbo">
+        <div class="item"><a><img src="imgs/banner001.png" /></a></div>
+        <div class="item"><a><img src="imgs/banner002.png" /></a></div>
+        <div class="item"><a><img src="imgs/banner003.png" /></a></div>
+        <div class="item"><a><img src="imgs/banner004.png" /></a></div>
+        <div class="item"><a><img src="imgs/banner005.png" /></a></div>
+        <ul id="list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        // 声明并初始化 id=lunbo 的标签
+        var lunbo = document.getElementById('lunbo'),
+            // 声明 items，并从 lunbo 标签内，查找所有 class='item' 的标签，结果是一个数组，然后赋值给 items
+            items = lunbo.getElementsByClassName('item'),
+            // 声明 lists，查找 id=list 标签内的所有标签名为 li 的标签，结果为是一个数组，赋值给 lists 
+            lists = document.getElementById('list').getElementsByTagName('li'),
+            // 声明 idx，并设置为0，用来保存当前该显示第几张轮播图
+            idx = 0,
+            // 声明 th，并初始化为 null，用来保存计时器的句柄
+            th = null;
+
+        // 给 lunbo 添加鼠标移入事件监听，当鼠标移入的时候，清空（停止）计时器
+        lunbo.addEventListener('mouseover', function () { clearInterval(th); });
+
+        // 给 lunbo 添加鼠标移出事件监听，当鼠标移出的时候，重新开始计时器
+        lunbo.addEventListener('mouseout', function () { begin_jishi(); });
+
+        // 给 list 内部的所有li标签添加 鼠标移入 事件监听
+        for (var i = 0; i < lists.length; i++) {
+            lists[i].addEventListener('mouseover', function () {
+                //当鼠标移入的时候，首先查找当前移入鼠标的 li 标签是第几个标签，并将它存入全局变量idx
+                for (var j = 0; j < lists.length; j++) {
+                    if (lists[j] == this) {
+                        idx = j;
+                        break;
+                    }
+                }
+                //轮播图切换显示
+                show_div();
+            });
+        }
+
+        //轮播图切换显示函数，显示出 顺序为idx的那副图（div）
+        function show_div() {
+
+            // 首先用 for 循环遍历，隐藏掉所有的轮播图
+            for (j = 0; j < items.length; j++) {
+                lists[j].className = '';
+                items[j].style.display = 'none';
+            }
+
+            // 将对应的 li 标签更换 class，以显示出当前正在播放的是第几幅图片
+            lists[idx].className = 'active';
+            // 将对应的 div 层显示出来
+            items[idx].style.display = 'block';
+        }
+
+        //开始计时器函数
+        function begin_jishi() {
+            th = setInterval(function () {
+                //机器时触发函数
+
+                //将轮播图的序号加1
+                idx++;
+                //如果序号已经比轮播图还要多了，就让序号从0重新开始
+                if (idx == items.length) {
+                    idx = 0;
+                }
+
+                //切换显示轮播图
+                show_div();
+            }, 3000);
+        }
+
+        // 开始计时器函数
+        begin_jishi();
+    </script>
+</body>
+</html>

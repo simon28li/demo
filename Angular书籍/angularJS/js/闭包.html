@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<span id="span">点击</span>
+
+<script>
+    var span = document.querySelector('#span');
+    span.onclick = function () {
+        a();
+    };
+
+    function foo() {
+        var count = 0;
+        /* 通过return可以在函数外面访问 函数里面的变量  */
+        /*
+         * 1.保护变量：函数里面的变量用完之后，会被销毁，但是通过return之后，因为有引用就不会被销毁
+         * 2.绕过垃圾回收机制，保持对变量的引用
+         * 3.可以在其他地方 使用该变量
+         * */
+        return function () {
+            console.log(++count);
+            return count;
+        }
+    }
+
+    var a = foo();
+    var b = a(); //1  函数会运行
+
+    /*  gei count赋值 然后点击不会改变count值  */
+    count = 1000;
+    console.log(count)
+
+
+</script>
+</body>
+</html>

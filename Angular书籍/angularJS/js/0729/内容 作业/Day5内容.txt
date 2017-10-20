@@ -1,0 +1,59 @@
+﻿DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法 文档对象模型
+
+浏览器对象BOM
+BOM与浏览器窗口进行交互
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+ DOM 的 document 也是 window 对象的属性之一：
+ window.document.getElementById("header"); 但是一般这个window可以省略
+window对象
+1.url编码解码
+1）encodeURI 编码
+var str = encodeURI('http://www.w3school.com.cn/jsref/dom_obj_window.asp?name=哈哈哈')
+2）decodeURI 解码
+decodeURI(str);
+var str = encodeURIComponent('泽林');
+decodeURIComponent(str);
+
+
+
+location对象
+window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面
+网页跳转:
+location.href(url);
+在另一个窗口打开：
+location.reload()  重新加载当前文档
+
+open(url); 打开新的窗口
+
+history对象
+history.go(2) -加载history对象列表中的某个具体URL
+history.back() - 与在浏览器点击后退按钮相同  访问过得前一个页面其实就是后退
+history.forward() - 与在浏览器中点击按钮向前相同  访问过得后一个页面其实就是向前
+
+
+
+定时器: setInterval  过一个时间就执行以下
+延迟执行: setTimeout
+清除定时器: clearInterval
+clearInterval() 方法可取消由 setInterval() 设置的 timeout。
+clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。
+
+userAgent: 浏览器检测
+navigator.userAgent
+js判断设备类型是移动设备还是PC设备  这个倒后面正则再给你们讲
+
+screen   可以检测屏幕信息  用得很少
+
+try...catch 的作用是测试代码中的错误。
+try 部分包含需要运行的代码，而 catch 部分包含错误发生时运行的代码
+
+语法：
+try {
+    tryCode - 尝试执行代码块
+}
+catch(err) {
+    catchCode - 捕获错误的代码块
+}
+finally {
+    finallyCode - 无论 try / catch 结果如何都会执行的代码块
+}

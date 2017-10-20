@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app" >
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/home/jquery203.js" ></script>
+		<script type="text/javascript" src="js/home/angular.min.js" ></script>
+		<script type="text/javascript" src="js/home/angular-route.min.js" ></script>
+		
+		
+		<script type="text/javascript" src="js/route/route.js" ></script>
+		<script type="text/javascript" src="js/ctrl/homePageCtrl.js" ></script>
+		
+		<script type="text/javascript" src="js/ctrl/collectCtrl.js" ></script>
+		<script type="text/javascript" src="js/ctrl/listCheckCtrl.js" ></script>
+		<script type="text/javascript" src="js/ctrl/removeRepeatCtrl.js" ></script>
+		<script type="text/javascript" src="js/ctrl/stuInfoCtrl.js" ></script>
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container" ng-controller="homePageCtrl">
+				<ul id="ul1" class="nav navbar-nav">
+					<li class="active"><a href="" ng-click="$location.path('homePage')">首页</a></li>
+					<li><a href="" ng-click="$location.path('stuInfo')">学员信息表</a></li>
+					<li>	<a href="" ng-click="$location.path('collect')">自定义收藏</a></li>
+					<li><a href="" ng-click="$location.path('removeRepeat')">自定义数字去重</a></li>
+					<li>	<a href="" ng-click="$location.path('listCheck')">表单验证</a></li>
+				</ul>
+				
+				
+			</div>
+		</nav>
+		        
+				<div id="content" ng-view></div>
+	    <script>
+			$('#ul1 li').on('click',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+		</script>
+	</body>
+</html>
+

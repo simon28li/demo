@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        var x='adgjmptw12345';
+        /* stringObj.slice(start, [end])  */
+        var y= x.slice(0,3); /* 返回从下标为0开始 取到下标为3之前的数  */
+        console.log(y); /*adg*/
+        console.log(x); /* x本身不会变 */
+        var y= x.slice(0,-3);/*取下标从0开  到 倒数第三个数字符（不包括倒数第三个字符） 之间的字符*/
+        console.log(y); /*adgjmptw12*/
+        var y= x.slice(-3);
+        console.log(y); /*345*/
+
+        /*concat()  连接 */
+        var x='adgjmptw12345';
+        var x1='第二';
+        var x2='第三';
+        var x4= x.concat(x1,x2);
+        console.log(x4); /* adgjmptw12345第二第三 */
+
+        var x='adgjmptw12345';
+        var y= x.charAt(3);  /*取字符*/
+        console.log(x); /* x本身不变 */
+        console.log(y); /* j */
+
+        var x='adgjmptw12345';
+        var y= x.indexOf('j');  //从左往右检索字符串出现的第一个位置  如果没有返回 -1
+        console.log(x); /* x本身不变 */
+        console.log(y); /* 3 */
+
+        var y= x.indexOf('q');   //也可以检测几个字符  从左往右检索字符串出现的第一个位置  如果没有返回 -1
+        console.log(y); /* -1 */
+        var y= x.lastIndexOf('j');  //从右往左检索字符串出现的第一个位置  如果没有返回 -1
+        console.log(y); /* 3 */
+
+        var x='adgjmptw12345';
+        var y= x.split('j');  //分割 ("010-85665650-3243").split("-")  返回数组
+        console.log(y); /*  ["adg", "mptw12345"]   */
+
+        var x='adgjmptw12345';
+        var y= x.substr(1,4);  //取字符串  从开始位置到 截取的长度
+        console.log(y);     /*dgjm*/
+
+        var x='adgjmptw12345';
+        var y= x.substring(1,4);  //取字符串  从开始位置到 结束位置  和slice()像 必须为整数
+        console.log(y);     // dgj
+
+        var x='adgjmptw12345';
+        var y= x.toLocaleUpperCase();
+        console.log(x);     // adgjmptw12345  本身不变
+        console.log(y);     // ADGJMPTW12345
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

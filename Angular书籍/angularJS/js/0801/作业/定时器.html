@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p">倒计时开始:</p>
+<script>
+    var p = document.getElementById('p');
+    var i = 60;
+    var d=document.createTextNode('60');
+    p.appendChild(d);
+
+    function a() {
+        p.removeChild(d);
+        i--;
+        d=document.createTextNode(i);
+        p.appendChild(d);
+        if(i==0){
+            clearInterval(h);
+            setTimeout( "alert('时间到')",2000)
+        }
+    }
+    h=setInterval('a()', 1000);
+
+
+</script>
+</body>
+</html>

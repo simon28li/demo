@@ -1,0 +1,61 @@
+
+		<div class="container" >
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<form name="iForm" class="form-horizontal" novalidate="novalidate">
+						<!--用户名验证-->
+						<div class="form-group">
+							<label class="col-sm-2 control-label">用户名:</label>
+							<div class="col-sm-6">
+							 	<input type="text" name="userName" class="form-control" required="required"
+							 		ng-model="regText.name" ng-pattern="/^[a-zA-Z0-9]/" ng-minlength="6"	
+							 	    ng-maxlength="12"
+							 		ng-blur="change('regText',iForm.userName.$error)" />
+							 		
+							</div>
+							<div class="col-sm-4" ng-repeat="re in regText.regList|filter:regText.regVal">{{re.tips}}</div>
+						</div>
+						
+						<!--密码验证-->
+					<div class="form-group">
+						<label class="col-sm-2 control-label">密　码:</label>
+						<div class="col-sm-6">
+							 <input type="text" name="psw" class="form-control" required="required"
+							 		ng-model="regPsw.name" ng-pattern="/\w+/" ng-minlength="6"	
+							 	    ng-maxlength="12"
+							 		ng-blur="change('regPsw',iForm.psw.$error)" />
+						</div>
+						<div class="col-sm-4" ng-repeat="re in regPsw.regList|filter:regPsw.regVal">{{re.tips}}</div>
+					</div>	
+					
+					<!--电话号码验证-->
+						
+						<div class="form-group">
+						<label class="col-sm-2 control-label">电话号码:</label>
+						<div class="col-sm-6">
+							 <input type="text" name="tel" class="form-control" required="required"
+							 		ng-model="regTel.name" ng-pattern="/^\d{11}$/" 	
+							 	  
+							 		ng-blur="change('regTel',iForm.tel.$error)" />
+						</div>
+						<div class="col-sm-4" ng-repeat="re in regTel.regList|filter:regTel.regVal">{{re.tips}}</div>
+					</div>	
+					
+				<!--	邮箱验证-->
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">邮箱地址:</label>
+						<div class="col-sm-6">
+							 <input type="text" name="email" class="form-control" required="required"
+							 		ng-model="regEmail.name" ng-pattern="/^\w+@\w+\.[A-z]{2,3}$/" 	
+							 	  
+							 		ng-blur="change('regEmail',iForm.email.$error)" />
+						</div>
+						<div class="col-sm-4" ng-repeat="re in regEmail.regList|filter:regEmail.regVal">{{re.tips}}</div>
+					</div>	
+					</form>
+				</div>
+			</div>
+		</div>
+
+

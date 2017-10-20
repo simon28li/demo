@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    /* 队列：先进先出 */ /* 队列方法 */
+    var x = ['第一个', 2, 3, 4, 5, '最后一个'];
+    y = x.shift();
+    console.log(x);   /* 删除第一个 */
+    console.log(y);   /* 返回删除的值 */
+
+    var x = [1, 2, 3, 4, 5, 6];
+    y = x.unshift('插入的值');
+    console.log(x);  /* 在第一个位置加入一个元素 */
+    console.log(y);  /* 7  返回长度 */
+
+
+    console.log('-------------------------------');
+    /* 栈：先进后出 */ /*栈方法 */
+    var x = ['第一个', 2, 3, 4, 5, '最后一个'];
+    y = x.pop();
+    console.log(x);  /* 删除最后一个 */
+    console.log(y); /* 返回被删除的元素 */
+
+    var x = ['第一个', 2, 3, 4, 5];
+    y = x.push('插入的值');
+    console.log(x); /* 在最后面加入一个 */
+    console.log(y); /* 返回长度 */
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

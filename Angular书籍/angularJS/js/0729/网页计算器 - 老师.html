@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>网页版简单计算器 老师</title>
+    <style>* {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-size: 14px;
+        font-family: "微软雅黑";
+        color: #666;
+        background: #666;
+    }
+
+    #container {
+        width: 300px;
+        margin: 100px auto;
+        background: white;
+        border: 2px solid #99ccff;
+        border-radius: 5px;
+    }
+
+    #container h3 {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .text {
+        width: 280px;
+        border: 1px solid #c2c2c2;
+        height: 50px;
+        border-radius: 5px;
+        margin: 10px;
+        font-size: 24px;
+        text-align: right;
+        background: #ffffff;
+    }
+
+    .buttons {
+        margin: 5px 0 0 4px;
+        position: relative;
+    }
+
+    .button {
+        width: 70px;
+        height: 50px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd;
+        border-radius: 1px;
+        font-weight: bold;
+        color: #1e395b;
+        background: #eaf1f9;
+        font-size: 20px;
+    }
+
+    .button:hover {
+        background: #ffe77c;
+    }
+
+    .ling {
+        width: 145px;
+    }
+    </style>
+</head>
+<body>
+<div id="container">
+    <form name="computer">
+        <h3>网页版简单计算器</h3>
+        <input type="text" id="text" name="text" class="text" disabled value="0">
+
+        <div class="buttons">
+            <input type="button" value="  " class="button">
+            <input type="button" value="CE" class="button" onclick="backSpace();">
+            <input type="button" value="C" class="button" onclick="clearText();">
+            <input type="button" value="/" class="button" onclick="addNum('/')">
+            <input type="button" value="7" class="button" onclick="addNum('7')">
+            <input type="button" value="8" class="button" onclick="addNum('8')">
+            <input type="button" value="9" class="button" onclick="addNum('9')">
+            <input type="button" value="*" class="button" onclick="addNum('*')">
+            <input type="button" value="4" class="button" onclick="addNum('4')">
+            <input type="button" value="5" class="button" onclick="addNum('5')">
+            <input type="button" value="6" class="button" onclick="addNum('6')">
+            <input type="button" value="-" class="button" onclick="addNum('-')">
+            <input type="button" value="1" class="button" onclick="addNum('1')">
+            <input type="button" value="2" class="button" onclick="addNum('2')">
+            <input type="button" value="3" class="button" onclick="addNum('3')">
+            <input type="button" value="+" class="button" onclick="addNum('+')">
+            <input type="button" value="0" class="button ling" onclick="addNum('0')">
+            <input type="button" value="." class="button" onclick="addNum('.')">
+            <input type="button" value="=" class="button" onclick="getResult()">
+        </div>
+    </form>
+</div>
+<script>
+    var sum = '';
+    var x = document.getElementById('text');
+    function addNum(text) {
+        sum += text;
+        x.value = sum;
+    }
+
+    function getResult() {
+        try{
+            sum = eval(sum);
+            if(parseInt(sum)!=sum){
+                sum=sum.toFixed(2);
+            }
+            sum= sum.toString();  /*用于在计算结果后再退格*/
+            x.value = sum;
+        }catch(a){
+            alert('瞎搞');
+        }
+    }
+
+    function clearText() {
+        x.value = 0;
+        sum = '';
+    }
+
+    function backSpace() {
+        /* sum=sum.substr(0,sum.length-1);
+         if(!sum){
+         x.value=0;
+         sum='';
+         }
+         x.value=sum;*/
+
+        var y = sum.substr(0, sum.length - 1);
+        if (!y) {
+            x.value = 0;
+            sum = '';
+        } else {
+            x.value = y;
+            sum = y;
+        }
+    }
+
+</script>
+</body>
+</html>

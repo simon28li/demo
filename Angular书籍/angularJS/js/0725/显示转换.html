@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var x = 12;
+    console.log(typeof (x));
+    var y = String(x);
+    /*转换成字符串类型*/
+    console.log(typeof (y));
+    var y = x + '0';
+    /*转换成字符串类型*/
+    console.log(typeof (y));
+
+    console.log('-----------------------------');
+    var x = 12;
+    console.log(typeof (x));
+    var y = x.toString(/*这里可以设置转换成多少进制  默认10进制*/);
+    /*转换成字符串类型*/
+    console.log(typeof (y));
+    var y = x.toString(2);
+    /*转换成字符串类型*/
+    console.log(y);
+    var y = x.toString(8);
+    /*转换成字符串类型*/
+    console.log(y);
+    var y = x.toString(16);
+    /*转换成字符串类型*/
+    console.log(y);
+
+
+    console.log('-----------------------------');
+    var x = "12";
+    var y = Number(x);
+    /*首字母大写*/
+    console.log(typeof (y));
+
+    console.log('-----------------------------转换成浮点型');
+    var x = "12.12";
+    var y = parseFloat(x);
+    /*转换成浮点型*/
+    console.log(typeof (y));
+    console.log(y);
+
+    var x = "12.12.12";
+    /* 遇到第二个点就不转换了 */
+    var y = parseFloat(x);
+    /*转换成浮点型*/
+    console.log(y);
+
+    var x = "12.123a";
+    /*遇到字母就不转换了*/
+    var y = parseFloat(x);
+    /*转换成浮点型*/
+    console.log(y);
+
+    console.log('-----------------------------');
+    var x = "12.12a3";
+    var y = Number(x);
+    /*首字母大写*/
+    console.log(y);
+    /*NaN*/
+
+    console.log('-----------------------------');
+    var x = 12.72;
+    var y = parseInt(x);
+    /*转换为整数*/
+    console.log(y);
+    /*12*/
+    var x = "12.72a2";
+    /* 有字母或者点就不在读取*/
+    var y = parseInt(x);
+    /*转换为整数*/
+    console.log(y);
+    /*12*/
+
+    console.log('-----------------------------保留3位小数');
+    var x = 12.7216345;
+    var y = x.toFixed(3);
+    /* 保留3位小数 */
+    console.log(y);
+    /*12.721*/
+    console.log(typeof (y));
+    /*string*/
+    console.log(typeof (y * 1));
+    /*number*/
+    console.log(y);
+    /*12.721*/
+    console.log('-----------------------------');
+    var x = null;
+    var y = Number(x);
+    console.log(y);
+    /* 0 */
+    var x = undefined;
+    var y = Number(x);
+    console.log(y);
+    /* NaN  */
+    console.log(typeof (y));
+    /*NaN 也是Number类型 */
+    console.log('-----------------------------');
+    var x = ''/* []:0  {}:NaN */;
+    var y = Number(x);
+    console.log(y);
+    /* 0 */
+
+    console.log('-----------------------------');
+    var xx = prompt('呵呵');
+    /* 在弹框中输入的值会赋给xx */
+    /* 在控制台输入xx  就会打印出来输入的值 */
+
+
+</script>
+</body>
+</html>

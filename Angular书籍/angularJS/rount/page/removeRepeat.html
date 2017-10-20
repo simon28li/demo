@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="removeRepeatCtrl">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		
+		
+		
+		<title></title>
+		<style>
+		
+		#div{font-size:30px ;
+		color: blueviolet;overflow: auto;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-2">
+					<form >
+						<div class="form-group">
+							<input type="text"  ng-change="flag=false"  ng-model="data" placeholder="请输入任意个数字以逗号分隔，如1,2,2,3,4" class="form-control" />
+						</div>
+					</form>	
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-danger"  ng-click="change(data.toString())" >点击对数组去重</button>
+				</div>	
+				
+			
+			
+			</div>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-2">
+						<div class="well" id="div" ng-show="flag">显示区域</div>
+				</div>
+			</div>	
+				
+		</div>
+   
+    
+		<script>
+			
+		</script>
+	</body>
+</html>

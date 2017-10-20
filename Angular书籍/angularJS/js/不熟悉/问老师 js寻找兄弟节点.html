@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>ppp11</p>
+<p>ppp22</p>
+<a id="a"></a>
+<p>ppp3</p>
+<p>ppp4</p>
+<script type="text/javascript">
+
+    var a=document.getElementById('a');
+    var pre1= a.previousSibling;
+    var pre2= a.previousSibling.previousSibling;
+    var next1= a.nextSibling;
+    var next2= a.nextSibling.nextSibling;
+
+    console.log(pre1);
+    console.log(pre2); /* <p>ppp22</p> */
+    console.log(next1);
+    console.log(next2); /* <p>ppp3</p> */
+</script>
+
+</body>
+</html>

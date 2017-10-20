@@ -1,0 +1,44 @@
+1,在html中使用javascript
+  因为从上往下解析，会取不到body里面的标签
+
+2,js输出 alert  console.log  document.write   innerHTML(后面学到dom再讲解)
+      a.使用window.alert()弹出警告框
+      b.使用document.write()方法将内容写到html文档中
+      c.使用innerHTML写入到html元素
+      d使用console.log写入到浏览器的控制台
+
+【js语句; 分号很重要】
+3,直接量(在程序运行过程中直接使用的数据值)
+   字符串  数字   布尔    数组    对象    空     未定义
+   string number boolean  array   object   null  undefined
+ （字符是什么东西）
+你可以通过两种方式访问对象  x.name  x["old"]
+     x["old"] 如果没有加双引号就变成变量了
+    属性键值对通常写法为 name : value (键与值以冒号分割)。
+    键值对在 JavaScript 对象通常称为 对象属性。
+4,typeof 判断类型    [] instanceof Array
+
+5,变量 弱类型(变量是用于存储信息的"容器"。)
+1)声明 var不是必须的,但建议不要省略
+2)赋值
+     变量 = 直接量；
+     变量 = 已经声明过的变量;
+3)变量名不要用保留字跟关键字来命名
+
+6,变量的引用类型（array   object） 和值类型（string number boolean）【重要】
+堆和栈的区别：
+  　　一、堆栈空间分配区别：
+  　　1、栈（操作系统）：由操作系统自动分配释放；
+  　　2、堆（操作系统）： 一般由程序员分配释放
+
+7,变量名字跟保留字
+1)变量名字 以字母,下划线或$开头,后面跟字符,数字,下划线,$
+2)保留字/关键字 this break continue function等
+  a.“关键字”就是 JS 本身已经使用了，具有一定特殊的含义for、function、if
+  b.“保留字”实际上就是预留的“关键字”，意思是现在虽然现在还不是关键字
+     比如：class float
+  （也就是本身还不具备特殊含义的），但是未来可能会成为关键字的
+8,数据的算术运算（加 减 乘 除 取模 自加 自减）
+算数运算符有： + - * / %  ++ --  (加 减 乘 除  取模 自增 自减)
+i++ 运算后才加1
+++i 先加1再运算

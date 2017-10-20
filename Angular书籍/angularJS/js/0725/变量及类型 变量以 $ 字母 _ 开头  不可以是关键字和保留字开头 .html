@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    /*数字 字符串  boolean  Array  Obuject  undifine  null  共7种类型  js严格区分大小写*/
+    var x1=12           /*在控制台写typtypeof(x1)*/
+    var x2='12'        /*在控制台写typtypeof(x2)*/
+    var x3='yyyy'      /* 前面是变量 后面是直接量*/
+    var x4=false
+
+    console.log(typeof (x1))  /*数字类型*/
+    console.log(typeof (x2))  /*用引号包起来的都是字符串类型*/
+    console.log(typeof (x3))  /*字符串类型*/
+    console.log(typeof (x4))  /*boolean*/
+
+
+    var x_array=['我是数组第一个值','a','王二']     /*数组 Array*/
+    console.log(typeof (x_array))   /*object 对象    注意注意  数组也是对象*/
+    console.log(x_array instanceof Array)   /* 检查x5是不是属于Array类型  结果是true*/
+    console.log(x_array instanceof Object)  /*  数组也是对象  结果也是true    */
+    console.log(x_array[0])  /*  读取数组的值  */
+
+
+    var person={           /*对象*/
+        name:'小红',       /*键值对 */
+        old:'12'
+    };
+
+    console.log(typeof (person));   /*object 对象*/
+    console.log(person instanceof Object);
+    console.log(person.name) ;      /*读取属性值  两种方法*/
+    console.log(person['old']) ;    /*读取属性值  两种方法*/
+
+   var c;                     /*不赋值*/
+   console.log(c);             /*undefined  未定义*/
+   console.log(typeof (c));   /*不赋值的变量类型是 undefined 未定义*/
+
+  var n=12;
+      n=null;                      /*一般用于清空变量的值*/
+    console.log(n);               /*null*/
+    console.log(typeof(n) );     /*null是 object 类型*/
+
+  /*把变量赋值给变量*/
+   var woyaoshishuzhu=x_array;
+      console.log(woyaoshishuzhu)
+
+
+</script>
+</body>
+</html>

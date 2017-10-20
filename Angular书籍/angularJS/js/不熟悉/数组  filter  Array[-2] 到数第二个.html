@@ -1,0 +1,43 @@
+<script>
+    // 数组作业2
+    // 1)
+    var arr = ['ltm',1,2,3,'mmh',3,true,'lcw',{a:2},{b:4},'jxx',100];
+    // 2) 3)
+    var strArr = [], numArr = [];
+    for (var i=0;i<arr.length;i++) {
+        // 成员是字符串
+        if (typeof arr[i] === 'string') {
+            strArr.push(arr[i]);
+        }
+        // 成员是数字
+        if (typeof arr[i] === 'number') {
+            numArr.push(arr[i]);
+        }
+    }
+    // 或者使用filter方法
+    strArr = arr.filter(function(v, k) {  /*v 是数组值 k是v的下标 */
+        console.log(v);
+        console.log(k);
+        return typeof v === 'string';
+
+    });
+    numArr = arr.filter(function(v, k) {
+        return typeof v === 'number';
+    });
+ document.write(strArr+'<br>');
+ document.write(numArr+'<br>');
+
+
+    // 5)
+
+    var len = arr.length;
+    console.log(arr[len-1]); /*到数第一个*/
+    // 6)
+
+    var str = arr.join('-');
+    console.log(str);
+    // 7
+    arr.indexOf('mmh');
+    
+
+</script>

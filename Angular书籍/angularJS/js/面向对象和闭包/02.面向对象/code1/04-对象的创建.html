@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建一个对象：
+			/*
+			 	对象的组成：
+			 		属性(即特征)
+			 		方法(即行为动作)
+			 * */
+			/*
+			 	Person 称为构造函数，
+			 	构造函数名又称为类
+			 
+			 	类：对对象的抽象的概述
+			 	对象：真实存在的个体，是类的实例
+			 * */
+			function Person(name,age){
+				//var obj=new Object();
+				//var this=new Object();
+				
+				this.name=name;
+				this.age=age;
+				
+				this.show=function(){
+					console.log(this.name+'/'+this.age);
+				}	
+				
+				//return obj;
+				//return this;
+			}
+			
+			var p1=new Person('张三',20);	//	
+			p1.show();	//调用该对象的方法
+			
+			var p2=new Person('如花',18);
+			p2.show();			
+					
+			console.log(p1.show==p2.show);
+			
+			/*
+			 	1.一般创建一个对象要有new 关键字
+			 	2.同一类的对象，函数并没有共享
+			 * 
+			 * */
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #d{
+            border: 1px solid red;
+        }
+        p{border: 1px solid #18ffc0
+        }
+    </style>
+</head>
+<body>
+<div id="d"></div>
+<script>
+ /*   var a=document.createElement('img');
+//    a.setAttribute("src","left2.jpg");
+    a.src='end2.jpg';
+    d.appendChild(a);    //插入到div内
+    a.style.width='100px'
+    a.style.height='100px'
+
+   var p=document.createElement('p');
+    p.innerHTML='上面的图片是js代码加入的'
+    d.appendChild(p)*/
+
+    var img=document.createElement('img');
+    var p=document.createElement('p');
+    var text=document.createTextNode(' +&nbsp&nbsp&nbsp+  appendChild(ppppp)');   /*创建文本节点*/
+    p.innerText='我是添加的p标签innerText';   /*直接添加文本*/
+    img.src='left2.jpg';
+    d.innerHTML='<p> ppppppppp</p>';/* 直接给添加标签 */
+    d.appendChild(p);
+    p.appendChild(text); /* 添加js创建的文本  会被添加在  innerText后面*/
+    d.appendChild(img);
+    d.appendChild(img);  /* 不能添加2张 */
+
+
+
+
+
+
+</script>
+</body>
+</html>

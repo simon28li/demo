@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建一个对象：
+			/*
+			 	对象的组成：
+			 		属性(即特征)
+			 		方法(即行为动作)
+			 * */
+			var obj=new Object();
+			
+			obj.name='马东升';
+			obj.age=23;
+			
+			obj.show=function(){
+				console.log(this.name+'/'+this.age);
+			}
+			
+			obj.show();
+			
+			/////////////////////////
+			var p=new Object();
+			p.name='如花';
+			p.age=30;
+			
+			p.show=function(){
+				console.log(this.name+'/'+this.age);
+			}
+			p.show();
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<meta charset="utf-8" />
+<script>
+
+	try {
+		console.log(1);
+		console.log(2);
+		console.log(3);
+		var result = add(2, 3);
+		alert(result);
+	} catch (err) {
+		//console.log('程序开小差了');
+		console.log(err.message);
+		console.log(err.name);
+		throw new Error('你犯的错误太大了,请修改');
+	}
+		console.log(4);
+		console.log(5);
+		console.log(6);
+
+</script>

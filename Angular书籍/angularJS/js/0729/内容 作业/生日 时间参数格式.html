@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生日</title>
+</head>
+<body>
+<script>
+    var d=new Date('1988-03-27 12:30:00');  /* 记住时间参数格式 */
+    var y= d.getFullYear();
+    var month= d.getMonth()+1;
+    var da= d.getDate();
+    var h= d.getHours();
+    //     var h= d.getUTCHours();   /*什么时间*/
+    var m= d.getMinutes();
+    var s= d.getSeconds();
+    var sr=y+'年'+month+'月'+da+'日'+h+'时'+m+'分'+s+'秒';
+    var p=document.createElement('p');
+    p.innerText='我的生日是：'+sr;
+    document.getElementsByTagName('body')[0].appendChild(p);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算 前后天日期 并算出是星期几</title>
+</head>
+<body>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<script>
+    var d=new Date();  /* 记住时间参数格式 */
+    var y= d.getFullYear();
+    var month= d.getMonth()+1;
+    var da= d.getDate();
+    var x= d.getDay();  /*星期*/
+    var h= d.getHours();
+    var m= d.getMinutes();
+    var s= d.getSeconds();
+    var sr1=y+'年'+month+'月'+(da-1)+'日'+h+'时'+m+'分'+s+'秒';
+    var sr2=y+'年'+month+'月'+(da+1)+'日'+h+'时'+m+'分'+s+'秒';
+    var sr3=y+'年'+(month-1)+'月'+da+'日'+h+'时'+m+'分'+s+'秒';
+    var sr4=y+'年'+(month+1)+'月'+da+'日'+h+'时'+m+'分'+s+'秒';
+
+   /*星期设置*/
+
+    var x1=x-1;
+    (x1<0)?x1=x+7:x1;
+
+    var x2=x+1;
+    (x2>7)?x2=x-7:x2;
+
+    var x3=7-((30-x)%7);
+
+    var x4=(31+x)%7;
+
+    var p=document.getElementsByTagName('p');
+    p[0].innerText='向前一天是：'+sr1+'是：星期'+x1 ;
+    p[1].innerText='向后一天是：'+sr2+'是：星期'+x2 ;
+    p[2].innerText='向前一月是：'+sr3+'是：星期'+x3 ;
+    p[3].innerText='向后一月是：'+sr4+'是：星期'+x4 ;
+
+</script>
+</body>
+</html>

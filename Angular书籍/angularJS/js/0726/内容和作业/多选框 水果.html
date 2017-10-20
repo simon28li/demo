@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="checkbox" name="all">全选
+<input type="checkbox" name="check">芒果
+<input type="checkbox" name="check">香蕉
+<input type="checkbox" name="check">哈密瓜
+
+<script>
+    var q = document.getElementsByName('all');
+    var d = document.getElementsByName('check');
+
+    q[0].onclick = function () {
+        if (q[0].checked == false) {
+            for (var i = 0; i < d.length; i++) {
+                d[i].checked = false;
+            }
+        } else {
+            for (var i = 0; i < d.length; i++) {
+                d[i].checked = true;
+            }
+        }
+    };
+
+    for (var i = 0; i < d.length; i++) {
+        d[i].onclick = function () {
+            for (var a = 0; a < d.length; a++) {
+                if (d[a].checked ==false) {
+                    q[0].checked = false;
+                    break;
+                } else {
+                    q[0].checked = true;
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

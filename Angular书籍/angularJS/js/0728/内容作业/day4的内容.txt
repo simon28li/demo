@@ -1,0 +1,68 @@
+dom对象  DOM 以树结构表达 HTML 文档。
+document
+字面翻译是文档
+在JS也是就文档的意思，就一当前网页(文档)对象。 当前网页里所有元素(对象)全部都在document中。
+在 HTML DOM 中，所有事物都是节点整个文档是一个文档节点  标签节点 属性节点 文本节点  注释是注释节点
+dom的增删查改
+    // 查
+    var input = document.querySelector("input")
+    var _input = document.getElementById('_input');
+    var _div = document.getElementsByClassName('_div');
+    var _div2 = document.getElementsByTagName('div');
+    var _radio = document.getElementById('_radio');
+    // 改
+    _input.value = '随便';
+    for (var i = 0 ; i < _div.length ; i++) {
+        _div[i].style.height = '100px';
+        _div[i].style.width = '100px';
+        _div[i].style.backgroundColor = 'pink';
+        _div[i].innerText = '随便';
+    }
+    innerHTML:从对象的起始位置到终止位置的全部内容,包括Html标签
+    innerHTML是符合W3C标准的属性，而innerText只适用于IE浏览器，
+    因此，尽可能地去使用innerHTML，而少用innerText
+    innerText:从起始位置到终止位置的内容, 但它去除Html标签
+    _radio.checked = true;
+    // 增
+    var p = document.createElement('p');
+    p.id = 'p1';
+    _div[0].appendChild(p);
+
+    // 删
+    _div[0].removeChild(p);
+
+    innerHTML - 节点（元素）的文本值
+    parentNode - 节点（元素）的父节点
+    childNodes - 节点（元素）的子节点
+    attributes - 节点（元素）的属性节点
+
+dom的事件
+    var div1 = document.getElementById('div1');
+    var input1 = document.getElementById('input1');
+    // 鼠标点击时触发的事件
+    div1.onclick = function(){
+        console.log('onclick');
+    };
+    // 鼠标在元素上触发的事件
+    div1.onmouseover = function(){
+        div1.style.backgroundColor = 'green';
+    };
+    // 鼠标移出元素时触发的事件
+    div1.onmouseout = function(){
+        div1.style.backgroundColor = 'blue';
+    }
+    // 获得焦点
+    input1.onfocus = function(){
+        console.log('onfocus');
+    };
+    // 失去焦点
+    input1.onblur = function(){
+        console.log('onblur');
+    }
+    //值被更改
+    input1.onchange = function(){
+  	console.log('onchange');
+    }
+
+    //onload 和 onunload 事件
+    onload 和 onunload 事件会在用户进入或离开页面时被触发。

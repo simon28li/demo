@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app='app' ng-controller='controller'>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../01/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="../js/angular-1.4.6.min.js"></script>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<style>
+			
+			.gal {
+				background: gainsboro;
+			}
+			span{color: blue;}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+
+					<div class="form-group form-group-sm">
+						<input type="text" placeholder="请输入搜索内容" class="form-control" ng-model='name' />
+					</div>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr id="slect" class="info">
+								<td id="name" ng-click="change('name')" ng-class="{dropup:flag}">姓名
+									<span class="caret" ng-show="param=='name'"></span>
+								</td>
+								<td id="age" ng-click="change('age')" ng-class="{dropup:flag}">年龄
+									<span class="caret" ng-show="param=='age'"></span>
+								</td>
+								<td id="sex" ng-click="change('sex')" ng-class="{dropup:flag}">性别
+									<span class="caret" ng-show="param=='sex'"></span>
+								</td>
+								<td id="address" ng-click="change('address')" ng-class="{dropup:flag}">籍贯
+									<span class="caret" ng-show="param=='address'"></span>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="target" class="{{$even?'gal':''}}" ng-repeat='a in arr | filter:name | orderBy:order+param'>
+								<td>{{a.name}}</td>
+								<td>{{a.age}}</td>
+								<td>{{a.sex}}</td>
+								<td>{{a.address}}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+	<script>
+		var app = angular.module('app', []);
+		app.controller('controller', ['$scope', function($scope) {
+			$scope.arr = [{ name: '谢大大', age: 22, sex: '男', address: '湖南' },
+				{ name: '王二小', age: 30, sex: '男', address: '广东' },
+				{ name: '李狗嗨', age: 32, sex: '女', address: '广西' },
+				{ name: '刘全蛋', age: 17, sex: '男', address: '海南' },
+				{ name: '彭酱', age: 20, sex: '女', address: '江西' },
+				{ name: '曹恭工', age: 27, sex: '男', address: '湖北' },
+				{ name: '杨十郎', age: 32, sex: '男', address: '河南' },
+				{ name: '黄尚', age: 19, sex: '男', address: '北京' },
+				{ name: '毛毛', age: 22, sex: '女', address: '天津' },
+				{ name: '吴阿三', age: 30, sex: '男', address: '四川' },
+				{ name: '苏小强', age: 26, sex: '男', address: '湖南' },
+				{ name: '杨伟', age: 20, sex: '女', address: '湖北' },
+				{ name: '杜子腾', age: 27, sex: '女', address: '江西' },
+				{ name: '关二爷', age: 20, sex: '男', address: '广东' }
+			];
+			$scope.param = 'name';
+			$scope.order = '';
+			$scope.flag = true;
+			$scope.change = function(param) {
+				$scope.param = param;
+				if($scope.order == '') {
+					$scope.order = '-';
+					$scope.flag = false;
+				} else {
+					$scope.order = '';
+					$scope.flag = true;
+				}
+			}
+
+		}])
+	</script>
+
+</html>

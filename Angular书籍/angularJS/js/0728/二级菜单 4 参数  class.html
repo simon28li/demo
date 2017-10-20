@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+</head>
+<body>
+<ul class="ul1">
+    <li>
+        <a href="#" onclick="show('ul_1')">我是一级菜单</a>
+        <ul class="ul_1" id="id1" style="display: none">
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" onclick="show('ul_2')">我是一级菜单</a>
+        <ul class="ul_2" id="id2" style="display: none">
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+        </ul>
+    </li>
+
+</ul>
+<script>
+    function show(zhi) {
+        var x=document.getElementsByClassName(zhi);
+        if( x[0].style.display=='block'){
+            x[0].style.display='none'
+        }else{
+            x[0].style.display='block'
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

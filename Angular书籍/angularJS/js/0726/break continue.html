@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+         for(var i=0;i<5;i++){    /*break 可以用于for 也可以用于switch*/
+             document.write(i);
+             if(i==2){
+                 break;     /*  会跳出当前循环  */
+             }
+         }
+document.write('<br>');
+         for(var i=0;i<10;i++){    /*continue 只能用于for循环*/
+             if(i==5){
+                 document.write('因为continue:不会输出'+i+'    ')
+                continue;  /*  跳出一个迭代  跳出当前一步  */
+             }
+             document.write(i)
+         }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a onclick="a()">点击我</a>
+<script>
+  /* function a(){
+         console.log(this);
+   }*/
+
+    document.getElementsByTagName('a')[0].onclick= function () {
+         console.log(this);
+    }
+
+
+</script>
+</body>
+</html>

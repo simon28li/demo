@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        /*方式1*/
+        var obj1={
+           name:'xx',
+           age:'18',
+           sayHi: function () {
+              document.write('hi hao'+'<br>')
+           }
+        }
+        obj1.sayHi();
+        document.write(obj1.name+'<br>');
+        document.write(obj1.age+'<br>');
+
+        /*方式2*/
+        var obj2=new Object();
+        obj2.name='xx';
+        obj2.age='18';
+        obj2.say= function () {
+            document.write('hi hao'+'<br>');
+        };
+        obj1.sayHi();
+        document.write(obj1.name+'<br>');
+        document.write(obj1.age+'<br>');
+
+
+    </script>
+</body>
+</html>
