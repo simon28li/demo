@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p><span>11111</span></p>
+		</div>
+		<div><span>2222</span>
+		</div>
+		<div>
+			<p>33333</p>
+		</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//选中含有span元素的div  注意：has(css选择器)
+			$('div:has(span)').css('background','red');			
+		</script>
+		
+	</body>
+</html>

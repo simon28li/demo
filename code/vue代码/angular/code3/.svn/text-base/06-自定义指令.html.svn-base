@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--使用自定义指令-->
+		<hello-web></hello-web>
+		<div class="hello-web"></div>
+		<div hello-web></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('helloWeb',function(){
+				return {
+					restrict:'ECMA',	//定义该自定义指令以哪种方式使用
+					template:'<div><input ng-model="name"/><strong>{{name}}</strong></div>',
+					replace:true,	//表示用模板内容完全替换原有的标签
+					scope:{},	//scope可以取的值有:true,false或者{},如果没有设置scope属性默认值为false
+								//当scope取true时，表示独立作用域，继承父级作用域并且创建自己的独立的作用域
+								//当scope取{}时，表示隔离作用域，仅仅创建自己的作用域，和父级作用域没有关系
+					controller:['$scope',function($scope){
+						//定义当前指令自己的控制器
+						$scope.name='lisi';
+					}]
+				}
+			});			
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='zhangsan';
+			}]);
+		</script>
+	</body>
+</html>

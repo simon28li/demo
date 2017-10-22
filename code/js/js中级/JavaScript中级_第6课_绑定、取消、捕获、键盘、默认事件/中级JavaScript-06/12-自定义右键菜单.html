@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#ul1{width: 200px;height: 200px;border: 1px solid black;position: absolute;display: none;}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>111111</li>
+			<li>222222</li>
+			<li>333333</li>
+			<li>444444</li>
+		</ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+			
+			document.oncontextmenu = function(e){
+				var e = e || window.event;
+				oUl.style.display = 'block';
+				oUl.style.left = e.clientX + 'px';
+				oUl.style.top = e.clientY + 'px';
+				
+				return false;
+			}
+			oUl.onclick = function(e){
+				oUl.style.display = 'block';
+				e.stopPropagation();
+			}
+			document.onclick = function(){
+				oUl.style.display = 'none';
+				
+			}
+		</script>
+	</body>
+</html>

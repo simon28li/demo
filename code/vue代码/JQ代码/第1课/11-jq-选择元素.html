@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input[type=button]
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p></p>
+		</div>
+		<p></p>
+		<input type="button" value="按钮"/>
+		<input type="text" value="按钮"/>
+		<input type="submit" value="按钮"/>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('#box p').html('111111');
+			//jq支持css3的选择器
+			
+			//属性选择器
+			//选中类型为button的元素
+			$('input[type=button]').css('background','red');
+			//选中含有type属性的input元素
+			$('input[type]').css('background','green');
+			//选中type不为text的所有input元素
+			$('input[type!=text]').css('background','blue');
+			
+		</script>
+		
+	</body>
+</html>

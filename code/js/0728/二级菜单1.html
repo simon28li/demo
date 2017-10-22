@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .ul1 {
+            width: 100px;
+            margin: auto;
+        }
+
+        #ul2 {
+            overflow: hidden;
+            height: 98px;
+        }
+        .ul21{                 /*用class 控制样式*/
+            display: block;
+        }
+       .ul22{                 /*用class 控制样式*/
+            display: none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+
+        }
+
+        a {
+            display: block;
+            height: 20px;
+            width: 100px;
+            background: #c2c2c2;
+            text-decoration: none;
+            color: #1616ff;
+        }
+        #ul2 a{
+            border-top: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+<ul class="ul1">
+    <li>
+        <a href="#" onclick="show()">我是一级菜单</a>
+        <ul class="ul21" id="ul2">
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+            <li><a>我是二级菜单</a></li>
+        </ul>
+    </li>
+
+</ul>
+<script>
+
+    function show() {
+        var z = document.getElementById('ul2').attributes[0];
+        if (z.value!='ul21') {
+            z.value='ul21';
+        }else{
+            z.value='ul22';
+        }
+    }
+
+    /* function show() {
+     var x = document.getElementsByClassName('ul2')[0];
+     var y = document.querySelector('a');
+     if (x.style.display = 'block') {
+     x.style.display = 'none';
+     y.style.color = '#f00';
+     }else{
+     x.style.display = 'block';
+     y.style.color = '#ff0';
+     }
+    }*/
+
+   /* function show() {
+        var x = document.getElementsByClassName('ul2')[0];
+        var y = document.querySelector('a');
+        var z=document.getElementsByClassName('ul2')[0].attributes;
+        console.log(z);
+        if (x.style.height = 100+'px') {
+            x.style.height = 0+'px'
+            y.style.color = '#f00';
+        }else{
+            x.style.height = 100+'px'
+            y.style.color = '#ff0';
+        }
+    }*/
+
+
+
+
+</script>
+</body>
+</html>

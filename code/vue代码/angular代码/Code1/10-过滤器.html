@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{num}}</p>
+		<hr />
+		<p>{{num | currency}}</p>
+		<hr />
+		<p>{{num | currency:'￥'}}</p>
+		<hr />
+		<p>{{num | currency:'￥':4}}</p>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 过滤器：用于对数据进行格式化的工具
+			 过滤器的使用：
+			 	数据 | 过滤器名:参数:参数
+			 
+			 * */
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.num=1245145.235671;
+			}]);
+			
+		</script>
+	</body>
+</html>

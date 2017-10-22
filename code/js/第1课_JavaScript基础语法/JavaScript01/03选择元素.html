@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">123</div>
+	</body>
+	<script>
+		/* 因为执行顺序的问题 把js代码放到对应的div下方才能选择到 
+		        为什么放在下方,因为可以先加载样式和结构.不需要马上得到他的js内容
+		 * */
+		/* 对象类型  */
+		var a = document.getElementById('div1');
+		a.style.width = '300px';
+		a.style.height = '300px';
+		a.style.background = 'red';
+		a.style.color = 'white';
+		a.style.width = '600px';
+		
+		a.className = 'div1';
+		/*a.style.cssText = 'width: 200px;height: 400px;background: purple;';*/
+		console.log(a);
+	</script>
+</html>

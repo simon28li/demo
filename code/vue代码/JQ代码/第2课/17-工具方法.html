@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var a={a:1};
+			var b={name:'zhangsan',age:20,school:{no:10001}};
+		//	a=b;
+			//for in
+//			for(var i in b){
+//				a[i]=b[i];
+//			}
+			//JSON.parse/stringify
+//			var str=JSON.stringify(b);
+//			a=JSON.parse(str);
+			
+			//$.extend(a,b); 将第二个对象属性逐个复制到第一个对象中
+			$.extend(true,a,b);//true表示，深度拷贝
+			console.log(a)	
+		</script>
+	</body>
+</html>

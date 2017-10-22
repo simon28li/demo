@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//去空格的两种方法
+			//1.trim
+			var str = '    ss fs af saf    ';
+			var reg = /^\s+|\s+$/g;
+			var reg1=/^\s|\s$/g;
+			
+			console.log(str.replace(reg, ''));
+			console.log(str.replace(reg1,'*'));
+		</script>
+	</body>
+</html>

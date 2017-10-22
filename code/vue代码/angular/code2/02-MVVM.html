@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			MVVM: Model  View  View Model 双向数据绑定			
+		-->
+		<input type="text" ng-model="name"/>
+		<p ng-click="show()">{{newName}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//定义控制器
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.name='hello';
+				$scope.show=function(){
+					alert(this.name);
+				}
+				////////
+				$scope.newName='hi,'+$scope.name;
+			}]);
+			
+		</script>
+	</body>
+</html>

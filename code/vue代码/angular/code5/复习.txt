@@ -1,0 +1,107 @@
+1.angularjs的核心特性：MVC,指令系统,模块化,MVVM,依赖注入,路由
+2.指令：
+	ng-app	--->angular.bootstrap()
+	ng-repeat
+	ng-controller
+	ng-bind
+	ng-model
+	.....
+	
+3.自定义指令：
+	app.directive('指令名称',function(){
+		return {
+			restrict:'ECMA',
+			template:'视图模版',
+			templateUrl:'外部模版路径',
+			replace:true,
+		//	scope:true
+			scope:{
+				绑定策略：@ 绑定字符串
+					   = 绑定变量
+					   & 绑定函数
+			},
+			controller:['$scope',function($scope){
+			
+			}],
+			link:function($scope,elm,attr){
+				//DOM操作
+			}
+		}
+	});
+4.过滤器：
+	filter 搜索
+	orderBy 排序
+	limitTo:count:begin  分页
+自定义过滤器：
+	app.filter('myFilter',function(){
+		return function(data){
+			//过滤器功能
+		}
+	});
+5.工具方法：
+	angular.bootstrap();
+	angular.bind();
+	....
+6.服务：本身就是一个对象或一个函数
+$http服务：ajax请求或jsonp请求
+$location服务
+$interploate服务
+$sce
+服务供应商：对对应服务进行参数配置的
+app.config(function($routeProvider){
+
+});
+
+7.自定义服务：
+factory,service,provider,constant/value
+app.factory('mySerivce',function(){
+	return {
+	
+	}
+});
+app.provider('mySerivce',function(){
+	return {
+		//服务供应商
+		name:'lisi'
+		$get:function(){
+			return {
+				//服务对象
+				name:this.name
+			}
+		}	
+	}
+});
+app.config(['mySerivceProvider',function(mySerivceProvider){
+	mySerivceProvider.name='zhangsan'
+}])
+
+app.service('mySerivce',function(){
+	this.name='lisi';
+});
+8.路由：
+<script src="angular-route.js"></script>
+var app=angular.module('app',['ngRoute']);
+
+html:
+	<div ng-view></div>
+
+app.config(['$routeProvider',function($routeProvider){
+	$routeProvider.when('/home',{
+		template:'xxx',
+		templateUrl:'xxx.html'
+		controller:'HomeCtrl'
+	})
+	.when('/home/:param',{
+		templateUrl:'xxx',
+		controller:'subController'
+	})
+	.otherwise({
+		redirectTo:'/home'
+	});
+}]);
+
+app.controller('subController',['$scope','$routePramas',function($scope,$routePramas){
+		//$routePramas.param+'.json'
+		//'index.php?search='+$routePramas.param;
+		
+}])

@@ -1,0 +1,13 @@
+<div class="tab">
+	<!--<input type="button" value="军事"/>
+	<input type="button" value="体育"/>
+	<input type="button" value="娱乐"/>
+	<div></div>
+	<div></div>
+	<div></div>-->
+	<input type="button" ng-repeat="d in datas" ng-value="d.title" ng-class="{active:$first}"/>
+	<div ng-repeat="d in datas" ng-class="{active:$first}">{{d.content}}</div>
+	
+	<!--<input type="button" ng-repeat-start="d in datas" ng-value="d.title"/>
+	<div ng-repeat-end>{{d.content}}</div>-->
+</div>

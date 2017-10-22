@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>	
+		<div><span></span></div>
+		<div>			
+		</div>
+		<div> </div>
+		<div>hello</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//选中不含任何内容(包括空格和换行符)的div元素
+			$('div:empty').css('background','red');		
+			
+			//选中有内容的div元素，:parent和:empty的选中的元素相反
+			$('div:parent').css('background','green');			
+		</script>
+		
+	</body>
+</html>

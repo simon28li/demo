@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			MVVM: Model  View  View Model 双向数据绑定			
+		-->
+		<p>{{name}}</p>
+		<input type="button" value="修改name值" ng-click="change()"/>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//定义控制器
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.name='hello';
+				
+//				var timer=setTimeout(function(){
+//					//无法通知视图更新
+//					$scope.name='zhangsan';
+//					alert($scope.name);
+//				},1000);
+				//clearTimeout(timer);//清除定时器
+				
+				//原生js中的定时器在angularjs中都被封装成了对应的服务
+				//setTimeout---->$timeout
+				var timer=$timeout(function(){
+					$scope.name='zhangsan';
+					alert($scope.name);
+				},1000);
+				
+				
+				$scope.change=function(){
+					this.name='lisi';
+					//取消定时服务
+					$timeout.cancel(timer);
+				}				
+			}]);
+			
+		</script>
+	</body>
+</html>

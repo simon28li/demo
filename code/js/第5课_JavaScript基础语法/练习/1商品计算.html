@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	
+	//获取元素
+	var oList = document.getElementById('list');
+	var aLi = oList.getElementsByTagName('li');
+	
+	var oDiv = document.getElementById('div1');
+	var aInput = oDiv.getElementsByTagName('input');
+	
+	//事件操作
+	for( var i=0;i<aLi.length;i++ ){
+		toChange(aLi[i]);
+	}
+	
+	aInput[0].onclick = function(){
+		conAll();
+	};
+	
+	aInput[2].onclick = function(){
+		moneyAll();
+	};
+	
+	
+	//封装函数
+	function toChange(li){   //价格改变
+		
+		var aInput = li.getElementsByTagName('input');
+		var oSpan = li.getElementsByTagName('span')[0];
+		var oEm = li.getElementsByTagName('em')[0];
+		
+		aInput[0].onclick = function(){
+			if( parseInt(oSpan.innerHTML) > 0 ){
+				oSpan.innerHTML = parseInt(oSpan.innerHTML) - 1 + '件';
+				aInput[2].value = parseInt(oSpan.innerHTML) * parseInt(oEm.innerHTML) + '元';
+			}
+			
+			conAll();
+			moneyAll();
+			
+		};
+		
+		aInput[1].onclick = function(){
+			oSpan.innerHTML = parseInt(oSpan.innerHTML) + 1 + '件';
+			aInput[2].value = parseInt(oSpan.innerHTML) * parseInt(oEm.innerHTML) + '元';
+			
+			conAll();
+			moneyAll();
+			
+		};
+			
+		
+	}
+	
+	function conAll(){   //件数总计
+		
+		var result = 0;
+		
+		for( var i=0;i<aLi.length;i++ ){
+			var oSpan = aLi[i].getElementsByTagName('span')[0];
+			
+			result += parseInt(oSpan.innerHTML);
+			
+		}
+		
+		aInput[1].value = result + '件';
+		
+	}
+	
+	function moneyAll(){   //金额总计
+		
+		var result = 0;
+		
+		for( var i=0;i<aLi.length;i++ ){
+			var oInput = aLi[i].getElementsByTagName('input')[2];
+			if(oInput.value){
+				result += parseInt(oInput.value);
+			}			
+			
+			
+		}
+		
+		aInput[3].value = result + '元';
+		
+	}
+	
+};
+</script>
+</head>
+
+<body>
+<ul id="list">
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>4.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+  <li>
+    <input type="button" value="-"/>
+    <span>0件</span>
+    <input type="button" value="+"/>
+    <em>1.00元</em> 结果：
+    <input type="text" />
+  </li>
+</ul>
+
+<div id="div1">
+    <input type="button" value="商品总计" id="btn1"/>
+    <input type="text" id="number" />
+    <input type="button" value="价格总计：" id="btn2"/>
+    <input type="text" id="price"/>
+</div>
+</body>
+</html>

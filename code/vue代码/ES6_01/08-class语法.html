@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建Person类：name,age,show方法
+			class Person{
+				constructor(name,age){
+					//类的构造方法，每一个类一定要定义一个contructor,如果没有定义则会自动产生一个空的构造函数
+					this.name=name;
+					this.age=age;
+				}
+				//定义方法
+				show(){
+					alert(this.name+'/'+this.age);
+				}
+				static country(){	//静态方法
+					alert('China');
+				}
+			}
+	//		console.log(Person.prototype);//Person类中的所有方法包括构造方法都定义在类的prototype上
+			
+			//创建对象
+//			var p1=new Person('zhasang',20);
+//			p1.show();
+//			
+//			Person.country();//一般静态方法只能直接用类名调用
+			
+			//定义学生类：name，age，sex,show方法
+			class Student extends Person{
+				constructor(name,age,sex){
+					//调用父类的构造函数
+					super(name,age);//这一句要放在构造函数的第一行				
+					this.sex=sex;
+				}
+				myShow(){
+					console.log('I am a student');
+					//调用父类的方法
+					super.show();
+				}
+			}
+			
+			var stu=new Student('lisi',19,'female');
+			//stu.show();
+			stu.myShow();
+		</script>
+	</body>
+</html>

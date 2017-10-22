@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.wrap div{width: 200px;height: 200px;border: 1px solid #000;
+					display: none;}
+			.wrap input.active{background: red;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<input type="button" value="1111" class="active"/>
+			<input type="button" value="22222"/>
+			<input type="button" value="3333"/>
+			<div style="display: block;">111111</div>
+			<div>222222</div>
+			<div>3333333</div>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('.wrap input').click(function(){
+				//将自身的类添加active,其他input删除active
+				$(this).addClass('active').siblings('input').removeClass('active');
+				//将当前input对应的div显示，其他的div隐藏
+				$('.wrap div').eq($(this).index()).show().siblings('div').hide();				
+			});	
+			
+		</script>
+	</body>
+</html>

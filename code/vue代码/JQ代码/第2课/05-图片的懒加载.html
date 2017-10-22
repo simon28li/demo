@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{border: 1px solid #000;
+				margin: 300px 20px;
+				width: 470px;
+				height: 150px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$(function(){
+				//设置窗口滚动事件
+				$(window).scroll(show);
+				
+				show();
+				
+				function show(){
+					//判断滚动距离+窗口可视距离是否大于某一个图片到整个页面的距离
+					//如果大于则加载该张图片
+					$('img').each(function(i,elemt){
+						if($(elemt).offset().top<$(document).scrollTop()+$(window).height()){
+							$(elemt).attr('src',$(elemt).attr('_src'));		
+						}						
+					});					
+				}				
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<div>
+			<img _src="img/1.jpg"/>
+		</div>
+		<div>
+			<img _src="img/1.jpg"/>
+		</div>
+		<div>
+			<img _src="img/1.jpg"/>
+		</div>
+		<div>
+			<img _src="img/1.jpg"/>
+		</div>
+	</body>
+</html>

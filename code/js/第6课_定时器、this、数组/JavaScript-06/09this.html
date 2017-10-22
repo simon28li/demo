@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">123</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+//			oDiv.onclick = function(){
+//				console.log(this);
+//			}
+
+			function show(){			//this  ->   Window 当函数前面什么都没有就是指向Window
+				console.log(this);
+			}
+			//show();
+			
+			function show2(){
+				console.log(this);		//this  ->   arr   因为是arr对象调用的show方法
+			}
+			var arr = ['a','b','c'];
+			arr.a = show2;
+			//arr.a();
+			console.log(arr.length)
+			
+			function show3(){
+				console.log(this);		//this  ->  fn   
+			}
+			var fn = function(){};
+			fn.a = show3;
+			fn.a();
+			
+			window.oDiv.onclick = function(){
+				console.log(this);
+			}
+		</script>
+	</body>
+</html>

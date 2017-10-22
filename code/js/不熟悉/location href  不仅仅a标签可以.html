@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div,p{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--javascript: a标签和javascript之间需要伪协议  其他标签可以不写-->
+<a href="javascript:location.href='http://www.baidu.com'">百度：a标签</a>
+ <div onclick="location.href='http://www.baidu.com'" >按钮：div</div>
+<p onclick="location.reload()">刷新 p:location.reload()</p>
+<a onclick="location.reload()">刷新a:location.reload() </a>
+<p onclick="o()">window.open</p>
+   <script>
+       function o(){
+           window.open("http://www.w3school.com.cn")
+       }
+   </script>
+</body>
+</html>

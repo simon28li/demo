@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			| 管道符
+		数据 | 过滤器:参数1:参数2	| 过滤器名称:参数1:参数2
+		-->
+		<p>{{myDate}}</p>
+		<p>{{myDate | date:'medium'}}</p>
+		<!--
+			格式化后的数据：2017/06/15 14:49:00 Thursday
+		-->
+		<p>{{myDate | date:'yyyy/MM/dd hh:mm:ss a EEEE'}}</p>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 过滤器：对数据进行格式化的工具
+			 * 
+			 * */
+
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myDate=new Date();			
+				
+			}]);			
+		</script>
+	</body>
+</html>

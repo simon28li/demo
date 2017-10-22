@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*0——零 1——壹 2——贰 3——叁 4——肆 5——伍 6——陆 7——柒 8——捌 9——玖*/
+    var x = prompt('请输入金额');
+    var y = '';
+    for (var i = 0; i < x.length; i++) {
+        switch (Number(x[i])) {
+            case 0 :y += '零';
+                break;
+            case 1 :y += '壹';
+                break;
+            case 2 :
+                break;
+            case 3 :y += '叁';
+                break;
+            case 4 :y += '肆';
+                break;
+            case 5 :y += '伍';
+                break;
+            case 6 :y += '陆';
+                break;
+            case 7 :y += '柒';
+                break;
+            case 8 :y += '捌';
+                break;
+            case 9 :y += '玖';
+        }
+    }
+    document.write(y)
+
+</script>
+</body>
+</html>

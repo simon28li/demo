@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">123</div>
+		<script>
+			//延迟定时器,只执行一次,定时在某个时间段之后执行
+			var timer = setTimeout(function(){
+				show();
+			}, 2000);
+			function show(){
+				console.log(123);
+			}
+			
+			var div1 = document.getElementById('div1');
+			div1.onclick = function(){
+				//清除定时器
+				clearTimeout(timer);
+			}
+		</script>
+	</body>
+</html>

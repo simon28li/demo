@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p ng-click="change()">{{name}}</p>
+		<hr />
+		<p>{{name}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+		//	MVVM:自动化的双向数据数据绑定
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.name='hello';
+				
+				$scope.change=function(){
+					this.name='hi';
+					$timeout.cancel(timer);
+				}
+				//延迟1s将$scope.name修改
+//				setTimeout(function(){
+//					$scope.name='zhangsan';
+//					alert($scope.name);
+//				},1000);				
+				
+				//$timeout服务 是angular内部对setTimeout封装的一个方法
+				var timer=$timeout(function(){
+					$scope.name='zhangsan';
+					alert($scope.name);
+				},1000);
+				
+			}]);			
+		</script>
+	</body>
+</html>

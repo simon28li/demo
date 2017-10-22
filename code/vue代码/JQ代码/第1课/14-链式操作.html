@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<script src="jquery-1.11.1.js"></script>
+		<script>
+			//给div设置样式，
+			//并且设置html，还有设置点击事件，还要设置class属性
+//			$('div').css('background','red');
+//			$('div').html('111111');
+//			$('div').click(function(){});
+			
+			//链式操作，只针对设置，不能针对获取
+			$('div').css('background','red')
+					.html('111111')
+					.click(function(){
+						alert($(this).html());
+					})
+					.attr('class','box');
+			
+			
+		</script>
+	</body>
+</html>

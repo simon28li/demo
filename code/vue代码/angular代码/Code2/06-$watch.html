@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input ng-model="person.name" />
+		<input ng-model="person.age"/>
+		<input ng-model="person.sex" />
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.person={
+					name:'zhangsan',
+					age:20,
+					sex:'female'
+				}
+				//默认情况下，观察的是指定变量的值是否发生变化
+				//如果需要对观察的对象里的深层属性进行观察时，需要设置第三个参数为true
+				$scope.$watch('person',function(newVal,oldVal){
+					console.log(newVal);
+					console.log(oldVal);
+				},true);				
+			}]);			
+		</script>
+	</body>
+</html>

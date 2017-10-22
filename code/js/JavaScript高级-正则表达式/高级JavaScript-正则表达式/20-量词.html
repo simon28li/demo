@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	+	一次或任意次{1,}
+			    *		任意次	{0,}
+			    {n,m}   至少出现n次,至多出现m次
+				？	零次或一次	{0,1}
+			    {n,}	至少n次
+			   {n}	正好n次
+            */
+           	var str = '我的QQ是10001,你的qq是12145219853';
+           	var regExp = /[1-9]\d{4,10}/g;
+           	
+           	alert(str.match(regExp));
+		</script>
+	</body>
+</html>

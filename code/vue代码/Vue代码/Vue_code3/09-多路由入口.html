@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>9</title>
+</head>
+<body>
+<div id="app">
+    <p>
+        <router-link to="/home">主页</router-link>
+    </p>
+
+    <!--主页的左侧-->
+    <router-view name="b"></router-view>
+    <!--主页在右侧-->
+    <router-view name="a"></router-view>
+    <!--主页底部-->
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<!--引入Vue-Router-->
+<script type="text/javascript" src="vue-router.js"></script>
+<script>
+    //创建路由对象
+    const router = new VueRouter({
+        //配置路由
+        routes: [
+            {
+                path: '/home',
+                components: {
+                    default: {
+                        template: '<div>默认</div>'
+                    },
+                    'b': {
+                        template: '<div>主页左侧</div>'
+                    },
+                    'a': {
+                        template: '<div>主页右侧</div>'
+                    }
+
+                }
+            }
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        router	//挂载路由
+    });
+</script>
+</body>
+</html>

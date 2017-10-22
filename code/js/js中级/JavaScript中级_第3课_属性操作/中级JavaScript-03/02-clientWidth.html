@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+			#div1{display: none;width:100px;height: 100px;background: pink;padding: 10px;border: 5px solid black; margin: 100px;}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			
+			var oDiv = document.getElementById('div1');
+			console.log(oDiv.offsetWidth);
+			console.log(oDiv.offsetHeight);				//padding + width + border
+			
+			console.log(oDiv.clientWidth);
+			console.log(oDiv.clientHeight);				//padding + width
+			console.log(oDiv.clientLeft);				//边框左侧大小
+			
+			//offsetLeft offsetTop
+			//offsetWidth offsetHeight
+			//clientWidth clientHeight
+			//这些参数针对隐藏元素都是0
+		</script>
+	</body>
+</html>

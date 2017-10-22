@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>aaaaa</div>
+		<ul>
+			<p>1111</p>
+			<li>22222</li>
+			<li>33333</li>
+			<h3>44444</h3>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//通过on设置事件时，可以给事件进行重命名
+			$('div').on('click.abc',function(){
+				alert('hello');
+			});
+			$('div').on('click.xyz',function(){
+				alert('aaaaa');
+			});
+		//通过on方法可以将同一个元素的同一个功能绑定到多个事件上
+			$('div').on('mouseover mouseout',function(){
+				alert(11111);
+			});
+			
+			//只有点击li才会触发的事件
+			$('ul').on('click','li',function(){
+				alert('22222');
+			})
+			
+		</script>
+	</body>
+</html>

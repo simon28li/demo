@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">aaaa</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			bindEvent(oDiv, 'click', aaa);
+
+			function bindEvent(obj, events, fn){
+				//如果他是标准浏览器
+				if(obj.addEventListener){
+					obj.addEventListener(events, fn, false);
+				}
+				//如果他是IE浏览器
+				else{
+					obj.attachEvent('on'+events, function(){
+						//this -> obj
+						fn.call(obj);
+					});
+				}
+			}
+			
+			function aaa(){
+				alert(this);
+			}
+		</script>
+	</body>
+</html>

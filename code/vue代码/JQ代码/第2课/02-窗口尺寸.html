@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 body{
+			 	margin: 100px;
+			 	border: 5px solid #000;
+			 	height: 2000px;
+			 	padding: 50px;
+			 }
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$(document).click(function(){
+				console.log('可视窗口的宽高:'+$(window).width()+'/'+$(window).height());//可视窗口的宽度
+				//整个页面的尺寸
+				console.log('整个页面的宽高:'+$(document).width()+'/'+$(document).height());
+			});	
+			
+			//窗口的滚动距离
+			//document.documentElement.scrollTop/document.body.scrollTop/window.pageYOffset
+			$(window).scroll(function(){
+				console.log($(document).scrollTop());	//如果有参数即为设置
+			});	
+			
+		</script>
+	</body>
+</html>

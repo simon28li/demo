@@ -1,0 +1,5 @@
+<div class="{{myClass}}">
+<!--myTab在模版-->
+	<input ng-repeat="d in myData" type="button" ng-value="d.title" ng-class="{active:$first}"/>
+	<div ng-repeat='d in myData' ng-class="{active:$first}">{{d.content}}</div>
+</div>

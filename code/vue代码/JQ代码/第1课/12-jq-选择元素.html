@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div[class*=box]
+		</style>
+	</head>
+	<body>
+		<div class="box">1111</div>
+		<div class="div box">22222</div>
+		<div class="divbox">3333</div>
+		<div class="aaaboxbbb">4444</div>
+		<div class="adivb">55555</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			/*选中包含类名中box的元素*/
+			$('div[class*=box]').css('background','red');
+			//选中以div开头的元素
+			$('div[class^=div]').css('background','green');
+			//选中以box结束的元素			
+			$('div[class$=box]').css('background','blue');
+			
+		</script>
+		
+	</body>
+</html>

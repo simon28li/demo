@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = '1a2 abc ee 1A2';
+			
+			var reg = /1[aAbc]2/g;	//匹配的是字符串之间有没有一个1开头的2结尾的中间是[]内部的一个字符的字符段落
+			
+			alert(str.match(reg));
+			
+		</script>
+	</body>
+</html>

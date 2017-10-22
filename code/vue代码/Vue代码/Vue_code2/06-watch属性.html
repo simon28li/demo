@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model='msg'/>
+			<p>{{newMsg}}</p>			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'hello',
+					newMsg:'hi,hello'
+				},
+				watch:{
+					//watch属性可以用于观察data属性上的所有数据变化
+					msg:function(newVal){
+						console.log(newVal);
+						this.newMsg='hi,'+newVal;
+					}
+				}
+				//computed完全依赖于watch
+				//computed可以完成简单的原始数据的操作处理，不能进行异步操作
+				//当数据操作比较复杂，比如需要进行异步操作，才能得到处理后的结果时，需要用watch实现				
+			});
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li>2222</li>
+			<li>33333</li>
+		</ul>
+		<li id="box">aaaaaa<span>点击</span></li>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//	oLi.cloneNode(true);
+			$('#box').click(function(){
+				alert('hello');
+			});			
+			
+			//clone方法中的参数为boolean值
+			//  true: 表示会克隆原节点的事件
+			//  false:表示不会克隆原节点的事件，默认为false
+			var box=$('#box').clone(true);	//默认会将标签及其里面的所有内容都克隆
+			box.removeAttr('id');	//删除属性
+			box.prependTo('ul');
+		
+		</script>
+	</body>
+</html>

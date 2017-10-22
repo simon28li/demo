@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div onclick="setBody('color','white')">1</div> <!-- 点击他div1的时候改变他的字体的黄色 -->
+		<div onclick="setBody('background','red')">2</div> <!-- 点击他div2的时候改变他背景的红色 -->
+	</body>
+	<script>
+		//我们在传参的时候非常适合使用该种属性操作符的方式
+		function setBody(attr, value){
+			document.body.style[attr] = value; 
+		}
+	</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app='app' ng-controller="myController1">
+			<p>{{name}}</p>
+		</div>
+	
+		<div ng-app="app2" ng-controller="myController2">
+			<p>{{name}}</p>
+		</div>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			angular.module('app',[])
+			.run(['$rootScope',function($rootScope){
+				$rootScope.name='hello';
+			}])
+			.controller('myController1',['$scope',function($scope){
+				$scope.name='lisi';
+			}]);
+			
+			angular.module('app2',[]).controller('myController2',['$scope',function($scope){
+				$scope.name='zhansang';
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			过滤器可以在视图模板、控制器、服务中使用
+		-->
+		<div>{{num|currency:'RMB':4}}</div>
+		<p>{{newNum}}</p>
+		<hr />
+		<ul>
+			<li ng-repeat="d in arr">{{d}}</li>
+		</ul>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope','$filter',function($scope,$filter){
+				$scope.num=12387721.41515;
+				//在js中使用过滤器,必须注入$filter服务
+				//$filter方法的参数为过滤器名称
+				//第二个函数的第一个参数为待过滤的数据（原始数据）,第二个参数以后为过滤器的参数
+				$scope.newNum=$filter('currency')($scope.num,'RMB',4);
+				
+				var persons=[{name:'张三',age:26,sex:"女"},
+							{name:"李男",age:21,sex:"女"},
+							{name:"王女",age:13,sex:"男"},
+							{name:'张2',age:33,sex:"男"},
+							{name:'刘6',age:52,sex:"女"},
+							{name:'张三',age:20,sex:"女"}
+							];	
+				$scope.arr=$filter('filter')(persons,{name:"张"});
+			}]);			
+		</script>
+	</body>
+</html>

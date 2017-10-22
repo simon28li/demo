@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="ctr">
+
+<!--
+<p>
+    <a href="#/home">主页</a>
+<a href="#/product">产品</a>
+<a href="#/about">关于</a>
+</p>
+&lt;!&ndash;ng-view指定路由入口，即对应路由视图的容器&ndash;&gt;
+<div ng-view></div>
+-->
+
+<div>
+    <a ng-click="$location.path('home')">home</a>
+    <a ng-click="$location.path('home/product')">product</a>
+    <a ng-click="$location.path('home/about')">about</a>
+</div>
+<div ng-view></div>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<!--引入路由插件-->
+<script type="text/javascript" src="angular-route.js"></script>
+<script>
+    /*
+     angularjs中使用路由来实现SPA应用（单页应用）
+     angularjs将路由功能封装成了插件
+     * */
+    /* var app = angular.module('app', ['ngRoute']);
+
+     //配置$route服务,通过config调用$routeProvider来配置
+     app.config(['$routeProvider', function ($routeProvider) {
+     $routeProvider
+     .when('/home', {
+     template: '<h1>主页</h1><p>主页内容。。。。。。</p>'
+     })
+     .when('/product', {
+     template: '<h1>产品</h1><p>产品产品产品产品。。。。。。</p>'
+     })
+     .when('/about', {
+     template: '<h1>关于</h1><p>关于关于关于关于关于关于。。。。。。</p>'
+     })
+     .otherwise({
+     redirectTo: '/home'	//当页面路由和上面任何一个路由不匹配时，则自动将路由设置为home
+     });
+     }]);*/
+
+    angular.module('app', ['ngRoute'])
+            .controller('ctr', function ($scope, $location) {
+                $scope.$location = $location;
+            })
+            .controller('ctrpa', function ($scope, $routeParams) {
+                console.log($routeParams.padata)
+            })
+
+            .config(['$routeProvider', function ($routeProvider) {
+                $routeProvider
+                        .when('/home', {
+                            template: '<h1>home</h1>'
+                        })
+                        .when('/home/:padata', {
+                            template: '<h1>product</h1>',
+                            controller: 'ctrpa'
+                        })
+                        .otherwise({
+                            redirectTo: '/home'
+                        })
+
+
+            }])
+
+
+</script>
+</body>
+</html>

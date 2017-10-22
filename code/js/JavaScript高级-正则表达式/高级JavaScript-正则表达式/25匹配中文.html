@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//匹配中文：[\u4e00-\u9fa5]
+			var str  = 'asadsafas 中文';
+			var reg = /[\u4e00-\u9fa5]+/g;
+			console.log(str.match(reg));
+		</script>
+	</body>
+</html>

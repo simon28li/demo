@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div ~ p{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>111</p>
+		<div>2222</div>	
+		<p>333</p>
+		<div>4444</div>	
+		<h1>5555</h1>
+		<p>6666</p>		
+		
+		
+		<script src="jquery-1.11.1.js"></script>
+		<script>
+		//  * 通配符
+		//	$('*').css('background','red');//选中页面上所有的元素
+		// > 后代选择符   
+		//	(div > p)   (div p)
+		//	div+p 选中div后面的紧跟p元素				
+		//	$('div + p').css('background','red');
+			
+		// div ~ p	div后面的所有p元素
+		//$('div ~ p').css('background','red');
+		
+		</script>
+	</body>
+</html>

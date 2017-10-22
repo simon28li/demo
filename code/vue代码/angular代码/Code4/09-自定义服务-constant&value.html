@@ -1,0 +1,46 @@
+<!DOCTYPE html>                                                                                                           
+<html ng-app="app">                                                                                                            
+	<head>                                                                                                                     
+		<meta charset="UTF-8">                                                                                                 
+		<title></title>                                                                                                        
+	</head>                                                                                                                    
+	<body ng-controller="myController">                                                                                        
+		                                                                                                                       
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>                                                       
+		<script>                                                                                                               
+			var app=angular.module('app',[]);                                                                                  
+			//自定义服务有四种方法                                                                                                       
+			//第一种自定义服务的方法：通过factory方法自定义服务                                                                                     
+			//第二中自定义服务的方法：通过provider方法自定义服务                                                                                    
+			//通过factory方法定义的服务无法通过对应的服务供应商进行默认配置的修改，通过provider可以对服务进行配置 
+			//第三种自定义服务的方法：通过service方法定义, 通过构造函数的形式来创建自定义服务对象的
+			//				也无法通过provider配置服务
+		    //第四种方式：通过constant或value方法定义,通过常量的方式来创建服务对象的
+//		    app.constant('myService',{name:'hello',show:function(){
+//		    											alert(this.name);
+//		    											}
+//		    						 }
+//		   				);
+//		    
+//		    //constant方式定义的服务可以通过config配置服务对象
+//		    app.config(['myService',function(myService){
+//		    	myService.name='zhsang';
+//		    }]);
+		    
+		    app.value('myService',{name:'hello',show:function(){
+		    											alert(this.name);
+		    									}
+		    					  }
+		   		     );
+		   	//value方法和constant方法定义服务时完全一样，都是通过常量的方式定义服务对象
+		   	//但是constant方法可以通过config来配置对应的服务对象，value方法无法配置
+		    
+			//使用自定义服务                                                                                                          
+			app.controller('myController',['$scope','myService',function($scope,myService){                                    
+				console.log(myService);  
+//				myService.show();
+			}]);                                                                                                               
+		</script>                                                                                                              
+	</body>                                                                                                                    
+</html>                                                                                                                        
+                                                                                                                               

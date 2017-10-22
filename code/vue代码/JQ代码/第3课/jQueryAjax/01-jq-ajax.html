@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//以键值对的形式设置请求参数
+			$.ajax({
+				//请求路径：
+				url:'01-ajax.txt',
+				//请求方式
+				type:'get',
+				//处理成功回调的函数
+				success:function(result,statusText,xhr){
+					console.log(result);//服务器返回的数据
+					console.log(statusText);//状态文本
+					console.log(xhr);//ajax请求对象
+				}
+			});
+			
+			
+			
+		</script>
+	</body>
+</html>

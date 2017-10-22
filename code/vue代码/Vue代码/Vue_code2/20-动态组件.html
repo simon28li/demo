@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li @click="whichComponent='home'">home</li>
+				<li @click="whichComponent='contact'">contact</li>
+				<li @click="whichComponent='about'">about</li>
+			</ul>
+			<!--
+				is属性动态在绑定不同组件，通过修改变量的值时组件可以进行动态切换
+				keep-alive元素可以使切换出去的组件也保留在内存中，下次再切换回来时直接不需要重新创建，直接使用
+			-->
+			<keep-alive>
+				<div :is="whichComponent"></div>
+			</keep-alive>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			
+			var vm=new Vue({
+				el:'#app',
+				components:{
+					'home':{
+						template:'<div><h1>home</h1><input /></div>'
+					},
+					'contact':{
+						template:'<div><h2>contact</h2><input /></div>'
+					},
+					'about':{
+						template:'<div><h3>about</h3><input /></div>'
+					}					
+				},
+				data:{
+					whichComponent:'home'
+				}
+			})
+		</script>
+	</body>
+</html>

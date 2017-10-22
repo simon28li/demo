@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = ['a', 'b', 'c'];
+			var a = arr.join();					//join连接数组变成字符串,默认用逗号连接
+			var a = arr.join('');				//以空字符串连接各个数组
+			console.log(a);
+			
+			var str = 'a+b+c';
+			//var arr2 = str.split()			//通过参数进行分割,默认不进行分割,把字符串整体变成数组的第一项
+			var arr2 = str.split('+');			//以加号作为分割点,将字符串进行分割			
+			console.log(arr2);
+		</script>
+	</body>
+</html>

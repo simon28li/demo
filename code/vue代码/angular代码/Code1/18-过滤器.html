@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="button" value="下一页" ng-click="n=n+1"/>
+		<ul>
+			<!--
+				limitTo:参数1:参数2
+				参数1表示限制显示的数组元素(或字符串的字符或者数字)个数
+				参数2表示限制的元素的起始下标
+			-->
+			<li ng-repeat="d in arr|limitTo:2:2*n">{{d}}</li>
+		</ul>
+		<p>
+			{{abcadedfae|limitTo:3:4}}
+		</p>
+		<p>
+			{{12334455|limitTo:3:4}}
+		</p>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 过滤器：用于对数据进行格式化的工具
+			 过滤器的使用：
+			 	数据 | 过滤器名:参数:参数
+			 
+			 * */
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=[{name:'张三10',age:20,sex:'男'},
+							{name:'李亚男21',age:18,sex:'女'},
+							{name:'王女女32',age:40,sex:'男'},
+							{name:'刘333',age:25,sex:'女'},
+							{name:'张三24',age:20,sex:'男'},
+							{name:'张三15',age:20,sex:'男'},
+							{name:'李亚男26',age:18,sex:'女'},
+							{name:'王女女37',age:40,sex:'男'},
+							{name:'刘338',age:25,sex:'女'},
+							{name:'张三29',age:20,sex:'男'}
+							];
+				$scope.n=0;
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{
+				background: red;
+			}
+			.size{
+				width: 100px;
+				height: 100px;
+			}
+			.border{
+				border: 1px solid #000;
+			}
+			.color{
+				background: green;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<div class="{{myCls}}">1111</div>
+		<!--
+			ng-class 指令用于替代 class属性
+		-->
+		<div ng-class="myCls">2222</div>
+		<!--ng-class 的值 除了可以是变量，还可以是数组或对象，或者是数组或对象的组合-->
+		<div ng-class="[myCls,mySizeCls,'border']">33333</div>
+		<div ng-class="{active:true,size:true,border:false}">44444</div>
+		<hr />
+		<!--
+			第一项：背景红色
+			所有项都边框
+			最后一项：背景绿色
+			中间项：宽高
+		-->
+		<ul>
+			<li ng-repeat="d in arr" ng-class="{border:true,active:$first,color:$last,size:$middle}">{{d}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<li ng-repeat="d in arr" ng-class="['border',{active:$first},{color:$last},{size:$middle}]">{{d}}</li>
+		</ul>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>		
+		<script>
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.myCls='active';
+				$scope.mySizeCls='size';
+				$scope.arr=[1111,22222,3333,4444,5555];
+			}]);
+		</script>
+	</body>
+</html>

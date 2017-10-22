@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				width: 50px;
+				height: 50px;
+				padding: 100px;
+				margin: 30px;
+				background: red;
+				border: 5px solid #000;
+				/*position: absolute;*/
+				/*top: 30px;
+				left: 20px;*/
+			}		
+			div{
+				border: 2px solid red;
+				position: absolute;
+				width: 400px;
+				height: 500px;
+				top:50px;
+				left: 30px;
+				padding: 50px;
+			}
+		</style>
+	</head>
+	<body>			
+		<div>
+			<p></p>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//获取指定元素到整个页面的顶部距离/左侧距离
+			console.log('元素到页面的顶部距离：'+$('p').offset().top);	//在没有定位的父元素时相当于 oDiv.offsetTop
+			console.log('元素到页面的左侧距离：'+$('p').offset().left);
+			
+			//获取指定元素到有定位的父元素的距离,不包含自身的margin值
+			console.log('元素到offsetParent的顶部距离：'+$('p').position().top);//相当于oDiv.offsetTop
+			console.log('元素到offsetParent的左侧距离：'+$('p').position().left);
+			
+			//获取某个元素的有定位的父元素 offsetParent
+			$('p').offsetParent();//得到jq对象，该对象相当于原生的offsetParent
+			
+		</script>
+	</body>
+</html>

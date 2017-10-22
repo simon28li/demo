@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>hello
+		<script>
+			//元素节点:1 	文本节点：3	文档节点: 9
+			//console.log(document.nodeName);		//#document（固定）
+			//console.log(document.nodeValue);		//null
+
+			//console.log(document.body.nodeName);	//BODY(变化)
+			//console.log(document.body.nodeValue);	// null
+
+			console.log(document.body.firstChild.nodeName);	//#text（固定）
+			console.log(document.body.firstChild.nodeValue);//hello（变化）
+
+		</script>
+
+	</body>
+</html>

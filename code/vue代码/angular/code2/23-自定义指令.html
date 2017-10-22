@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--以标签的形式使用自定义指令-->
+		<hello-html></hello-html>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义指令
+			/*
+			 第一个参数：自定义指令的名称, 如果名称是以多个单词组成，以驼峰法命名
+			 第二个参数：自定义指令的工厂函数
+			 * */
+			app.directive('helloHtml',function(){
+				//自定义指令函数内一定要返回对象
+				return {
+					//E:Element 表示指令可以以元素的形式使用
+					//C:Class 表示该指令可以以类的形式使用
+					//M:Comment 表示该指令可以以注释的形式使用
+					//A:Attribute 表示指令可以以属性的形式使用
+					restrict:'ECMA',	//用于限制指令的使用方式，注意区分大小写
+				//	template:'<div><h1>自定义指令标题</h1><p>自定义指令内容</p><img src="1.jpg"/></div>',
+					templateUrl:'views/23-templ.html',	//将外部的html片段作为指令的模版
+					replace:true	//用模版中的元素替换掉原有的元素
+				}
+			});			
+		</script>
+	</body>
+</html>

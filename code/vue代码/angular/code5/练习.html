@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+
+<head>
+    <title></title>
+    <meta content="" charset="UTF-8">
+    <style>
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            background: #f00;
+            transition: all 2s;
+        }
+
+        .ng-leave {
+            opacity: 1;
+        }
+
+        .ng-leave-active, .ng-enter {
+            opacity: 0;
+        }
+
+        .ng-enter-active {
+            opacity: 1;
+        }
+
+        .ng-hide-add {
+            opacity: 1;
+        }
+
+        .ng-hide-add-active, .ng-hide-remove {
+            opacity: 0;
+        }
+
+        .ng-hide-remove-active {
+            opacity: 1;
+        }
+
+
+    </style>
+
+</head>
+
+<body ng-controller="ctr">
+
+<input type="checkbox" ng-model="flag1">
+
+<div ng-if="flag1"></div>
+
+<hr>
+
+<input type="checkbox" ng-model="flag2">
+
+<div ng-show="flag2"></div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script type="" src="angular-animate.js"></script>
+
+<script type="text/javascript">
+
+    angular.module('app', ['ngAnimate'])
+            .controller('ctr', ['$scope', function ($scope) {
+                $scope.flag1 = $scope.flag2 = true
+            }])
+
+
+</script>

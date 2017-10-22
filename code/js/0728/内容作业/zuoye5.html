@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            width: 50px;
+            height: 20px;
+        }
+
+        #d {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+        @keyframes donghua {
+            0% {
+                width: 200px;
+                height: 200px;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+            }
+
+        }
+
+        .a1, .a2, .a3, .a4, .a5 {
+            animation: donghua 1s;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" class="input1" value="红色">
+<input type="button" class="input2" value="绿色">
+<input type="button" class="input3" value="黄色">
+<input type="button" class="input4" value="紫色">
+<input type="button" class="input5" value="黑色">
+<div id="d"></div>
+<script>
+    document.querySelector('input[value=红色]').onclick = function () {
+        d.style.background = '#f00';
+        d.setAttribute('class', 'a1');
+
+    };
+    document.querySelector('input[value=绿色]').onclick = function () {
+        d.style.background = '#0f0';
+        d.setAttribute('class', 'a2');
+
+    };
+    document.querySelector('input[value=黄色]').onclick = function () {
+        d.style.background = '#ff0';
+        d.setAttribute('class', 'a3');
+    };
+    document.querySelector('input[value=紫色]').onclick = function () {
+        d.style.background = '#f0f';
+        d.setAttribute('class', 'a4');
+    };
+    document.querySelector('input[value=黑色]').onclick = function () {
+        d.style.background = '#000';
+        d.setAttribute('class', 'a5');
+    };
+
+    var input = document.getElementsByTagName('input');
+
+
+
+
+</script>
+</body>
+</html>

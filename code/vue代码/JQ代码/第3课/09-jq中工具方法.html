@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var str='{"name":"zs","age":10}';
+			
+			//JSON.parse(str);
+			console.log($.parseJSON(str));//等效于JSON.parse
+			
+			//解析HTML以及XML的方法
+			var str='<h1>hello</h1><div>11111</div>';			
+			console.log($.parseHTML(str));
+			
+			var h=$.parseHTML(str)[0];
+			h.style.background='red';
+			document.body.appendChild(h);
+			
+			//XML : 可扩展的标记语言
+//			 <room>
+//				<student name="zs" age=10/>
+//				<student name="lisi" age=20/>
+//			 </room>
+			var str="<room><student name='张三' age='10'></student></room>"
+			console.log($.parseXML(str));//得到一个XML文档对象
+			
+		//	$.parseXML(str).getElementsByTagName('student');
+			console.log($($.parseXML(str)).find('student').attr('name'));
+		</script>
+	</body>
+</html>

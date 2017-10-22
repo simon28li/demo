@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		全局搜索：<input type="text" ng-model='search'/>
+		<br />
+		按姓名搜索：<input type="text" ng-model="searchName" />
+		<table>
+			<thead>
+				<tr>
+					<th ng-click="sort('name')">姓名</th>
+					<th ng-click="sort('age')">年龄</th>
+					<th ng-click="sort('sex')">性别</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in arr |filter:search|filter:{name:searchName} |orderBy:orderId:reverse">
+					<td>{{d.name}}</td>
+					<td>{{d.age}}</td>
+					<td>{{d.sex}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=[{name:'张三10',age:20,sex:'男'},
+							{name:'李亚男21',age:18,sex:'女'},
+							{name:'王女女32',age:40,sex:'男'},
+							{name:'刘333',age:25,sex:'女'},
+							{name:'张三24',age:20,sex:'男'},
+							{name:'张三15',age:20,sex:'男'},
+							{name:'李亚男26',age:18,sex:'女'},
+							{name:'王女女37',age:40,sex:'男'},
+							{name:'刘338',age:25,sex:'女'},
+							{name:'张三29',age:20,sex:'男'}
+							];
+				$scope.orderId='';
+				$scope.reverse=false;
+				
+				$scope.sort=function(args){
+					if(args==$scope.orderId){
+						$scope.reverse=!$scope.reverse;
+					}
+					$scope.orderId=args;
+				}
+			}]);
+		</script>
+	</body>
+</html>

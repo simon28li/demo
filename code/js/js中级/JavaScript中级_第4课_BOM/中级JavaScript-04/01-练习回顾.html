@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#toTopBtn{width:100px;height:100px;position: fixed;right: 0;bottom:0;background: pink;}
+		</style>
+	</head>
+	<body style="height: 5000px;">
+		<div id="toTopBtn" onclick="GoTop()">回到顶部</div>
+		<script>
+			var toTopBtn = document.getElementById('toTopBtn');
+			
+			var timer;
+			//var timer = null;
+			/*
+			toTopBtn.onclick = function(){
+				//BOM对象
+				window.scrollTo(0,0);
+				//document.body.scrollTop = '0';
+			}
+			*/
+			/*toTopBtn.onclick = function(){
+				GoTop();
+			}
+			*/
+			function GoTop(){
+				timer = setInterval("runToTop()", 5);
+			}
+			function runToTop(){
+				var currentPosition = document.body.scrollTop || document.documentElement.scrollTop;
+				currentPosition -= 100;
+				if(currentPosition > 0){
+					//window.scrollTo(0,currentPosition);
+					document.body.scrollTop = currentPosition;
+				}else{
+					clearInterval(timer);
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

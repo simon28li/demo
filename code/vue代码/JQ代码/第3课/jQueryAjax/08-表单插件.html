@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input.error{
+				border-color: red;
+			}
+			label.error{color: red;}
+		</style>
+	</head>
+	<body>
+		<!--
+			表单输入控件
+			用户名，密码，邮箱			
+		-->
+		<form action="#" method="get" id="myForm">
+			<p>
+			<label for="usernameId">用户名:</label>
+			<input type="text" value="" id="usernameId" name="username"/>
+			</p>
+			<p>
+			<label for="pwdId">密码:</label>
+			<input type="text" value="" id="pwdId" name="pwd"/>
+			</p>
+			<p>
+			<label for="confirmPwdId">确认密码:</label>
+			<input type="text" value="" id="confirmPwdId" name="confirm_pwd"/>
+			</p>
+			<p>
+				验证码：
+				<input type="text" value="" id="codeId" name="code"/>
+			</p>
+			<input type="submit" value="提交"/>
+		</form>
+		<!--引入插件-->
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script src="jquery.validate.js"></script>
+		<script>
+		//表单验证放
+			$('#myForm').validate({
+				//设置验证规则
+				rules:{
+					username:{	//定义用户名的规则，以name属性值找到对应的元素
+						//必填，长度在5-15范围内
+						required:true,
+						minlength:5,
+						maxlength:15
+					},
+					pwd:{
+						//必填项，在8-16范围
+						required:true,
+						rangelength:[8,16]
+					},
+					confirm_pwd:{
+						equalTo:'#pwdId'
+						
+					},
+					code:{myRule:'bbb'}
+				},
+				messages:{
+					username:{	
+						required:'该项必填',
+						minlength:'该项长度不能小于5',
+						maxlength:'该项长度不能大于15'
+					}
+				}
+				
+			});
+			
+			//自定义验证规则
+			//第一个参数为验证规则名称
+			//第二个参数：定义验证规则的函数，该函数返回true表示验证通过，返回false表示验证不通过
+			//第三个参数：验证不通过时的提示信息
+			$.validator.addMethod('myRule',function(value,elemt,param){
+				//第一个参数是应用该规则的控件的输入值
+				//第二个参数是应用该规则的控件元素
+				//第三个参数为应用该规则是设置的参数
+//				var reg=/^\d+{5,10}$/;
+//				reg.test(value)		
+				console.log(param);
+				return value=='hello';		
+			
+			},'你输入的验证码不对');
+			
+			
+		</script>
+	</body>
+</html>

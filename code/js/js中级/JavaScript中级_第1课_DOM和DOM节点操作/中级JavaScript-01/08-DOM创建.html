@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>11111</li>
+			<!--<li>22222</li>-->
+		</ul>
+		<script>
+		
+			var oUl = document.getElementById('ul1');
+		/*	oUl.innerHTML += '<li>22222</li>';
+		*/
+			var oLi = document.createElement('li');
+			var text = document.createTextNode('22222');
+			//oli.innerText = '22222';
+			
+			oLi.appendChild(text);
+			oUl.appendChild(oLi);
+			
+		</script>
+	</body>
+</html>

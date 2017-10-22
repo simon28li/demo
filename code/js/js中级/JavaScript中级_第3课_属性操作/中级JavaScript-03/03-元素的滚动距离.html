@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+			#div1{width: 100px;height: 200px;border: 1px solid #000;overflow: auto;}
+			#div2{width: 100%;height: 1000px;background: pink;}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2"></div>
+		</div>
+		<script>
+			var oDiv1 = document.getElementById('div1');
+			
+			document.onclick = function(){
+				console.log(oDiv1.scrollTop);
+			}
+		</script>
+	</body>
+</html>

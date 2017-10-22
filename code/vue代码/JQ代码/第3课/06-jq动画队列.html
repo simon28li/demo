@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position:absolute;
+				top:30px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="开始动画"/>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('input').on('click',function(){
+				//delay 设置延迟的时间
+				$('div').animate({width:200},1000).delay(500)
+						.animate({height:'+=100'},2000).delay(1000)
+						.animate({left:'+=100'},500)
+						.animate({top:'+=200'},3000);
+						
+				//设置该动画立即执行，不放入队列中
+				$('div').animate({opacity:0.5},{
+					duration:3000,
+					queue:false	//立即执行该动画
+				});	
+				
+				//$('div').hide(1000);
+			});
+			
+			//队列：先进先出
+			//栈:先进后出
+			
+			//show/fadein/sildeDown 参数设置和animate一样
+		</script>
+	</body>
+</html>

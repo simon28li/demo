@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//全局变量
+			var a = 10;
+			function aaa(){
+				a++;
+				console.log(a);
+			}
+			aaa();
+			aaa();
+			
+			//局部变量
+			function bbb(){
+				var b = 10;
+				b++;
+				console.log(b);
+			}
+			bbb();
+			bbb();
+			
+			//闭包内部调用
+			//我既想要变量是局部变量,又想要按照我想要的效果呈现,1,2,3
+			/*
+			function fa(){
+				var a = 1;
+				function show(){
+					a++;
+					console.log(a);
+				}
+				show();	//2
+				show(); //3
+			}
+			fa();
+			*/
+			
+			//闭包外部调用
+			function fa(){
+				var a = 1;
+				function show(){
+					a++;
+					return a;
+				}
+				show();
+				return console.log(a);
+			}
+			var fn = fa();
+			fn();
+			fn();
+		</script>
+	</body>
+</html>

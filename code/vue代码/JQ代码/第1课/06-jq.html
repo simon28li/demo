@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{width: 100px;
+				height: 100px;
+				background: red;
+				margin: 10px;
+				padding: 30px;
+			}
+			#box2{width: 200px;
+				height: 200px;
+				background: green;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var oDiv=document.getElementById("box1");
+		//	console.log(getComputedStyle(oDiv).background);	
+		console.log(oDiv.offsetWidth)
+		
+		
+			console.log($('#box1').css('width'));
+			
+			//jq对象和原生js对象的可以共存，但是不能混用
+			//oDiv.html();
+			//('div').innerHTML;
+		</script>
+	</body>
+</html>

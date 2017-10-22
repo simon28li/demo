@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11111</li>
+			<li id="box">22222</li>
+			<li>33333</li>
+			<div>4444</div>
+		</ul>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//oLi.previousElementSibling
+			$('#box').prev('li').css('background','red');
+			
+			$('#box').next('li').css('background','green');
+		</script>
+	</body>
+</html>

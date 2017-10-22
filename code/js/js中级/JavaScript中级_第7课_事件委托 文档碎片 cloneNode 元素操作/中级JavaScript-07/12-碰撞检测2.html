@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>无标题文档</title>
+		<style>
+			.focusLi {
+				width: 500px;
+				height: 40px;
+				background: pink;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#ul1 {
+				width: 700px;
+				margin: 100px auto;
+			}
+			
+			#ul1 .dataLi {
+				width: 500px;
+				height: 40px;
+				background: yellowgreen;
+				margin: 10px 0;
+			}
+			
+			.targetLi {
+				background: blue;
+				width: 500px;
+				height: 40px;
+				margin: 10px 0;
+			}
+			
+			.elseLi {
+				background: yellow;
+				width: 500px;
+				height: 40px;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<li id="li1" class="focusLi">mydiv</li>
+		<ul id="ul1">
+			<li class="dataLi">li1</li>
+			<li class="dataLi">li2</li>
+			<li class="dataLi">li3</li>
+			<li class="dataLi">li4</li>
+			<li class="dataLi">li5</li>
+			<li class="dataLi">li6</li>
+		</ul>
+		<script>
+			var li1 = document.getElementById('li1');
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.getElementsByTagName('li');
+			
+			var disX,disY = 0;
+			
+			li1.onmousedown = function(e){
+				var e = e || window.event;
+				
+				disX = e.clientX - li1.offsetLeft;
+				disY = e.clientY - li1.offsetTop;
+				
+				li1.onmousemove = function(e){
+					var e = e || window.event;
+					
+					li1.style.left = e.clientX - disX + 'px';
+					li1.style.top = e.clientY - disY + 'px';
+				
+					//碰撞检测
+					for(var i = 0;i<aLi.length;i++){
+						//碰撞方法放入的对象是我自己操纵的对象和每个要比较的li对象
+						if( pz( li1, aLi[i] ) ){
+							//是真就变成蓝色
+							aLi[i].setAttribute("class","targetLi");
+							//是假就变成黄色
+						}else{
+							aLi[i].setAttribute("class","elseLi");
+						}
+					}
+				}
+				
+				li1.onmouseup = function(e){
+					//碰撞之后产生的对象是pzCount
+					var pzCount = 0;
+					//当前替换的对象
+					var targetNode;
+					for(var i = 0;i<aLi.length;i++){
+						if( pz( li1, aLi[i] ) ){
+							pzCount++;
+							targetNode = aLi[i];
+							aLi[i].setAttribute("class", "dataLi");
+						}else{
+							aLi[i].setAttribute("class", "dataLi");
+						}
+					}
+					
+					if(pzCount == 1){
+						li1.setAttribute("class", "dataLi");
+						oUl.replaceChild(li1, targetNode);
+					}
+					li1.onmousemove = null;
+					li1.onmouseup = null;
+				}
+			}
+			
+			//碰撞
+			function pz(fObj,tObj){
+				//拖动的对象的左边缘相对于可视区左边的距离
+				var L1 = fObj.offsetLeft;
+				//拖动的对象的右边缘相对于可视区左边的距离
+				var R1 = fObj.offsetLeft + fObj.offsetWidth;
+				//拖动的对象的上边缘相对于可视区顶部的距离
+				var T1 = fObj.offsetTop;
+				//拖动的对象的下边缘相对于可视区顶部的距离
+				var B1 = fObj.offsetTop+ fObj.offsetHeight;
+				
+				//判断的对象的左边缘相对于可视区左边的距离
+				var L2 = tObj.offsetLeft;
+				//判断的对象的右边缘相对于可视区左边的距离
+				var R2 = tObj.offsetLeft + tObj.offsetWidth;
+				//判断的对象的上边缘相对于可视区顶部的距离
+				var T2 = tObj.offsetTop;
+				//判断的对象的下边缘相对于可视区顶部的距离
+				var B2 = tObj.offsetTop+ tObj.offsetHeight;
+				
+				if(R1<L2 || L1>R2 || B1<T2 || T1>B2){
+					return false;
+				}else{
+					return true;
+				}
+			}
+		</script>
+	</body>
+</html>

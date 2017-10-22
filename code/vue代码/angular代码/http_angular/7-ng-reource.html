@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-resource.js" ></script>
+		<script>
+			var app=angular.module('app',['ngResource']);
+			app.controller('myController',['$scope','$resource',function($scope,$resource){
+				//创建请求对象
+				//Get请求发送参数
+//				var data=$resource('01-http.php',{},{
+//							get:{
+//								params:{username:'zs',pwd:1234}
+//							}					
+//						}).get();
+//				console.log(data);
+				
+				//post请求
+				var data=$resource('01-http.php',{},{
+							save:{
+								params:{username:'zs',pwd:1234}
+							}					
+					}).save();
+				console.log(data);
+			}]);
+		</script>
+	</body>
+</html>

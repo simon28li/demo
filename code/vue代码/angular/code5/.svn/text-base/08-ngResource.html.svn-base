@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-resource.js" ></script>
+		
+		<script>
+			var app=angular.module('app',['ngResource']);
+			/*
+			 ngResource插件能够更简单的进行后台数据的请求操作
+			 $resource服务提供的方法有：
+			 	get() 用于GET请求，请求的是一个对象
+			 	query() 用于GET请求，请求的是一个数组
+			 	save() 用于POST请求
+			 * 
+			 * */
+			app.controller('myController',['$scope','$resource',function($scope,$resource){
+				//请求后台 phones/phones.json 数据
+				//先得到请求对象
+				/*
+				 第一个参数：请求路径, 可以允许用:xx参数
+				第二个参数：对第一个参数中的变量的设置
+				第三个参数：对请求对象的配置
+				 * */				
+				var requestObj=$resource('phones/:name.:aaa',{aaa:'json'},{
+//					query:{
+//						//params:{username:'1111',password:'12344'}
+//					},
+//					get:{
+//						
+//					}
+				});//配置请求参数
+				//发起请求，获取数据
+				var data=requestObj.query({name:'phones'});
+				console.log(data);
+			}]);			
+		</script>
+	</body>
+</html>

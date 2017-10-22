@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--容器-->
+		<div id="box"></div>
+		<!--
+			<h3>标题</h3>
+			<ul>
+				<li>aaaaaa</li>
+				<li>bbbb</li>
+				<li>ccccc</li>
+			</ul>
+		-->
+		<!--模板-->
+		<script type="text/x-jsrender" id="theTmpl">
+			<h3>{{:title}}</h3>
+			<ul>
+				<!--#index 是所遍历到的元素下标-->
+				{{for content}}
+					<li>{{:#index+1+'：'+name}}</li>
+				{{/for}}
+			</ul>
+		</script>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jsrender.js" ></script>
+		<script>
+			var data={title:'标题',
+					content:[{name:'aaaa'},{name:'bbbbbb'},{name:'cccc'}]};
+					
+			var template=$.templates('#theTmpl');			
+			$('#box').html(template.render(data));	
+			
+		</script>
+	</body>
+</html>

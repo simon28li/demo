@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#div1{width: 200px;height: 200px; background: red; overflow: hidden;margin: 20px;}
+			#div2{width: 100px;height: 100px; background: yellow;margin: 50px; position: relative;}
+			#fixDiv,#fixDiv2{
+				width:200px;
+				height:400px;
+				background:pink;
+				position:fixed;
+				top:50%;
+				right:0;
+			}
+			#fixDiv2{
+				display: none;
+			}
+			#div5{margin-top:1500px;}
+		</style>
+
+	</head>
+	<body style="height: 2000px;">
+		<div style="height: 300px;"></div>
+
+		<div id="div1">
+			<div id="div2"></div>
+		</div>
+		<div id="fixDiv">
+			XXX
+		</div>
+		<div id="fixDiv2">
+			喜欢你
+		</div>
+
+		<script>
+			var oDiv2 = document.getElementById('div2');
+			var fixDiv = document.getElementById('fixDiv');
+			var fixDiv2 = document.getElementById('fixDiv2');
+			var div5 = document.getElementById('div5');
+
+	  		var audioElement = document.createElement('video');
+	  		audioElement.setAttribute('src', '喜欢你.mp3');
+
+
+			document.onscroll = function(){
+				console.log(oDiv2.getBoundingClientRect().top);	//可视区是变化
+				//console.log(oDiv2.getBoundingClientRect().bottom);
+				if(oDiv2.getBoundingClientRect().top < -500){
+					audioElement.play();
+					fixDiv.style.display = 'none';
+					fixDiv2.style.display = 'block';
+				}else{
+					fixDiv.style.display = 'block';
+					fixDiv2.style.display = 'none';
+				}
+			};
+
+
+			function postTop(obj){
+				var result=0;
+
+				while(obj)
+				{
+					result += obj.offsetTop;
+					obj     = obj.offsetParent;
+				}
+				return result;
+
+			};
+		</script>
+
+	</body>
+
+
+</html>

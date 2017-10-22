@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>QUnit Example</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.1.1.css">
+</head>
+<body>
+	<!--
+		单元测试：称为模块测试，是对程序模板最小单元的正确性的校验
+	-->
+  <div id="qunit"></div>
+  <!--#qunit-fixture 用于放需要测试是html元素-->
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
+  <script>
+  	//测试用例，第一个参数为测试用例名称
+  	QUnit.test( "hello test", function( assert ) {
+  		//测试脚本
+		assert.ok( 1 == "1", "Passed!" );
+		assert.equal(1,'2');
+		assert.expect(3);
+	}); 	
+  </script>
+</body>
+</html>

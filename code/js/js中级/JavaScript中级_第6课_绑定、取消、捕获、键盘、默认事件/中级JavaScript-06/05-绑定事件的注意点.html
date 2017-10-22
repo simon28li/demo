@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">aaaaa</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			/*
+			 addEventListener和attachEvent的区别:
+			 1.参数不一样
+			 2.事件加不加on
+			 3.执行的顺序不一样
+			 4.this指向的问题:在IE6-9之间都存在一个问题就是this指向的是window
+			 */
+			
+			oDiv.attachEvent('onclick',aaa);
+			
+			function aaa(){
+				this.style.background = 'red';
+				console.log(this);
+			}
+		</script>
+	</body>
+</html>

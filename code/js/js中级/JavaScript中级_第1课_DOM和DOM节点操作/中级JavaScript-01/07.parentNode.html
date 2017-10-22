@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul li{padding: 10px;}
+			span{display: block;float: right;border: 2px solid black;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1111111
+				<span>点击</span>
+			</li>
+			<li>2222222
+				<span>点击</span>
+			</li>
+			<li>3333333
+				<span>点击</span>
+			</li>
+			<li>4444444
+				<span>点击</span>
+			</li>
+		</ul>
+		<script>
+			var aSpan = document.getElementsByTagName('span');
+			
+			for(var i = 0;i<aSpan.length;i++){
+				aSpan[i].onclick = function(){
+					this.parentNode.style.background = 'pink';
+					debugger
+					//this.parentNode.parentNode.parentNode.style.background = 'pink';
+				}
+			}
+		</script>
+	</body>
+</html>

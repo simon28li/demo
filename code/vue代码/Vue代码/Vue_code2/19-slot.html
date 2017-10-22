@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<my-component>
+				<!--必须用template的scope属性来接受slot自定义的属性值-->
+				<template scope="props">
+					<p>{{props.myAttr}}</p>
+				</template>
+			</my-component>			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			Vue.component('my-component',{
+				template:'<div><slot v-bind:my-attr="count"></slot><input type="button" value="递增" @click="count=count+1"/></div>',
+				data:function(){
+					return {
+						count:0
+					}
+				}
+			});
+			
+			var vm=new Vue({
+				el:'#app'
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" placeholder="请输入公式" id="a" value="1">=<input type="text"> <input type="button" onclick="a()" >
+<script>
+  try{
+//      aler('写错了没有')             /*正常时会执行的代码*/
+  }catch(a){     /*a存放错误的参数 必须有的参数*/
+//      alert('嘎嘎 上面写错了')               /*上面代码错误后会执行的代码*/
+  }
+ function a(){
+  try{
+    var y='';
+    var x=document.getElementById("a").value;
+//    console.log(x);
+    y =eval(x);
+    document.getElementsByTagName('input')[1].value=y;
+
+}catch(a){
+    document.getElementsByTagName('input')[1].value=a;
+}
+ }
+//}
+
+</script>
+
+</body>
+</html>

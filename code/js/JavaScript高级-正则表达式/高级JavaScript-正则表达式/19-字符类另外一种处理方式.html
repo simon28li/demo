@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//转义字符
+			//    .     代表所有字符
+			//    \d    digital[0-9]         数字的,数据的     选中所有的数字
+			//    \w    word[A-Za-z0-9_]	  单词
+			//	  \s    space				 空格
+			
+			//    \D	[^0-9]			         非数字
+			//    \W    word[^A-Za-z0-9_]	  单词
+			//	  \S    ^space				 空格
+			var str = 'abcABC123 #__$%';
+			
+			var reg = /\s/g;					//在中括号里面写一个尖号代表取他的非值
+			
+			console.log(str.match(reg));
+		</script>
+	</body>
+</html>

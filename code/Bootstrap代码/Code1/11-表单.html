@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--
+				.form-inline 内联表单 
+				当屏幕尺寸足够大时，各个控件元素尽量一行排列
+			-->
+			<form class="form-inline">		
+				<!--
+					表单控件 .form-control
+					.sr-only 控制元素隐藏
+				-->
+				<label for="username" class="sr-only">用户名:</label>				
+				<input type="text" value="" id="username" class="form-control"/>
+				<label for="pwd">密码:</label>
+				<input type="password" value="" id="pwd" class="form-control"/>
+				<input type="submit" value="提交" class="btn btn-default" />
+			</form>
+			<hr />
+			<!--
+				水平排列的表单
+				 1）给form元素添加.form-horizontal
+				 2)将需要水平排列在一起的label和.form-control元素用.form-group元素包裹
+				 3）结合栅格系统实现水平排列
+			-->
+			<form class="form-horizontal">
+				<div class="form-group">
+					<!--.control-label 控制label文字的右对齐-->
+					<label for="username1" class="col-sm-2 control-label">用户名:</label>	
+					<div class="col-sm-10">
+						<input type="text" value="" id="username1" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="pwd1" class="col-md-2 control-label">密码密码密码:</label>
+					<div class="col-md-10">
+						<input type="password" value="" id="pwd1" class="form-control"/>
+					</div>
+				</div>
+				<!--复选框 .checkbox
+					.disabled 禁用
+				-->
+				<div class="checkbox disabled">
+					<label for="remeber"><input type="checkbox" id="remeber" disabled/>记住密码</label>
+				</div>
+				
+				<!--. checkbox-inline 表示内联复选按钮-->
+				<div class="checkbox checkbox-inline">
+					<label for="remeber1"><input type="checkbox" id="remeber1"/>忘记密码</label>
+				</div>
+				<div class="radio radio-inline">
+					<label for="male1">
+						<input type="radio" id="male1"/>女
+					</label>
+				</div>
+				
+				<div class="radio">
+					<label for="male">
+						<input type="radio" id="male"/>男
+					</label>
+				</div>
+				
+				<button type="submit" class="btn btn-danger">提交</button>				
+			</form>
+		</div>
+	</body>
+</html>

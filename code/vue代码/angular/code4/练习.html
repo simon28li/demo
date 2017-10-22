@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <meta charset="UTF-8">
+    <style>
+
+    </style>
+</head>
+
+<body ng-controller="ctr">
+
+
+<div>
+    <a href="#/home">home</a>
+    <a href="#/home/about1">about1</a>
+    <a href="#/home/product1">contact1</a>
+</div>
+
+<div ng-view></div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script src="angular-route.js"></script>
+<script src="jquery-1.11.1.js"></script>
+
+<script>
+
+    angular.module('app', ['ngRoute'])
+            .controller('ctr', ['$scope', function ($scope) {
+                $scope.aa = 'aaaaaaaa'
+            }])
+            .controller('subCtr', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+                $http.get('json/' + $routeParams.name + '.json').success(function (data) {
+                    $routeParams.aa='aaaaa'
+                    console.log($routeParams);
+                    $scope.title = data.title;
+                    $scope.content = data.content;
+                })
+            }])
+
+            .config(['$routeProvider', function ($routeProvider) {
+                $routeProvider
+                        .when('/home', {
+                            template: ' <h1>首页</h1><p>首页首页首页首页首页</p>'
+                        })
+                        .when('/home/:name', {
+                            template: '<h1>{{title}}</h1><p>{{content}}{{aa}}</p>',
+                            controller: 'subCtr'
+                        })
+
+                        .otherwise({
+                            redirectTo: '/home'
+                        })
+
+            }])
+
+
+</script>

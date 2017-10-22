@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--路由是用于实现单页web应用（SPA:Single Page Application)-->
+		<div>
+			<a href="#/home">主页</a>
+			<a href="#/about">关于</a>
+			<a href="#/contact">联系</a>
+		</div>
+		<!--
+			ng-view 指定路由视图的入口
+		-->
+		<div ng-view></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-route.js" ></script>
+		<script>
+			var app=angular.module('app',['ngRoute']);
+			//通过$routeProvider配置路由服务，使不同的路径切换到不同的视图
+			app.config(['$routeProvider',function($routeProvider){
+				$routeProvider
+					.when('/home',{
+						template:'<h1>{{title}}</h1><p>{{content}}</p>',
+					//	templateUrl:'views/home.html',						
+						controller:'HomeCtrl'	//指定当前路由模版的控制器对象
+					})
+					.when('/about',{
+						template:'<h2>{{title}}</h2><p>{{content}}</p>',
+						controller:'AboutCtrl'
+					});
+				
+			}]);			
+			app.controller('myController',['$scope',function($scope){
+				$scope.title='主页';
+				$scope.content='主页内容';
+			}]);	
+			
+			app.controller('HomeCtrl',['$scope',function($scope){
+				$scope.title='主页';
+				$scope.content='主页内容';
+			}]);
+			app.controller('AboutCtrl',['$scope',function($scope){
+				$scope.title='关于';
+				$scope.content='关于内容。。。。。';
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//文档加载完毕之后最快速度加载该方法的内容
+			window.onload = function(){
+				var a = document.getElementById("div1");
+				console.log(a);
+				/*
+				 	document.body
+				  	document.head
+				  	document.title
+				  	document.documentElement
+				 */
+				document.body.innerHTML = "<h1 style='color:red;'>hello world!</h1>";
+				/*
+				 window:
+				 	document
+				 	console.log
+				 	alert
+				 	Math
+				 */
+				window.console.log("123");
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

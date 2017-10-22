@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			[ng-cloak]{display: none;}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<p ng-cloak>{{name}},{{content}}</p>
+		<p ng-bind="name+','+content"></p>
+		
+		<!--将插值的变量绑定的innerHTML-->
+		<p ng-bind-template="{{name}},{{content}}"></p>
+		
+		
+		<div ng-bind="str"></div>
+		<div>{{str}}</div>
+		<!--将绑定的内容解析成html语言-->
+		<div ng-bind-html="str"></div>
+
+		<!--ng-non-bindable 告诉angular不解析{{}}表达式-->
+		<p><span ng-non-bindable>{{name}}</span> 解析之后得到的结果是:{{name}}</p>
+
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-sanitize.js" ></script>
+		
+		<script>
+			var app=angular.module('app',['ngSanitize']);
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='hello';
+				$scope.content='world';
+				
+				$scope.str='<h1>标题标题标题标题标题标题标题标题</h1><p>内容</p>';
+			}]);			
+		</script>		
+	</body>
+</html>

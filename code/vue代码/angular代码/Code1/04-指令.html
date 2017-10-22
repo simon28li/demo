@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--ng-init指令：用于初始化变量,初始化的变量是全局变量，在整个ng-app中都可以访问	
+		-->
+		<div ng-init="arr=['aaaa','bbbb','ccccc']"></div>
+		<ul>
+			<li>{{arr[0]}}</li>
+			<li>{{arr[1]}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<li ng-repeat="d in arr">{{d}}</li>
+		</ul>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

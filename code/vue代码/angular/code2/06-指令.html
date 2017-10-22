@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.firstStyle{
+				background: red;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<ul>
+			<!--
+				$index 所遍历到的元素下标
+			-->
+			<li ng-repeat="d in arr">{{$index+1}}:{{d}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<!--$first表示当前项是否是第一项(即下标是否为0),如果是则结果为true,不是则结果为false				
+			-->
+			<li ng-repeat="d in arr" class="{{$first?'firstStyle':''}}">{{$first}}:{{d}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<!--$last表示当前项是否是最后一项,如果是则结果为true,不是则结果为false				
+			-->
+			<li ng-repeat="d in arr">{{$last}}:{{d}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<!--$middle表示当前项是否是中间项,如果是则结果为true,不是则结果为false				
+			-->
+			<li ng-repeat="d in arr">{{$middle}}:{{d}}</li>
+		</ul>
+		<hr />
+		<ul>
+			<!--$even表示当前项是否是偶数项,如果是则结果为true,不是则结果为false		
+				$odd 表示当前项是否是奇数项,如果是则结果为true,不是则结果为false
+			-->
+			<li ng-repeat="d in arr">{{$odd}}:{{d}}</li>
+		</ul>
+		<hr />
+		<!--新建10个li-->
+		<ul>
+			<li ng-repeat="d in [1,2,3,4,5,6,7,9,10,11]"></li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 指令：
+			 ng-app
+			 ng-model
+			 ng-bind
+			 ng-click
+			 ng-repeat
+			 ng-init
+			 ng-controller
+			 * */
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=['aaa','bbb','cccc','dddd','eeeee'];				
+			}]);			
+		</script>
+	</body>
+</html>

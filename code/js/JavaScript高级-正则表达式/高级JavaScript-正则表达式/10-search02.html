@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abc 123 efg 456 -,s34253dsfdvzda sad\\\'';
+			
+			var reg = /\d+/g;					     //转义字符: \d    --  digital 数字的,数据的;
+			
+			console.log(str.match(reg));		//search方法返回的是第一个查到的位置
+		</script>
+	</body>
+</html>

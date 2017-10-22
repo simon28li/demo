@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="text" ng-model="person.name"/>
+		<input ng-model="person.age" />
+		<br />
+		<input type="button" value="显示name" ng-click="showName()"/>
+		<input type="button" value="显示age" ng-click="showAge()"/>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//定义控制器
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.person={name:'zhangsan',age:20};
+				
+				$scope.showName=function(){
+					alert(this.person.name)
+				}
+				$scope.showAge=function(){
+					alert(this.person.age)
+				}
+				//观察person,默认观察指定对象的值
+				$scope.$watch('person',function(newVal,oldVal){
+					console.log(newVal);
+					console.log(oldVal);
+				},true);//第三个参数表示观察对象中的各个属性值的变化
+			}]);			
+		</script>
+	</body>
+</html>

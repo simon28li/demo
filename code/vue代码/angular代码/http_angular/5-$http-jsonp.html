@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>
+			{{data}}
+		</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+//			function show(data){
+//				console.log(data);
+//			}
+				
+			angular.module('app',[])
+			.controller('myController',['$scope','$http',function($scope,$http){
+				//https://api.asilu.com/weather/?callback=fn
+//				$http({
+//					//callback=JSON_CALLBACK 表示将success函数传递给后台
+//					url:"https://api.asilu.com/weather/?callback=JSON_CALLBACK",
+//					method:'jsonp'
+//				}).success(function(data){
+//					//请求成功后回调的函数
+//					console.log(data);
+//					$scope.data=data;
+//				});
+				
+				//jsonp的简写方法：
+				$http.jsonp('https://api.asilu.com/weather/?callback=JSON_CALLBACK').success(
+					function(data){
+						console.log(data);
+					}
+				);
+				
+			}]);
+		</script>
+	</body>
+</html>

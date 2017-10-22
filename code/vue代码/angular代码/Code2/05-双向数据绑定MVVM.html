@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="text" ng-model='name'/>
+		<input type="button" value="显示" ng-click="show()"/>
+		<p>{{newName}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+		//	MVVM:自动化的双向数据数据绑定
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='hello';
+				$scope.show=function(){
+					alert(this.name);
+				}
+				//通过watch来监听$scope上的数据的变化
+				$scope.$watch('name',function(newVal,oldVal){
+					//一旦$scope.name值发生变化时，当前函数就会被回调
+					console.log(newVal+'/'+oldVal);
+					$scope.newName=newVal+',hi';
+				});			
+			}]);
+			
+			/*
+			 	Angularjs1的双向数据绑定技术的实现大致原理：
+			 		每一个数据都有一个watcher对应进行观察，这些watcher会在内部存到一个序列中。
+			 		当某种特定的事件发生时，angularjs1就会调用$digest方法，该方法会在内部对所有的watcher进行遍历，
+			 		对每一个watcher的数据进行对比，如果对应数据发生变化了就调用相应的处理进行视图的更新或者数据的修改，
+			 		从而完成双向数据绑定
+			 	
+			 * 
+			 * */
+		</script>
+	</body>
+</html>

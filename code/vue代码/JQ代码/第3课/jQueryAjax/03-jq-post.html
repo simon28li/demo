@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$.ajax({
+				url:'02-jq-ajax.php',
+				type:'post',
+				//请求参数
+				data:'username='+encodeURI('张三')+'&password=12345556',
+				success:function(result,statusText,xhr){
+					console.log(result);
+				},
+				contentType:'application/x-www-form-urlencoded',//设置发送数据到服务器时所使用的内容类型。默认是："application/x-www-form-urlencoded"
+				dataType:'json'	//预计后台返回的数据类型，根据数据类型，成功回答的 函数会按指定的方式进行解析
+								//可以是 json/xml/html/jsonp
+			
+			});
+			
+			
+		</script>
+	</body>
+</html>

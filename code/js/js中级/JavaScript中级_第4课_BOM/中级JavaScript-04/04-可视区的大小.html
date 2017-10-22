@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<script>
+			//包含浏览器滚动条的宽高,但是IE6-8不支持BOM属性
+//			alert(window.innerWidth);							  
+//			alert(window.innerHeight);
+
+			//对所有浏览器都支持(不包含滚动条的宽)
+			console.log(document.documentElement.clientWidth);    
+		</script>
+	</body>
+</html>

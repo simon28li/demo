@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li>aaaa</li>
+			</ul>
+			<div>
+				<div>cccc</div>
+				<p id="box">bbbbb</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('li').parent().css('background','red');
+			$('li').parents('div').css('background','green');
+			
+			//在自身及其祖先元素中选中一个离指定元素最近的满足条件的元素
+			$('#box').closest('div').css('background','yellow');
+		</script>
+	</body>
+</html>

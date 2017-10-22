@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div my-drag></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		
+		<script>
+			angular.module('app',[])
+			//自定义指令
+			.directive('myDrag',function(){
+				return {
+					restrict:'A',
+					link:function($scope,element,attr){
+						//DOM操作
+						//设置元素的定位属性
+						$(element).css('position','absolute');
+						
+						$(element).on('mousedown',function(ev){
+							var disX=ev.pageX-$(element).offset().left;
+							var disY=ev.pageY-$(element).offset().top;
+							
+							//鼠标按下
+							$(document).on('mousemove',function(ev){
+								var x=ev.pageX;
+								var y=ev.pageY;
+								$(element).css({
+									left:x-disX,
+									top:y-disY
+								})
+							});
+							//鼠标抬起时，取消鼠标移动事件
+							$(document).on('mouseup',function(){
+								$(document).off();//取消事件
+							});
+						});
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

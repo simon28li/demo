@@ -1,0 +1,34 @@
+<!DOCTYPE html>                                                                                                           
+<html ng-app="app">                                                                                                            
+	<head>                                                                                                                     
+		<meta charset="UTF-8">                                                                                                 
+		<title></title>                                                                                                        
+	</head>                                                                                                                    
+	<body ng-controller="myController">                                                                                        
+		                                                                                                                       
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>                                                       
+		<script>                                                                                                               
+			var app=angular.module('app',[]);                                                                                  
+			//自定义服务有四种方法                                                                                                       
+			//第一种自定义服务的方法：通过factory方法自定义服务                                                                                     
+			//第二中自定义服务的方法：通过provider方法自定义服务                                                                                    
+			//通过factory方法定义的服务无法通过对应的服务供应商进行默认配置的修改，通过provider可以对服务进行配置 
+			//第三种自定义服务的方法：通过service方法定义, 通过构造函数的形式来创建自定义服务对象的
+			//				也无法通过provider配置服务
+		    app.service('myService',function(){
+		    	//自定义服务的构造函数
+		    	this.name='hello';
+		    	this.show=function(){
+		    		alert(this.name);
+		    	}
+		    });		    
+		                                                                                                     
+			//使用自定义服务                                                                                                          
+			app.controller('myController',['$scope','myService',function($scope,myService){                                    
+				console.log(myService);  
+				myService.show();
+			}]);                                                                                                               
+		</script>                                                                                                              
+	</body>                                                                                                                    
+</html>                                                                                                                        
+                                                                                                                               

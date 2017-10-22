@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//定义Person类： name,age, show方法
+			function Person(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Person.prototype.show=function(){
+				alert(this.name);
+			}
+			
+			var p1=new Person('zhangsan','20');
+			var p2=new Person('lisi','10');
+			
+			//创建Student类:继承Person类
+			function Student(name,age){
+				Person.call(this,name,age);//构造函数式继承
+			}
+			
+			var stu=new Student('lisi',20);
+			$.extend(true,Student.prototype, Person.prototype);//拷贝继承
+			
+			stu.show();
+			/*
+			 	原型：构造函数对象上的prototype属性
+			 * 每一个函数对象都具有prototype属性，这个属性本身又是对象，称之为原型对象
+			 * 定义在prototype属性上的方法或属性可以被由该构造函数所创建出的对象以及该构造函数派生出的所有子构造函数的对象共享,因为对象可以通过原型链访问到该属性上
+			 * 
+			 * 每一个对象都有__proto__属性，该属性值指向该对象的构造函数的原型对象
+			 * 每一个对象访问某个属性时首先访问自身上有没有定义该属性，
+			 * 如果没有则通过该对象的__proto__属性访问它的构造函数的原型对象上，
+			 * 如果在它的构造函数的原型对象上也没有找到要访问的属性，
+			 * 则通过该原型对象的__proto__属性访问上一级构造函数的原型对象，
+			 * 以此类推，一直找到Object.prototype上
+			 * 这个访问的过程称为原型链访问
+			 * 
+			 * 
+			 * */
+		</script>
+	</body>
+</html>

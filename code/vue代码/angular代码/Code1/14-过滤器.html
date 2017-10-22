@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="text" ng-model="mySearch"/>
+		<ul>
+			<!--
+				filter:search 指定的参数search会去匹配数组元素对象中所有的属性值，如果有其中任何一个属性值匹配则认为该元素匹配
+			-->
+			<li ng-repeat="d in arr | filter:mySearch">
+				<strong>{{d.name}}</strong>
+				<strong>{{d.age}}</strong>
+				<strong>{{d.sex}}</strong>
+			</li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 过滤器：用于对数据进行格式化的工具
+			 过滤器的使用：
+			 	数据 | 过滤器名:参数:参数
+			 
+			 * */
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=[{name:'张三1',age:20,sex:'男'},
+							{name:'李亚男2',age:18,sex:'女'},
+							{name:'王女女3',age:40,sex:'男'},
+							{name:'刘33',age:25,sex:'女'},
+							{name:'张三1',age:20,sex:'男'}
+							];
+				$scope.mySearch='';
+			}]);
+			
+		</script>
+	</body>
+</html>

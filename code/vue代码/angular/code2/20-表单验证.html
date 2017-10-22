@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input.ng-invalid{background: red;}
+			input.ng-valid{background: green;}
+			
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<!--
+		novalidate 禁用HTML5的表单验证
+		angular的表单验证一定要结合ng-model使用
+		-->
+		<form action="http://www.baidu.com" novalidate name="myForm">
+			<input type="email" required ng-model="myEmail" ng-maxlength='5' name="myemail" ng-minlength='3' ng-pattern="/^\d+$/"/>
+			<br />			
+			<p>
+				是否通过验证：{{myForm.myemail.$valid}}	<br />
+				是否没通过验证：{{myForm.myemail.$invalid}}	<br />
+				{{myForm.myemail}}
+			</p>
+			<input type="submit" value="提交"/>
+		</form>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myEmail='zhangsan@123.com';
+			}]);			
+		</script>		
+	</body>
+</html>

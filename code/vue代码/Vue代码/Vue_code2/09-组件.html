@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--组件使用以标签对使用-->
+			<my-component></my-component>
+		</div>
+	
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//扩展Vue的选项，可以作为组件的选项
+			var myComp=Vue.extend({
+				template:"<div><h1>标题</h1></div>"
+			})
+			//组件：全局注册，局部注册
+			/*
+			 第一个参数：组件名称,命名可以camelCase,kebab-case,或TitleCase命名
+			 第二个参数：定义组件的选项			 
+			 * */
+			Vue.component('my-component',myComp);			
+			
+			var vm=new Vue({
+		el:'#app'
+		});
+		</script>
+	</body>
+</html>

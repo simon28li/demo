@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{str | myFilter:3}}</p>
+		<p>{{newStr}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义过滤器 :将字符串格式成首字母大写
+			app.filter('myFilter',function(){
+				return function(data,param1){
+					//参数data:待格式化的数据
+					//参数param1:过滤器的参数
+					//如果当前过滤器还有参数则追加在该函数参数后面					
+					//定义数据处理的逻辑，要将处理后的数据作为该函数返回值返回
+					if(param1){
+						//设置了过滤器参数
+						return data.charAt(0).toUpperCase()+data.substring(1,param1);						
+					}else{
+						return data.charAt(0).toUpperCase()+data.substring(1);
+					}					
+				}
+			});
+			
+			//自定义过滤器和内置过滤器的使用没有任何区别
+			app.controller('myController',['$scope','$filter',function($scope,$filter){
+				$scope.str='hello';
+				
+				$scope.newStr=$filter('myFilter')($scope.str,4);
+			}]);			
+		</script>
+	</body>
+</html>

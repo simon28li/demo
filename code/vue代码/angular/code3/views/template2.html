@@ -1,0 +1,7 @@
+<div ng-class="myClass">
+
+    <input ng-repeat="d in myData"  ng-value="d.title" ng-class="{active:$first}">
+
+    <div ng-repeat="d in myData"  ng-class="{active:$first}">{{d.content}}</div>
+
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			html{
+				font-size: 160px;
+			}
+			body{
+				font-size: 14px;
+			}
+			p{				
+				text-indent: 2em;
+			}
+			div:nth-of-type(1){
+				width: 160px;
+				height: 160px;
+				background: red;
+			}
+			div:nth-of-type(2){
+				font-size: 16px;
+				width: 10em;
+				height: 10em;
+				background: green;
+			}
+			div:nth-of-type(3){
+				width:1rem;
+				height: 1rem;
+				background: yellow;
+			}
+		</style>
+		<script>
+			//立即执行函数
+			(function(doc,win){
+				//获取html元素
+				var doctEl=doc.documentElement;
+				//var resizeEvent="orientationchange" in win ?'orientationchange':'resize';
+				var fn=function(){
+					//获取当前浏览器的宽度
+					var viewWidth=doctEl.clientWidth;
+					if(viewWidth>=640){
+						//非移动端
+						doctEl.style.fontSize='160px';//固定为20px
+					}else{
+						//移动端
+						doctEl.style.fontSize=viewWidth/2+'px';
+					}		
+				}
+				//监听屏幕尺寸的调整事件
+				win.addEventListener('resize',fn,false);
+				win.addEventListener('orientationchange',fn,false);
+				
+			})(document,window);			
+		</script>
+	</head>
+	<body>
+		
+		<div>160px</div>
+		<div>10em</div>
+		<div>1rem</div>
+	</body>
+</html>

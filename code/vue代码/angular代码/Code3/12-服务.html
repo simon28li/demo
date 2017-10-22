@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$timeout','$interval',function($scope,$timeout,$interval){
+				var timer=$timeout(function(){
+					alert(6666);
+				},1000);
+				//取消定时器
+				$timeout.cancel(timer);
+				
+				//setInterval()
+				var timeId=$interval(function(){
+					console.log('aaa');
+				},1000);
+				
+				$interval.cancel(timeId);//取消定时服务
+			}]);			
+		</script>
+	</body>
+</html>

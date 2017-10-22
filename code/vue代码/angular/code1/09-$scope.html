@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="myController1">
+			<p>{{content}}</p> 			<!-- hello,world -->	
+			<p>{{age}}</p>
+			
+			<div ng-controller="myController2">
+				<p>{{content}}</p>	 	<!-- 张三 -->		
+				<p>{{name}}</p>
+			</div>	
+			<p>{{sex}}</p>
+		</div>
+		
+		<script src="angular-1.4.8.js"></script>
+		<script>
+			//创建模块
+			var myApp=angular.module('app',[]);
+			
+			//创建控制器
+			myApp.controller('myController1',['$scope',function($scope){
+				$scope.content="hello,world";
+				$scope.name="I am lisi";
+			}]);
+			//创建控制器2
+			myApp.controller('myController2',['$scope','$rootScope',function($scope,$rootScope){
+				//$rootScope 根作用域
+				$scope.content='张三';
+				$scope.age=20;
+				$rootScope.sex='female';
+			}]);			
+		</script>
+	</body>
+</html>

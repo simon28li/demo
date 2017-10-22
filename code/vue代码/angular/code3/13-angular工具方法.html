@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<script>
+
+    var b = {name: 'zs', age: 10, school: {no: 10086}};
+    var a = {};
+    //a=b;//地址赋值
+
+    $.extend(true, a, b);	//浅拷贝
+    //a==b
+    //console.log(a==b);
+    a.name = 'lisi';
+
+    function show() {
+        console.log(this);
+    }
+    show.call(document);
+    show.apply(document);
+    $.proxy(show, document)();
+
+    setTimeout($.proxy(show, document), 1000);
+
+</script>
+</body>
+</html>

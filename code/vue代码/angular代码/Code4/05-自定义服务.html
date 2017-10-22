@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义服务有四种方法
+			//第一种自定义服务的方法：通过factory方法自定义服务
+			/*
+			 第一个参数：自定义服务名称
+			 第二个参数：自定义服务对象的工厂函数
+			 * */
+			app.factory('myService',function(){
+				//定义服务对象的函数
+				return function(min,max){
+					return Math.random()*(max-min)+min;
+				}
+			});			
+			app.config(['myServiceProvider',function(myServiceProvider){
+				console.log(myServiceProvider);
+			}])
+			
+			//使用自定义服务
+			app.controller('myController',['$scope','myService',function($scope,myService){
+				console.log(myService(4,10));
+			}]);
+		</script>
+	</body>
+</html>

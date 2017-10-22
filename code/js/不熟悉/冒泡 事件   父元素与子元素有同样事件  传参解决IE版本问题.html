@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #two,#three{
+            display: none;
+        }
+        #one{
+           background: #c2c2c2;
+        }
+        #two{
+           background: #98bec2;
+        }
+        #three{
+           background: #40c2c2;
+        }
+
+        ol{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<ol id="one">
+    <li>
+        菜单一
+        <ol id="two" start="2" onclick=" a(event)">  <!-- 函数传参放在js里面 低版本浏览器读取不到  所以放在这里 -->
+            <li>
+                菜单二
+                <ol id="three" start="3">
+                    <li>
+                        菜单三
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+</ol>
+    <script>
+        var one=document.getElementById('one');
+        var two=document.getElementById('two');
+        var three=document.getElementById('three');
+         one.onclick= function () {
+             if( two.style.display=='block'){
+                 two.style.display='none';
+             }else{
+                 two.style.display='block'
+             }
+         };
+
+         function a(event) {
+//             event.cancelBubble=true;  /*兼容IE*/
+             /* w3c标准  */                 /* IE浏览器  event.cancelBubble=true    */
+               /* 父元素与子元素有同样事件时候  阻止冒泡 */
+
+             event? event.cancelBubble=true:event.stopPropagation();
+             if( three.style.display=='block'){
+                 three.style.display='none';
+             }else{
+                 three.style.display='block';
+             }
+         };
+         
+         three.onclick= function () {
+             three.style.color='#00f';
+         }
+
+    </script>
+</body>
+</html>

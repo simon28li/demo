@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" onblur="a()" onchange="a()" placeholder="请输入你的收入">
+<p></p>
+<script>
+    /* 3500元以下部分免征
+     * 3500~5000的部分缴纳3%的个税
+     * 5000~9000的部分缴纳10%的个税
+     * 9000以上的部分缴纳20%的个税
+     */
+
+    function a() {
+        var x = document.getElementsByTagName('input')[0];
+        var y = x.value;
+        var tax=0;
+        if (isNaN(Number(y))) {
+            alert('不要乱来');
+        }else if(y<3500){
+            tax=0;
+        }else if(y<5000) {
+            tax=(y-3500)*0.03;
+        }else if(y<9000){
+            tax=1500*0.03+(y-5000)*0.1
+        }else {
+            tax=1500*0.03+4000*0.1+(y-9000)*0.2
+        }
+        document.getElementsByTagName('p')[0].innerHTML='您要缴纳的个人所得税是'+tax;
+    }
+
+
+</script>
+</body>
+</html>

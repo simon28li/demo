@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{position: absolute;}
+			#box .active{background: red;}
+			#box div{width:200px;height:200px;display: none;border: 1px solid black;}
+			.left-span{position: absolute;left: 0;top:100px;}
+			.right-span{position: absolute;right: 0;top:100px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="1" class="active"/>
+			<input type="button" value="2"/>
+			<input type="button" value="3"/>
+			
+			<div style="display: block;">11111</div>
+			<div>22222</div>
+			<div>33333</div>
+			
+			<span class="left-span">←</span>
+			<span class="right-span">→</span>
+		</div>
+		<script>
+			//1.选择所有对象
+			var oParent = document.getElementById('box');
+			var aInput = oParent.getElementsByTagName('input');
+			var aDiv = oParent.getElementsByTagName('div');
+			var aSpan = oParent.getElementsByTagName('span');
+			var iNow = 0;
+			var timer = null;
+			//2.绑定事件
+			//第一个for循环,在文档从上到下初始化给所有的按钮上了个功能,可以点击onclick
+			//而第二个for循环触发的时机是,当点击某个input的时候触发.点击的时候此时的i已经是3
+			for(var i = 0;i<aInput.length;i++){
+				//初始化
+				aInput[i].index = i;
+				
+				aInput[i].onclick = function(){
+					for(var j = 0;j<3;j++){
+						aInput[j].className = '';
+						aDiv[j].style.display = 'none';
+					}
+					this.className = 'active';
+					aDiv[this.index].style.display = 'block';
+				}
+			}
+			
+			//点击后向左 2-1 1-0 0-2
+			aSpan[0].onclick = function(){
+				if(iNow == 0){
+					iNow = aInput.length - 1;
+				}else{
+					iNow --;
+				}
+				for(var j = 0;j<aInput.length;j++){
+					aInput[j].className = '';
+					aDiv[j].style.display = 'none';
+				}
+				aInput[iNow].className = 'active';
+				aDiv[iNow].style.display = 'block';
+			}
+			
+			//点击后向右0-1 1-2 2-0
+			aSpan[1].onclick = function(){
+				if(iNow == aInput.length - 1){
+					iNow = 0;
+				}else{
+					iNow ++;
+				}
+				for(var j = 0;j<aInput.length;j++){
+					aInput[j].className = '';
+					aDiv[j].style.display = 'none';
+				}
+				debugger
+				aInput[iNow].className = 'active';
+				aDiv[iNow].style.display = 'block';
+			}
+			
+			timer = setInterval(function(){
+				if(iNow == aInput.length - 1){
+					iNow = 0;
+				}else{
+					iNow ++;
+				}
+				for(var j = 0;j<aInput.length;j++){
+					aInput[j].className = '';
+					aDiv[j].style.display = 'none';
+				}
+				aInput[iNow].className = 'active';
+				aDiv[iNow].style.display = 'block';
+			}, 500);
+			
+			oParent.onmouseover = function(){
+				clearInterval(timer)
+			}
+			oParent.onmouseout = function(){
+				timer = setInterval(function(){
+					if(iNow == aInput.length - 1){
+						iNow = 0;
+					}else{
+						iNow ++;
+					}
+					for(var j = 0;j<aInput.length;j++){
+						aInput[j].className = '';
+						aDiv[j].style.display = 'none';
+					}
+					aInput[iNow].className = 'active';
+					aDiv[iNow].style.display = 'block';
+				}, 500);
+			}
+		</script>
+	</body>
+</html>

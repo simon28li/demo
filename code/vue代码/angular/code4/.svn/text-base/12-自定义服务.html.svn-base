@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义服务的第二种方式：通过provider方法定义
+			app.provider('myService',function(){
+				//返回的是服务供应商 myServiceProvider
+				return {
+					name:'zhangsan',
+					$get:function(){
+						//用于创建服务对象
+						return {
+							name:this.name,
+							show:function(){
+								alert(this.name);
+							}
+						}
+					}
+				}
+			});
+			
+			//配置myService服务 --->通过服务供应商配置
+			app.config(['myServiceProvider',function(myServiceProvider){
+				console.log(myServiceProvider);
+				myServiceProvider.name='helloworld';
+				
+			}]);
+			
+			//自定义服务和内置服务的使用完全一样
+			app.controller('myController',['$scope','myService',function($scope,myService){
+				console.log(myService);
+			}]);
+			
+			
+		</script>
+	</body>
+</html>

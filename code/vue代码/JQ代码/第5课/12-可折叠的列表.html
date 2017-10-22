@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="jquery.mobile-1.3.2.css" />
+	</head>
+	<body>
+		<!--基本页面-->
+		<div data-role='page'>
+			<div data-role='header' data-theme='b'>
+				<h6>页面标题</h6>
+			</div>
+			<div data-role='content'>
+				<!--设置可折叠组件-->
+				<div data-role='collapsible' data-collapsed='true'>
+					<!--元素必须是标题元素-->
+					<h6>A</h6>
+					<!--data-role='listview' 指定列表-->
+					<ul data-role='listview'>
+							<li data-icon='search'>
+								<a href="#">Admin</a>
+							</li>
+							<!--data-icon为false表示去掉图标-->
+							<li data-icon='false'>
+								<a href="#">Alla</a>
+							</li>
+							<li>
+								<a href="#">Addda</a>
+							</li>
+					</ul>	
+					<p>aaaaa</p>
+				</div>				
+			</div>
+			<div data-role='footer'>
+				<h1>页面底部</h1>				
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jquery.mobile-1.3.2.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$.ajax({
+				url:'04-jq-jsonp.php',
+				type:'get',
+				data:'username=王五&password=124455',
+				success:function(result,status,xhr){
+					console.log(result);
+				},
+				dataType:'jsonp',
+				jsonp:'callback'	//指定后台的接收回调函数的key名
+					//指定前端回调的函数名，如果不指定，则jq会回调成功请求后的回调函数
+			});
+			
+			
+			
+			//callback=jQuery111105017323684878647_1487923260404
+			//;jQuery111105017323684878647_1487923260404({"name":"\u5f20\u4e09","password":"124455"});
+		</script>
+	</body>
+</html>

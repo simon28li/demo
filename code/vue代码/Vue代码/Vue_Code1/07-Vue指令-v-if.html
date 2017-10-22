@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box,.box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			.box1{
+				background: green;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+				v-if 控制元素的显示和隐藏，通过DOM操作控制的
+				v-if
+				v-else  如果if不执行，则执行else分支
+				如果切换的视图模版中的元素相同，默认将元素进行复用,不会重头渲染
+			-->			
+			<input type="checkbox" v-model='flag'/>
+			
+			<div class="box" v-if='flag'></div>
+			<div class="box1" v-else></div>
+			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					flag:true
+				}
+			});
+			
+		</script>
+	</body>
+</html>

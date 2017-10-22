@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="addValue"/><input type="button" value="添加" id="addBtn"/>
+		<table id='tab1' border="1">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>小明</td>
+					<td>14</td>
+				</tr>
+				<tr>
+					<td>小张</td>
+					<td>26</td>
+				</tr>
+				<tr>
+					<td>小红</td>
+					<td>28</td>
+				</tr>
+				<tr>
+					<td>小王</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+			var oInput =document.getElementById("addBtn");
+			var otext = document.getElementById('addValue');
+			var oTab = document.getElementById('tab1');
+			console.log(oTab.tBodies[0].rows[2].cells[1].innerHTML);
+			var oTbody = oTab.getElementsByTagName('tbody')[0];
+			
+			setColor();
+			
+			oInput.onclick = function(){
+				var str = otext.value;
+				addData(str)
+			}
+			
+			/**
+			 * 根据拿到的string将内容添加到表格中,但是string的内容要放到两个td里面,我们根据空格来辨识
+			 * @param {Object} str
+			 */
+			function addData(str){
+				var arr = str.split(' ');
+				
+				var tr = document.createElement('tr');
+				var td = document.createElement('td');
+				td.innerHTML = arr[0];
+				tr.appendChild(td);
+				
+				var td2 = document.createElement('td');
+				td2.innerHTML = arr[1];
+				tr.appendChild(td2);
+				
+				oTbody.appendChild(tr);
+				setColor();
+			}
+			
+			/**
+			 * 设置表格的颜色
+			 */
+			function setColor(){
+				for(var i = 0;i<oTbody.rows.length;i++){
+					if(i%2 == 0){
+						oTbody.rows[i].style.background = 'pink';
+					}else{
+						oTbody.rows[i].style.background = 'gold';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

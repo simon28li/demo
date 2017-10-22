@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="background: pink; color: yellow;">div<span>我是span</span></div>
+		<span id="span1">span</span>
+		<script>
+			var oSpan = document.getElementById('span1');
+			var oDiv = document.getElementById('div1');
+			
+			oDiv.onclick = function(){
+				console.log('click div!');
+			}
+			/*
+			oDiv.addEventListener('click',function(){
+				console.log('click div!');
+			},false);
+			*/
+			//cloneNode:克隆节点     true:克隆所有子孙节点
+			//				   	  false:仅克隆当前节点
+			//默认情况下,克隆节点是不会克隆事件操作行为;
+			//克隆节点可以有事件操作行为
+			var cloneDiv = oDiv.cloneNode(true);
+			cloneDiv.onclick = oDiv.onclick;
+			oSpan.appendChild(cloneDiv);
+			
+		
+			/*
+			cloneDiv.addEventListener('click',function(){
+				console.log('click div!');
+			},false);
+			*/
+		</script>
+	</body>
+</html>

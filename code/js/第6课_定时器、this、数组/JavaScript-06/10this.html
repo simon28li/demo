@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">123</div>
+		<div id="div2">123</div>
+		<div id="div3">123</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var oDiv3 = document.getElementById('div3');
+			
+//			oDiv.onclick = function(){
+//				this.style.background = 'pink';			//this  ->  oDiv
+//			}
+			
+			/*
+			oDiv.onclick = show
+			function show(){
+				this.style.background = 'pink';
+			}
+			*/
+			/*
+			oDiv.onclick = show;		//this -> oDiv
+			
+			oDiv.onclick = function(){
+				show();					//this -> Window  下面的this会报错,因为是window
+			}
+			*/
+			/*
+			function show(){
+				console.log(this);
+				this.style.background = 'pink';
+			}
+			*/
+			/*
+			oDiv.onclick = function(){
+				var T = this;							 //this -> oDiv
+				setTimeout(function(){
+					//this.style.background = 'pink';    //this ->  Window
+					T.style.background = 'pink';		 //T    ->  oDiv
+					//oDiv.style.background = 'pink';
+				}, 1000);
+			}
+			*/
+			oDiv.onclick = function(){
+				//setTimeout("show('"+ oDiv +"')",1000);
+				//setTimeout("show(oDiv)", 1000);
+				setTimeout('show('+ this.id +')',1000);
+			}
+			
+			oDiv2.onclick = function(){
+				setTimeout('show('+ this.id +')',1000);
+			}
+			
+			oDiv3.onclick = function(){
+				setTimeout('show('+ this.id +')',1000);
+			}
+			
+			function show(o){
+				console.log(o);
+				o.style.background = 'pink';
+			}
+		</script>
+	</body>
+</html>

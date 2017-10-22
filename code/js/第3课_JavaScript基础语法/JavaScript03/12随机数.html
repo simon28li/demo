@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />到
+		<input type="text" />
+		<input type="button" value="点击" />
+		<!-- 显示区域 -->
+		<div id="div1"></div>
+	</body>
+	<script>
+		
+		function getRandom(min, max){
+			return Math.random() * (max - min) + min;
+		}
+		
+		var aInput = document.getElementsByTagName('input');
+		var oDiv = document.getElementById("div1");
+		
+		aInput[2].onclick = function(){
+			console.log(aInput[0].value);   //2
+			console.log(aInput[1].value);   //5   
+			var min = +aInput[0].value;
+			var max = +aInput[1].value;
+			debugger
+			//大的值减去小的值 再加上最小值
+			var result = getRandom(min, max);
+			oDiv.innerHTML = result;	
+		}
+		
+	</script>
+</html>

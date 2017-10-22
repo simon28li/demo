@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var classStr = 'border-bottom-width';		//borderBottomWidth
+			//border-bottom-width -> [border,bottom,width] -> [border,Bottom,Width] -> borderBottomWidth
+			// arr = ['border','bottom','width']
+			var arr = classStr.split('-');
+			for(var i = 1;i<arr.length;i++){
+				//arr = ['border', 'Bottom', 'Width']
+				arr[i] = arr[i].substring(0, 1).toUpperCase() + arr[i].substring(1);
+			}
+			var result = '';
+			result = arr.join('');
+			console.log(result);
+		</script>
+	</body>
+</html>

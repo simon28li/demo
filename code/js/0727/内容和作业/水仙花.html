@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /* 用字符串 */
+    for (var i = 100; i < 999; i++) {
+        var s1 = String(i); /*把s1变成字符串 就可以通过下标 取得字符串中的字符 */
+        var s2=s1[0]*s1[0]*s1[0]+s1[1]*s1[1]*s1[1]+s1[2]*s1[2]*s1[2];
+        if(s2==i){
+            document.write(i+'<br>');
+        }
+    }
+
+
+document.write('------------------------------'+'<br>');
+  /*用取整 取模*/
+    for (var i = 100; i < 999; i++) {
+        var x=parseInt(i/100);         /*取到百位数*/
+//      var x1=parseInt(i/10)%10;       /*取到十位数*/
+        var x1=parseInt(i%100/10);     /*取到十位数*/
+        var x2=parseInt(i%10);         /*取到个位数*/
+
+        if(i==x*x*x+x1*x1*x1+x2*x2*x2){
+              document.write(i+'<br>');
+        }
+    }
+
+
+document.write('------------------------------'+'<br>');
+    for (var i = 1000; i < 9999; i++) {
+        var s = String(i); /*把s1变成字符串 就可以通过下标 取得字符串中的字符 */
+        var s1=0;
+        for(var j=0;j<s.length;j++){
+            s1=s1+s[j]*s[j]*s[j]*s[j];
+        }
+        if(s1==i){
+            document.write(i+'<br>');
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

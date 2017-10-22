@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>8</title>
+</head>
+
+<body>
+<div id="app">
+    <p>
+        <!--设置路由导航-->
+        <router-link to="/home">主页</router-link>
+        <!--
+            通过name属性匹配路由，等效于：
+        <router-link to="/about">主页</router-link>
+        通过path属性匹配路由
+        -->
+        <router-link :to="{name:'About'}">关于</router-link>
+        <router-link to="/home/contact">home-联系页面</router-link>
+
+        <!--
+            下面的写法等效于:
+            <router-link to="/home/us">home-我们页面</router-link>
+        -->
+        <router-link :to="{name:'subPage',params:{id:'us'}}">home-我们页面</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<!--引入Vue-Router-->
+<script type="text/javascript" src="vue-router.js"></script>
+<script>
+    //创建路由对象
+    const router = new VueRouter({
+        //配置路由
+        routes: [
+            {	//第一个路由的配置
+                path: '/home',
+                component: {
+                    template: '<div><h1>home页面</h1><p>主页内容</p></div>'
+                }
+            },
+            {
+                path: '/about',
+                name: 'About',	//给当前的路由命名
+                component: {
+                    template: '<div><h1>about页面</h1><p>关于内容</p></div>'
+                }
+            },
+            {
+                path: '/home/:id',
+                name: 'subPage',
+                component: {
+                    template: '<div><h1>{{$route.params.id}}页面</h1><p>{{$route.params.id}}内容....</p></div>'
+                }
+
+            }
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        router	//挂载路由
+    });
+
+
+</script>
+</body>
+</html>

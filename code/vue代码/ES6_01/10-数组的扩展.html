@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str='ab1234def';
+			console.log(Array.from(str));
+			console.log(Array.of('abc','123','456','xyz'));
+			
+			var a=[1,5,6,8,20,9,10,3];
+			//查找数组中满足函数所设置的条件的第一个元素
+			var b=a.find(function(val,index){
+				return val%2==0;				
+			});
+			console.log(b);
+			
+		</script>
+	</body>
+</html>

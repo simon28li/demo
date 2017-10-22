@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app>
+			<input type="text" ng-model="name"/>
+			<p>{{name}}</p>
+		</div>
+		
+		<div id="box">
+			<input type="text" ng-model="content"/>
+			<p>{{content}}</p>
+		</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);//创建模块
+			
+			var oBox=document.getElementById("box");
+			
+			//动态注册模块，一个页面可以注册多个模块
+			/*
+			第一个参数：该模块注册的元素对象
+			第二个参数：注册在指定元素上的模块列表
+			 * */
+			angular.bootstrap(oBox,['app']);//等效于在 <div id="box" ng-app='app'></div>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="text" /><input type="button" value="添加" />
+		<ul id="ul1">
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+		</ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.getElementsByTagName('li');
+			var aInput = document.getElementsByTagName('input');
+			//事件委托: 利用冒泡的原理实现
+			//1.提高性能(不需要循环操作)
+			//2.后续添加元素直接拥有事件行为
+			oUl.addEventListener('click',change,false);
+			
+			aInput[1].onclick = function(){
+				var oLi = document.createElement('li');
+				var oText = document.createTextNode(aInput[0].value);
+				oLi.appendChild(oText);
+				oUl.appendChild(oLi);
+			}
+			
+			function change(e){
+				var e = e || window.event;
+				//target 事件源 : event对象的属性
+				var target = e.target || e.srcElement;
+				target.style.background = 'pink'
+			}
+		</script>
+	</body>
+</html>

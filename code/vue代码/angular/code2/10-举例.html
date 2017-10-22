@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<div>
+			<input type="button" ng-value="data" ng-disabled='flag'/>
+			<input type="text" ng-value="data" ng-readonly='flag'/>
+		</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$interval',function($scope,$interval){
+				var count=5;
+				$scope.data=count+'s';
+				$scope.flag=true;
+				
+				//启动定时器，将数字递减，当递减为0停止定时器
+//				var timer=setInterval(function(){
+//					count--;
+//					$scope.data=count+'s';
+//					if(count==0){
+//						//清除定时器
+//						clearInterval(timer);
+//						$scope.data='可以点击';
+//						$scope.flag=false;
+//						alert($scope.data);
+//					}
+//				},1000);
+				var timer=$interval(function(){
+					count--;
+					$scope.data=count+'s';
+					if(count==0){
+						//清除定时器
+						$interval.cancel(timer);
+						$scope.data='可以点击';
+						$scope.flag=false;
+					}
+				},1000);
+				
+			}]);			
+		</script>
+	</body>
+</html>

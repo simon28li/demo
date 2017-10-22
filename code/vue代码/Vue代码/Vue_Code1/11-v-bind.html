@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+				Vue中元素的属性不能使用{{}}设置
+				如果要设置属性的值为变量，则需要用v-bind将变量绑定属性
+				v-bind必须要接收一个参数，以指定要绑定的标签属性
+			-->
+			<div v-bind:class="cls"></div>
+			<input type="button" value="按钮" v-bind:disabled="flag"/>
+			<br />
+			<a v-bind:href="mHref">百度</a>
+			<hr />
+			<hr />
+			<!--v-bind:xxx 可以简写成 :xxxx-->
+			<div :class="cls"></div>
+			<input type="button" value="按钮" :disabled="flag"/>
+			<a :href="mHref">百度</a>
+			<hr />
+			<hr />
+			<!--
+				v-bind针对class和style属性进行专门的增强
+			-->
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					cls:'box',
+					flag:true,
+					mHref:'http://www.baidu.com'
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

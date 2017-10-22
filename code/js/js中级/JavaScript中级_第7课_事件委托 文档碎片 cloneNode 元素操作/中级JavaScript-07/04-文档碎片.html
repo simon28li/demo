@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1"></ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+//			for(var i = 0;i<1000;i++){
+//				var oLi = document.createElement('li');
+//				oLi.innerHTML = i;
+//				oUl.appendChild(oLi);
+//			}
+			
+			var oFrag = document.createDocumentFragment();	//创建一个文档碎片
+			
+			for(var i = 0;i<1000;i++){
+				var oLi = document.createElement('li');
+				oFrag.appendChild(oLi);
+			}
+			oUl.appendChild(oFrag);
+		</script>
+	</body>
+</html>

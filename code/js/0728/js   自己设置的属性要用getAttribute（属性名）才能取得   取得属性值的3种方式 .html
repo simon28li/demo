@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="checkbox" checked="checked">
+    <input type="checkbox" checked="checked">
+    <input type="checkbox" checked="checked">
+</div>
+
+<script>
+
+    /* 通过属性选择节点 */
+    var input=document.querySelectorAll(' div input[checked=checked]');
+    console.log(input);  /* [input, input, input] */
+
+    /* 取得属性值  3种方法 */
+    var checked1=document.getElementsByTagName('input')[0]['checked'];
+    var checked2=document.getElementsByTagName('input')[0].checked;
+    var checked3=document.getElementsByTagName('input')[0].getAttribute('checked');
+
+    /* 取得属性和值 */
+    var checked4=document.getElementsByTagName('input')[0].getAttributeNode('checked');
+    console.log(checked1);  /*true*/
+    console.log(checked2);  /*true*/
+    console.log(checked3);  /*checked*/
+    console.log(checked4);  /* checked='checked' */
+
+
+    /* 先设置属性 然后再取值 */
+    document.getElementsByTagName('input')[0].setAttribute('a','a');
+    /* 娶不到 */
+    var a1=document.getElementsByTagName('input')[0]['a'];
+    /* 娶不到 */
+    var a2=document.getElementsByTagName('input')[0].a;
+    /*取到了  总结自己设置的属性要 getAttribute（）才能取到 */
+    var a3=document.getElementsByTagName('input')[0].getAttribute('a');
+
+
+    console.log(a1);  /*undefined*/
+    console.log(a2);  /*undefined*/
+    console.log(a3);  /* a */
+
+
+</script>
+</body>
+</html>

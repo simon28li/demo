@@ -1,0 +1,21 @@
+angular.module('myTab',[])
+.directive('myTab',function(){
+	return {
+		restrict:'EA',
+		templateUrl:'views/08-tab.html',
+		replace:true,
+		scope:{
+			myData:'=',
+			myClass:'@'
+		},
+		link:function($scope,ele,attr){
+			$(ele).delegate('input','click',function(ev){
+				//代理者：ev.delegateTarget
+				//委托者：ev.target
+				$(ev.target).addClass('active').siblings('input').removeClass('active');
+				$(ev.delegateTarget).find('div').eq($(ev.target).index())
+					.addClass('active').siblings('div').removeClass('active');
+			});
+		}
+	}				
+})

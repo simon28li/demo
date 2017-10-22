@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+	ng-app指令:指定angular应用的入口模块
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app>
+			<!--
+				ng-model指令：将值指定的变量绑定到所在元素是输入值
+			-->
+			<input type="text" ng-model="text"/>
+			<!--
+				{{表达式}} (表达式是变量和运算符组成的式子)				
+			-->
+		<!--	<p>{{text}}</p>-->
+			<!--ng-bind指令：作用是将指定表达式的值绑定该元素的innerText中-->
+			<p ng-bind="text"></p>
+		</div>
+	<!--	
+		<input type="text" ng-model="name"/>
+		<p>{{name}}</p>-->
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

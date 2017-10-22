@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{data.username}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//服务就是对象或者函数，将逻辑操作进行功能封装，在控制器、过滤器、自定义指令、另一个服务中使用
+			//$http 用于进行ajax或jsonp请求的函数
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope','$http',function($scope,$http){
+				//第一个参数：请求路径
+				//第二个参数：发送给服务器的数据
+				//第三个参数：设置请求头部
+				$http.post('01-http.php','username=张三&pwd=1234556012334',{
+					headers:{
+						'content-type':'application/x-www-form-urlencoded'	//设置参数内容类型
+					}
+				})
+				.success(function(data){
+					console.log(data);
+					$scope.data=data;
+				});
+			}]);
+			
+			//跨域：
+			//解决方案：jsonp
+			//其他解决方案：服务器代理，XMLHttpRequest,window.name/document.domain
+		</script>
+	</body>
+</html>

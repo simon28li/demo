@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="text" ng-model="search"/>
+		
+		<ul ng-show="items.length>0">
+			<li ng-repeat="d in items">{{d}}</li>
+		</ul>
+		
+		<!--https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=angularjsa&cb=fn-->
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			angular.module('app',[])
+			.controller('myController',['$scope','$http',function($scope,$http){
+				$scope.search='';
+				$scope.items=[];
+				var timer=null;
+				$scope.$watch('search',function(newVal,oldVal){
+					clearTimeout(timer)
+					timer=setTimeout(function(){
+						//http请求：jsonp请求
+						$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+newVal+'&cb=JSON_CALLBACK')
+							.success(function(data){
+								console.log(data);
+								$scope.items=data.s;
+						});
+					},300);				
+				})
+				
+			}]);			
+		</script>
+	</body>
+</html>

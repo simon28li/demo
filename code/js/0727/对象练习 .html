@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p></p>
+<script>
+    //    String Date Array    /*   可以实例化  */
+
+    function a(){
+        var d=new Date();
+
+        var d1= d.getFullYear();
+        var d2= d.getMonth()+1;
+        var d3= d.getDate();
+        var d4= d.getHours();
+        var d5= d.getMinutes();
+        var d6= d.getSeconds();
+        document.getElementsByTagName('p')[0].innerHTML = d1+'年'+d2+'月'+d3+'日'+d4+'时'+d5+'分'+d6+'秒';
+//   document.write(d1+'年'+d2+'月'+d3+'日'+d4+'时'+d5+'分'+d6+'秒')  /* 读取的是电脑上的时间  可以改变*/
+    }
+
+    setInterval('a()',500); /* 500单位毫秒 */
+
+</script>
+</body>
+</html>

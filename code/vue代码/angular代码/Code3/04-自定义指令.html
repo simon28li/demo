@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--
+		<div ng-controller="myController">
+			<hello-web></hello-web>
+		</div>
+		<div ng-controller="myController1">
+			<div hello-web></div>
+		</div>
+	-->
+		<div hello-web name="zhangsan"></div>
+		<hello-web name="lisi"></hello-web>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('helloWeb',function(){
+				//返回值即为自定义指令对象
+				return {
+					//限定指令的使用方式
+					restrict:'ECMA',	//E->标签，C->类，M->注释，A->属性
+					template:'<div><input ng-model="name"/><strong>{{name}}</strong></div>',	//定义自定义指令的视图模板
+					replace:true,
+					scope:{
+							//当前指令的作用域对象
+								//当scope值为true表示会创建自己的作用域，同时继承父级作用域
+								//当scope值为{}时表示会创建自己的作用域，和父级作用域没有关系，称之为隔离作用域
+						name:'@'		//绑定策略：@,=, &
+						
+					},	
+					controller:['$scope',function($scope){					
+					}],
+				}	
+			});	
+			
+		</script>
+	</body>
+</html>

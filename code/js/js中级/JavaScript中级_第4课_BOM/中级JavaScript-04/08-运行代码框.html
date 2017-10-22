@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="t1">
+			
+		</textarea>
+		<input id="btn1" type="button" value="运行新窗体"/>
+		<script>
+			var oInput = document.getElementById('btn1');
+			var oT = document.getElementById('t1');
+			var newWindow;
+			
+			oInput.onclick = function(){
+				newWindow = window.open('');
+				
+				//<h1 style="color:red">今天天气真好啊</h1>
+				newWindow.document.write(oT.value);
+				//document.write一个会重新构建dom节点的结构,所以之前的结构都没有了 去做一个新页面
+				//innerHTML 可以在某对象或者body内输出内容而不影响其他对象
+				//oT.value
+			}
+		</script>
+	</body>
+</html>

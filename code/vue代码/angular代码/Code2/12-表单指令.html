@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background:red}
+			.green{background:green}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<!--
+		<select>
+			<option ng-bind="arr[0]"></option>
+			<option ng-selected="true" ng-value="arr[1]">{{arr[1]}}</option>
+			<option>{{arr[2]}}</option>
+		</select>
+		-->
+		
+		<select ng-options="d.name for d in arr" ng-model="aa"></select>
+		<p>{{aa.name}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+//				$scope.arr=['aaaa','bbbb','cccc'];
+				$scope.arr=[{
+					name:'zhangsan',
+					age:10
+				},{
+					name:'lisi',
+					age:20
+				}];
+//			
+				$scope.aa=$scope.arr[1];
+			}]);
+		</script>
+	</body>
+</html>

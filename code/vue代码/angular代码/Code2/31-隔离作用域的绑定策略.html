@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				background: red;
+			}
+			.box2{
+				background: green;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<div hello-web my-class="myCls1"></div>
+		<hello-web my-class='myCls2'></hello-web>
+		<section hello-web ></section>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//自定义指令
+			/*
+			 第一个参数：自定义指令名,见名知意
+			第二个参数：用于创建指令的函数
+			 * */
+			app.directive('helloWeb',function(){
+				//自定义指令
+				return {
+					restrict:'AE',	//用于指定当前指令的使用方式，指令的使用方式有属性、标签、类、注释	
+					template:'<div><input ng-model="name"/><strong class="{{myClass}}">{{name}}</strong></div>',				
+					replace:true,	//用模版的根元素取代原有的父元素
+					//定义当前指令视图的作用域,如果该值为false表示没有自己的作用域，如果是true表示有自己的独立作用域
+					//独立作用域：创建自身独立的作用域并且继承父级作用域
+					//当scope属性的值为{}时，这时的作用域称为隔离作用域
+					//隔离作用域：仅仅创建自身的作用域，和父级作用域无关
+					scope:{
+						//绑定策略：@、=,&	
+						//      @绑定的是指定属性值中的字符串
+						//		=绑定的是指定属性值中的变量
+					
+						//变量名和标签属性名一致时，后面的绑定的属性名可以省略
+						myClass:'='	//等效于 myClass:'=myClass'
+						
+					},	
+					controller:['$scope',function($scope){
+						$scope.name='lisi';
+						
+					}]
+				}
+			});	
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='hello';
+				$scope.myCls1='box1';
+				$scope.myCls2='box2';
+			}]);
+		</script>
+	</body>
+</html>

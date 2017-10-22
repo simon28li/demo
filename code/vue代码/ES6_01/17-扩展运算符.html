@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function show(...vals){//rest参数
+				console.log(vals);
+				var sum=0;
+				
+				for(var i=0;i<vals.length;i++){
+					sum+=vals[i];
+				}
+				return sum;
+				
+			}
+	//		console.log(show(1,2,3));//
+			
+			//...[]扩展运算符，将数组中的各个元素展开成元素
+//			console.log(...[1,2,3]);//1,2,3
+//			
+			var nums=[3,4,5,6];
+			console.log(show(...nums));
+			
+		</script>
+	</body>
+</html>

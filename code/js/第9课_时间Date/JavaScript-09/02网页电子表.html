@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			var timer = null;
+
+			var oDiv = document.getElementById('div1');
+			timer = setInterval(function(){
+				var oDate = new Date();
+			
+				var year = oDate.getFullYear();			//得到年
+	
+				var month = oDate.getMonth() + 1;		//得到月
+				
+				var date = oDate.getDate();				//得到天
+	
+				var weekDay = ["星期日", "星期一", "星期二", "星期三" ,"星期四", "星期五", "星期六"];
+				var day = weekDay[oDate.getDay()];
+	
+				var h = oDate.getHours();               //得到时
+				var m = oDate.getMinutes();             //得到分
+				var s = oDate.getSeconds();             //得到秒
+				
+				var str = year + '年' + month + '月' + date + '日' + day + ' ' + timeStyle(h) + ':' + timeStyle(m) + ':' + timeStyle(s);
+				oDiv.innerHTML = str;
+			},1000);
+			
+			/*
+			 * 本方法用来规整当前时分秒是个位数的时候,在他的前面新增一个0
+			 */
+			function timeStyle(num){
+				if(num<10){
+					return "0" + num;
+				}
+				return num;
+			}
+			
+		</script>
+	</body>
+</html>

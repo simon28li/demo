@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+
+</head>
+<body>
+
+<script type="text/javascript">
+    /*    function t1(){
+     console.debug(this);//此时this表示window 是window调用了t1()
+     }
+     t1();
+     */
+</script>
+
+<script type="text/javascript">
+
+    /*
+     var box1=new Object();
+     box1.width=200;
+     box1.height=200;
+     var box2={
+     width:200,
+     height:200
+     };
+     var box3= new Object();
+     box3.f=1;
+     box3.d=6;
+
+     console.debug(box2);
+     console.debug(box3)
+     */
+</script>
+
+
+<div id="d1" class="c1"></div>
+<script type="text/javascript">
+
+    c = document.getElementsByClassName('c1');
+    c.ff = 22;
+    var d = document.getElementById('d1'); // d对象属性可以随意扩展
+    d.tx1 = 2;  //对d对象进行扩展
+
+    console.debug(c.ff);
+    console.debug(c);
+    console.debug(d.tx1);
+    console.debug(d);
+
+
+</script>
+
+
+</body>
+</html>

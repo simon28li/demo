@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p>{{name}}</p>
+		</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var myApp=angular.module('app',[]);
+			//通过模块上的run方法，直接将变量挂载在根作用域上
+			//$rootScope一个应用中只有一个，内部会创建单例（唯一的对象）
+			myApp.run(['$rootScope',function($rootScope){
+				$rootScope.name='zhangsan';
+			}]);
+		</script>
+	</body>
+</html>

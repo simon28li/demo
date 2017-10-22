@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 800px;height:33px;background-image: url(img/line.gif);}
+			body{height: 2000px;}
+			.normalNav{position: absolute; top:300px;}
+			.topNav{position: fixed;top: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="div1" class="normalNav"></div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			var nTop = oDiv.offsetTop;
+			window.onscroll = function(){
+
+				//oDiv.offsetTop 是oDiv到达顶部的距离 并且是个数字
+				//getScrollY 是这个页面滚动距离
+				if(nTop < getScrollY()){
+					oDiv.setAttribute('class','topNav');
+					//oDiv.style.top = getScrollY() + 'px';
+				}else{
+					oDiv.setAttribute('class','normalNav');
+					//oDiv.style.top = nTop + 'px';
+				}
+			}
+			
+			function getScrollY(){
+				return window.pageYOffset || document.documentElement.scrollTop;
+			}
+		</script>
+	</body>
+</html>

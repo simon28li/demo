@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<a href="http://www.baidu.com">百度</a>
+		<a href="{{myHerf}}">QQ</a>
+		<!--
+			ng-href指令 代替href属性，ng-href指令的值和href属性的值完全一样
+		-->
+		<a ng-href="{{myHerf}}">腾讯</a>
+		<!-- src-->
+		<img src="1.jpg"/>
+		<img src="{{mySrc}}" ng-attr-title="{{myTitle}}"/>
+		<img ng-src="{{mySrc}}" title="范彬彬"/>
+		<!--
+			属性指令：ng-attr-xxx 如：ng-attr-title
+		-->
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myHerf="http://www.qq.com";
+				$scope.mySrc='1.jpg';
+				$scope.myTitle='范冰冰';
+			}]);			
+		</script>		
+	</body>
+</html>

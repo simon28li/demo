@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+
+    function show(a, b) {
+        console.log(this);
+        console.log(a + b);
+    }
+    var arr = [];
+    angular.bind(arr, show, 10, 20)();
+    angular.bind(document, show)(50, 80);
+    setTimeout(angular.bind(document.body, show, 100, 200), 1000);
+
+
+</script>
+</body>
+</html>

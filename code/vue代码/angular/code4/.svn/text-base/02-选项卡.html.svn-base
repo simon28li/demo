@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.tab input.active{background: red;}
+			.tab div{width: 200px;height: 200px;
+						border: 1px solid #000;
+						display: none;
+					}
+			.tab div.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<my-tab tab-data="data1"></my-tab>
+		<hr />
+		<my-tab tab-data="data2"></my-tab>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script src="jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="js/tab.js" ></script>
+		<script>
+			var app=angular.module('app',['myTab']);		
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.data1=[{title:"军事",content:"军事军事军事军事军事军事军事"},
+							  {title:"体育",content:"体育体育体育体育体育体育体育体育"},
+							  {title:"娱乐",content:"娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐"}];
+				
+				$scope.data2=[{title:"新闻",content:"新闻新闻新闻新闻新闻新闻"},
+						  {title:"财经",content:"财经财经财经财经财经财经财经"}];
+				
+			}]);		
+		</script>
+	</body>
+</html>

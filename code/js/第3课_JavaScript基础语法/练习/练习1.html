@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text"/>元<input type="text"/>个<input type="button" value="点击"/>
+<ul id="ul1"></ul>
+
+<script>
+	var aInput = document.getElementsByTagName('input');
+	var oUl    = document.getElementById('ul1');
+	
+	aInput[2].onclick = function(){
+		oUl.innerHTML ='';
+		
+		var sum = +aInput[0].value;	
+		var len = +aInput[1].value;
+		
+		var num=0;
+		sum -=len; //30-6 = 24
+		for(var i=0; i<len-1; i++)
+		{
+			num=Math.ceil(getRandom(0, sum/2)); 
+			sum -=num;
+			oUl.innerHTML += '<li>'+(num+1)+'</li>'; 	
+		}
+		oUl.innerHTML += '<li>'+(sum+1)+'</li>';
+	};
+	
+	function getRandom(one, two){
+		return Math.random()*(two-one) + one;	 // 5~10
+	};
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//箭头函数是用于简化匿名函数:
+//			setTimeout(function(){
+//				alert('6666');
+//			},1000);
+			
+//			setTimeout(()=>{
+//				alert('666');
+//			},1000);		
+			
+			var fn=()=>{
+				alert('6666');
+			};
+			
+//			var show=function(a){
+//				alert(a);
+//			}
+			var show=a=>{
+				alert(a);
+			}
+		//	show(10);
+			
+			var fn=function(){
+				return 20;
+			}
+			var fn=()=>20;
+			console.log(fn());
+			
+			var add=function(a,b){
+				return a+b;
+			}
+			var add=(a,b)=>a+b;
+			console.log(add(30,45));
+			
+			var show=(x,y)=>({x,y});	//如果是一个对象，对象整体要用()括下，否则外层{}会被识别为函数体
+			console.log(show(10,20));//
+			
+		</script>
+	</body>
+</html>

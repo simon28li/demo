@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				transition:1s all;
+			}
+			div.ng-enter{
+				/*即将显示*/
+				height:0;
+			}
+			div.ng-enter-active,div.ng-leave{
+				height:100px
+			}
+			div.ng-leave-active{
+				/*已经隐藏*/
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" ng-model="flag"/>
+		<div ng-if="flag"></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-animate.js" ></script>
+		<script>
+			var app=angular.module('app',['ngAnimate']);
+			/*
+			 "angular-animate插件 给进行显示隐藏切换的元素提供类：
+			 	如果是通过DOM操作控制的显示和隐藏的元素，ngAnimate插件给这类型元素添加如下类：
+			 		.ng-enter			当元素即将显示时添加
+			 		.ng-enter-active    当元素已经显示完成时添加
+			 		.ng-leave			当元素即将隐藏的时添加
+			 		.ng-leave-active	当元素已经隐藏完成时添加
+			 		因此可以给上面这些类设置css3动画效果
+			 	  如果是通过CSS样式控制显示和隐藏元素，ngAnimate插件给这类型元素添加如下类：
+			   		.ng-hide-remove     	当元素即将显示时添加
+			   		.ng-hide-remove-active 	当元素已经显示完成时添加
+			   		.ng-hide-add 			当元素即将隐藏时添加
+			   		.ng-hide-add-active	 	当元素已经隐藏完成时添加
+			 * */		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{background: red;
+			width: 100px;
+			height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div my-drag>11111</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<!--引入外部指令文件-->
+		<script type="text/javascript" src="js/directives/myDrag.js" ></script>
+		<script type="text/javascript" src="angular-sanitize.js" ></script>
+		<script>
+			angular.module('app',['myDrag','ngSanitize']);
+		</script>
+	</body>
+</html>

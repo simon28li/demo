@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区别1</title>
+</head>
+<body>
+<!--
+<script type="text/javascript">
+    function Test1(n,s){
+        console.debug(this);
+        this.name=n;
+        this.sex=s;
+    }
+    Test1.prototype.print=function(){ //给Test1添加方法
+        console.log('我的姓名是'+this.name+',性别是：'+this.sex)
+    };
+    var o1=new Test1('黄维新','男');
+    var o2=new Test1('李四','男');
+    var o3=new Test1('王五','女');
+    o1.print();
+    o2.print();
+    o3.print();
+    //Test1 叫做原型  O1是用Test1原型构造的对象
+</script>
+-->
+
+<script type="text/javascript">
+    function Test1(n,s){
+        console.debug(this.name);//试试去掉this
+    }
+    console.debug(Test1);
+    Test1.prototype.name='nnn';//写完之后name成为该函数的结构 ，this.name是要运行函数才能加入
+    Test1.prototype.sex='x';
+    Test1.prototype.print=function(){ //给Test1添加方法
+        console.log('我的姓名是'+this.name+',性别是：'+this.sex)
+    };
+
+    var o1=new Test1('黄维新','男');
+    var o2=new Test1('李四','男');
+    var o3=new Test1('王五','女');
+    o1.print();
+    o2.print();
+    o3.print();
+    //Test1 叫做原型  O1是用Test1原型构造的对象
+</script>
+
+
+
+<script type="text/javascript">
+ /*
+    function Test1(n,s){
+
+        this.name=n;
+        this.sex=s;
+    }
+    console.debug(Test1);
+    Test1.prototype.name='';//写完之后name成为该函数的结构 ，this.name是要运行函数才能加入
+    Test1.prototype.sex='';
+    Test1.prototype.print=function(){ //给Test1添加方法
+        console.log('我的姓名是'+this.name+',性别是：'+this.sex)
+    };
+
+    var o1=new Test1('黄维新','男');
+    var o2=new Test1('李四','男');
+    var o3=new Test1('王五','女');
+//    console.debug(this.name);
+    console.debug(o1);
+
+    o1.print();
+    o2.print();
+    o3.print();
+    //Test1 叫做原型  O1是用Test1原型构造的对象
+  */
+</script>
+
+
+</body>
+</html>

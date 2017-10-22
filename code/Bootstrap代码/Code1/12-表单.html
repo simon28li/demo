@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container">
+			<form class="form-horizontal">
+				<div class="form-group has-success">
+					<label for="username" class="col-sm-2 control-label">用户名</label>
+					<div class="col-sm-10">
+						<input type="text" id="username" class="form-control"/>
+						<!--
+							.help-block 帮助文本
+						-->
+						<p class="help-block">说明文本</p>
+					</div>
+				</div>
+				<!--.has-error 校验状态
+					
+				-->
+				<div class="form-group has-error">
+					<label for="pwd" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="text" id="pwd" class="form-control"/>
+					</div>
+				</div>
+				<hr />
+				<div class="form-group has-success has-feedback">
+					<label for="username" class="col-sm-2 control-label">用户名</label>
+					<div class="col-sm-10">
+						<input type="text" id="username" class="form-control"/>
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+						<!--
+							.help-block 帮助文本
+						-->
+						<p class="help-block">说明文本</p>
+					</div>
+				</div>
+				<!--.has-error 校验状态
+					.has-feedback 具有反馈状态
+					class="glyphicon glyphicon-warning-sign form-control-feedback" 反馈图标
+				-->
+				<div class="form-group has-error has-feedback">
+					<label for="pwd" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="text" id="pwd" class="form-control"/>
+						<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

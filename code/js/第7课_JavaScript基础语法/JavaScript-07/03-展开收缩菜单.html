@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 200px;min-height: 20px;border: 1px solid #000;}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="展开" /><input type="button" value="收缩" />
+		<div id="div1"></div>
+		<script>
+			var aInput = document.getElementsByTagName('input');
+			var oDiv = document.getElementById('div1');
+			
+			var str = "落实好全会精神，必须更加深入地认识和把握全面从严治党。党的十八大之后，党中央全面分析党和国家工作面临的新形势新任务";
+			var timer = null;
+			var arr = str.split('');
+			
+			//展开
+			aInput[0].onclick = function(){
+				clearInterval(timer);
+				
+				timer = setInterval(function(){
+					var val = arr.shift();
+					oDiv.innerHTML += val;
+					
+					if(arr.length == 0){
+						clearInterval(timer);
+					}
+				}, 50);
+			}
+			
+			//收缩
+			aInput[1].onclick = function(){
+				var arr2 = oDiv.innerHTML.split('');
+				
+				clearInterval(timer);
+				
+				timer = setInterval(function(){
+					arr2.pop();
+					oDiv.innerHTML = arr2.join('');
+					
+					if(arr2.length == 0){
+						clearInterval(timer);
+					}
+				},50)
+			}
+		</script>
+	</body>
+</html>

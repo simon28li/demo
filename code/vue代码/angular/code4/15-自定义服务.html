@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义服务的第四种方式：通过constant方法或value方法定义服务
+//			app.constant('myService',{name:'zs',show:function(){alert(this.name)}})
+//			//constant方法可以通过config配置服务，配置不是服务供应商，而是直接配置服务
+//			app.config(['myService',function(myService){
+//				myService.name="hello";
+//			}]);		
+			
+			app.value('myService',{name:'lisi',show(){alert(this.name);}})
+			//value方法不能通过config配置服务
+			
+			//自定义服务和内置服务的使用完全一样
+			app.controller('myController',['$scope','myService',function($scope,myService){
+				console.log(myService);
+			}]);
+		</script>
+	</body>
+</html>

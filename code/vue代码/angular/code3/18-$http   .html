@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body ng-controller="myController">
+
+<p>{{content}}</p>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+
+<script>
+    //在Angularjs中，服务是一个对象或函数
+    //服务可以在控制器、指令、过滤器、另一个服务中使用,不管在哪里使用服务，都需要依赖注入
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$http', function ($scope, $http) {
+        //使用$http服务
+//				$http({
+//					method:'get',//设置请求方式
+//					url:'18-http.txt'	//请求路径
+//				}).then(function(response){
+//					//成功后回调的函数
+//					console.log(response);
+//					/*
+//					 response.data 服务器返回的数据
+//					 response.config 浏览器设置的请求配置项
+//					 response.status 服务器返回的状态码
+//					 response.header() 用于获取服务器返回的响应头部信息的
+//					 * */
+//					
+//					$scope.content=response.data;
+//					
+//					console.log(response.headers());
+//				},function(response){
+//					//失败后回调的函数
+//					console.log(response);
+//				});				
+
+        $http({
+            method: 'get',
+            url: '18-http.txt'
+        }).success(function (data, status, headers, config) {
+            //成功回调的函数
+            console.log(data);
+            console.log(status);
+            console.log(headers());
+            console.log(config);
+        }).error(function (data, status, headers, config) {
+            //失败回调的函数
+        });
+
+    }]);
+
+</script>
+</body>
+</html>

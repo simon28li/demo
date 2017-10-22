@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/Chart.js" ></script>	
+		<style>
+			#canvas{width: 100%;
+			height: 100%;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script>
+			//获取canvas
+			var oGC=document.getElementById('canvas').getContext('2d');
+			
+			var chart=new Chart(oGC);
+			var data= {
+				//X坐标数据
+			    labels : ["周一","周二","周三","周四","周五","周六","周末"],
+			    datasets : [
+			        {
+			            //统计表的背景颜色
+			            fillColor : "rgba(0,0,255,0.5)",
+			            //统计表画笔颜色
+			            strokeColor : "#000",
+			            //点的颜色
+			            pointColor : "#ff0",
+			            //点边框的颜色
+			            pointStrokeColor : "red",
+			            //鼠标触发时点的颜色
+			            pointHighlightFill : "#00f",
+			            //鼠标触发时点边框的颜色
+			            pointHighlightStroke : "#000",
+			            //Y坐标数据
+			            data : [300,555,655,1200,714,899,905,1000]
+			        }
+			        ,{
+			            fillColor : "rgba(0,255,0,0.5)",
+			            strokeColor : "rgba(92, 184, 92, 1)",
+			            pointColor : "rgba(23, 126, 23, 1)",
+			            pointStrokeColor : "#fff",
+			            pointHighlightFill : "#fff",
+			            pointHighlightStroke : "rgba(151,187,205,1)",
+			            data : [314,455,755,814,999,905,1000]
+			        }
+			        ,{
+			            fillColor : "rgba(255,0,0,0.5)",
+			            strokeColor : "blue",
+			            pointColor : "rgba(23, 126, 23, 1)",
+			            pointStrokeColor : "#fff",
+			            pointHighlightFill : "#fff",
+			            pointHighlightStroke : "rgba(151,187,205,1)",
+			            data : [114,255,455,414,599,605,500]
+			        }
+    			]
+			};			
+			chart.Line(data,{});			
+		</script>
+	</body>
+</html>

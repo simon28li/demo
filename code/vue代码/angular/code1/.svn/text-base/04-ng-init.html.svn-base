@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{name}}</title>
+	</head>
+	<body>
+		<!--ng-init 用于初始化变量
+			ng-init初始化的变量是全局变量
+		-->
+		<div ng-init="name='hello';age=20;flag=true">
+			<p>{{name}}</p>	
+			<p ng-bind="age"></p>
+			<p>{{flag}}</p>
+		</div>			
+		<h1>{{name}}</h1>
+		
+		<div ng-init="p={name:'张三',age:20}"></div>
+		<table>
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.age}}</td>
+			</tr>
+		</table>
+		<hr />
+		<div ng-init="arr=['aaaa','bbbb','cccc','dddd']">
+			<p>{{arr}}</p>
+			<p>{{arr[0]}}</p>
+			<p>{{arr[1]}}</p>
+		</div>
+		<hr />
+		<!--
+			ng-repeat 用于对数组进行遍历			
+		-->
+		<p ng-repeat="str in arr">{{str}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

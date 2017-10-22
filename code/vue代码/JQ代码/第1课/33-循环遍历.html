@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var arr=['aaaa','bbbbb','cccccc'];
+//			for (var i=0;i<arr.length;i++) {
+//				arr[i];				
+//			}
+			
+			$.each(arr,function(i,val){
+				//第一个参数所遍历到的元素是下标
+				//第二个参数是所遍历到的元素值
+				console.log(i);
+				console.log(val);
+			});
+			
+			var obj={name:'zs',age:20,sex:'female'};
+//			for(var i in obj){
+//				console.log(obj[i]);
+//			}
+			$.each(obj, function(i,val) {
+				//第一个参数所遍历到的key
+				//第二个参数为所遍历到的value值
+				console.log(i);
+				console.log(val);
+			});
+			
+
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<div style="width:100px;height: 100px;background: red;">1111</div>
+		<!--
+			ng-style指令代替 style属性
+			ng-style指令的值必须是对象，该值可以是表达式，但是该表达式运算的结果也必须是对象
+		-->
+		<div ng-style="{width:'100px',height:'100px',background:'green'}">222222</div>
+		<div ng-style="myStyle">333333</div>
+		
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myStyle={width:'200px',height:'300px',background:'yellow'};
+			}]);			
+		</script>		
+	</body>
+</html>

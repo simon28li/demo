@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<div class="box">
+			<span></span>
+		</div>
+		<div></div>
+		<div>
+			<span></span>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//筛选出div中类名为box的元素
+			$('div').filter('.box').css('background','red');
+			
+			$('div').not('.box').css('background','green');
+			
+			//过滤内容含有span的div元素
+			$('div').has('span').css('background','yellow');
+			
+			$('div').is(oDiv);	//判断指定的集合中是否包含is参数所指定的元素
+			//如果包含则返回true，不包含则返回false
+		</script>
+	</body>
+</html>

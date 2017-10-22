@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">aaaaa</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			oDiv.onclick = function(){
+				//show(this,'background','red');
+				/*
+				 call方法
+				 语法 fun.call(thisArg[, arg1[, arg2[, ...]]]);
+				 定义 调用一个对象的一个方法,以另一个对象替换当前对象
+				 说明:call方法可以用来代替另一个对象调用一个方法.call方法可将一个函数的对象的上下文(context)
+				 从初始的上下文改变成有thisArg指定的新对象.如果没有提供thisArg参数,那么Global(Window)对象被当做thisArg
+				*/
+				//我调用window对象的show函数,用oDiv替换window对象 所以this指向从window改为指向oDiv
+				//show.call(oDiv, 'background', 'pink');
+				show.apply(this,['background', 'pink']);
+				/**
+				 * apply方法
+				 * 语法:apply([thisArg,[argArray]]);
+				 * 定义:应用某一对象的一个方法,用另外一个对象替换当前对象
+				 */
+				//区别:call调用的是一堆object,apply调用的是一个数组
+			}
+			
+			//context   上下文
+			function show(attr,value){
+				this.style[attr] = value;
+			}
+		</script>
+	</body>
+</html>

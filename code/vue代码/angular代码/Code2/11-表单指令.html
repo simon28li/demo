@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background:red}
+			.green{background:green}
+		</style>
+	</head>
+	<body ng-controller="myController">
+	<!--	
+		<form>
+			<input type="text" readonly/>
+			<input type="button" value="按钮" disabled/>
+		</form>-->
+		<input type="checkbox" ng-model="flag" />
+		<input type="text" ng-readonly='flag' />
+		<input type="button" value="按钮" ng-disabled="flag"/>
+		
+		<input type="text" value="{{name}}" />
+		<input type="text" ng-value="name" />
+		<!--
+			表单属性：
+				readonly  -> ng-readonly
+				disabled  -> ng-disabled
+				checked   -> ng-checked
+				selected  -> ng-selected
+				value    ->
+		-->
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='hello';
+			}]);
+		</script>
+	</body>
+</html>

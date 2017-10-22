@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+
+var arr = [4,7,1,67,23];
+
+function show(arr){
+	
+	var nowNum = arr[0];
+	
+	for(var i=1;i<arr.length;i++){
+		if( nowNum > arr[i] ){
+			nowNum = arr[i];
+		}
+	}
+	
+	return nowNum;
+	
+}
+
+console.log(show(arr));  //1
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#formDiv,#submitDiv{margin: 0 auto;width: 400px;}
+			.validate-error{color:red;float: right;}
+		</style>
+	</head>
+	<body>
+		<form>
+			<div id="formDiv">
+				<div>
+					<label>用户名:</label>
+					<input type="text" name="userName" validate-type='userNameRegex'/>
+				</div>
+				<div>
+					<label>密　码:</label>
+					<input type="password" name="pwd" validate-type='pwdRegex'/>
+				</div>
+				<div>
+					<label>手　机:</label>
+					<input type="text" name="mobile" validate-type='mobileRegex'/>
+				</div>
+				<div>
+					<label>邮　箱:</label>
+					<input type="text" name="e-mail" validate-type='emailRegex'/>
+				</div>
+				<div>
+					<label>座　机:</label>
+					<input type="text" name="tel" validate-type='telRegex'/>
+				</div>
+				<div>
+					<label>身份证:</label>
+					<input type="text" name="identityCard" validate-type='identityRegex'/>
+				</div>
+			</div>
+			<div id="submitDiv">
+				<input type="button" value="注册" id="registerBtn" name="registerBtn"/>
+			</div>
+		</form>
+	</body>
+	<script>
+		var registerBtn = document.getElementById("registerBtn");
+		var formDiv = document.getElementById('formDiv');
+		var formData = formDiv.getElementsByTagName('input');
+		
+		//邮箱                        10000232143@qq.com.cn
+		var emailRegex =  /^\w+@[a-zA-Z0-9]+\.[a-z]{2,4}$/;
+		//手机			   
+		var mobileRegex = /^(13[0-9]|15[012356789]|18[0789]|170)[0-9]{8}$/;
+		//座机    010-23452342 2341234
+		var telRegex = /^(\d{3,4}-)?\d{7,8}$/;
+		//账号
+		var userNameRegex = /^\w{6,12}$/;
+		//密码
+		var pwdRegex = /^\w{8,12}$/;
+		//身份证
+		var identityRegex = /^(\d{15}|\d{17}[0-9X])$/;
+		
+		var message = {
+			success: '恭喜您!账号注册成功',
+			textSuccess: '填写无误!',
+			userNameError: '用户名填写错误',
+			pwdError: '密码填写错误',
+            emailError: '邮箱填写有误',
+            mobileError: '手机填写有误',
+            telError: '座机填写有误',
+            identityError: '身份证填写有误'
+        };
+       
+		registerBtn.onclick = function(){
+			validateValue(formData);
+		}
+		
+		/*
+		 该for循环给所有的表单元素添加触发器,当用户改变input当中的值或者失去该input的焦点时做一次判断
+		 */
+		for(var i = 0;i<formData.length;i++){
+			validateListener(formData[i]);
+		}
+		
+		function validateListener(obj){
+			obj.onkeyup = obj.onblur = function(){
+				var result = validateValue(formData);
+			}
+		}
+		
+		/**
+		 * 隐藏内容到相应的区域
+		 * @param {Object} obj	    隐藏区域
+		 * @param {String} result 返回内容
+		 */
+		function hideMessage(obj){
+			var oDiv = document.createElement('div');
+			var oText = document.createTextNode(message.textSuccess);
+			for(var i = 0;i<obj.children.length;i++){
+				if(obj.children[i].className == "validate-error"){
+					obj.removeChild(obj.children[i]);
+				}
+			}
+		}
+		
+		/**
+		 * 展示内容到相应的区域
+		 * @param {Object} obj	  填充区域
+		 * @param {String} result 返回内容
+		 */
+		function displayMessage(obj, result){
+			var oDiv = document.createElement('div');
+			oDiv.setAttribute("class", "validate-error");
+			var oText = document.createTextNode(result);
+			
+			for(var i = 0;i<obj.children.length;i++){
+				if(obj.children[i].className == "validate-error"){
+					return;
+				}
+			}
+			oDiv.appendChild(oText);
+			obj.appendChild(oDiv);
+		}
+		/**
+		 * 检查输入内容是否合法
+		 * @param {Object} formData  数据表单
+		 */
+		function validateValue(formData){
+			for(var i = 0;i<formData.length;i++){
+				var value = formData[i].value;
+				//正则表达式的名字
+				var regExpKey = formData[i].getAttribute('validate-type');
+				var regExp;
+				var parentNode = formData[i].parentElement;
+				
+				switch(regExpKey){
+					case 'emailRegex':
+						regExp = emailRegex;
+					break;
+					case 'mobileRegex':
+						regExp = mobileRegex;
+					break;
+					case 'telRegex':
+						regExp = telRegex;
+					break;
+					case 'userNameRegex':
+						regExp = userNameRegex;
+					break;
+					case 'pwdRegex':
+						regExp = pwdRegex;
+					break;
+					case 'identityRegex':
+						regExp = identityRegex;
+					break;
+				}
+				if(!regExp.test(value)){
+					displayMessage(parentNode, message[regExpKey.replace('Regex','Error')]);
+				}else{
+					hideMessage(parentNode);
+				}
+			}
+			return message.success;
+		}
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/* v-cloak 解决插值标签的闪烁问题
+			 */
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-cloak>{{msg}}</p>
+			<!--v-text等效于 <p>{{msg}}</p>-->
+			<p v-text="msg"></p>
+			<!--
+				 v-pre作用跳过该元素及其子元素的编译过程
+			-->
+			<p><span v-pre>{{msg}}</span>的值是:{{msg}}</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'hello'
+				}
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li id="li2">222</li>
+			<li id="li3">333</li>
+		</ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+			var li2 = document.getElementById('li2');
+			var li3 = document.getElementById('li3');
+			
+			var oLi = document.createElement('li');
+			var oText = document.createTextNode('111');
+			
+			oLi.appendChild(oText);
+			oUl.insertBefore(oLi, li2);				//将内容添加到第二个参数的前面
+		</script>
+	</body>
+</html>

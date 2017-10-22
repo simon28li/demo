@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [39, 231, 1, 80, 20];
+			var a = arr.sort(function(num1, num2){
+//				if(num1 > num2){
+//					return 1;				//返回的是正数的时候就交换位置
+//				}else if(num1 < num2){
+//					return -1;				//返回的是负数的时候就不交换位置
+//				}else{
+//					return 0;
+//				}
+				return num2 - num1;
+			});
+			console.log(a);
+		</script>
+	</body>
+</html>

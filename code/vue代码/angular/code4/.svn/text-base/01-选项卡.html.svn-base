@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.tab input.active{background: red;}
+			.tab div{width: 200px;height: 200px;
+						border: 1px solid #000;
+						display: none;
+					}
+			.tab div.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<my-tab tab-data="data1"></my-tab>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script src="jquery-1.11.1.js"></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('myTab',function(){
+				return {
+					restrict:'E',
+					templateUrl:'views/tab.html',
+					replace:true,
+					scope:{
+						datas:'=tabData'
+					},
+					link:function($scope,elem,attr){
+						console.log(elem);
+						//设置input的点击事件
+						$(elem).delegate('input','click',function(ev){
+							//ev.target;//代表事件源
+							//ev.delegateTarget 代表事件代理者
+							
+							//点击对应按钮时
+							$(ev.target).addClass('active').siblings('input').removeClass('active');
+							$(ev.delegateTarget).find('div').eq($(ev.target).index()).addClass('active').siblings('div').removeClass('active');
+						});
+					}
+				}
+			});	
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.data1=[{title:"军事",content:"军事军事军事军事军事军事军事"},
+							  {title:"体育",content:"体育体育体育体育体育体育体育体育"},
+							  {title:"娱乐",content:"娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐"}];
+				
+			}]);		
+		</script>
+	</body>
+</html>

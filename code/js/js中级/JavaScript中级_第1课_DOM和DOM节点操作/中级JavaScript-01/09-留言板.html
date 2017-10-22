@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="textBox"/><input id="submitBtn" type="button" value="留言" />
+		<ul id="ul1">
+			<li></li>
+
+		</ul>
+		<script>
+			var textBox = document.getElementById('textBox');
+			var submitBtn = document.getElementById('submitBtn');
+			var oUl = document.getElementById("ul1");
+			
+			submitBtn.onclick = function(){
+				var oLi = document.createElement('li');
+				var oText = document.createTextNode(textBox.value);
+				
+				oUl.appendChild(oLi);
+				oLi.appendChild(oText);
+			}
+		</script>
+	</body>
+</html>

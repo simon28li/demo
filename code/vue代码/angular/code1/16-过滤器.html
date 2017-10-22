@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myController">
+<!--
+    | 管道符
+数据 | 过滤器:参数1:参数2	| 过滤器名称:参数1:参数2
+-->
+<ul>
+    <li ng-repeat="p in arr">
+        <strong>{{p.name}}</strong>
+        <strong>{{p.age}}</strong>
+        <strong>{{p.sex}}</strong>
+    </li>
+</ul>
+<hr/>
+<input ng-model="search"/>
+<ul>
+    <li ng-repeat="p in arr | filter:search">
+        <strong>{{p.name}}</strong>
+        <strong>{{p.age}}</strong>
+        <strong>{{p.sex}}</strong>
+    </li>
+</ul>
+<hr/>
+按姓名搜索：<input type="text" ng-model="searchName"/>
+<ul>
+    <li ng-repeat="p in arr | filter:{name:searchName}">
+        <strong>{{p.name}}</strong>
+        <strong>{{p.age}}</strong>
+        <strong>{{p.sex}}</strong>
+    </li>
+</ul>
+<hr/>
+按姓名搜索：<input type="text" ng-model="searchName"/>
+<br/>
+按年龄搜索：<input ng-model="searchAge"/>
+<ul>
+    <li ng-repeat="p in arr | filter:{name:searchName,age:searchAge}">
+        <strong>{{p.name}}</strong>
+        <strong>{{p.age}}</strong>
+        <strong>{{p.sex}}</strong>
+    </li>
+</ul>
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    /* 过滤器：对数据进行格式化的工具
+     * */
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', function ($scope) {
+        $scope.search = '';
+        $scope.AA = 'name';
+        $scope.searchName = '';
+        $scope.searchAge = '';
+
+        $scope.arr = [{name: '张三', age: 26, sex: "女"},
+            {name: "李男", age: 21, sex: "女"},
+            {name: "王女", age: 13, sex: "男"},
+            {name: '张2', age: 33, sex: "男"},
+            {name: '刘6', age: 52, sex: "女"},
+            {name: '张三', age: 20, sex: "女"}
+        ];
+    }]);
+</script>
+</body>
+</html>

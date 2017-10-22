@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--使用指令-->
+		<!--以元素的形式使用自定义指令-->
+		<hello-web></hello-web>
+	
+		<hr />
+		<!--以属性的形式使用自定义指令-->
+		<div hello-web></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//自定义指令
+			/*
+			 第一个参数：自定义指令名,见名知意
+			第二个参数：用于创建指令的函数
+			 * */
+			app.directive('helloWeb',function(){
+				//自定义指令
+				return {
+					restrict:'ECMA',	//用于指定当前指令的使用方式，指令的使用方式有属性、标签、类、注释	
+					template:'<div><h1>指令标题</h1><p>指令内容</p></div>',	//视图模板
+					replace:true	//用模版的根元素取代原有的父元素
+				}
+			});
+			
+		</script>
+	</body>
+</html>

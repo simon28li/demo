@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+</head>
+
+<body>
+
+<div id="app">
+    <input type="button" @click="m1">
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript" src="vue-resource.js"></script>
+
+<script>
+    //GET请求
+    //			Vue.http.get('01-vue.php?username=lisi&password=123455')
+    //				.then(function(res){
+    //					//成功回调的函数
+    //					console.log(res);
+    //				}).catch(function(err){
+    //					//失败回调的函数
+    //					console.log(err);
+    //				});
+
+    Vue.http.get('01-vue.php', {
+        params: {	//设置get请求的参数
+            username: 'wanger',
+            password: '8937234'
+        }
+    }).then(function (res) {
+        console.log(res);
+    }).catch(function (err) {
+        console.log(err);
+    });
+
+
+    /*  var vm = new Vue({
+     el: '#app',
+     data: {
+     aa: ''
+     },
+     methods: {
+     m1: function () {
+     this.$http.get('01-vue.php', {
+     params: {
+     username: 'wanger',
+     password: '8937234'
+     }
+     }).then(function (res) {
+     console.log(res)
+     })
+     }
+     }
+     })
+     */
+
+</script>
+
+</body>
+</html>

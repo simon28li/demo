@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{
+				background: red;
+			}
+			.size{
+				width: 100px;
+				height: 100px;
+			}
+			.border{
+				border: 1px solid #000;
+			}
+			.color{
+				background: green;
+			}
+			#box{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<a href="{{myHerf}}">百度</a>
+		<!--
+			ng-href 指令可以替代 href属性
+		-->
+		<a ng-href="{{myHerf}}">百度11111</a>
+		<!--
+			ng-src 指令可以替代src属性
+		-->
+		<img ng-src="{{mySrc}}"/>
+		<!--
+			通用的属性指令：ng-attr-xxx
+		-->
+		<div ng-attr-id="{{myid}}">11111</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>		
+		<script>
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.myHerf='http://www.baidu.com';
+				$scope.myid='box';
+			}]);
+		</script>
+	</body>
+</html>

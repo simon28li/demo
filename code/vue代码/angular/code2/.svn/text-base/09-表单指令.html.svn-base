@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<form>
+			<input type="checkbox" ng-model="flag"/>
+			<!--ng-disabled 控制表单元素的启用和禁用
+				          如果表达式的值为true表示禁用，否则启用
+			-->
+			<input type="button" value="按钮" ng-disabled="flag"/>
+			<input type="text" value="1111" ng-readonly="flag"/>
+			<input type="checkbox" ng-checked="flag" />
+			<br />
+			<input type="text" value="{{name}}"/>
+			<input type="text" ng-value="name"/>
+		</form>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.flag=false;
+				$scope.name='hello';
+			}]);			
+		</script>		
+	</body>
+</html>

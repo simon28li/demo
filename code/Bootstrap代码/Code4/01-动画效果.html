@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#one,#two,#three,#four,#five{margin: 300px auto;width: 500px;}
+		</style>
+		<!--引入animate动画插件-->
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<!--导航条-->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">Brand</a>
+			</div>
+			
+			<ul class="navbar-nav nav">
+				<li>
+					<a href="#one">First</a>
+				</li>
+				<li>
+					<a href="#two">Two</a>
+				</li>
+				<li>
+					<a href="#three">Three</a>
+				</li>
+				<li>
+					<a href="#four">four</a>
+				</li>
+				<li>
+					<a href="#five">five</a>
+				</li>
+			</ul>
+		</nav>
+		
+		
+		<div class="wow jello" id="one">
+			<img src="img/1.jpg" />
+		</div>
+		<div class='wow bounceIn' data-wow-offset="300" id="two">
+			<img src="img/2.jpg" />
+		</div>
+		<div class="wow bounceInLeft" data-wow-offset='100' data-wow-duration='200ms' id="three">
+			<img src="img/3.jpg" />
+		</div>
+		<div class="wow bounceOutDown" data-wow-offset='200' data-wow-duration='2s' id="four">
+			<img src="img/4.jpg" />
+		</div>
+		<div id="five">
+			<img src="img/5.jpg" />
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.singlePageNav.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		
+		<!--引入wow.js-->
+		<script type="text/javascript" src="js/wow.min.js" ></script>
+		<script>
+			/*初始化WOW对象*/
+			new WOW().init();
+			
+			//初始化单页导航插件
+			$('.nav').singlePageNav({
+				offset: 60,
+			});
+		</script>
+	</body>
+</html>

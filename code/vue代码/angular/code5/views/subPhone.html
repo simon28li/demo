@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="css/myCSS.css"/>
+<div>
+    <div>
+        <h1>{{data.name}}</h1>
+        <hr/>
+        <p>{{data.description}}</p>
+
+        <div>
+            <img ng-repeat="img in data.images" ng-src="{{img}}"/>
+        </div>
+        <ul>
+            <li ng-repeat="img in data.images" ng-class="['hide',{show:$first}]">
+                <img ng-src="{{img}}"/>
+            </li>
+        </ul>
+    </div>
+</div>

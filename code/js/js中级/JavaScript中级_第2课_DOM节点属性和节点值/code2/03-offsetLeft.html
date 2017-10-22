@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0; padding: 0;}
+			#div1, #div2,#div3,html, body{padding: 50px;}
+
+			html{background: black;}
+			body{background: white;}
+
+			#div1{background: red;}
+			#div2{background: yellow;}
+			#div3{background: blue;}
+		</style>
+
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3" style="position: relative;"></div>
+			</div>
+		</div>
+
+
+		<script>
+			//对块级元素来说，offsetTop、offsetLeft、offsetWidth 及 offsetHeight 描述了元素相对于 offsetParent 的边界框。
+
+			var div3 = document.getElementById('div3');
+			console.log(div3.offsetParent);
+			console.log(div3.offsetLeft); //当前元素到offsetParent元素的距离
+
+			//1. offsetLeft如果offsetParent是body的话，那么offsetLeft到html的左距离,或者可以理解为是对象到浏览器边缘的距离
+			//2. offsetLeft如果offsetParent是有定位元素, 那么offsetLeft到定位元素的左距离
+
+			//总结:
+			//1. body和html需要保持同一种样式
+
+		</script>
+	</body>
+</html>

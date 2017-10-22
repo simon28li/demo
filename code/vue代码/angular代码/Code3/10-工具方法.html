@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			function show(a,b){
+				console.log(this);
+				console.log(a+'/'+b);
+			}
+			show();//this--->window
+			//原生js：
+//			show.apply(document,[10,20]);
+//			show.call(document,30,40);
+			
+			setTimeout(angular.bind(document,show,50,60),1000);
+			
+			angular.bind(document,show,50,60)();
+			//完全等效于 $.proxy() 方法
+			
+		</script>
+	</body>
+</html>

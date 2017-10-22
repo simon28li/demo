@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			table{border-collapse: collapse;}
+			th,td{border: 1px solid #000;}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<p>
+			全局搜索：<input type="text" ng-model="search"/>	
+			&nbsp;&nbsp;
+			按姓名搜索:<input type="text" ng-model="searchName" />
+		</p>
+		<table>
+			<tr>
+				<th ng-click="order('name')">姓名</th>
+				<th ng-click="order('age')">年龄</th>
+				<th ng-click="order('sex')">性别</th>
+			</tr>
+			<tr ng-repeat='p in persons | orderBy:orderItem:flag|filter:search|filter:{name:searchName}'>
+				<td>{{p.name}}</td>
+				<td>{{p.age}}</td>
+				<td>{{p.sex}}</td>
+			</tr>
+		</table>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				//花名册
+				$scope.persons=[{name:'张三',age:26,sex:"女"},
+							{name:"李男",age:21,sex:"女"},
+							{name:"王女",age:13,sex:"男"},
+							{name:'张2',age:33,sex:"男"},
+							{name:'刘6',age:52,sex:"女"},
+							{name:'张三',age:20,sex:"女"}
+							];	
+				$scope.orderItem='';
+				$scope.flag=true;
+				
+				$scope.order=function(item){
+					this.orderItem=item;
+					this.flag=!this.flag;
+					//console.log(arguments.callee);//表示当前运行的函数对象
+				}
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div>aaaaa<span>点击</span></div>
+			</li>
+			<li>
+				<div>bbbbb<span>点击</span></div>
+			</li>
+			<li>
+				<div>ccccc<span>点击</span></div>
+			</li>
+			<li>
+				<div>dddddd<span>点击</span></div>
+			</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('span').click(function(){
+				//将其父元素中的最近的li设置为背景红色
+			//	$(this).parents('li').css('background','red');
+				$(this).closest('li').css('background','green');				
+			});			
+		</script>	
+	</body>
+</html>

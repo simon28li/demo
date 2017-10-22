@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{num | currency}}</p>
+		<hr />
+		<p>{{money}}</p>
+		<hr/>
+		<p>{{num | currency:'￥':5}}</p>
+		<p>{{rmb}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$filter',function($scope,$filter){
+				$scope.num=6782093.1234834;
+				/*
+				 $filter(参数) 该函数的参数是指定过滤器名称
+				 			   该函数返回值为一个函数
+				 返回的函数的第一个参数：待格式化的数据
+				 	   	 第二个参数开始:设置过滤器的参数
+				 * */
+				$scope.money=$filter('currency')($scope.num);
+				$scope.rmb=$filter('currency')($scope.num,'￥',5);
+			}]);			
+		</script>
+	</body>
+</html>

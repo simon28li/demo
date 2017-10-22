@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+			ul,li{list-style: none;}
+			.box{width:50px; height: 50px;background: blue;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1" style=''></ul>
+	</body>
+	<script>
+		var oUl1 = document.getElementById("ul1"); 
+		var em = 55;
+		var r = 8;
+		var c = 9;
+		/*
+		for(var i = 0;i<50;i++){
+			oUl1.innerHTML += '<li class="box"></li>';
+		}*/
+		for(var i = 0;i < 5; i++){
+			for(var j = 0; j < 10; j++){
+				oUl1.innerHTML += '<li class="box" style="left:' + i*em + 'px;top:' + j*em + 'px"></li>';
+								//style="left: 55px"
+			}
+		}
+	</script>
+</html>

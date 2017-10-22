@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//相对全局变量
+		/*
+		var str = 'hello world!';
+		function a(){
+			console.log(str);
+		}
+		a();
+		*/
+		
+		//局部变量
+		/*
+		function a(){
+			var str = 'hello world!';
+		}
+		a();
+		console.log(str);
+		*/
+		
+		
+		function a(){
+			var str = 'hello world!';
+			
+			function b(){
+				console.log(str);
+			}
+			b();
+		}
+		
+		a();
+		console.log(str);
+		
+	</script>
+</html>

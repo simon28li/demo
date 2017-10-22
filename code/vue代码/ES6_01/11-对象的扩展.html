@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			var name='zs';
+			var age=20;
+			var p1={name:name,age:age};
+			//ES6中的属性简写方式:
+			var p2={name,age};//等效于：{name:name,age:age}
+			/****************/
+			var p1={
+				name,
+				show:function(){
+					alert(this.name);
+				}				
+			}
+			p1.show();
+			/**************************/
+			//es6中对象方法可以简写：
+			var p2={
+				name,
+				show(){
+					alert(this.name);
+				}				
+			}
+			p2.show();	
+		</script>
+	</body>
+</html>

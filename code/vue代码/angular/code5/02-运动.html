@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div, p {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: all 4s;
+        }
+
+        div.ng-enter {
+            /*opacity: 0;*/
+            height: 0;
+            width: 0;
+        }
+
+        div.ng-enter-active, div.ng-leave {
+            /*opacity: 1;*/
+            width: 100px;
+            height: 100px;
+        }
+
+        div.ng-leave-active {
+            /*opacity: 0;*/
+            height: 0;
+            width: 0;
+        }
+
+        /***********************/
+        p.ng-hide-remove {
+            /*即将显示时*/
+            height: 0;
+            width: 0;
+        }
+
+        p.ng-hide-remove-active, p.ng-hide-add {
+            /*显示完成*/
+            /*即将隐藏*/
+            height: 100px;
+            width: 100px;
+        }
+
+        p.ng-hide-add-active {
+            /*隐藏完成*/
+            height: 0;
+            width: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="myController">
+
+<input type="checkbox" ng-model="isShow"/>
+
+<div ng-if="isShow"></div>
+<hr/>
+<input type="checkbox" ng-model="isShow1"/>
+
+<p ng-show="isShow1"></p>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script type="text/javascript" src="angular-animate.js"></script>
+<!--
+    元素显示和隐藏时：
+        通过DOM操作控制元素的显示和隐藏：ng-if / ng-repeat /ng-view
+            通过这种方式控制的显示和隐藏的元素，ng-animate会给对应的元素添加：
+                .ng-enter			当元素即将显示(但是没有显示)时添加
+                .ng-enter-active	当元素已经显示完成时添加
+                .ng-leave			当元素即将隐藏(没有隐藏)时添加
+                .ng-leave-active	当元素已经隐藏完成是添加
+            这种显示隐藏的控制方式还可以在js中通过animation方法，设置enter/leave属性来控制动画显示
+
+
+        通过样式控制元素的显示和隐藏：ng-show /ng-hide
+            通过这种方式控制的显示和隐藏的元素，ng-animate会给对应的元素添加：
+                .ng-hide-add		    当元素即将隐藏时添加
+                .ng-hide-add-active	    当元素隐藏完成时添加
+                .ng-hide-remove		    当元素即将显示时添加
+                .ng-hide-remove-active	当元素显示完成时添加
+-->
+
+
+<script>
+
+    var app = angular.module('app', ['ngAnimate']);
+    app.controller('myController', ['$scope', function ($scope) {
+        $scope.isShow = $scope.isShow1 = true;
+    }]);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+		
+	</head>
+	<body style="height: 2000px;">
+		<script>
+			//BOM： pageYoffset、pageXoffset(IE低版本不支持)(只能获取,不能设置)
+			//DOM：
+			//	  document.documentElement.scrollTop/scrollLeft： chrome不支持(其他浏览器)(可以设置也可以获取)
+			//	  document.body.scrollTop	: chrome支持(其他浏览器不支持)(可以设置也可以获取)
+			
+			document.onclick = function(){
+				//console.log(window.pageYOffset);
+				//console.log(document.documentElement.scrollTop);
+				
+				//document.documentElement.scrollTop = '300';	
+				//document.body.scrollTop = '300';
+				
+				setScrollY(300);
+			};
+			
+			//获取
+			function getScrollY(){
+				return window.pageYOffset || document.documentElement.scrollTop;
+			};
+			
+			//设置
+			function setScrollY(num){
+				document.documentElement.scrollTop = document.body.scrollTop = num;
+			};
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

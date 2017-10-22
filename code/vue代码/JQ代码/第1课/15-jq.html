@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			console.log($('#box').length);
+			//获取到也是一个数组
+			console.log($('#box'));	
+			$('span').css('background','red');
+			
+			if($('span').length==0){
+				alert('span元素不存在');
+			}
+			
+		</script>
+	</body>
+</html>

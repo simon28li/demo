@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abcABC123 #__$%';
+			
+			var reg = /[A-z0-9_]{1,2}/g;					//unicode 大写A是65小写a是97  我取得是一个范围
+			
+			console.log(str.match(reg));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            width: 50px;
+            height: 20px;
+        }
+
+        #d {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" class="input1" value="红色" onclick="a('#f00')">
+<input type="button" class="input2" value="绿色" onclick="a('#0f0')">
+<input type="button" class="input3" value="黄色" onclick="a('#ff0')">
+<input type="button" class="input4" value="紫色" onclick="a('#f0f')">
+<input type="button" class="input5" value="黑色" onclick="a('#000')">
+<div id="d"></div>
+<script>
+   var d=document.getElementById('d');
+   function a(se){
+       d.style.background=se;
+       if(d.style.width=='100px'){  /*因为一开始d.style.width的数值js读取不到 为undefined 所以会直接跳到else里面 */
+           d.style.width='200px';
+           d.style.height='200px';
+       }else {
+           d.style.width='100px';
+           d.style.height='100px';
+       }
+   }
+
+</script>
+</body>
+</html>

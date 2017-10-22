@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var a='hello';
+//			var str="hi,"+a+',world';
+//			console.log(str);//hi,hello,world;
+			
+			var str=`hi,${a},world`;
+			console.log(str);//hi,hello,world
+			
+			var str1=`<ul>
+					  <li>first</li>
+					  <li>second</li>
+					</ul>`;
+			
+			var oBox=document.getElementById("box");
+			oBox.innerHTML=str1;
+			
+			console.log(a.includes('ll'));//搜索参数指定的字符串是否在调用者中，如果包含则返回true,否则返回false
+			
+			console.log(a.repeat(5));//将字符串复制5份作为一个新的字符串
+			
+		</script>
+	</body>
+</html>

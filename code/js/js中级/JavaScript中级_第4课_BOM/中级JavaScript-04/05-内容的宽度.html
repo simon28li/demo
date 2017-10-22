@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+		</style>
+	</head>
+	<body>
+		<textarea id="t1" style="width: 200px; height: 200px; border: 1px solid black;">
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+			正文正文正文正文正文正文正文<br />
+		</textarea>
+		<script>
+			//div  offsetHeight/offsetWidth
+			var t1 = document.getElementById('t1');
+			console.log(t1.offsetHeight);		//padding+border+height
+			console.log(t1.clientHeight);		//padding+height
+			console.log(t1.scrollHeight);		//全部内容的高度
+			
+			//拿到该元素整个内容的高度    该元素卷去的高度		该元素的盒模型概念的高度
+			//element.scrollHeight - element.scrollTop === element.clientHeight
+			
+			t1.onscroll = function(){
+				console.log(t1.scrollHeight);
+				console.log(t1.scrollTop);
+				console.log(t1.clientHeight);
+				if(t1.scrollHeight - t1.scrollTop === t1.clientHeight){
+					console.log('welcome to tottom');
+				}
+			}
+		</script>
+	</body>
+</html>

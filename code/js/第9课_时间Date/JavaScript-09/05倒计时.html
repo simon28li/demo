@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<input id="input1" type="text" value="Jan 1 2017 12:00:00" style="width: 400px;" />
+		<input id="startBtn" type="button" value="点击开始" />
+		<input id="input2" tepe="text" style="width: 400px;" />
+		<script>
+			var input1 = document.getElementById('input1');
+			var startBtn = document.getElementById('startBtn');
+			var input2 = document.getElementById("input2");
+			var timer = null;
+			startBtn.onclick = function(){
+				var val = input1.value;
+
+				var newDate = new Date(val);
+				clearInterval(timer);
+				timer = setInterval(function(){
+					var nowDate = new Date();
+					var time = newDate.getTime() - nowDate.getTime()
+					if(time > 0){
+						//我拿到的是日期之间的差距,单位是毫秒
+						//我现在需要将毫秒数转化成年月日时分秒
+						
+						//第一步:将ms转化成秒
+						var time = time/1000;
+						//60 3600 86400
+						//第二步:将所有s转换成天数,并向下取整
+						var iD = Math.floor(time/86400);
+						console.log(iD);
+						//第三步:同理,将转换成天数的剩余的秒数再转换成小时数并向下取整
+						var iH = Math.floor(time%86400/3600);
+						//第三步:同理,将转换成小时的剩余的秒数再转换成分钟数并向下取整
+						var iM = Math.floor(time%86400%3600/60);
+						//var iM = Math.floor(time%3600/60);
+						var iS = Math.floor(time%60);
+						input2.value = iD + '天' + iH + '时' + iM +  '分' + iS + '秒';
+					}else{
+						input2.value = "本次抢购活动已结束";
+						clearInterval(timer);
+					}
+				}, 1000)
+			}
+		</script>
+	</body>
+</html>

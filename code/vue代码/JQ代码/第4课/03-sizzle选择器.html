@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//	$('div').eq(2).css('background','red');
+			//选中指定集合中的下标为2的div元素
+			$('div:eq(2)').css('background','red');
+			
+			//选中指定集合中的第一个元素
+		//	$('div').first();
+			$('div:first').css('background','green');
+			
+			//选中指定集合中的最后一个元素
+			$('div').last();
+			$('div:last').css('background','blue');
+			
+			//选中奇数项的div元素
+			$('div:odd').css('background','yellow');
+			//选中偶数项的div元素
+			$('div:even').css('background','black');
+			
+			//选中下标小于3(不包含3)的div元素, lt(小于)
+			$('div:lt(3)').css('background','white');
+			
+			//选中下标大于3(不包含3)的div元素，gt(大于)
+			$('div:gt(3)').css('background','pink');
+		</script>
+	</body>
+</html>

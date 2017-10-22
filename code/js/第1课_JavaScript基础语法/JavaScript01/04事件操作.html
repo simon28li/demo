@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="width: 200px;height: 200px;background: deepskyblue;">aaa</div>
+	</body>
+	<script>
+		var a = document.getElementById("div1");
+		/* on开头的属性全部都是!事件! 触发之后才会执行内部的函数  */
+		a.onmouseover = function(){
+			a.style.background = 'yellow';
+		}
+		
+		a.onmouseout = function(){
+			a.style.background = 'red';
+		}
+		
+		a.onclick = function(){
+			alert(123);
+		}
+	</script>
+</html>

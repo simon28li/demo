@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{name}}</title>
+	</head>
+	<body>
+		<!--ng-init 用于初始化变量
+			ng-init初始化的变量是全局变量
+		-->
+		<ul ng-init="arr=['aaaa','bbbbb','aaaa']">
+			<!--
+				$index 表示所遍历到的元素下标
+			-->
+			<li ng-repeat="a in arr track by $index">{{$index+1+':'+a}}</li>			
+		</ul>
+		<hr />
+		<ul ng-init="arr1=[{name:'zhangsan'},{name:'lisi'},{name:'zhangsan'}]">
+			<li ng-repeat="p in arr1">{{p}}</li>			
+		</ul>		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

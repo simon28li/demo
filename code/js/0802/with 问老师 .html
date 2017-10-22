@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="button">button</button>
+
+<script>
+
+    function Lakers() {
+        this.name = "kobe bryant";
+        this.age = "28";
+        this.gender = "boy";
+    }
+
+    var people=new Lakers();
+
+    with(people)
+    {
+        var str = "姓名: " + name + "<br>";  // 使用with之后，此处的people.name可以省略为name
+        str += "年龄：" + age + "<br>";
+        str += "性别：" + gender;
+        document.write(str);
+    }
+    console.log(people);
+
+    /*
+     with(document) {
+     write("您好 !");
+     write("<br>这个文档的标题是 : \"" + title + "\".");
+     write("<br>这个文档的 URL 是: " + URL);
+     write("<br>现在您不用每次都写出 document 对象的前缀了 !");
+     }
+     */
+
+
+</script>
+</body>
+</html>

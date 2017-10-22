@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{width: 300px;height: 300px;background: pink;}
+			.box2{width: 200px;height: 200px;background: yellow;}
+			.box3{width: 100px;height: 100px;background: yellowgreen;}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box2">
+				<div class="box3"></div>
+			</div>
+		</div>
+		<script>
+			//事件流: 事件流描述的是从页面中接受事件的顺序
+			//事件冒泡和事件捕获
+			//事件冒泡IE:事件的发生应该是当前该对象先触发,然后再触发上一级对象
+			//事件捕获Chrome,FF:事件的发生应该是在最上层触发,然后逐级向下捕获,直到抓到当前该对象
+			
+			var aDiv = document.getElementsByTagName('div');
+
+			aDiv[0].onclick = function(){
+				this.setAttribute('style','background: pink');
+			}
+			aDiv[1].onclick = function(){
+				this.setAttribute('style','background: pink');
+			}
+			aDiv[2].onclick = function(){
+				this.setAttribute('style','background: pink');
+			}
+
+		</script>
+	</body>
+</html>

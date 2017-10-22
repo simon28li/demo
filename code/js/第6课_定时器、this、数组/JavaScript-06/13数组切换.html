@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="跑一步" id='input1' />
+		<div id="div1"></div>
+		<script>
+			var arr = ['a','b','c','d'];
+			var oInput = document.getElementById('input1');
+			var oDiv = document.getElementById('div1');
+			
+			oDiv.innerHTML = arr;
+			oInput.onclick = function(){
+				var temp = arr.shift();
+				arr.push(temp);
+				oDiv.innerHTML = arr;
+			}
+		</script>
+	</body>
+</html>

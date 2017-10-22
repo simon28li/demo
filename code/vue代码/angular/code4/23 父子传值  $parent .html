@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="ParentCtrl">                <!--父级-->
+    <div ng-controller="SelfCtrl" ng-click="click()">              <!--自己-->
+        <a>click me</a>
+        <div ng-controller="ChildCtrl"></div>   <!--子级-->
+    </div>
+    <div ng-controller="BroCtrl"></div>         <!--平级-->
+</div>
+
+</body>
+
+</html>
+<script src="../code5/angular-1.4.8.js"></script>
+<script>
+
+    var app = angular.module('app', []);
+    app.controller('SelfCtrl', function ($scope) {
+        $scope.aa = {
+            name: "黄维新",
+            age: '29'
+        };
+        $scope.click = function () {
+            $scope.$broadcast('aa', $scope.aa);
+            $scope.$emit('aa', $scope.aa);
+            // console.log($scope.$parent)
+        }
+    });
+
+    app.controller('ParentCtrl', function ($scope, $timeout) {
+        $scope.$on('aa', function (event, data) {
+            $scope.aa = data;
+            console.log('ParentCtrl', data);       //父级能得到值
+        });
+    });
+
+    app.controller('ChildCtrl', function ($scope) {
+        $scope.$on('aa', function (event, data) {
+            console.log('ChildCtrl', data);         //子级能得到值
+        });
+    });
+
+    app.controller('BroCtrl', function ($scope) {
+        $scope.$on('to-parent', function (event, data) {
+            console.log('BroCtrl', data);          //平级得不到值
+        });
+    });
+
+</script>

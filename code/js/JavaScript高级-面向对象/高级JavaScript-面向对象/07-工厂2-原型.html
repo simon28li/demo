@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Animal(){
+				this.type = '动物';
+			}
+			
+			function Person(){
+				this.type = '人类';
+				
+				this.eat = function(){
+					return console.log('吃');
+				}
+			}
+			
+			function Cat(name, color){
+				/**
+				 * apply方法
+				 * 语法:apply([thisArg,[argArray]]);
+				 * 定义:应用某一对象的一个方法,用另外一个对象替换当前对象
+				 */
+				//区别:call调用的是一堆object,apply调用的是一个数组
+				Animal.apply(this, arguments);
+				this.name = name;
+				this.color = color;
+				
+				this.run = function(){
+					return console.log(name + '在跑');
+				}
+				
+				this.sleep = function(){
+					 console.log(name + '在睡');
+				}
+			}
+			var cat1 = new Cat('大毛','黄色');
+			//console.log(cat1.name);
+			//console.log(cat1.color);
+			//cat1.run();
+			//console.log(cat1.type);
+			cat1.sleep();
+			
+		</script>
+	</body>
+</html>

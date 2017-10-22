@@ -1,0 +1,9 @@
+<div>
+	<ul>
+		<li ng-repeat="d in data">
+			<img ng-src="{{d.imageUrl}}" />
+			<h4 ng-bind="d.name"></h4>
+			<p ng-bind="d.snippet"></p>
+		</li>		
+	</ul>	
+</div>

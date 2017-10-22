@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11111</li>
+			<li>22222</li>
+			<p>33333</p>
+		</ul>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			/*事件委托: 利用冒泡原理,将子元素的事件委托给父元素处理*/
+			//第一个参数为委托的子元素
+			//第二个参数为代理的事件类型
+			//第三个参数为代理的函数
+			$('ul').delegate('li','click.abc',function(ev){
+				//alert('aaaa');
+				console.log(ev.target);//获取委托者，是一个原生js对象
+				$(ev.target).css('background','red');
+				$(this).css('border','1px solid #000');//this 相当于事件源
+				//获取代理者
+				//ev.delegateTarget;	//代理的父元素，也是原生js对象
+				$(ev.delegateTarget).css('background','green');
+			});
+			
+			//取消代理
+			//$('ul').undelegate();//取消了该元素上所有的代理事件
+		//	$('ul').undelegate('li','click.abc');			
+		</script>
+	</body>
+</html>

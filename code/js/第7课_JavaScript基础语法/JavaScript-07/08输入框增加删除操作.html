@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="input1" disabled="disabled"/><br />
+		<div id="div1">
+			<input type="checkbox" value="HTML"/>HTML<br />
+			<input type="checkbox" value="CSS"/>CSS<br />
+			<input type="checkbox" value="JavaScript"/>JavaScript<br />
+			<input type="checkbox" value="Java"/>Java<br />
+		</div>
+		<script>
+			var div1 = document.getElementById('div1')
+			var aInput = div1.getElementsByTagName('input');
+			var input1 = document.getElementById('input1');
+			for(var i = 0;i<aInput.length;i++){
+				aInput[i].onclick = function(){
+					if(this.checked){
+						if(input1.value == ''){
+							input1.value += this.value;
+						}else{
+							input1.value += ','+this.value;
+						}
+					}else{
+						//字符串是HTML,CSS,JavaScript,Java
+						//数组[HTML,CSS,JavaScript,Java]
+						var arr = input1.value.split(',');
+						for(var i = 0; i<arr.length; i++){
+							if(arr[i] == this.value){
+								arr.splice(i, 1);
+							}
+						}
+						
+						input1.value = arr;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

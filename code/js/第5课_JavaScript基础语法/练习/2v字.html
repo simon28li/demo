@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+div{ width:20px; height:20px; background:red; position:absolute;}
+</style>
+<script>
+
+window.onload = function(){
+	
+	var str = '';
+	var iLeft = 0;
+	var iTop = 0;
+	
+	for(var i=0;i<40;i++){
+		str += '<div>'+ i +'</div>';
+	}
+	
+	document.body.innerHTML = str;
+	
+	var aDiv = document.getElementsByTagName('div');
+	
+	for(var i=0;i<aDiv.length;i++){
+		
+		if( i%16 < 8 ){
+			iLeft += 20;
+			iTop += 20;
+			aDiv[i].style.left = iLeft + 'px';
+			aDiv[i].style.top = iTop + 'px';
+		}
+		else{
+			iLeft += 20;
+			iTop -= 20;
+			aDiv[i].style.left = iLeft + 'px';
+			aDiv[i].style.top = iTop + 'px';
+		}
+		
+	}
+	
+};
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

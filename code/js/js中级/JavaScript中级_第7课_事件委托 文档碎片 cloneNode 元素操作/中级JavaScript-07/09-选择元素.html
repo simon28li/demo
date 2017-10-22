@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<input type="button" value="1"/>
+		<input type="button" value="2"/>
+		
+		<script>
+			var aInput = document.querySelectorAll('input[type="button"][value="2"]');
+			for(var i = 0;i<aInput.length;i++){
+				aInput[i].style.background = 'pink';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<template>
+				<label>省份:</label>
+				<select v-model="selected" @change="show">
+					<option v-for="p in provinces">{{p}}</option>
+				</select>
+			</template>
+			<template>
+				<label>城市:</label>
+				<select>
+					<option v-for="c in cities[i]">{{c}}</option>
+				</select>
+			</template>
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					provinces:[
+						'广东',
+						'江西',
+						'湖南',
+						'福建'
+					],
+					cities:[
+						['广州','深圳','东莞'],
+						['南昌','九江','赣州'],
+						['长沙','衡阳','岳阳'],
+						['厦门','福州','泉州']
+					],
+					i:0,
+					selected:'广东'
+				},
+				methods:{
+					show(){
+						switch(this.selected){
+							case '广东':
+								this.i=0;
+								break;
+							case '江西':
+								this.i=1;
+								break;
+							case '湖南':
+								this.i=2;
+								break;
+							case '福建':
+								this.i=3;
+								break;
+							default: this.i=0;
+						}
+					}
+					
+				}
+			});
+			
+			
+		</script>
+	</body>
+</html>

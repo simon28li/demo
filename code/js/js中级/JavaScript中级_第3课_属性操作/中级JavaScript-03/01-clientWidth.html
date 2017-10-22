@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+			#div1{width:100px;height: 100px;background: pink;padding: 10px;border: 5px solid black;}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			
+			var oDiv = document.getElementById('div1');
+			console.log(oDiv.offsetWidth);
+			console.log(oDiv.offsetHeight);				//padding + width + border
+			
+			console.log(oDiv.clientWidth);
+			console.log(oDiv.clientHeight);				//padding + width
+			console.log(oDiv.clientLeft);				//边框左侧大小
+		</script>
+	</body>
+</html>

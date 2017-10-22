@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<!--兼容IE6-8-->
+		 <!--[if lt IE 9]>    	
+	      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>      
+	      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->   
+	    
+	    <style>
+	    	div[class*=col-]{
+	    		background: #ccc;
+	    		border: 1px solid #000;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<!--栅格系统	-->
+		<div class="container">
+			<!--行-->
+			<div class="row">
+				<!--列  .col-lg-5  该元素在大屏幕以上占5列，如果小于大屏幕则独占一行      -->
+				<div class="col-lg-1">.col-lg-1</div>
+				<div class="col-lg-3">.col-lg-3</div>
+				<div class="col-lg-3">.col-lg-3</div>				
+				<div class="col-lg-3">.col-lg-3</div>				
+				<div class="col-lg-2">.col-lg-2</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">.col-md-3</div>
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-5">.col-md-5</div>				
+				<div class="col-md-3">.col-md-3</div>				
+				<div class="col-md-2">.col-md-2</div>
+			</div>
+			<div class="row">
+				<!--组合使用-->
+				<div class="col-lg-3 col-md-4 col-sm-6">组合1</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">组合2</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">组合3</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">组合4</div>
+				<div class="col-lg-3 col-md-4 col-sm-6">组合5</div>
+			</div>
+		</div>
+	
+	</body>
+</html>

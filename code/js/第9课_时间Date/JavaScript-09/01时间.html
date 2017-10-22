@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			var oDate = new Date();
+			
+			var year = oDate.getFullYear();			//得到年
+			console.log(year);						//2017
+//			var a = oDate.getYear();
+//			console.log(a);
+			var month = oDate.getMonth() + 1;		//得到月
+			console.log(month);						//1
+			
+			var date = oDate.getDate();				//得到天
+			console.log(date);
+//			var day = oDate.getDay();
+//			console.log(day);
+			var weekDay = ["星期日", "星期一", "星期二", "星期三" ,"星期四", "星期五", "星期六"];
+			var day = weekDay[oDate.getDay()];
+			console.log(day)
+
+			var h = oDate.getHours();               //得到时
+			var m = oDate.getMinutes();             //得到分
+			var s = oDate.getSeconds();             //得到秒
+			
+			var str = year + '年' + month + '月' + date + '日' + day + ' ' + h + ':' + m + ':' + s;
+			var oDiv = document.getElementById('div1');
+			oDiv.innerHTML = str;
+		</script>
+	</body>
+</html>

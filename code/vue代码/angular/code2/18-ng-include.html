@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<div ng-include="'views/18-template.html'">			
+		</div>		
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.data='hello,world';
+			}]);			
+		</script>		
+	</body>
+</html>

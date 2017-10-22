@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myController">
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+
+<script>
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$q', function ($scope, $q) {
+        //$q代替异步操作的对象
+        //ajax请求
+
+        function ajax() {
+            var p = $q.defer();//异步对象
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'xxx.php', true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        //success(xhr.responseText);
+                        p.resolve(xhr.responseText);//状态解决
+                    } else {
+                        p.reject(xhr.status);
+                    }
+                }
+            };
+            return p;
+        }
+
+        console.log(ajax());
+
+        ajax().then(function (data) {
+            //resolve回调的函数
+        }, function (error) {
+            //reject回调的函数
+        });
+
+        /* $http().then(function () {
+         }, function () {
+         });*/
+
+    }]);
+    angular.bootstrap(document, ['app']);//动态注册模块
+</script>
+</body>
+</html>

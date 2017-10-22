@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin:0}
+			
+			#ul1{width:600px;margin:90px auto}
+			
+			#ul1 li{list-style: none;width:600px;height: auto;overflow: hidden;}
+			li h3{width: 100%;height: 30px;line-height: 30px;background: peachpuff;}
+			li p{padding: 20px;}
+			li span{float: right;}
+			li h3 a{text-decoration: none;}
+			a:hover{text-decoration: underline; color:red;}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<!--
+			<li>
+				
+				<h3><a href="#">元旦快乐</a></h3>
+				<p>2017年元旦到了2017年元旦到了2017年元旦到了2017年元旦到了2017年元旦到了2017年元旦到了</p>
+				<span>2017年1月1日</span>
+				
+			</li>
+			-->
+		</ul>
+		<script>
+			var data = [
+				{title:'势利店、纸牌屋、烂尾楼，习近平的这三个比喻是在说什么',href:'http://news.163.com/17/0105/15/CA1BUCRF000187VE.html',content:'不管涉及到谁，都要一查到底，决不姑息”的鲜明态度；同时还要有“猛药去疴、重典治乱的决心，刮骨疗毒、壮士断腕的勇气',date:'2017-01-05 15:05:00'},
+				{title:'张铁生套现修张作霖陵园?知情人:他想过平静晚年',href:'http://news.163.com/17/0106/07/CA34TK840001875P.html',content:'关于前述《说明》内容的真实性，一名接近张铁生的知情人士对澎湃新闻记者称，“这是未经同意擅自发的。希望媒体让张铁生先生过一个平静的晚年，给他一个平静的生活，这是他想要的。”',date:'2017-01-06 07:48:27'},
+				{title:'上海女研究生反驳男学霸观点 被尾随暴打',href:'http://news.163.com/17/0106/09/CA3C0P330001875P.html',content:'根据视频显示开。当女生上前理论时，又被男生狠踹一脚踢到绿化带中。',date:'2017-01-06 09:52:30'}
+			];
+			
+			var oUl = document.getElementById('ul1');
+			var str = '';
+			for(var i = 0;i<data.length;i++){
+				str += '<li>' +
+					   '<h3><a href=' + data[i].href + '>' + data[i].title + '</a></h3>' +
+					   '<p>' + data[i].content + '</p>' +
+					   '<span>' + data[i].date + '</span>' +
+					   '</li>';
+			}
+			oUl.innerHTML = str;
+		</script>
+	</body>
+</html>

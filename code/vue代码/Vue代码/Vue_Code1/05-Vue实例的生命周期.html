@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//Vue实例的生命周期：
+			//1.配置数据观测(data observer)
+			//2.编译模版、render虚拟DOM
+			//3.挂载实例到 DOM ，
+			//4.然后在数据变化时更新 DOM 
+			//5.销毁
+			//在这个过程中会调用一些 生命周期钩子
+			var vm=new Vue({
+				//生命周期的钩子函数
+				beforeCreate:function(){
+					console.log('Vue的生命周期钩子函数beforeCreate被调用了')
+				},
+				data:{
+					msg:'hello'
+				},
+				created:function(){
+					console.log('vue实例已经被创建了，created钩子函数被调用了');
+				},
+				//设置Vue实例的模板
+				template:'<div><h1>标题</h1><p>内容</p></div>',
+				
+				beforeMount:function(){
+					console.log('beforeMount');
+					console.log(this.$el);
+				},
+//				el:'#app'
+				mounted:function(){
+					console.log('mounted钩子函数');
+					console.log(this.$el);
+				},
+				destroyed(){
+					alert('vm已经被销毁了');
+				}				
+			}).$mount('#app');//如果没有el属性也可以用vm.$mount绑定元素
+			
+			//延迟2s后销毁vm实例
+			setTimeout(function(){
+				vm.$destroy();
+				vm.msg='zhangsan';
+			},2000);
+			
+		</script>
+	</body>
+</html>

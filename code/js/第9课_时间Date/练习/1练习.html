@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+div{ margin:100px;}
+div img{ position:relative; top:0;}
+</style>
+</head>
+
+<body>
+<div>
+	<img src="img/0.png">
+    <img src="img/0.png">
+    <img src="img/second1.png">
+    <img src="img/0.png">
+    <img src="img/0.png">
+    <img src="img/second1.png">
+    <img src="img/0.png">
+    <img src="img/0.png">
+</div>
+<script>
+
+var aImg = document.getElementsByTagName('img');
+var oldTime = '';
+runTime();
+setInterval(runTime,1000);
+
+
+
+function runTime(){
+	
+	var oDate = new Date();
+	var iH = oDate.getHours();
+	var iM = oDate.getMinutes();
+	var iS = oDate.getSeconds();
+	
+	var str = toZero(iH) + ':' + toZero(iM) + ':' + toZero(iS);
+	
+	for(var i=0;i<aImg.length;i++){
+		if(i!=2 && i!=5){
+			aImg[i].src = 'img/'+ str.charAt(i) +'.png';
+		}
+	}
+	//str     204660
+	//oldTime 204659
+	for(var i=0;i<str.length;i++){
+		if( str.charAt(i) != oldTime.charAt(i) ){
+			toShake( aImg[i] );
+		}
+	}
+	
+	oldTime = str;
+	
+}
+function toZero(num){
+	if(num<10){
+		return '0'+num;
+	}
+	else{
+		return '' + num;
+	}
+}
+
+function toShake(obj){
+	
+	var arr = [];
+	var iNow = 0;
+	for(var i=10;i>0;i-=2){
+		arr.push(i);
+		arr.push(-i);
+	}
+	arr.push(0);
+	//console.log( arr );  //[10, -10, 8, -8, 6, -6, 4, -4, 2, -2, 0]
+	
+	var timer = setInterval(function(){
+		
+		obj.style.top = arr[iNow] + 'px';
+		iNow++;
+		if(iNow == arr.length){
+			clearInterval(timer);
+		}
+		
+	},30);
+	
+}
+
+</script>
+</body>
+</html>

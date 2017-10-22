@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{count}}</p>
+		<!--
+			ng-click 指令：当用户点击所在元素时，执行ng-click中的表达式
+		-->
+		<!--<input type="button" value="递增" ng-click="count=count+1"/>-->
+		<input type="button" value="递增" ng-click="change()"/>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			
+			//创建控制器
+			app.controller('myController',['$scope',function($scope){
+				$scope.count=0;
+				$scope.change=function(){
+					this.count++;
+				//	console.log(this.count);
+				}
+			}])
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * 阶乘的方法
+			 * 第一次进入的时候: fn(4)*5
+			 * 第二次进入的时候: fn(3)*4
+			 * 第三次进入的时候: fn(2)*3
+			 * 第四次进入的时候: fn(1)*2
+			 */
+			function fn(n){
+				if(n == 1){
+					return 1;
+				}
+				var result = n * fn(n-1);
+				debugger
+				console.log("本次方法结束了,我是"+n);
+				return result;
+			}
+			console.log(fn(5));
+			/**
+			 * 5的阶乘  = 5*fn(4)
+			 * 4的阶乘  = 4*fn(3)
+			 * 3的阶乘  = 3*fn(2)
+			 * 2的阶乘  = 2*fn(1)
+			 */
+		</script>
+	</body>
+</html>

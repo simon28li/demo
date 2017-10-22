@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			ng-model-options指令用于配置ng-model指令
+		-->
+		<input type="text" ng-model="name" ng-model-options="{updateOn:'blur'}"/>
+		<p>{{name}}</p>
+
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>		
+	</body>
+</html>

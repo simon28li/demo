@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{name}}</title>
+	</head>
+	<body>
+		<p>{{age}}</p>
+		<!--ng-init指令：用于初始化变量,初始化的变量是全局变量，在整个ng-app中都可以访问	
+		-->
+		<div ng-init="name='张三';age=10;sex=true">
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+			<p>{{sex}}</p>
+		</div>
+		
+		<p>{{name}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<ul>
+			<!--
+				$index 为ng-repeat所遍历到在元素下标
+				$first 如果当前所遍历到的元素是第一项即下标为0这一项，该值为true,否则值为false
+				$last	如果当前所遍历到的元素是最后一项，该值为true,否则值为false
+				$middle 如果当前所遍历到的元素是中间项，该值为true,否则值为false
+				$even 如果当前所遍历到的元素是偶数项，该值为true,否则值为false
+				$odd 如果当前所遍历到的元素是奇数项，该值为true,否则值为false
+			-->
+			<li ng-repeat="d in arr">{{$index+1+':'+d}}/{{$first}}/{{$last}}/{{$middle}}/{{$even}}/{{$odd}}</li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=['aaa','bbb','cccc','dddd'];
+			}]);
+		</script>
+	</body>
+</html>

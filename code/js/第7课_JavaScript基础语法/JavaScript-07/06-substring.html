@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abcdef';
+			var a = str.substring(4, 1);
+			console.log(a);					//bcd
+			
+			var b = str.substring(-2, 4);	//不是数字或者负数会自动转成0
+			console.log(b);					//abcd
+			
+			var c = str.slice(1, 4);
+			console.log(c);					//bcd
+			
+			var d = str.slice(4, 1);		//顺序不能自动调整从小到大
+			console.log(d);					//
+			
+			var e = str.slice('aa', 4);     //非数字会转成0
+			console.log(e);					//abcd
+			
+			var f = str.slice(-3, -1);		//支持负数位置,但是他的下标是从右往左看
+			console.log(f);					//de
+			
+			var g = str.slice(-2);
+			console.log(g);					//ef
+			
+			var h = str.slice(2, -2);
+			console.log(h)					//cd
+		</script>
+	</body>
+</html>

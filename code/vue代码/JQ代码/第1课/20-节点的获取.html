@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>00000</li>
+			<p>1111</p>
+			<li>22222</li>
+			<li id="box">33333</li>
+			<li>4444</li>
+			<div>55555</div>
+		</ul>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//获取指定节点上面的所有兄弟节点
+			$('#box').prevAll('li').css('background','red');
+			
+			//获取指定节点下面所有的兄弟节点
+			$('#box').nextAll('li').css('background','green');
+			
+			//获取除自身之外的所有的兄弟节点,参数用于筛选
+			$('#box').siblings('li').css('background','yellow');
+		</script>
+	</body>
+</html>

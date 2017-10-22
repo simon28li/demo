@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-resource.js" ></script>
+		<script>
+			var app=angular.module('app',['ngResource']);
+			app.controller('myController',['$scope','$resource',function($scope,$resource){
+				//$resouce服务 将进一步简化http请求
+				//创建请求对象
+				/*
+				 第一个参数：请求路径
+				 第二个参数：对请求路径中的一些参数的默认配置，可选
+				 第三个参数：对请求方法一些配置，可选
+				 * */				
+				var requestObj=$resource('json/about.json');
+				//请求对象上有几个方法可以进行http请求：
+				/*
+				 	get() 用于GET请求，请求的后台数据一定是一个对象
+				 	query() GET请求,用于请求后台的数组数据
+				 	save()  用于POST请求
+				 * */
+				var data=requestObj.query();
+				console.log(data);
+				
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>11111</p>
+		<p>222222</p>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//	$('p').css('width','100px');
+		//	$('p').css('border','1px solid #000');
+			
+			$('p').css('cssText','width:100px;height:100px;background:red');
+			
+			//以键值对的形式设置css
+			$('p').css({
+				width:'100px',
+				heigth:100,			
+				background:'green'
+				//	lineHeight:2
+			});
+		</script>		
+	</body>
+</html>

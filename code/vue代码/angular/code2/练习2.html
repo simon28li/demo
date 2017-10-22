@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+
+<head>
+    <title>练习2</title>
+    <meta content="" charset="UTF-8">
+    <style>
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .pink {
+            background: pink;
+        }
+
+    </style>
+</head>
+
+<body ng-controller="ctr">
+
+<div>
+    <div myclass1="red" myctr1></div>
+    <myctr1 myclass1="green"></myctr1>
+    <myctr1 myclass1="pink"></myctr1>
+</div>
+<hr>
+<div>
+    <div myclass2="aa1" myctr1></div>
+    <myctr1 myclass2="aa2"></myctr1>
+    <myctr1 myclass2="aa3"></myctr1>
+</div>
+<hr>
+<div>
+    <div myvalue="点击" fn="fn1()" myctr1></div>
+    <myctr1 myvalue="点击" fn="fn2()"></myctr1>
+    <myctr1 myvalue="点击" fn="fn3()"></myctr1>
+</div>
+
+</body>
+
+</html>
+
+<script src="angular-1.4.8.js"></script>
+
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('ctr', ['$scope', '$rootScope', function ($scope, $rootScope) {
+                $scope.aa1 = 'red';
+                $scope.aa2 = 'green';
+                $scope.aa3 = 'pink';
+                $scope.fn1 = function () {
+                    console.log('fn1')
+                };
+                $scope.fn2 = function () {
+                    console.log('fn2')
+                };
+                $scope.fn3 = function () {
+                    console.log('fn3')
+                }
+
+
+            }])
+            .directive('myctr1', function () {
+                return {
+                    restrict: 'ECMA',
+                    template: '<div  ng-class="[myclass1,myclass2]" ng-click="show()"><input type="text" ng-model="myinput" ng-value="myvalue"><span>{{myinput}}</span></div>',
+                    replace: true,
+                    scope: {
+                        myclass1: '@myclass1',
+                        myclass2: '=myclass2',
+                        show: '&fn',
+                        myvalue: '@'
+                    },
+                    controller: function ($scope) {
+
+
+                    }
+                }
+            })
+
+</script>

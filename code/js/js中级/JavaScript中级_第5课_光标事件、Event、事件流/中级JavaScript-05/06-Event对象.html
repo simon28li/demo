@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<script>
+			//event对象: Event对象代表事件的状态,表示在触发此事件时的相关细节(鼠标左右中键哪个按下了?键盘某按键被下的Unicode编码是多少?shift/alt/clrl被按下没?)
+			//on打头的那些事件
+			//事件细节:鼠标键盘,鼠标位置,阻止默认行为
+			var iNow = 0;
+			document.onclick = function(e){
+				//clientX,clientY(浏览器可视区的坐标位置)
+				//console.log(e.clientX);
+				//console.log(e.clientY);
+				
+				//console.log(e.pageX);		//IE9以下不兼容
+				//console.log(e.pageY);
+				var e = e || window.event;
+				
+				console.log(getMousePos(e));
+			}
+			
+			function show(e){
+				console.log(e);
+			}
+			
+			/**
+			 * 封装获取鼠标在整个文档流的位置的方法用来兼容IE浏览器
+			 */
+			function getMousePos(e){
+				var e = event || window.event;
+				var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+				var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+				var x = e.pageX || e.clientX + scrollX;
+				var y = e.pageY || e.clientY + scrollY;
+				//alert(x+","+y);
+				return "x :"+x+" y :"+y;
+			}
+		</script>
+	</body>
+</html>

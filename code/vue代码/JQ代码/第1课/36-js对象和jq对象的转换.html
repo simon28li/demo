@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//转换
+		//	$(oDiv);	//js对象转换jq对象
+			
+			//jq对象转js对象
+			$('div')[1]; //将jq对象转换成js对象
+			
+			$('div').get();//将jq集合转换成原生对象集合
+			$('div').get(0).innerHTML='aaaaa';
+			
+//			for (var i=0;i<$('div').get().length;i++) {
+//				console.log(i);
+//				$('div').get(i).innerHTML=i;
+//			}			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>1111</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			function show(a){
+				console.log(this);
+				console.log(a);
+			}
+//			show();	//this--->window
+//			var arr=[];
+//			arr.fn=function(){
+//				show();//this--->window
+//				show.apply(arr);	//改变this指向
+//				show.call(arr);
+//			}
+//			arr.fn();
+//			
+//			setTimeout(show.apply(document),1000);			
+			//show.bind() ES5中的改变this的方法
+			
+			$.proxy(show,document)(30);	//改变this指向，并且调用函数
+			
+			setTimeout($.proxy(show,document,50),3000);
+			
+			$('div').on('click',$.proxy(show,$('div').get(0),100));
+			
+			//通过通过事件绑定了指定函数，通过$.proxy改变this之后，仍然可以使用原函数名去解绑事件
+			oDiv.addEventListener('click',$.proxy(show),false);
+			oDiv.removeEventListener('click',show,false);
+		</script>
+	</body>
+</html>

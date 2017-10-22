@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			{}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>11111
+				<ul>
+					<li>111111</li>
+				</ul>
+			</li>
+			<li>11111
+				<ul>
+					<li>222222</li>
+				</ul>
+			</li>
+			<li>11111
+				<ul>
+					<li>333333</li>
+				</ul>
+			</li>
+			<li>11111
+				<ul>
+					<li>444444</li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			//操作元素的方法:getElementById,getElementsByTagName   ....
+			//比较复杂的CSS选择方法   querySelector  querySelectorAll
+			//querySelector: 获取一个元素
+			//querySelectorAll: 获取一个集合
+			/*
+			var oUl = document.querySelector("#ul1");
+			oUl.style.background = 'pink';
+			#ul{background:pink}
+			*/
+			var aLi = document.querySelectorAll('#ul1 li');
+			for(var i = 0;i<aLi.length;i++){
+				aLi[i].style.background = 'pink';
+				//#ul1 li{background: pink};
+			}
+		</script>
+	</body>
+</html>

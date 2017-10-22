@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//自己调用自己就是递归
+			var arr = [0, 1, 2, 3];
+			var i = 0;
+			function show(){
+				console.log(arr[i]);
+				i++;
+				if(i < arr.length){
+					show();	
+				}
+			}
+			show();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value=""/>
+		<input type="button" value="发送" />
+		<ul></ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('input[type=button]').on('click.abc',function(){
+				$('ul').append('<li>'+$('input').first().val()+'</li>');
+			});
+			$(document).on('keydown',function(ev){
+				if(13==ev.keyCode){
+					//主动触发一次事件
+					$('input[type=button]').trigger('click.abc');//主动触发了一次按钮的点击事件
+				}				
+			});						
+		</script>
+	</body>
+</html>

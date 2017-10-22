@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+   <script>
+       /*比较运算符 ==  */
+
+       var x=12;
+       var y='12';
+       console.log(x==y);  /*true      值类型的变量比较的是值   他们的值是相等的 只是类型不一样*/
+       console.log(x!=y);  /*false
+       console.log(x===y);  /*false     数据类型不一样 */
+       console.log(x!==y);  /*true     数据类型不一样 */
+
+       var a=['1','2'];     /*数组*/
+       var b=['1','2'];
+       console.log(a==b);   /*false   引用类型的变量比较的是地址*/
+
+       var a={one:'1'};     /*对象*/
+       var b={one:'1'};
+       console.log(a==b);   /*false   引用类型的变量比较的是地址*/
+
+       var a={one:'1'};
+       var b={one:'1'};
+       a=b;  /* 赋值 */
+       console.log(a==b);   /*true   引用类型的变量比较的是地址*/
+       console.log(a===b);  /*true   引用类型的变量比较的是地址*/
+
+console.log('---------------------------------')
+       var x='12';
+       var y='1';
+       console.log(x>=y)
+       console.log(x<=y)
+
+       var x='1111111111111111112';
+       var y='h';
+       console.log(x>y) /*false*/
+       console.log(x<y) /*true*/
+
+       var x=1111;
+       var y='h';
+       console.log(x>y) /*false*/
+       console.log(x<y) /*false*/
+
+
+
+
+
+
+   </script>
+</body>
+</html>

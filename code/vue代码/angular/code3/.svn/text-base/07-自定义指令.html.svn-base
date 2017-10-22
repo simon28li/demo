@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background: red;}
+			.green{background: green;}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<!--使用自定义指令-->
+		<hello-web my-class="red" my-id="box"></hello-web>
+		<div class="hello-web" my-class="green" my-id="box1"></div>
+		<div hello-web my-id="box2"></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('helloWeb',function(){
+				return {
+					restrict:'ECMA',	//定义该自定义指令以哪种方式使用
+					template:'<div id="{{myId}}"><input ng-model="name"/><strong class="{{myCls}}">{{name}}</strong></div>',
+					replace:true,	//表示用模板内容完全替换原有的标签
+					scope:{	//隔离作用域
+							//	@ 表示取字符串
+						myCls:'@myClass',	//将所在视图上的myClass属性值的字符串获取到，赋值给了变量myCls
+						myId:'@'			//等效于'@myId'，当变量名和要取的视图中的属性名一样时,@后面绑定的属性名可以省略
+					},
+					controller:['$scope',function($scope){
+						console.log($scope);
+					}]
+				}
+			});			
+			app.controller('myController',['$scope',function($scope){
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<!--兼容IE6-8-->
+		 <!--[if lt IE 9]>    	
+	      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>      
+	      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->   
+	    
+	    <style>
+	    	.container{background: gray;}
+	    	h1{background: red;}
+	    	.container-fluid{background: #B2DBA1;}
+	    </style>
+	</head>
+	<body>
+		<!--注意：类名,结构	-->
+		<div class="container">
+			<h1>Hello</h1>
+		</div>
+		<!--
+			.container 固定尺寸的容器
+				大屏幕 大桌面显示器 (≥1200px)  固定尺寸布局容器尺寸为1170px	->lg(大屏幕)
+				中等屏幕 桌面显示器 (≥992px) 	固定尺寸布局容器尺寸为970px		->md(中等屏幕)
+				小屏幕(>=768px)	->sm
+				超小屏幕 (<768px) 	->xs
+					
+			.container-fluid  宽度自适应容器
+		-->
+		<div class="container-fluid">
+			<h1>hello</h1>			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="height: 100px;width: 100px;background: red;position: absolute;"></div>
+		<script>
+			//onclick
+			//onmousedown     鼠标按下事件
+			//onmouseup       鼠标抬起事件
+			//onmousemove     鼠标移动事件
+			
+			var oDiv = document.getElementById('div1');
+			//click事件实际是鼠标按下事件和鼠标抬起事件的一个组合事件
+			document.onmousedown = function(){
+				console.log("onmousedown");
+			}
+			
+			document.onmouseup = function(){
+				console.log("onmouseup");
+			}
+			
+			document.onclick = function(){
+				console.log("onclick");
+			}
+			
+			document.onmousemove = function(e){
+				var e = e || window.event;
+				var x = e.pageX;
+				var y = e.pageY;
+				
+				oDiv.style.left = x + 'px';
+				oDiv.style.top = y + 'px';
+			}
+		</script>
+	</body>
+</html>

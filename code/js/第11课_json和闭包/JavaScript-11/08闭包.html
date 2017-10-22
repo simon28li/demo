@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11111111111111111</li>
+			<li>22222222222222222</li>
+			<li>33333333333333333</li>
+			<li>44444444444444444</li>
+		</ul>
+		<script>
+			var aLi = document.getElementsByTagName('li');
+			
+			for(var i = 0;i<aLi.length;i++){
+				show(i);
+			}
+			
+			//IIFE 立即执行函数
+			function show(i){
+				aLi[i].onclick = function(){
+					console.log(i);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

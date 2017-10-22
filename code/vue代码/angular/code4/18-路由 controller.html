@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myController">
+<p>
+    <strong ng-click="$location.path('home')">首页</strong>
+    <strong ng-click="$location.path('product')">产品</strong>
+    <strong ng-click="$location.path('about')">关于</strong>
+</p>
+<!--ng-view指定路由入口，即对应路由视图的容器-->
+<div ng-view></div>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<!--引入路由插件-->
+<script type="text/javascript" src="angular-route.js"></script>
+<script>
+    /*
+     angularjs中使用路由来实现SPA应用（单页应用）
+     angularjs将路由功能封装成了插件
+     * */
+    var app = angular.module('app', ['ngRoute']);
+
+    //配置$route服务,通过config调用$routeProvider来配置
+    app.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider
+                .when('/home', {
+                    template: '<h1>主页{{title}}</h1><p>主页内容。。。。。。{{content}}</p>',
+                    controller: 'HomeCtrl'	//定义主页的控制器，该控制器管理主页视图模块
+                })
+                .when('/product', {
+                    template: '<h1>产品{{title}}</h1><p>产品产品产品产品。。。。。。{{content}}</p>',
+                    controller: 'ProductCtrl'	//产品页控制器，管理着产品页面的所有视图
+                })
+                .when('/about', {
+                    template: '<h1>关于</h1><p>关于关于关于关于关于关于。。。。。。</p>',
+                    controller: 'AboutCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/home'	//当页面路由和上面任何一个路由不匹配时，则自动将路由设置为home
+                });
+    }]);
+
+    //定义控制器
+    app.controller('HomeCtrl', ['$scope', function ($scope) {
+        //定义主页访问的数据
+    }]);
+    app.controller('ProductCtrl', ['$scope', function ($scope) {
+        //定义产品页访问的数据
+    }]);
+    app.controller('AboutCtrl', ['$scope', function ($scope) {
+        //定义关于页访问的数据
+    }]);
+
+    app.controller('myController', ['$scope', '$location', function ($scope, $location) {
+        $scope.$location = $location;
+        $scope.title = "home";
+        $scope.content = 'hello,world';
+    }]);
+</script>
+</body>
+</html>

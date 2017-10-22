@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.default{color:#9C9C9C}
+			.value{color:#000}
+		</style>
+	</head>
+	<body>
+		<input id="input1" type="text" value="苹果充值卡首发" class="default"/>
+		<script>
+			//苹果充值卡首发
+			var input1 = document.getElementById('input1');
+			var offon = true;
+			
+			input1.onfocus = function(){
+				if(offon){
+					this.value = '';
+					offon = false;
+					this.setAttribute("class",'value')
+				}
+			}
+			
+			input1.onblur = function(){
+				if(this.value == ''){
+					this.value = '苹果充值卡首发';
+					offon = true;
+					this.setAttribute('class','default');
+				}
+			}
+		</script>
+	</body>
+</html>

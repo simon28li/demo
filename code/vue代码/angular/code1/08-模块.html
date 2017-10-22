@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			ng-controller 用于注册控制器
+		-->
+		<div ng-controller="myController">
+			<p>{{name}}</p>
+		</div>
+				
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建myApp模块
+			/*
+			 第一个参数：创建的模块名称
+			 第二个参数：当前模块依赖的其他模块列表，如果没有依赖的外部模块，则要设置空数组
+			 const 声明常量（ES6新增关键字）
+			 * */			
+//			const myApp=angular.module('myApp',[]);	//模块是angular应用的入口，一切从模块开始		
+//			//定义控制器，控制器是定义在模块上
+//			/*
+//			 第一个参数：控制器名称
+//			 第二个参数：定义控制器功能的函数
+//			 * */
+			myApp.controller('myController',['$scope',function($scope){	//防止压缩形参
+				//$scope 作用域
+				//定义变量
+				$scope.name="张三";
+			}]);
+			
+			//控制器的函数式写法
+//			function myController($scope){
+//				$scope.name="张三";
+//			}		
+		</script>
+	</body>
+</html>

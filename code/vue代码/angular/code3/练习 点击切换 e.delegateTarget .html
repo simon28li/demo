@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+
+<head>
+    <title>练习</title>
+    <meta charset="UTF-8">
+    <style>
+        .nav input.active {
+            background: red;
+        }
+
+        .nav div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            display: none;
+        }
+
+        .nav div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body ng-controller="ctr1">
+
+<div>
+    <hello-web my-class="nav" my-data="myData"></hello-web>
+</div>
+
+</body>
+
+</html>
+
+<script src="angular-1.4.8.js"></script>
+<script src="jquery-1.11.1.js"></script>
+
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('ctr1', ['$scope', function ($scope) {
+                $scope.myData = [
+                    {title: '财经', content: '财经财经财经财经财经'},
+                    {title: '军事', content: '军事军事军事军事军事'},
+                    {title: '商业', content: '商业商业商业商业商业'}
+                ];
+                $scope.myclass = 'nav';
+            }])
+
+            .directive('helloWeb', function () {
+                return {
+                    restrict: 'EA',
+                    templateUrl: 'views/template2.html',
+                    replace: true,
+                    scope: {
+                        myData: '=',
+                        myClass: '@'
+                    },
+                    link: function ($scope, ele, Attr, d) {
+                        /*console.log($scope)
+                         console.log($(ele))
+                         console.log(Attr)*/
+                        $(ele).on('click','input',  function (ev) {
+                            $(ev.target).addClass('active').siblings('input').removeClass('active');
+//                            $(ev.delegateTarget).find('div').eq($(ev.target).index()).addClass('active').siblings('div').removeClass('active');
+                             $(ele).find('div').eq($(ev.target).index()).addClass('active').siblings('div').removeClass('active')
+                        });
+
+                       /* $(ele).on('click', 'input', function () {
+                            console.log('aaa')
+                        })*/
+                    }
+                }
+            })
+
+
+</script>

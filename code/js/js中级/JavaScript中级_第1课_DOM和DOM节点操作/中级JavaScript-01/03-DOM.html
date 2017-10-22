@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script>
+//			var oUl = document.getElementById('ul1');
+//			var aLi = document.getElementsByTagName('li');
+//			
+//			for(var i = 0;i<aLi.length;i++){
+//				aLi[i].style.background = 'pink';
+//			}
+			
+		/*
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.childNodes;					//获取所有的子节点,包括元素节点,文本节点或者空白节点
+		
+			for(var i = 0;i<aLi.length;i++){
+				//aLi[i].style.background = 'pink';     //浏览器出错,是因为文本节点没有办法接收background属性,文本节点没有background属性
+				if(aLi[i].nodeType == 1){
+					aLi[i].style.background = 'pink';
+				}
+			}
+		*/
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.children;						//不是标准方法,但是全浏览器支持.选取所有的元素子节点
+			
+			for(var i = 0;i<aLi.length;i++){
+				aLi[i].style.background = 'pink';
+			}
+		</script>
+	</body>
+</html>

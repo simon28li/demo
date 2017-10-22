@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box input.active{background: red;}
+			.box div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+				display: none;
+			}
+			.box div.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<my-tab my-data="data" my-class="box"></my-tab>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="js/myTab.js" ></script>
+		
+		<script>
+			angular.module('app',['myTab'])			
+			.controller('myController',['$scope',function($scope){
+				$scope.data=[
+					{title:'财经',content:'财经财经财经财经财经财经财经财经'},
+					{title:'商业',content:'商业商业商业商业商业商业商业商业商业'},
+					{title:'军事',content:'军事军事军事军事军事军事军事军事军事军事军事'},
+				];
+			}]);
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-input my-title="价格" :mynum="price" v-on:mychange="val=>{price=+val}"></my-input>
+    <my-input my-title="数量" :mynum="count" v-on:mychange="val=>{count=+val}"></my-input>
+    <my-input my-title="运费" :mynum="fre" v-on:mychange="val=>{fre=+val}"></my-input>
+    <my-input my-title="折扣" :mynum="discount" v-on:mychange="val=>{discount=+val}"></my-input>
+    <p>总价:{{total}}</p>
+</div>
+<script type="text/javascript" src="vue.js"></script>
+<script>
+    //注册组件
+    Vue.component('my-input', {
+        template: '<div>{{myTitle}}:$&nbsp<input type="text" v-bind:value="num" v-on:input="changeNum($event.target.value)" /></div>',
+        data: function () {
+            return {
+                num: this.mynum
+            }
+        },
+        props: ['myTitle', 'mynum'],
+        methods: {
+            changeNum: function (val) {
+                this.$emit('mychange', val);//触发父组件的mychange事件执行
+            }
+        }
+    });
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            price: 0,
+            count: 0,
+            fre: 0,
+            discount: 0
+        },
+        computed: {
+            total: function () {
+                return (this.price * this.count) * this.discount + this.fre;
+            }
+        }
+    });
+</script>
+</body>
+</html>

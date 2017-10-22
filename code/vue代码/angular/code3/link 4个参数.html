@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta content="" charset="UTF-8">
+</head>
+<body ng-controller="ctr1">
+<p mydirective1=""></p>
+
+</body>
+</html>
+<script src="angular-1.4.8.js"></script>
+<script type="text/javascript">
+
+    angular.module('app', [])
+            .controller('ctr1', function ($scope) {
+                $scope.aa = 'aaaa'
+            })
+            .directive('mydirective1', function () {
+                return {
+                    restrict: "ECMA",
+                    template: '<h1>哈哈哈哈</h1>',
+                    scope: true,
+                    controller: function ($scope) {
+                        $scope.bb = 'bbbbb'
+                    },
+                    link: function (scope, ele, atr, ctr) {
+                        console.log(scope);
+                        console.log(ele);
+                        console.log(atr);
+                        console.log(ctr);
+                    }
+
+                }
+            })
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			MVVM: Model  View  View Model 双向数据绑定			
+		-->
+		<input type="text" ng-model="name"/>
+		<p ng-click="show()">{{newName}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//定义控制器
+			app.controller('myController',['$scope','$timeout',function($scope,$timeout){
+				$scope.name='hello';
+				$scope.show=function(){
+					alert(this.name);
+				}
+				//$scope.$watch 用于监听指定的数据值的变化
+				$scope.$watch('name',function(newVal,oldVal){
+					//当name值发生变化时调用该函数
+					console.log('新值:'+newVal);
+					console.log('旧值:'+oldVal);
+					$scope.newName='hi,'+newVal;
+				});			
+			}]);
+			//angular实现MVVM的方式：脏检查机制
+			/*	当发生某种特定事件时，angularjs（针对angularjs1）会
+			 * 	调用$digest方法对它内部维护的所有的watcher序列进行遍历，
+			 * 一旦检测到被监控的数据发生变化，就调用内部的handler进行model或view的更新。
+			 * */
+		</script>
+	</body>
+</html>

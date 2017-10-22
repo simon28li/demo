@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<ul id="ul1"><li></li><li></li>hello</ul>
+	<body>
+		<script>
+			//childNodes  获取所有的子节点
+			//var ali = document.getelementById/TagName/ClassName
+			var oUl = document.getElementById('ul1');
+			var elems = oUl.childNodes;			//拿到所有的子节点
+			
+			console.log(elems.length);
+			console.log(elems[2]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-controller="ParentCtrl">                <!--父级-->
+    <div ng-controller="SelfCtrl" ng-click="click()">              <!--自己-->
+        <a>click me</a>
+    </div>
+    <div ng-controller="BroCtrl"></div>         <!--平级-->
+</div>
+
+</body>
+
+</html>
+<script src="angular-1.4.8.js"></script>
+<script>
+
+    var app = angular.module('app', []);
+    app.controller('SelfCtrl', function ($scope) {
+        $scope.aa = {
+            name: "黄维新",
+            age: '29'
+        };
+        $scope.click = function () {
+            $scope.$emit('aa', $scope.aa);
+        }
+    });
+
+    app.controller('ParentCtrl', function ($scope, $timeout) {
+        $scope.flag = true;
+        $scope.$on('aa', function (event, data) {
+            console.log('a');
+            if ($scope.flag == true) {
+                $scope.flag = false;
+                $scope.$broadcast('aa', data);
+                console.log(data);
+            }
+        });
+    });
+
+    app.controller('BroCtrl', function ($scope) {
+        $scope.$on('aa', function (event, data) {
+            console.log('BroCtrl', data);          //平级得不到值
+        });
+    });
+
+</script>

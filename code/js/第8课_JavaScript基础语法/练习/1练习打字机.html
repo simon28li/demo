@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; }
+.box { width:700px; height:220px; margin:100px auto; }
+.txt { float:left; width:300px; height:200px; line-height:20px; font-size:12px; border:1px #ccc solid; }
+</style>
+</head>
+<body>
+<div class="box">
+	<textarea id="txt1" class="txt" name="" ></textarea>
+    <div style="float:left;">
+    	<input id="btn" type="button" value="移动文字" />
+        <p id="txtBox" style="display:none; text-align:center;"><span></span>/<span></span></p>
+    </div>
+    <div class="txt"><div id="txt2" style="float:left;"></div></div>
+</div>
+</body>
+<script>
+
+var oTxt1 = document.getElementById('txt1');
+var oTxt2 = document.getElementById('txt2');
+var oBtn = document.getElementById('btn');
+var oTxtBox = document.getElementById('txtBox');
+var aSpan = oTxtBox.getElementsByTagName('span');
+
+oBtn.onclick = function(){
+	
+	var str = oTxt1.value;
+	var iNow = 0;
+	var This = this;
+	aSpan[0].innerHTML = 0;
+	aSpan[1].innerHTML = str.length;
+	oTxtBox.style.display = 'block';
+	this.disabled = 'disabled';
+	
+	var timer = setInterval(function(){
+		
+		if(iNow == str.length){
+			clearInterval(timer);
+			oTxt2.innerHTML = str;
+			This.disabled = '';
+		}
+		else{
+			iNow++;
+			oTxt1.value = str.substring(iNow);
+			oTxt2.innerHTML = str.substring(0,iNow) + '_';
+			aSpan[0].innerHTML = iNow;
+		}
+		
+	},1000);
+	
+};
+
+</script>
+</html>

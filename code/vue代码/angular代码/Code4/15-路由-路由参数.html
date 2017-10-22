@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--路由入口-->
+		<div ng-view></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script src="angular-route.js"></script>
+		
+		<script>
+			var app=angular.module('app',['ngRoute']);
+			//配置路由
+			app.config(['$routeProvider',function($routeProvider){
+				$routeProvider
+				.when('/home',{
+					template:'<h1>首页</h1><div><a href="#/home/about"/>关于</a><a href="#/home/contact"/>联系</a></div><p>首页内容</p>',
+				})
+				.when('/home/:name',{
+					template:'<h3>{{title}}</h3><img ng-src="{{imgSrc}}"/><p>{{content}}</p>',
+					controller:'SubCtrl'
+				})
+				.otherwise({
+					redirectTo:'/home'
+				})
+				
+			}]);
+			app.controller('SubCtrl',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
+				console.log($routeParams);
+				
+				//请求后台数据
+				$http.get('json/'+$routeParams.name+'.json').success(function(data){
+					$scope.title=data.title;
+					$scope.content=data.content;
+					$scope.imgSrc=data.imgSrc;
+				})
+			}]);
+			
+			app.controller('myController',['$scope',function($scope){
+				
+			}]);
+			
+			
+		</script>
+	</body>
+</html>

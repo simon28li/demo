@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>11111</div>
+		<div>2222</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//设置点击点击事件
+			//jq中几乎所有的操作都是函数化
+			$('div').click(function(){
+				//this--->原生的js对象	
+				//将原生对象转换为jq对象
+				alert($(this).html());
+				
+				//设置指定元素的innerHTML
+				$('div').html('aaaaa');				
+			});
+			// oDiv.onclick=function(){alert(this.innerHTML)}			
+			//oDiv.innerHTML='AAA';
+		</script>
+	</body>
+</html>

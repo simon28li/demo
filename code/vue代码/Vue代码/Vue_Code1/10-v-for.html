@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+				v-for 等效于 ng-repeat
+				v-for可以允许数组元素重复
+			-->
+			<ul>
+				<!--
+					v-for遍历数据时可以设置多个参数，第一个参数是遍历到是元素，第二个参数是对应元素下标
+					
+					v-for中除了可以用in遍历外，也可以用of
+				-->
+				<li v-for="(data,i) of arr">{{i+':'+data}}</li>
+			</ul>
+			<hr />
+			<p>
+				<!--
+					v-for还可以遍历对象
+				-->
+				<strong v-for="(val,key,index) in person">{{index}}:{{key}}&nbsp;{{val}}<br/></strong>
+			</p>
+			<hr />
+			<ul>
+				<!--
+					v-for可以遍历大于或等于1的正整数，表示将元素重复指定的次数
+				-->
+				<li v-for="d in 10">{{d}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					flag:true,
+					arr:['css','java','js','html','jquery','css'],
+					person:{
+						name:'zhangsan',
+						age:20,
+						sex:'female'
+					}
+				}
+			});
+			 
+		</script>
+	</body>
+</html>

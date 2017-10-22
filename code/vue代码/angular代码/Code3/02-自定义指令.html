@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<hello-web>
+			<p>我是原来的内容</p>
+		</hello-web>
+		
+		<div hello-web></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('helloWeb',function(){
+				//返回值即为自定义指令对象
+				return {
+					//限定指令的使用方式
+					restrict:'ECMA',	//E->标签，C->类，M->注释，A->属性
+					template:'<div><h1>标题</h1><p>内容</p><span ng-transclude></span></div>',	//定义自定义指令的视图模板
+					replace:true,
+					transclude:true	//允许原有内容进行转录
+				}
+			});	
+			
+		</script>
+	</body>
+</html>

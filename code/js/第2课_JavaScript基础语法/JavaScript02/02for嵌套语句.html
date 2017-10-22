@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		
+		for(var i = 1; i <= 9; i++){
+						
+			for(var j = 1; j <= i; j++){
+				console.log("i=" + j + ",j=" + i);
+				div1.innerHTML += j+'*'+i+'='+i*j+' ';
+			}
+			div1.innerHTML += '<br />'
+		}
+	</script>
+</html>

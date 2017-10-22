@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换效果</title>
+</head>
+<style type="text/css">
+    .two {
+        display: none
+    }
+
+    div {
+        width: 235px;
+        height: 235px;
+    }
+
+    img {
+        display: block;
+        float: left;
+    }
+
+</style>
+<body>
+<div>
+    <img src="tab页切换/image/left1.jpg" id="left1" class="one">
+    <img src="tab页切换/image/left2.jpg" id="left2" class="two">
+    <img src="tab页切换/image/right1.jpg" id="right1" class="one">
+    <img src="tab页切换/image/right2.jpg" id="right2" class="two">
+    <img src="tab页切换/image/end1.jpg" id="end1" class="one">
+    <img src="tab页切换/image/end2.jpg" id="end2" class="two">
+</div>
+<script>
+    var right1 = document.getElementById('right1');
+    var right2 = document.getElementById('right2');
+    right1.onclick = function () {
+        for (var i = 0; i < 3; i++) {
+            document.getElementsByClassName('two')[i].style.display = 'block';
+            document.getElementsByClassName('one')[i].style.display = 'none'
+        }
+    };
+
+    left2.onclick = function () {
+        for (var i = 0; i < 3; i++) {
+            document.getElementsByClassName('one')[i].style.display = 'block';
+            document.getElementsByClassName('two')[i].style.display = 'none'
+        }
+    };
+
+
+
+</script>
+</body>
+</html>

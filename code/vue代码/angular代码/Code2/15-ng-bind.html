@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			ng-non-bindable 指令的功能：使所在元素内的{{表达式}}不进行解析
+		-->
+		<p><span ng-non-bindable>{{name}}</span> 的值是{{name}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		
+		<script>
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope','$sce',function($scope,$sce){
+				$scope.name='hello'
+			}]);
+		</script>
+	</body>
+</html>

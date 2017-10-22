@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时器</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #ccc;
+        }
+
+        div {
+            width: 600px;
+            height: 80px;
+            margin: 20px auto;
+        }
+
+        p {
+            text-align: center;
+            line-height: 40px;
+            width: 140px;
+            height: 40px;
+            float: left;
+            background: #ddfffa;
+            margin-left: 40px;
+            font-size: 24px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px 3px #9aff84 inset;
+
+        }
+
+        input {
+            width: 80px;
+            height: 40px;
+            float: left;
+            margin-left: 50px;
+            font-size: 18px;
+            background: #99ccff;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>00:00:00</p>
+    <input type="button" value="开始计时" id="_star">
+    <input type="button" value="停止计时" id="_stop">
+    <input type="button" value="继续计时" id="_continue">
+    <script>
+        var Interval1;
+        var m = '0';
+        var m1 = '0';
+        var s = 0;
+        var s1 = 0;
+        var ms = 0;
+        var ms1 = 0;
+        var q=0; /* 用于二次点击清楚数据 */
+        var p = document.getElementsByTagName('p')[0];
+
+        function  star(){  /*开始计时函数*/ /*star() 函数不能放在点击事件里面*/
+
+                ms++;
+                if(ms>=10){
+                    ms=0;   /*毫秒归零*/
+                    s++;   /* 秒表开始出现数据 */
+                }
+/*
+                if(ms>=100){
+                    ms=0;  /!*毫秒归零*!/
+                    ms1=0; /!* 补充毫秒位置  *!/
+                   s++;   /!* 秒表开始出现数据 *!/
+                }*/
+
+                if(s>=10){
+                    s1='';
+                }
+
+                if(s>=60){
+                    s=0;
+                    s1=0;
+                    m++;
+                }
+                p.innerText = m1+m + ':' +s1+ s + ':' + ms1+ms;
+        }
+        document.getElementById('_star').onclick = function () {
+                q=0;
+                m = '0';
+                m1 = '0';
+                s = 0;
+                s1 = 0;
+                ms = 0;
+                ms1 = 0;
+            if(Interval1!=undefined){
+                clearInterval(Interval1); /* 如果不清除  时间就会跑的很快 */
+            }
+              Interval1=setInterval('star()',100);
+
+        };
+        document.getElementById('_stop').onclick = function () {
+             clearInterval(Interval1);
+        };
+        document.getElementById('_continue').onclick = function () {
+             Interval1=setInterval('star()',100);
+        };
+
+    </script>
+
+</div>
+</body>
+</html>

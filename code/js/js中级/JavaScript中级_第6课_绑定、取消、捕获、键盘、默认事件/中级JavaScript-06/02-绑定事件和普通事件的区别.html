@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">aaaa</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			//普通事件
+//			oDiv.onclick = aaa;
+//			oDiv.onclick = bbb;
+
+			//IE的绑定事件 attachEvent(type,listener)
+			//param1:事件的名字(有on)
+			//param2:监听器(函数名字)
+			//oDiv.attachEvent('onclick',aaa);
+			//oDiv.attachEvent('onclick',bbb);
+			
+			
+			//绑定事件 addEventListener(type,listener,useCapture)
+			//param1:事件的名字(不加on);
+			//param2:监听器(函数名字);
+			//param3:布尔值,说明我使用的方法是冒泡获取还是捕获获取的
+			oDiv.addEventListener('click',aaa,false);
+			oDiv.addEventListener('click',bbb,false);
+			
+			function aaa(){
+				alert(111);
+			}
+			
+			function bbb(){
+				alert(222);
+			}
+		</script>
+	</body>
+</html>

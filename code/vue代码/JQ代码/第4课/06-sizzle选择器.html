@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>111</div>
+		<div>2222</div>
+		<div>33333</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('div:eq(1)').hide();
+			
+			//选中div中所有可见的元素
+			$('div:visible').css('background','red');
+			//选中div中所有隐藏的元素
+			$('div:hidden').css('background','green');			
+		</script>
+	</body>
+</html>

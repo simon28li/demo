@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			
+		</ul>
+	</body>
+	<script>
+		var oUl = document.getElementById('ul1');
+		var aLi = document.getElementsByTagName('li');
+		var arr = [];
+		for(var i = 0;i<9;i++){
+			arr[i] = document.createElement('li');
+			if(i%3 == 0){
+				arr[i].setAttribute('style','background: red;');
+				arr[i].setAttribute("zelin","0");
+			}else if(i%3 == 1){
+				arr[i].setAttribute('style','background: yellow;');
+				arr[i].setAttribute("zelin","1");
+			}else{
+				arr[i].setAttribute('style','background: blue;');
+				arr[i].setAttribute("zelin","2");
+			}
+			oUl.append(arr[i]);
+		}
+		
+		for(var i = 0;i<aLi.length;i++){
+			aLi[i].onmouseover = function(){
+				this.style.background = 'green'
+			}
+			
+			aLi[i].onmouseout = function(){
+				if(this.getAttribute("zelin") == "0"){
+					this.style.background = 'red';
+				}else if(this.getAttribute("zelin") == "1"){
+					this.style.background = 'yellow';
+				}else if(this.getAttribute("zelin") == "2"){
+					this.style.background = 'blue';
+				}
+			}
+		}
+
+	</script>
+</html>

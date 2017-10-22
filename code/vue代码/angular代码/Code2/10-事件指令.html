@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background:red}
+			.green{background:green}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<!--
+			鼠标事件：....
+			键盘事件：...
+			光标事件：
+			ng-sumbit 表单提交事件
+			ng-input
+			ng-change
+			ng-paste 粘贴事件
+			ng-cut 剪切事件
+			ng-copy 复制事件
+		-->
+		<p ng-mousedown="show()">aaaa</p>
+
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.show=function(){
+					alert(66666);
+				}
+				
+			}]);
+		</script>
+	</body>
+</html>

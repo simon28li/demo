@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select id="select1">
+    <option value="0">湖南</option>
+    <option value="1">广东</option>
+    <option value="2">广西</option>
+</select>
+
+<select id="select2"></select>
+<select id="select3"></select>
+
+<script>
+
+    var srr1 = [
+        ['长沙', '株洲', '湘潭'],
+        ['深圳', '东莞', '广州'],
+        ['玉林', '梧州', '北海']
+    ];
+
+    var srr2 = [
+        [
+            ['长沙1', '长沙2', '长沙3'],
+            ['株洲1', '株洲2', '株洲3'],
+            ['湘潭1', '湘潭2', '湘潭3']],
+        [
+            ['深圳1', '深圳2', '深圳3'],
+            ['东莞1', '东莞2', '东莞3'],
+            ['广州1', '广州2', '广州3']],
+        [
+            ['玉林1', '玉林2', '玉林3'],
+            ['梧州1', '梧州2', '梧州3'],
+            ['北海1', '北海2', '北海3']]
+    ];
+
+    var select2_option = '';
+    var select3_option = '';
+    var value1 = 0;
+    var value2 = 0;
+
+    document.querySelector('#select1').onchange = function () {
+        value1 = this.value;
+        render1(value1, value2);
+    };
+
+    document.querySelector('#select2').onchange = function () {
+        value2 = this.value;
+        render2(value1, value2);
+    };
+
+    function render1(value1, value2) {
+        select2_option = '';
+        select3_option = '';
+
+        for (var i = 0; i < srr1.length; i++) {
+            select2_option += '<option value="' + i + '">' + srr1[value1][i] + '</option>';
+            select3_option += '<option>' + srr2[value1][0][i] + '</option>';
+        }
+        document.querySelector('#select2').innerHTML = select2_option;
+        document.querySelector('#select3').innerHTML = select3_option;
+    }
+
+    function render2(value1, value2) {
+        select3_option = '';
+        for (var i = 0; i < srr1.length; i++) {
+            select3_option += '<option>' + srr2[value1][value2][i] + '</option>';
+        }
+        document.querySelector('#select3').innerHTML = select3_option;
+    }
+    render1(0, 0);
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>{{name}}</p>
+		<p>[[name}}</p>
+		<p>[[name}]</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//服务供应商：给服务的参数进行配置的对象
+			// $interpolate(服务)  --->  $interpolateProvider(服务供应商)
+			//大部分服务都是有服务供应商
+			//所有服务供应商都只能在config方法中使用
+			var app=angular.module('app',[]);
+			//在app.config方法中通过$interpolateProvider配置$interpolate，修改插值变量的符号
+			app.config(['$interpolateProvider',function($interpolateProvider){
+				console.log($interpolateProvider);
+				$interpolateProvider.startSymbol('[[');
+				$interpolateProvider.endSymbol('}]');
+			}]);
+			
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.name='hello';
+			}])
+			
+		</script>
+	</body>
+</html>

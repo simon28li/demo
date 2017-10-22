@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div,p{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			p{background: green;}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<input type="checkbox" ng-model="isShow"/>
+		<!--
+			ng-show指令：控制所在元素显示和隐藏，如果为true的时候该元素显示，如果为false时该元素隐藏
+			本质上是通过css样式来控制元素的显示和隐藏
+			ng-hide指令：控制所在元素显示和隐藏，如果为true的时候该元素隐藏，如果为false时该元素显示
+		-->
+		<div ng-show="isShow">1111</div>
+		<!--<div ng-hide="isShow">22222</div>-->
+		<hr />
+		<input type="checkbox" ng-model="isIf"/>
+		<!--ng-if指令：控制所在元素显示和隐藏,如果为true的时候该元素显示，如果为false时该元素隐藏
+			ng-if通过DOM操作控制的节点的添加和删除，来实现元素的显示和隐藏
+		-->
+		<p ng-if="isIf">3333</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.isShow=true;
+				$scope.isIf=true;
+			}]);			
+		</script>		
+	</body>
+</html>

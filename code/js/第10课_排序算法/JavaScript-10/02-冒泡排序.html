@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//两两排序
+			var arr = [2, 3, 4, 1];
+			function sort(arr){
+				for(var i = 0;i<arr.length - 1;i++){
+					for(var j = 0;j<arr.length - i;j++){
+						
+						toComp(j, j + 1);
+					}
+				}
+				return arr;
+			}
+			
+			/**
+			 * 两两比较
+			 * @param {Object} prev 上一个比较对象
+			 * @param {Object} next 下一个比较对象
+			 */
+			function toComp(prev, next){
+				console.log(prev+","+next);
+				//中间变量
+				var temp = '';
+				if(arr[prev] > arr[next]){
+					temp = arr[prev];
+					arr[prev] = arr[next];
+					arr[next] = temp;
+				}
+			}
+			console.log(sort(arr));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<script type="text/javascript" src="jquery-1.11.1.js" ></script>	 
+  	<script src="jsviews.js"></script>
+</head>
+<body>
+<!--容器-->
+<div id="result"></div>
+
+<!--模板-->
+<script id="theTmpl" type="text/x-jsrender">	
+	<div>
+	  Edit: <input type="checkbox" data-link="editable"/>
+	  <!--^表示数据双向绑定	  	
+	  	元素中的值如果要完成双向数据通过data-link完成
+	  -->
+	  <em>Name:</em> {^{:name}}
+	  {^{if showNickname && nickname}}
+	    (Goes by <em data-link="nickname"></em>)
+	  {{/if}}
+	  {^{if editable}}
+	    <div>
+	      <input data-link="name"/>
+	      <input data-link="nickname"/>
+	      Show nickname: <input type="checkbox" data-link="showNickname"/>
+	    </div>
+	  {{/if}}
+	</div>
+</script>
+
+<script>
+/*数据*/
+var data = [
+  {
+    "name": "Robert",
+    "nickname": "Bob",
+    "showNickname": true
+  },
+  {
+    "name": "Susan",
+    "nickname": "Sue",
+    "showNickname": false
+  }
+];
+
+//编译模板
+var template = $.templates("#theTmpl");
+//link方法完成数据的渲染，渲染结果添加到DOM中，并且完成双向数据绑定
+template.link("#result", data);
+</script>
+
+</body>
+</html>

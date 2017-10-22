@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController1">
+		<div ng-controller="myController2">
+			<!--$emit('myClick') 调用对应事件的同时将事件冒泡给上层作用域-->
+				<!--<span  ng-click="$emit('myClick')">2222</span>-->
+				<span  ng-click="$broadcast('myClick')">2222</span>
+				<p ng-controller="myController3">3333</p>		
+		</div>
+		
+		
+		<!--angular事件系统和浏览器内部的事件是完全不同，angular是在作用域绑定的			
+		-->
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController1',['$scope',function($scope){
+				//绑定事件
+				$scope.$on('myClick',function(ev){
+					alert(11111);
+					console.log(ev);
+				});
+			}]);
+			app.controller('myController2',['$scope',function($scope){
+				$scope.$on('myClick',function(ev){
+					alert(2222);
+					console.log(ev);
+				//	ev.stopPropagation();//阻止冒泡
+					ev.preventDefault();//修改下一级的defaultPrevented
+				});
+			}]);
+			app.controller('myController3',['$scope',function($scope){
+				$scope.$on('myClick',function(ev){
+					if(ev.defaultPrevented){
+						return;//表示上级希望广播终止
+					}
+					alert(33333);
+					console.log(ev);
+				});
+			}]);
+			
+			app.run(['$rootScope',function($rootScope){
+				$rootScope.$on('myClick',function(ev){
+					alert('00000');
+					console.log(ev);
+				});
+			}]);			
+		</script>
+	</body>
+</html>

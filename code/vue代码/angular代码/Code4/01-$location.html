@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//$location --->window.location
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$location',function($scope,$location){
+				console.log($location);
+				//设置hash
+				$location.hash('aaa');
+				
+				//获取hash
+				console.log($location.hash());
+				
+				console.log($location.absUrl());
+				
+				//设置path
+				$location.path('/home');
+				//获取path
+				console.log($location.path());
+				
+			}]);
+			
+		</script>
+	</body>
+</html>

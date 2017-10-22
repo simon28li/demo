@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul :not(.active){
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<p>00000</p>
+			<li>1111</li>
+			<li class="active">2222</li>
+			<li>3333</li>
+			<li>4444</li>
+			<li>5555</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//选中ul中除了类名为active的其他li元素
+			$('ul li:not(.active)').css('background','red');
+			
+		</script>
+	</body>
+</html>

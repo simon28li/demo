@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--使用自定义指令-->
+		<div ng-controller="myController1">
+			<hello-web></hello-web>			
+			<div class="hello-web"></div>
+		</div>
+	
+		<div hello-web></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			//自定义指令
+			app.directive('helloWeb',function(){
+				return {
+					restrict:'ECMA',	//定义该自定义指令以哪种方式使用
+					template:'<div><input ng-model="name"/><strong>{{name}}</strong></div>',
+					replace:true	//表示用模板内容完全替换原有的标签
+				}
+			});
+			
+			app.controller('myController1',['$scope',function($scope){
+				//console.log($scope);
+			}]);
+		</script>
+	</body>
+</html>

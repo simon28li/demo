@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			function changeStyle(id, json){
+				var obj = document.getElementById(id);
+				/*
+				for(var i = 0;i<json.length;i++){
+					obj.style.json[i] = json[i];
+				}
+				*/
+				//for...in循环
+				for(var aaa in json){
+					obj.style[aaa] = json[aaa];
+				}
+				
+			}
+			var json = {width:'100px',height:'200px',background:'red'};
+			changeStyle('div1', json);//样式表
+		</script>
+	</body>
+</html>

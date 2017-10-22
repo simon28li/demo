@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+
+<head>
+    <title>gouwuche</title>
+    <meta content="" charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        span {
+            display: block;
+            width: 100px;
+            float: left;
+            margin-left: 20px;
+        }
+
+        input {
+            float: left;
+        }
+
+        li {
+            height: 50px;
+        }
+
+        .right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body ng-controller="ctr">
+
+<div class="container">
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span></span>
+                <span>商品信息</span>
+                <span>商品金额</span>
+                <span>商品数量</span>
+                <span>总金额</span>
+
+            </li>
+            <li class="list-group-item" ng-repeat=" iterm in arr ">
+                <input type="checkbox" ng-model="iterm.checkType">
+                <span>{{iterm.name}}</span>
+                <span>{{iterm.price}}</span>
+                <span>{{iterm.count}}</span>
+                <span>{{iterm.count*iterm.price}}</span>
+            </li>
+            <li class="list-group-item"><input type="checkbox">全选 &nbsp;&nbsp;&nbsp;取消全选 <span
+                    class="right">总价：{{}}</span></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script type="text/javascript">
+
+    angular.module('app', [])
+            .controller('ctr', ['$scope', function ($scope) {
+                $scope.arr = [
+                    {checkType: true, name: '黄鹤楼1', price: '12', count: '2'},
+                    {checkType: true, name: '黄鹤楼2', price: '13', count: '3'},
+                    {checkType: true, name: '黄鹤楼3', price: '14', count: '4'},
+                    {checkType: true, name: '黄鹤楼4', price: '15', count: '5'},
+                    {checkType: true, name: '黄鹤楼5', price: '16', count: '6'},
+                ];
+            }])
+
+
+</script>

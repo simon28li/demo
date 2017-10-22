@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" title="hello"></div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			//获取属性方式
+//			oDiv.style.background;
+//			oDiv[style][background];
+			oDiv.getAttribute('title');
+			console.log(oDiv.getAttribute('title'));
+			console.log(oDiv.title);					//IE6-8兼容问题
+			console.log(oDiv[title]);
+			
+			oDiv.setAttribute('title','world');
+			
+			oDiv.removeAttribute('title');
+		</script>
+	</body>
+</html>

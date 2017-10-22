@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="prov">
+			<!--<option>广东</option>
+			<option>江西</option>
+			<option>湖南</option>-->
+		</select>
+		<select id="city">
+			<!--<option>深圳</option>
+			<option>广州</option>
+			<option>东莞</option>
+			<option>惠州</option>-->
+		</select>
+		
+		<!--模板-->
+		<script type="text/x-jsrender" id="theTmpl">
+			<option>{^{:name}}</option>
+		</script>
+	
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jsviews.js" ></script>
+		<script>
+			var provData=[{name:'广东'},{name:'江西'},{name:'湖南'}];
+			var cityData=[{province:'广东',citys:[{name:'深圳'},{name:'广州'},{name:'东莞'}]},
+						  {province:'江西',citys:[{name:'南昌'},{name:'九江'},{name:'上饶'}]},
+						  {province:'湖南',citys:[{name:'长沙'},{name:'岳阳'},{name:'湘潭'}]}
+			]
+			var cityNow=[{name:'深圳'},{name:'广州'},{name:'东莞'}];	//广东省
+			//编译模板
+			var tpl=$.templates('#theTmpl');
+			tpl.link('#prov',provData);
+			tpl.link('#city',cityNow);
+			
+			//省份容器的内容改变事件
+			$('#prov').on('change',function(ev){
+				console.log($(this).val());
+				var This=this;
+				$.each(cityData, function(i,val) {
+					//console.log(val.province);
+					if(val.province==$(This).val()){
+						//cityNow=val['citys'];
+						$.observable(cityNow).refresh(val.citys);
+					}
+				});			
+			});			
+		</script>
+	</body>
+</html>

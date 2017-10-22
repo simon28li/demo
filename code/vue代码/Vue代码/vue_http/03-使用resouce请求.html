@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="vue.js"></script>
+		<script type="text/javascript" src="vue-resource.js" ></script>
+		<script>
+			//创建请求对象
+			var reqObj=Vue.resource('01-vue.php','',{
+				save:
+					{
+						method:'POST',
+						headers:{	//配置post的请求头部信息
+							'content-type':'application/x-www-form-urlencoded'
+						}
+					}
+			});
+			
+			//GET请求：get/query
+			//post请求：save
+			
+			
+			//发生请求
+//			reqObj.get({username:'zs',password:'123334'})
+//			.then(function(res){
+//				//请求成功回调
+//				console.log(res);
+//			}).catch(function(err){
+//				//失败回调
+//				console.log(err);
+//			});
+		
+		
+//			reqObj.query({username:'lis',password:'345'})
+//			.then(function(res){
+//				//请求成功回调
+//				console.log(res);
+//			}).catch(function(err){
+//				//失败回调
+//				console.log(err);
+//			});
+			
+			//post请求，第一个参数为get发送给服务器的参数，第二个参数为post发送给服务器的参数
+			reqObj.save('','username=zs&password=123')
+			.then(function(res){
+				//请求成功回调
+				console.log(res);
+			}).catch(function(err){
+				//失败回调
+				console.log(err);
+			});
+			
+//			var vm=new Vue({
+//				this.$resource(url);
+//			});
+//			vm.$resource(url);
+		</script>
+	</body>
+</html>

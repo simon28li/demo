@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myController">
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    angular.module('app', [])
+            .controller('myController', ['$scope', '$http', function ($scope, $http) {
+//				$http.get('https://api.asilu.com/weather/').success(function(data){
+//					console.log(data);
+//				});
+                //jsonp请求
+
+                $http({
+                    url: 'https://api.asilu.com/weather/?callback=JSON_CALLBACK',
+                    method: 'jsonp'
+                }).success(function (data) {
+                    console.log(data);
+                });
+
+                //jsonp请求简写：
+                $http.jsonp('https://api.asilu.com/weather/?callback=JSON_CALLBACK').success(function (data) {
+                    console.log(data);
+                });
+            }])
+
+</script>
+</body>
+</html>

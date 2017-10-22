@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#app .box1{
+				width: 100px;
+				height: 100px;
+				padding: 50px;
+				background: red;
+			}
+			#app .box2{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="box1" @click.capture="show('11111')">
+				<!--
+					参数.stop 阻止事件冒泡
+					   .capture 设置事件为捕获模式
+					   .enter enter按键触发
+					   .once 表示事件只触发一次
+				-->
+				<div class="box2" @click.capture="show('2222')">2222</div>
+			</div>
+			<input type="text" v-on:keydown.enter="show('已经发送')"/>
+			<input type="text" v-on:keyup.f="show('122')"/>
+			<hr />
+			<input type="button" value="只能点击一次" @click.once="show('aaaa')"/>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				methods:{
+					//方法一定要定义在methods属性中
+					show:function(a){
+						alert(a);
+					}
+				}
+			})
+			Vue.config.keyCodes.f=122;//定义某个按键的别名
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abc 123 efg 456 -,s34253dsfdvzda sad\\\'';
+			var temp = '';
+			for(var i = 0; i<str.length; i++){
+				if(str.charAt(i) >= '0' && str.charAt(i) <= '9'){
+					temp += str.charAt(i);
+				}
+			}
+			console.log(temp);
+		</script>
+	</body>
+</html>

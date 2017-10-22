@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="请求后台数据" @click="get"/>
+			<p>{{msg}}</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vue-resource.js" ></script>
+		<!--
+			vue-resource 
+			axios
+		-->
+		<script>
+			//
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:''
+				},
+				methods:{
+					get(){
+						var This=this;
+						//进行http请求
+						this.$http.get('01.http.txt1').then(function(res){
+							//成功回调的函数
+							console.log(res);
+							/*
+							 响应内容：
+							 url	服务器文件路径
+							body	响应的主体内容，格式可能对象、字符串
+							headers	响应头
+							ok		请求状态的标准，false失败，true表示成功
+							status	请求状态码
+							statusText	请求的状态文本					 
+							 
+							 * */
+							This.msg=res.body;
+						},function(err){
+							//失败回调的函数
+							console.log(err);
+						});
+					}
+				}
+			});		
+			
+		</script>
+	</body>
+</html>

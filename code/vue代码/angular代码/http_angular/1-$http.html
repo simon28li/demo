@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//服务就是对象或者函数，将逻辑操作进行功能封装，在控制器、过滤器、自定义指令、另一个服务中使用
+			//$http 用于进行ajax或jsonp请求的函数
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope','$http',function($scope,$http){
+				$http({
+					url:'01-http.php',
+					method:'get',
+					params:{	//设置get请求时发送给服务器的数据
+						username:'张三',
+						pwd:"1234454"
+					}
+				}).success(function(data,status){
+					//请求成功后回调的函数
+					console.log(data);//服务器返回的数据
+					console.log(status);//服务器响应的状态码
+				}).error(function(data,status){
+					//请求失败后回调的函数
+					console.log(data);
+					console.log(status);
+				});	
+			}]);
+		</script>
+	</body>
+</html>

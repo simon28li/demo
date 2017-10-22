@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*变量2种类型 1.值类型（数字 boolean 字符）在栈里面  2.引用类型（Object Array）是在堆里面*/
+
+    var a = 12;
+    var b = 34;
+    var c = a + b;
+    console.log(c)
+
+    var a = '12';
+    /*字符与任何值相加都变成连接*/
+    var b = 34;
+    var c = a + b;
+    console.log(c)
+    /*变成字符串了*/
+
+    var a = '12';
+    var b = 34;
+    var c = a - b;
+    console.log(c)
+    /*变成数字了*/
+
+    var a = '12';
+    var b = '34';
+    var c = a * b;
+    console.log(c)
+    /*变成数字了*/
+
+    var a = '12';
+    var b = '34';
+    var c = a / b;
+    console.log(c)
+    /*变成数字了*/
+
+    var a = '12';
+    var b = 'h';
+    var c = a / b;
+    console.log(c)
+    /*变成NaN了*/
+
+
+    /*取模=取余*/
+    var a = '12';
+    var b = '23';
+    var c = a % b;
+    /*12 小取余大结果就是小*/
+    console.log(c)
+    var c = b % a;
+    console.log(c)
+    /*11*/
+
+    var c1 = 12;
+    var c2 = 13;
+    c3 = c1 + c2++
+    /*先运算再自加*/
+    console.log(c3)
+    /*25*/
+
+    c3 = c1 + c2
+    console.log(c3)
+    /*26*/
+
+    var c1 = 12;
+    var c2 = 13;
+    c3 = c1 + ++c2
+    /*先自加再运算*/
+    c2++
+    c3 = c1 + ++c2
+    console.log(c3)
+    /*28*/
+
+    var c1 = 12;
+    var c2 = 13;
+    c2--
+    var c3 = (c1--) - c2
+    console.log(c3)
+    /*0*/
+
+    var c1 = 12;
+    var c2 = 13;
+    var c3 = (--c2) - c1
+    console.log(c3)
+    /*0*/
+
+
+</script>
+</body>
+</html>

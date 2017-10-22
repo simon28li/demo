@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="显示"/>
+		<input type="button" value="隐藏"/>
+		<input type="button" value="切换"/>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('input').first().on('click',function(){
+				$('div').slideDown(3000);//滑下	
+			});
+			
+			$('input').eq(1).on('click',function(){
+				$('div').slideUp(1000,'linear',function(){
+					alert('隐藏完成');
+				});//滑上
+			});
+			$('input').eq(2).on('click',function(){
+				$('div').slideToggle({
+					duration:1000,
+					complete:function(){
+						alert('切换完成');
+					},
+					easing:'linear'
+				});
+			});
+			//slideUp/slideDown/slideToggle 变化的是元素高度
+		</script>
+	</body>
+</html>

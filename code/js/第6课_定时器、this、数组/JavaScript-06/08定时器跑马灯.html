@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" value="开始" id="input1" />
+		<input type="button" value="停止" id="input2" />
+		<script>
+			var oInput1 = document.getElementById("input1");
+			var oInput2 = document.getElementById("input2");
+			
+			var arr = ['green', 'pink', 'gray'];
+			var timer = null;
+			var iNow = 0;
+			oInput1.onclick = function(){
+				//防止多定时器覆盖
+				clearInterval(timer);
+				timer = setInterval(function(){
+					iNow = iNow%3;
+					document.body.style.background = arr[iNow];
+					iNow ++;
+				},1000);
+			}
+			
+			oInput2.onclick = function(){
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr1 = new Array(1,2,3,4);
+			var arr2 = new Array(5,6,7,8);
+			
+			//我在往Array原型上去给一个方法,既然是原型上有这个方法,所以在这个页面所有的Array对象都有sum方法了
+			Array.prototype.sum=function(){
+				var result = 0;
+				for(var i = 0;i<this.length;i++){
+					result += this[i];
+				}
+				return result;
+			}
+			
+			console.log(arr2.sum());
+			var arr3 = [1,3,5,7];
+			console.log(arr3.sum());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="button" value="随机数" ng-click="show()"/>
+		<p>{{num}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义服务有四种方法1
+			app.provider('myService',function(){
+				return {
+					fix:null,
+					
+					$get:function(){
+						var This=this;
+						return function(min,max){
+							if(This.fix!=null){
+								return (Math.random()*(max-min)+min).toFixed(This.fix);
+							}
+							return Math.random()*(max-min)+min;
+						}
+					}
+				}
+			});
+						
+			app.config(['myServiceProvider',function(myServiceProvider){
+				console.log(myServiceProvider);
+				myServiceProvider.fix=2;
+			}])
+			
+			//使用自定义服务
+			app.controller('myController',['$scope','myService',function($scope,myService){
+				//console.log(myService(4,10));
+				$scope.num='';
+				$scope.show=function(){
+					$scope.num=myService(5,15);
+				}
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abcdefgaA';
+			
+			var reg = /a/gi;
+			
+			console.log(str.match(reg));			//String.match(RegExp);	match是匹配到符合条件的内容,变成一个数组
+			console.log(reg.test(str));				//RegExp.test(String);  该正则在该字符串中是否查询得到对象
+		</script>
+	</body>
+</html>

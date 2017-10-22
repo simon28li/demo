@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box" id="div" myname='zhangsan'>1111</div>
+		
+		<div class="box2" id="div2" myname='lisi'>2222</div>
+		
+		<script src="jquery-1.11.1.js"></script>
+		<script>
+			//获取属性值
+			//js:	oDiv.id; oDiv.className
+			//	自定义属性获取：getAttribute  设置 setAttribute
+			//			
+			//jq:
+			//如果选择的元素是多个时，获取只能获取第一个元素的值，设置就全部设置到
+				console.log($('div').attr('id'));	//获取指定属性值
+				
+				console.log($('div').attr('class'));
+				
+				//设置指定元素是类名
+				$('div').attr('class','aaa');
+				
+				console.log($('div').attr('myname'));
+				
+				$('div').attr('myage','30');
+		</script>
+	</body>
+</html>

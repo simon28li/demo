@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--
+			模块化开发需要遵从一定标准的，目前有两种标准：AMD规范，CMD规范
+			AMD规范：异步模块定义（Asynchronous Module Definition)规范
+			模块将被异步加载，加载过程中不影响后面的语句执行。依赖前置，提前执行。
+			RequireJS就是使用AMD规范
+			
+			CMD规范：通用模块定义（Common Module Definition)规范
+			用到什么就去加载什么，推崇依赖就近，延迟执行。
+			CommomJS/SeaJS就是使用CMD规范
+		-->
+		<!--引入requrejs-->
+		<!--
+			data-main属性告诉requirejs，在requirejs加载完成后要加载的文件(模块)
+			data-main的文件名不要加后缀名
+		-->
+		<script type="text/javascript" src="libs/js/require.js" data-main="js/main"></script>
+	</body>
+</html>

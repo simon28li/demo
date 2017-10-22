@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			<div id="formDiv">
+				<div>
+					<label>用户名:</label>
+					<input type="text" name="userName"/>
+				</div>
+				<div>
+					<label>密码:</label>
+					<input type="password" name="pwd"/>
+				</div>
+				<div>
+					<label>手机:</label>
+					<input type="text" name="mobile"/>
+				</div>
+				<div>
+					<label>邮箱:</label>
+					<input type="text" name="e-mail"/>
+				</div>
+				<div>
+					<label>座机:</label>
+					<input type="text" name="tel"/>
+				</div>
+				<div>
+					<label>身份证:</label>
+					<input type="text" name="identityCard"/>
+				</div>
+			</div>
+			<div>
+				<input type="button" value="注册" id="registerBtn" name="registerBtn"/>
+			</div>
+		</form>
+	</body>
+	<script>
+		var registerBtn = document.getElementById("registerBtn");
+		registerBtn.onclick = function(){
+			var formDiv = document.getElementById('formDiv');
+			var formData = formDiv.getElementsByTagName('input');
+			var flag = false;
+			var emailRegex =  /^\w+@[a-zA-Z0-9]+\.[a-z]{2,4}$/,
+			var mobileRegex = /^(13[0-9]|15[012356789]|18[0236789]|170)[0-9]{8}$/,
+			var telRex = /^(\d{3,4}-)?\d{7,8}$/,
+			var alphaRegex = /^[a-zA-Z0-9_]+$/,
+			var idCardRegex = /^\d{15}|\d{18}$/;
+			for(var i = 0;i<formData.length;i++){
+				var value = formData[i].value;
+				if(!formData.test(value)){
+					return false;
+				}
+			}
+		}
+		
+		/**
+		 * 检查输入内容是否合法
+		 * @param {Object} regExp  正则表达式
+		 * @param {Object} value   参数值
+		 */
+		function validateValue(regExp, value){
+			
+		}
+	</script>
+</html>

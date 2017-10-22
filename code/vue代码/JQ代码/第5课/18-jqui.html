@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="jquery-ui.css" />
+		<style>
+			div{width: 100px;
+			height: 100px;
+			background: red;}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jquery-ui.js" ></script>
+		<script>
+			$('div').draggable({
+				//axis:'y',
+				//cursorAt:{left:0,top:0},
+				cursor:'pointer',
+				drag:function(){
+					console.log('正在拖拽')
+				},
+				start:function(){
+					console.log('开始拖拽');
+				}
+			});
+			$(document).on('click',function(){
+				$('div').draggable('destroy');
+			})
+		</script>
+	</body>
+</html>

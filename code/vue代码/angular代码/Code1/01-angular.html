@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+	ng-app指令:指定angular应用的入口模块
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--引入angularJs插件
+			defer 异步加载，按顺序，延迟执行
+			async 异步加载，立即执行，不保证顺序
+		-->
+		<script type="text/javascript" src="angular-1.4.8.js" async></script>
+	</head>
+	<body>
+		<div ng-app>
+			<!--
+				ng-model指令：将值指定的变量绑定到所在元素是输入值
+			-->
+			<input type="text" ng-model="text"/>
+			<!--
+				{{表达式}} (表达式是变量和运算符组成的式子)				
+			-->
+			<p>{{text}}</p>
+		</div>
+	<!--	
+		<input type="text" ng-model="name"/>
+		<p>{{name}}</p>-->
+		
+	
+	</body>
+</html>

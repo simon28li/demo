@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-app="app" ng-controller="myController1">
+    <p>{{name}}</p>
+</div>
+
+<div ng-controller="myController2" id="box">
+    <p>{{name}}</p>
+</div>
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    //创建模块
+    angular.module('app', [])
+            .run(['$rootScope', function ($rootScope) {
+                $rootScope.name = 'hello';
+            }])
+            .controller('myController1', ['$scope', function ($scope) {
+                $scope.name = 'lisi';
+            }]);
+
+
+    //创建模块
+    angular.module('app2', []).controller('myController2', ['$scope', function ($scope) {
+        $scope.name = 'zhansang';
+    }]);
+
+
+    var oDiv = document.getElementById('box');
+    //第一个参数为模块所有注册的元素对象
+    //第二个参数为所注册的模块名称
+    angular.bootstrap(oDiv, ['app2']);//动态注册模块，要放在模块创建之后
+
+</script>
+</body>
+</html>

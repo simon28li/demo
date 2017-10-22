@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<p>aaaa</p>
+			<li>2222</li>
+			<li>3333</li>
+			<li id="box">box</li>
+			<li>4444</li>
+			<div>bbbbb</div>
+			<li>5555</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//获取指定元素到参数指定元素之间的元素
+			$('#box').prevUntil('p').css('background','red');
+			
+			$('#box').nextUntil('div').css('background','green');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p:first-child{
+				
+			}
+			p:first-of-type{
+				
+			}
+			p:last-of-type{
+				
+			}
+			p:nth-child(2){
+				
+			}
+			p:nth-of-type(2){
+				
+			}
+		</style>
+	</head>
+	<body>
+		<p>1111</p>
+		<div>
+			<p>22222</p>
+			<div>3333</div>
+			<p>44444</p>
+		</div>
+		<div>
+			<h1>5555</h1>
+			<p>66666</p>
+		</div>
+		<p>77777</p>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$(function(){
+					//选中p元素作为第一个子元素的节点
+				$('p:first-child').css('background','red');
+				
+				//选中作为最后一个子元素的p节点
+				$('p:last-child').css('background','green');	
+				
+				//选中p作为类型第一个的节点
+				$('p:first-of-type').css('background','blue');
+				
+				//选中p作为类型最后一个的节点
+				$('p:last-of-type').css('background','yellow');	
+				
+				//选中第2个子节点为p的元素，从1开始
+				$('p:nth-child(2)').css('background','pink');
+				
+				//选中p类型第二个节点，从1开始
+				$('p:nth-of-type(2)').css('background','brown');
+			});		
+		</script>
+	</body>
+</html>

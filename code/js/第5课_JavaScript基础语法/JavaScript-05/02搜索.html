@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" /><input type="button" value="搜索">
+		<ul>
+			<li>北京</li>
+			<li>上海</li>
+			<li>广州</li>
+			<li>深圳</li>
+		</ul>
+		
+		<script>
+			//遍历循环
+			var aInput = document.getElementsByTagName('input');
+			var aLi = document.getElementsByTagName('li');
+			
+			aInput[1].onclick = function(){
+				//alert(aInput[0].value);
+				//北京
+				restart();
+				if(toCon(aInput[0].value)){
+					toCon(aInput[0].value).style.color = 'red';
+				}else{
+					alert("没有匹配内容");
+				}
+			}
+			
+			/*
+			 * 本函数用来根据文本内容进行匹配
+			 */
+			function toCon(value){
+				for(var i = 0; i<aLi.length; i++){
+					//<li>北京</li>
+					if(value == aLi[i].innerHTML){
+						return aLi[i];
+					}
+				}
+				return false;
+			}
+			
+			/**
+			 * 本函数用来重置渲染
+			 */
+			function restart(){
+				for(var i = 0;i<aLi.length;i++){
+					aLi[i].style.color = '';
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myController">
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$log', function ($scope, $log) {
+        //$log 是对console的封装
+        $log.log('aaaaa');//相当于console.log()
+        $log.info('bbbb');//相当于console.info();
+        $log.error('错误信息');//相当于console.error();
+        $log.warn('警告信息');//相当于console.warn();
+    }]);
+    angular.bootstrap(document, ['app']);//动态注册模块
+</script>
+</body>
+</html>

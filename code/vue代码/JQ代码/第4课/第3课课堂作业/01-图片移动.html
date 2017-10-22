@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			div{width: 300px;
+			border: 1px solid #000;
+			height: 300px;
+			margin: auto;
+			position: relative;}
+			div img{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div><!--
+			--><img src="http://img02.taobaocdn.com/bao/uploaded/i2/1869031588/TB2RlqaapXXXXXTXpXXXXXXXXXX_!!1869031588.jpg_100x100.jpg"><!--
+		    --><img src="http://img02.taobaocdn.com/bao/uploaded/i2/TB1EWu5FVXXXXX.XpXXXXXXXXXX_!!0-item_pic.jpg_100x100.jpg"><!--
+		    --><img src="http://img04.taobaocdn.com/bao/uploaded/i4/TB1dir_FVXXXXbGXpXXXXXXXXXX_!!0-item_pic.jpg_100x100.jpg"><!--
+		    --><img src="http://img04.taobaocdn.com/bao/uploaded/i4/12139024398076861/T16KtiFlpeXXXXXXXX_!!0-item_pic.jpg_100x100.jpg"><!--
+		    --><img src="http://img02.taobaocdn.com/bao/uploaded/i2/1869031588/TB2RlqaapXXXXXTXpXXXXXXXXXX_!!1869031588.jpg_100x100.jpg"><!--
+		    --><img src="http://img02.taobaocdn.com/bao/uploaded/i2/TB1EWu5FVXXXXX.XpXXXXXXXXXX_!!0-item_pic.jpg_100x100.jpg"><!--
+		    --><img src="http://img04.taobaocdn.com/bao/uploaded/i4/TB1dir_FVXXXXbGXpXXXXXXXXXX_!!0-item_pic.jpg_100x100.jpg"><!--
+		    --><img src="http://img02.taobaocdn.com/bao/uploaded/i2/1869031588/TB2RlqaapXXXXXTXpXXXXXXXXXX_!!1869031588.jpg_100x100.jpg"><!--
+		--></div>
+		<script src="jquery-1.11.1.js"></script>
+		<script>
+			$('img').each(function(i,elemt){
+				$(elemt).css({
+					left:i%3*100,
+					top:Math.floor(i/3)*100
+				});		
+				//记住当前元素位置的属性
+				$(elemt).attr('myPos',i);
+			});
+			
+			//记录能移动的元素的下标
+			var moveIndex=[
+				[1,3],				//当位置为0的元素为空白时能移动的元素位置
+				[0,2,4],
+				[1,5],
+				[0,4,6],
+				[1,3,5,7],
+				[2,4,8],
+				[3,7],
+				[4,6,8],
+				[5,7]		//当位置为8的元素是空白时，能移动的位置有			
+			];
+			var blankIndex=8;
+			var prevIndex=-1;
+			
+			//移动图片
+			function move(){
+				var arr=moveIndex[blankIndex];	//[5,7]
+				var filterArr=[];//存储可以移动的元素下标
+				$.each(arr, function(i,val) {
+					if(val!=prevIndex){
+						filterArr.push(val);	//剔除上一次移动的下标
+					}
+				});
+				//在可以移动的元素中随机选择一个移动
+				var now=Math.floor(Math.random()*filterArr.length);
+				var nowMoveIndex=filterArr[now];//当前要移动的图片的下标
+				
+				$('img[myPos='+nowMoveIndex+']').animate(
+						{left:blankIndex%3*100,
+						 top:Math.floor(blankIndex/3)*100},500,function(){
+						 	//动画完成后回调的函数
+						 	//当前图片的位置变成空白下标
+						 	//空白下标变成当前图标的旧位置
+						 	//上一次移动的下标为空白下标
+						 	prevIndex=blankIndex;
+						 	blankIndex=nowMoveIndex;
+						 	$(this).attr('myPos',prevIndex);	
+						 	//开始移动下一张图片
+						 	move();
+						 });				
+			}
+			//开始移动图片
+			move();
+			
+			
+		</script>		
+	</body>
+</html>

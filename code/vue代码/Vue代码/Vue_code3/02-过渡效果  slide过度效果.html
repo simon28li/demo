@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: all 1s;
+            overflow: hidden;
+        }
+
+        /*
+         当元素即将显示时，Vue会给元素添加 xxx-enter类(如果transition没有name属性，则为v-enter)
+         当元素显示完成时，Vue给元素添加 xxx-enter-active类
+         当元素即将隐藏时，添加xxx-leave类
+         当元素已经隐藏时，添加xxx-leave-active
+         * */
+
+        .slide-enter-active, .slide-leave {
+            height: 100px;
+        }
+
+        .slide-enter, .slide-leave-active {
+            height: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="flag"/>
+    <!--Vue中需要将动画元素嵌套在transition元素，才能设置动画-->
+    <transition name="slide">
+        <div class="box" v-show="flag">好看教案好看教案好看教案好看教案好看教案好看教案好看教案</div>
+    </transition>
+
+</div>
+<script type="text/javascript" src="vue.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

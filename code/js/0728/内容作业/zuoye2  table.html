@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+   <table>
+       <tr id="yuwen"><th>语文</th><td>67</td><td>43</td><td>87</td></tr>
+       <tr id="shuxue"><th>数学</th><td>33</td><td>52</td><td>87</td></tr>
+       <tr id="yingyu"><th>英语</th><td>67</td><td>88</td><td>22</td></tr>
+   </table>
+<script>
+     var x1=yuwen.childNodes;
+     var x2=shuxue.childNodes;
+     var x3=yingyu.childNodes;
+    for(var i=1;i<x1.length;i++){
+        var y1=x1[i].innerHTML;
+        var y2=x2[i].innerHTML;
+        var y3=x3[i].innerHTML;
+        if(Number(y1)<60){
+            x1[i].style.color='#F00';
+            x2[i].style.color='#00F';
+            x3[i].style.color='#ffed1e'
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

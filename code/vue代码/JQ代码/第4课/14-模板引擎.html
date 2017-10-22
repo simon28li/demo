@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+ 	<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+ 	<!--基于jquery的模板引擎插件-->
+  	<script src="jsrender.js"></script>
+</head>
+<body>
+<!--容器-->
+<div id="result"></div>
+
+<!--模板，即用户界面
+	注意模板中script标签的type一定要设置为text/x-jsrender	
+-->
+<!--#data为jsRender内部的关键字，表示当前渲染到模板的数据-->
+<script id="theTmpl" type="text/x-jsrender">
+<!--	{{for #data}}-->
+		<div>
+			<!--{{表达式}} 取变量值  -->
+		   <em>Name:</em> {{:name}}
+		   
+		   {{if showNickname && nickname}}
+		      (Goes by <em>{{:nickname}}</em>)
+		   {{/if}}
+		</div>
+<!--	{{/for}}-->
+</script>
+
+<script>
+	//数据
+	var content = [
+	  {
+	    "name": "Robert",
+	    "nickname": "Bob",
+	    "showNickname": true
+	  },
+	  {
+	    "name": "Susan",
+	    "nickname": "Sue",
+	    "showNickname": false
+	  }
+	];
+
+	//编译模板
+	var template = $.templates("#theTmpl");
+	
+	//渲染数据,得到html文本
+	var htmlOutput = template.render(content);
+	console.log(htmlOutput);
+	
+	//将渲染的结果添加DOM中
+	$("#result").html(htmlOutput);
+</script>
+
+</body>
+</html>

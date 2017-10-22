@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//函数(赋值写法)不具备预解析功能
+		/*
+		var show = function(){
+			console.log(123);
+		}
+		show();
+		*/
+		// 函数(声明写法)具有预解析功能
+		show();
+		function show(){
+			console.log(123);
+		}
+	</script>
+</html>

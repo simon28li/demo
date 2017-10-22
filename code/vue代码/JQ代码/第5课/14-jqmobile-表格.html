@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="jquery.mobile-1.3.2.css" />
+	</head>
+	<body>
+		<div data-role='page'>
+			<div data-role='header'>
+				<h1>页面头部</h1>
+			</div>
+			<div data-role='content'>
+				<!--data-mode='reflow' 回流表格 当页面宽度不够时就以列表的形式显示元素
+					当页面宽度足够时就以普通表格形式显示
+					
+				-->
+				<table data-role='table' class="ui-responsive" data-mode='columntoggle'  data-column-btn-text="点我显示或隐藏列!">
+					<thead>
+						<tr>
+							<th data-priority='1'>周一1</th>
+							<th data-priority='6'>周二2</th>
+							<th data-priority='5'>周三3</th>
+							<th data-priority='4'>周一4</th>
+							<th>周二5</th>
+							<th>周三6</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+						</tr>
+						<tr>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+						</tr>
+						<tr>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+							<td>语文</td>
+							<td>数学</td>
+							<td>体育</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jquery.mobile-1.3.2.js" ></script>
+	</body>
+</html>

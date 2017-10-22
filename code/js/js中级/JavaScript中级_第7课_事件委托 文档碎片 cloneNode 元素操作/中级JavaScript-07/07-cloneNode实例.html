@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>6000</li>
+			<li>4000</li>
+			<li>2000</li>
+		</ul>
+		<ul>
+			<li>三居</li>
+			<li>两居</li>
+			<li>一居</li>
+		</ul>
+		<ul>
+			<li>南山</li>
+			<li>福田</li>
+			<li>罗湖</li>
+		</ul>
+		<ul id="myUl">
+			
+		</ul>
+		<script>
+			var aUl = document.getElementsByTagName('ul');
+			var myUl = document.getElementById('myUl')
+			for(var i = 0;i<aUl.length - 1;i++){
+				//TODO
+				addData(aUl[i]);
+			}
+			
+			/**
+			 * 给工作区添加我想要添加的条件
+			 */
+			function addData(oParent){
+				oParent.onclick = function(e){
+					var cloneLi = null;
+					var e = e || window.event;
+					//点击的是ul里面的内容,但是我要获取的是事件源
+					var target = e.target || e.srcElement;
+					//console.log(target.parentElement);
+					cloneLi = target.cloneNode(true);
+					myUl.appendChild(cloneLi);					
+				}
+			}
+		</script>
+	</body>
+</html>

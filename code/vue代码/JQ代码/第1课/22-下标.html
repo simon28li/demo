@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>aaaa</li>
+			<li>bbbb</li>			
+		</ul>
+		<ul class="ul">
+			<p>0000</p>
+			<li>11111</li>
+			<li id="box">22222</li>
+			<li>33333</li>
+			<li>44444</li>
+			<li>55555</li>
+		</ul>	
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//jq数组通过[]取下标时会将jq对象转换成js对象
+		//	$('li')[2].style.background='red';
+			$('li').eq(2).css('background','green');
+			
+			console.log($('#box').index());//得到指定元素在其父元素中的下标
+			
+			console.log($('#box').index('.ul li'));//获取指定元素在参数所过滤出来的所有元素内的排序
+			//等效于：
+			console.log($('.ul li').index($('#box')));//获取指定元素在参数所过滤出来的所有元素内的排序
+			
+		</script>
+	</body>
+</html>

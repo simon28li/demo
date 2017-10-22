@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body ng-controller="myController">
+<input type="button" value="产生随机数" ng-click="change()"/>
+<p>{{random}}</p>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    var app = angular.module('app', []);
+    app.provider('myService', function () {
+        return {
+            fix: null,
+            $get: function () {
+
+                var This = this;
+                return function (min, max) {
+                    if (This.fix != null) {
+                        return (Math.random() * (max - min) + min).toFixed(This.fix);
+                    } else {
+                        //产生随机数
+                        return Math.random() * (max - min) + min;
+                    }
+                }
+            }
+        }
+    });
+
+    //通过服务供应商配置自定义服务
+    app.config(['myServiceProvider', function (myServiceProvider) {
+        console.log(myServiceProvider);
+        myServiceProvider.fix=5;
+    }]);
+
+    //自定义服务和内置服务的使用完全一样
+    app.controller('myController', ['$scope', 'myService', function ($scope, myService) {
+        $scope.random = '';
+        $scope.change = function () {
+            $scope.random = myService(5, 17);
+        }
+    }]);
+
+
+</script>
+</body>
+</html>

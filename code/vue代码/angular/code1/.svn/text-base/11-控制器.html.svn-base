@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<!--
+				ng-click 指令：用于绑定元素的点击事件
+				鼠标移入事件指令：ng-mouseover
+			-->
+			<p ng-click="show()">{{name}}</p>
+		</div>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建模块
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				//控制器层尽量薄弱，一般只挂载数据及操作数据方法
+				$scope.name='hello';
+				$scope.show=function(){
+					//作用域上的函数不用进行DOM操作以及复杂的逻辑
+					alert(this.name);
+				}
+			}]);			
+		</script>
+	</body>
+</html>

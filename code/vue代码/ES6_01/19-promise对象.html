@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+//			Promise是一种异步编程方案,用于代替回调函数
+//			Promise对象的状态有三种:Pending(正在进行中),Resolved(成功状态，回调resolve方法),Rejected(失败状态，回调reject方法)
+			
+			var imgSrc=['http://www.7160.com//uploads/allimg/140521/9-1405211111060-L.jpg',
+					'http://www.7160.com//uploads/allimg/140619/9-140619121T70-L.jpg1',
+					'http://www.7160.com//uploads/allimg/140508/9-14050Q202250-L.jpg'
+					];
+/*			//回调函数的写法
+			function loadImg(url,success,error){
+				var img=new Image();
+				img.onload=function(){
+					//图片加载完成后回调的函数
+					success(this);
+				}
+				img.onerror=function(err){
+					//图片加载失败的回调函数
+					console.log(err);
+//					alert('图片加载失败');
+					error&&error(err);
+				}			
+				img.src=url;				
+			}
+			
+			loadImg(imgSrc[0],function(img){
+				oBox.appendChild(img);
+			})
+*/
+			//创建promise对象,用于存储异步操作
+			function loadImg(url){
+				var p=new Promise(function(resolve,reject){
+					//异步操作
+					var img=new Image();
+					img.onload=function(){
+						//异步操作成功  pending--->resolve
+						resolve(img);
+					}
+					img.onerror=function(err){
+						//异步操作失败  pending---reject
+						reject(err);
+					}
+					img.src=url;
+				});
+				return p;
+			}
+			var p=loadImg(imgSrc[2]);
+			
+//			p.then(function(img){
+//				//异步操作成功后回调的函数
+//				oBox.appendChild(img);
+//			},function(err){
+//				//异步操作失败后回调的函数
+//				console.log(err);
+//			});
+			
+			p.then(function(img){
+				//成功回调函数
+				oBox.appendChild(img);
+			}).catch(function(err){
+				//失败回调的函数
+				console.log(err);
+			});
+		</script>
+	</body>
+</html>

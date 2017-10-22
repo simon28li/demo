@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta content="" charset="UTF-8">
+    <script src='angular-1.4.8.js'></script>
+
+</head>
+
+<body ng-controller="formController">
+
+<div ng-repeat="item in items" ng-click="getItem(item)">
+    <input ng-model="item.name"/>
+    <input ng-model="item.age"/>
+</div>
+
+</body>
+
+</html>
+
+<script>
+    var app = angular.module('app', []);
+
+
+    app.controller('formController', function ($scope) {
+        $scope.items = [{name: 'wang', age: 25}, {name: 'yang', age: 26}];
+        $scope.$watch('items', function (newal, oldval) {
+            console.log('a')
+        }, true)
+
+    })
+</script>

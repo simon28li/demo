@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+	</head>
+	<body>
+		<button type="button" class="btn btn-primary" data-loading-text='正在加载' data-aaa-text='显示aaaa'>按钮</button>
+		<script>
+			$(this).button('toggle');//设置按钮为触发状态
+			$('button').click(function(){	
+				/*button方法中除了的字符窗reset，toggle,loading外还可以自定义字符串
+				 自定义字符串时要给相应的按钮添加data-xxxstring-text=''; 按钮切换到对应状态时按钮内的文本也会进行切换
+				 * */
+				$(this).button('loading');				
+				var This=this;
+				setTimeout(function(){
+					$(This).button('reset');
+				},1000);	
+				
+			});
+		</script>
+	</body>
+</html>

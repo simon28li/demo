@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<select multiple="multple">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+		<script>
+			var aInput = document.getElementsByTagName('input');
+			
+			for(var i = 0;i<aInput.length;i++){
+				aInput[i].onfocus = function(){
+					//this.style.background = 'red';
+					this.setAttribute("style","background: pink;");
+				}
+				
+				aInput[i].onblur = function(){
+					this.setAttribute("style","");
+				}
+			}
+		</script>
+	</body>
+</html>

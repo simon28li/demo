@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--
+		View视图模版：
+		通过Compile编译成渲染函数，再通过渲染函数（render）创建虚拟的DOM,再通过虚拟DOM来创建真实的DOM
+	-->
+		<div class="box">
+			<p>{{msg}}</p>
+			<p>{{name}}</p>
+		</div>	
+		
+		<!--引入Vue.js-->
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//创建Vue实例
+			//Vue实例在MVVM模式中，充当vm层(视图模型层)，每一个Vue应用都有一个Vue的根实例来启动Vue的应用
+			//Vue实例中参数中 的对象属性可以有:el，data，methods,template,生命周期钩子函数.....
+			
+			//声明式渲染
+			var vm=new Vue({
+				el:'.box',	//el指定视图模版绑定的元素,参数是指定元素的选择符,不能选中body或html
+				
+				data:{	//定义model，即数据模型
+					msg:'hello,world',
+					name:'zhangsan'
+				},
+				methods:{
+					//定义方法
+					show:function(){}
+				}
+			});
+			
+		</script>
+	</body>
+</html>

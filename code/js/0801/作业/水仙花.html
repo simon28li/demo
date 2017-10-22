@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+      for(var i=100;i<999999;i++){
+          var x=String(i);
+          var y=0;
+          for(var j=0;j< 3;j++){
+               y=y+x[j]*x[j]*x[j];
+          }
+          if(y==i){
+              document.write(x+'<br>');
+          }
+      }
+
+
+  </script>
+</body>
+</html>

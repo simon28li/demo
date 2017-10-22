@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+			div[class=row]{
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<!--
+						.dropdown 下拉菜单元素
+					-->
+					<div class="dropdown">
+						<!--
+							.dropdown-toggle 下拉菜单触发器
+							
+							在bootstrap中data-xx用于行为交互的，data-xxx属性要有效果必须要有bootstrap.js插件
+							bootstrap.js依赖于jquery.js
+							
+							data-toggle="dropdown"
+						-->
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					     Dropdown
+					     <span class="caret"></span> 					  
+					  </button>
+					  <!--
+					  	.dropdown-menu 下拉菜单
+					  -->
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <!--
+					    	class="divider" 分割符
+					    -->
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>					
+				</div>		
+				
+				<div class="col-sm-4">
+					<!--
+						.dropdown 下拉菜单元素
+					-->
+					<div class="dropdown">
+						<!--
+							.dropdown-toggle 下拉菜单触发器
+							
+							在bootstrap中data-xx用于行为交互的，data-xxx属性要有效果必须要有bootstrap.js插件
+							bootstrap.js依赖于jquery.js
+							
+							data-toggle="dropdown"
+						-->
+					  <button class="btn btn-default dropdown-toggle btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					     Dropdown
+					     <span class="caret"></span> 					  
+					  </button>
+					  <!--
+					  	.dropdown-menu 下拉菜单
+					  	.dropdown-menu-right 右对齐
+					  	.dropdown-menu-left 左对齐(默认)
+					  -->
+					  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <!--
+					    	class="divider" 分割符
+					    -->
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					</div>					
+					</div>
+				
+				<div class="col-sm-4">
+					<div class="dropdown">
+						<button class="btn btn-success btn-block dropdown-toggle" data-toggle='dropdown'>
+							下拉菜单
+							<span class="caret"></span>								
+						</button>
+						<ul class="dropdown-menu">
+							<!--dropdown-header 列表项标题-->
+							<li class="dropdown-header">数字</li>
+							<!--.active 激活项-->
+							<li class="active"><a href="#">11111111</a></li>
+							<li><a href="#">2222222</a></li>
+							<!-- .disabled 禁用项-->
+							<li class="disabled"><a href="#">3333333</a></li>
+							<li><a href="#">4444444</a></li>
+						</ul>						
+					</div>
+				</div>		
+			</div>	
+			<div class="row">
+				<div class="col-sm-4">
+					<!--上拉菜单 .dropup-->
+					<div class="dropup">
+						<!--触发器-->
+						<button type="button" class="btn btn-danger dropdown-toggle" data-toggle='dropdown'>上拉菜单
+							<span class="caret"></span>
+						</button>
+						<!--下拉列表-->
+						<ul class="dropdown-menu">
+							<li><a href="#">首页</a></li>
+							<li><a href="#">产品</a></li>
+							<!--分割线-->
+							<li class="divider"></li>
+							<li><a href="#">联系</a></li>
+						</ul>
+					</div>
+					
+					
+				</div>
+			</div>		
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+	</body>
+</html>

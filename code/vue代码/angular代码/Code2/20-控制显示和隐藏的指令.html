@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<input type="checkbox" ng-model="flag"/>
+		<!--
+			ng-if 指令用于控制元素的显示和隐藏，true控制元素显示，false元素隐藏
+			通过DOM操作来控制元素的显示和隐藏
+		-->
+		<div ng-if='flag'>11111</div>
+	
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>		
+		<script>
+			var app=angular.module('app',[]);
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.flag=true;
+			}]);
+		</script>
+	</body>
+</html>

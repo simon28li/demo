@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//onkeydown: 键盘按下
+			//onkeyup: 键盘抬起
+			//event对象:KeyEvent 拿到一个KeyCode(键盘键值,可以检测到键盘的每一个按键);
+			
+			//键盘操作中有3个特殊的按键,分别是ctrl/alt/shift
+			
+			document.onkeydown = function(e){
+				var e = e || window.event;
+				console.log(e.keyCode);
+			}
+		</script>
+	</body>
+</html>

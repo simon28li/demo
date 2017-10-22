@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<input type="radio" name="setting"/>管理员
+			<input type="radio" name="setting" checked/>用户
+		</div>
+		<div><span>编辑此处</span></div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var flag=false;	//未包装的状态
+			
+			$('input').eq(0).click(function(){		
+				if(!flag){
+					$('span').wrap('<a href="#">');
+					flag=true;//已经包装
+				}				
+			});
+			
+			$('input').eq(1).click(function(){
+				if(flag){
+					$('span').unwrap();
+					flag=false;
+				}			
+			});			
+		</script>
+	</body>
+</html>

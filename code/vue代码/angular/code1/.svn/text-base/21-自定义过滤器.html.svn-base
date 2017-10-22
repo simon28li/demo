@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			当angularjs中内置过滤器不满足格式数据的需求时，需要自定义过滤器
+		-->
+		<p>{{content}}</p>
+		<hr />
+		<p>{{content | firstUpper:3}}</p>
+		<hr />
+		<p>{{newContent}}</p>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义过滤器：假设自定义一个将字符串的首字母转换为大写
+			/*第一个参数：过滤器名称
+			 第二个参数：定义过滤器功能的函数，如果有需要依赖的其他服务，注入到函数内部
+			 * */
+			app.filter('firstUpper',function(){
+				//返回过滤功能函数
+				return function(data,num){
+					//第一个参数：为待过滤的数据
+					//第二个参数：为过滤器的参数
+					var num=num||data.length;
+					
+					//函数返回值为过滤后的数据
+					return data.charAt(0).toUpperCase()+data.substring(1,num);
+				}				
+			});
+			//自定义过滤器的使用和内置过滤器的使用完全一样
+			app.run(['$rootScope','$filter',function($rootScope,$filter){
+				$rootScope.content='hiHello';
+				$rootScope.newContent=$filter('firstUpper')($rootScope.content,4);
+			}]);
+		</script>
+	</body>
+</html>

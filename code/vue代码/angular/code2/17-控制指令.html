@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>	
+	</head>
+	<body ng-controller="myController">
+		<input ng-model="myVar" />
+		
+		<div ng-switch="myVar">
+			  <div ng-switch-when="runoob">
+			     <h1>菜鸟教程</h1>
+			     <p>欢迎访问菜鸟教程</p>
+			  </div>
+			  
+			  <div ng-switch-when="google">
+			     <h1>Google</h1>
+			     <p>欢迎访问Google</p>
+			  </div>
+			  
+			  <div ng-switch-when="taobao">
+			     <h1>淘宝</h1>
+			     <p>欢迎访问淘宝</p>
+			  </div>
+			  
+			  <div ng-switch-default>
+			     <h1>切换</h1>
+			     <p>选择不同选项显示对应的值。</p>
+			  </div>
+		</div>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myVar='runoob';
+			}]);			
+		</script>		
+	</body>
+</html>

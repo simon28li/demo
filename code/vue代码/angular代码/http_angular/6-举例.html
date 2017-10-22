@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<input type="text" ng-model="search"/>
+		<ul>
+			<li ng-repeat="d in arr">{{d}}</li>
+		</ul>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+		//	https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=A&cb=JSON_CALLBACK
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$http','$timeout',function($scope,$http,$timeout){
+				$scope.search='';//搜索的关键字
+				$scope.arr=[];//用于存储请求结果的数组
+				var timer=null;
+					
+				$scope.$watch('search',function(newVal,oldVal){
+					$timeout.cancel(timer);//取消定时器
+					
+					timer=$timeout(function(){
+						//jsonp跨域请求
+						$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+newVal+'&cb=JSON_CALLBACK')
+						.success(function(data){
+							console.log(data);
+							$scope.arr=data.s;
+						})
+					},500);
+				});
+			}]);		
+		</script>
+	</body>
+</html>

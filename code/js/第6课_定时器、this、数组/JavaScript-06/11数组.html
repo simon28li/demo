@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		
+			var arr = [1,2,3];					//简写
+			var arr2 = new Array('a','b','c');  //初始化一个数组
+		
+//			console.log(arr.length);			//3
+//			arr.length = 2;
+//			console.log(arr);					//1,2
+			
+			arr.length = 20;					//初始化一个分配初始空间为20的数组
+			console.log(arr[15]);				//undefined
+			arr[12] = null;
+			
+			arr.length = 0;						//快速清空数组
+			console.log(arr);
+			
+		</script>
+	</body>
+</html>

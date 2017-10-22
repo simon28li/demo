@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+	/*
+		function show(x,y,z){	 //形式参数
+			console.log(x);      //1
+			console.log(y);      //undefined
+			console.log(z);		 //undefined
+		}
+		var a = 1;
+		var b = 2;
+		var c = 3;
+		show(a);
+	*/
+	function show(a){
+		console.log(arguments.length);
+		console.log(arguments[0]);
+		console.log(arguments[1]);
+		console.log(arguments[2]);
+		debugger
+	}
+	show(1,2,3);    //[a,b,c] object   Array
+	</script>
+</html>

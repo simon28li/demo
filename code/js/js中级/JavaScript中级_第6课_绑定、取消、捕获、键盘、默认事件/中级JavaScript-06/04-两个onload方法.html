@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//document.ready
+			
+			bindEvent(window, 'load', function(){
+				alert(1);
+			});
+			bindEvent(window, 'load', function(){
+				alert(2);
+			});
+			
+			/**
+			 * 绑定事件兼容方法
+			 * @param {Object} obj		被绑定的对象,触发者
+			 * @param {Object} events	触发的事件类型(click,mousemove,mouseout)
+			 * @param {Object} fn		执行的函数
+			 */
+			function bindEvent(obj, events, fn){
+				//如果他是标准浏览器
+				if(obj.addEventListener){
+					obj.addEventListener(events, fn, false);
+				}
+				//如果他是IE浏览器
+				else{
+					obj.attachEvent('on'+events, fn);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$(document).on('click',function(ev){
+				//console.log(ev);
+				console.log('鼠标点击的坐标(相对于整个页面):'+ev.pageX+'/'+ev.pageY);
+				console.log('鼠标点击的坐标(相对于可视窗口):'+ev.clientX+'/'+ev.clientY);
+			});
+			
+			$(document).on('keydown',function(ev){
+				console.log(ev.keyCode);
+				console.log(ev.which);	//获取按键的按键码
+			});
+			
+		</script>
+	</body>
+</html>

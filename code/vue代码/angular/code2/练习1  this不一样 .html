@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+
+<head>
+    <title>练习</title>
+    <meta content="" charset="UTF-8">
+</head>
+
+<body ng-controller="ctr">
+<button ng-click="">按钮</button>
+<!-- 点击按钮周后total也会运行  -->
+验证total函数中没有本input绑定的变量，total会不会运行<input type="text" ng-model="checkTotal">
+
+<P>单价：<input type="text" ng-model="price"></P>
+
+<P>数量：<input type="text" ng-model="count"></P>
+
+<P>运费：{{fre}}</P>
+
+<P>总价：{{totalprice()}}</P>
+</body>
+
+</html>
+
+<script src="angular-1.4.8.js"></script>
+
+<script type="text/javascript">
+
+    angular.module('app', [])
+
+        /* .controller('ctr', ['$scope', '$filter', function ($scope, $filter) {
+         $scope.price = 50;
+         $scope.count = 10;
+         $scope.fre = 10;
+         $scope.totalprice = function () {
+         return this.price * this.count>=500 ?this.price * this.count:this.price * this.count+ this.fre
+         };
+
+         }])
+         */
+
+            .controller('ctr', ['$scope', function ($scope) {
+                $scope.price = 50;
+                $scope.count = 10;
+                $scope.fre = 10;
+                $scope.totalprice = function () {
+                    console.log('aaa');
+                    return this.price * this.count + this.fre
+                };
+                $scope.$watch('price*count', function (newval, oldval) {
+                    this.fre = newval >= 500 ? 0 : 10;
+                });
+
+            }])
+
+
+</script>

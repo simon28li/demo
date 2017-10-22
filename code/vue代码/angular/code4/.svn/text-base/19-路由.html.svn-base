@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<p>
+			<strong ng-click="$location.path('home')">首页</strong>
+			<strong ng-click="$location.path('home/product')">产品</strong>
+			<strong ng-click="$location.path('home/about')">关于</strong>
+		</p>
+		<!--ng-view指定路由入口，即对应路由视图的容器-->
+		<div ng-view></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<!--引入路由插件-->
+		<script type="text/javascript" src="angular-route.js" ></script>
+		<script>
+			/*
+			 angularjs中使用路由来实现SPA应用（单页应用）
+			 angularjs将路由功能封装成了插件
+			 * */
+			var app=angular.module('app',['ngRoute']);
+			
+			//配置$route服务,通过config调用$routeProvider来配置
+			app.config(['$routeProvider',function($routeProvider){
+				$routeProvider
+					.when('/home',{
+						template:'<h1>标题</h1><p>内容内容。。。。</p>'
+					})
+					.when('/home/:myPath',{	//:myPath称为路由参数 
+						template:'<h1>{{title}}</h1><img src="1.jpg"/><p>{{content}}</p>',
+						controller:'subController'
+					})					
+					.otherwise({
+						redirectTo:'/home'	//当页面路由和上面任何一个路由不匹配时，则自动将路由设置为home
+					});				
+			}]);	
+			app.controller('subController',['$scope','$routeParams','$http',function($scope,$routeParams,$http){
+				//通过$routeParams获取路由参数				
+				console.log($routeParams);
+				$http.get('json/'+$routeParams.myPath+'.json').success(function(data){
+					$scope.title=data.title;
+					$scope.content=data.content;
+				});	
+			}]);
+		
+			app.controller('myController',['$scope','$location',function($scope,$location){
+				$scope.$location=$location;
+			}]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr=[1,2,3,4,5];
+			var newArr=arr.map(function(val,i){
+				//console.log(i+'/'+val);
+				return val*2;
+			});
+			
+			console.log(newArr);
+			
+		</script>
+	</body>
+</html>

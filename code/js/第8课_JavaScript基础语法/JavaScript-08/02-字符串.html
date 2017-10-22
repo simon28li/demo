@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'hello';
+			//charAt	根据下标查找到对应的位置
+			//indexOf   通过匹配参数查找到字符串的位置
+			//懒汉模式
+			console.log(str.indexOf('l'));		//2;查询匹配到对象第一个的位置
+			
+			var str1 = 'hellohello';
+			console.log(str1.indexOf('e'));		//1;
+			
+			var str2 = 'hellohello';
+			console.log(str2.indexOf('e',3));	//6;从某下标位置开始查找
+			
+			var str3 = 'hellohello';
+			console.log(str3.indexOf('llo'));	//2;多个匹配的时候看整体起始的位置
+			
+			var str4 = 'hellohello';
+			console.log(str4.indexOf('z'));		//-1当匹配不到的时候就返回-1
+			
+			var str5 = 'hellohello';
+			console.log(str5.lastIndexOf('e'));	//6从左到右匹配,返回第一个匹配的下标
+		</script>
+	</body>
+</html>

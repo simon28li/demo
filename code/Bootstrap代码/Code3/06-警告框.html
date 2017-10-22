@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- .fade in 给警告框隐藏时添加动画效果				
+			-->
+			<div class="alert alert-info  fade in" id="myAlert">
+				警告框内容！
+				<div class="close" data-dismiss='alert'>&times;</div>
+			</div>
+			<button type="button" class="btn btn-success" data-dismiss='alert' data-target='#myAlert'>关闭警告框</button>
+			<button type="button" class="btn btn-warning" id="myBtn">关闭警告框</button>
+			<script>
+				$('#myBtn').on('click',function(){
+					//alert关闭
+					$('#myAlert').alert('close');
+					
+				});
+				
+			</script>
+		</div>
+	</body>
+</html>

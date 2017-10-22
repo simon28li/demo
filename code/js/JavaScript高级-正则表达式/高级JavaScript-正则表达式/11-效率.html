@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+    <script>
+        var str1 = '"' + Array(1000).join("x") + '123456\\\'78\\\"90"';
+        var randomArr = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","1","2","3","4","5","6","7","8","9","0","!","@","#","%","^","&","*","`","\?","\'","\""];
+        var str2 = randomStr();
+        function randomStr(){
+        	for(var i = 0;i<1000;i++){
+        		str2 += randomArr[(Math.floor(Math.random()*randomArr.length))];
+        	}
+        	return str2;
+        }
+        
+        //var str2 = '"' + Array(100).join(Math.floor(Math.random()*randomArr.length)) + '"';
+        
+        console.log("字符串1:", str1);
+        console.log("字符串2:", str2);
+
+        var reg1 = /"(?:\\.|[^"])*"/;
+        var reg2 = /"(?:[^"\\]|\\[\d\D])*"/;
+
+        var reg11 = new RegExp('"(?:\\.|[^"])*"');
+        var reg22 = new RegExp('"(?:[^"\\]|\\[\d\D])*"');
+
+        var n = 1e6; //100万次测试
+
+        test("reg1", reg1);
+        test("reg2", reg2);
+        test("reg11", reg11);
+        test("reg22", reg22);
+
+        function test(name, re) {
+            console.time(name);
+            for (var i = 0; i < n; i++) {
+                str1.match(re);
+                str2.match(re);
+            }
+            console.timeEnd(name);
+        }
+        </script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- ul>li>span>文本 -->
+		<ul id="ul1"></ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+			
+			var oLi = document.createElement('li');
+			var oSpan = document.createElement('span');
+			var oText = document.createTextNode('你好啊');
+			
+			oUl.appendChild(oLi);
+			oLi.appendChild(oSpan);
+			oSpan.appendChild(oText);
+			
+		</script>
+	</body>
+</html>

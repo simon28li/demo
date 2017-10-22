@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">aaaa</div>
+		<script>
+			//普通事件:同一个元素,加载相同的事件,调用不同的函数,后面会覆盖前面
+			//绑定事件:不会
+			var oDiv = document.getElementById('div1');
+			oDiv.onclick = aaa;
+			oDiv.onclick = bbb;
+			function aaa(){
+				alert(111);
+			}
+			function bbb(){
+				alert(222);
+			}
+			/*
+			xxx.onclick = function(e){
+				var e = e || window.event;
+			}
+			*/
+			//绑定事件
+			/*
+			xxx.addEventListener('click',function(){
+				
+			},useCapture);
+			*/
+		</script>
+	</body>
+</html>

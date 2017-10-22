@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .p1 {
+            background: #acf2f0;
+            color: #2f17ff;
+        }
+
+        .d {
+            background: #f2577d;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1 p2 p3 p4" id="p">pppppppp</p>
+
+<script>
+    var x = document.getElementById('p');
+    var y = document.getElementById('p').attributes;
+    console.log(y);
+    console.log(x);
+    //    y[0].value='p1 p2 p3 p4 d'; /*前面输出的 class 也会被更改*/
+    y[0].value = 'd';
+    /*前面输出的 class 也会被更改*/
+    console.log(x);
+
+
+</script>
+</body>
+</html>

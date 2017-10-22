@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body ng-controller="myController">
+<input type="text" ng-model="name"/>
+<textarea ng-model="content"></textarea>
+
+<p>{{content}}</p>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$interpolate', function ($scope, $interpolate) {
+        //插值服务
+        $scope.name = '';   //先输入那么值
+        $scope.content = '';
+        $scope.$watch('content', function (newVal, oldVal) {
+            //通过插值服务解析newVal
+            var temp = $interpolate(newVal);//通过插值服务解析表达式
+            console.log(temp);
+            $scope.content = temp({name: $scope.name});
+        });
+
+
+    }]);
+
+    angular.bootstrap(document, ['app']);//动态注册模块
+
+
+</script>
+
+</body>
+</html>

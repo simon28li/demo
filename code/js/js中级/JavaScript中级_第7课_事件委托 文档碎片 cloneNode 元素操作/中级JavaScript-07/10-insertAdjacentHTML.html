@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">div</div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			var elems = document.createElement('span');
+			var oText = document.createTextNode("span");
+			elems.appendChild(oText);
+			
+			//只在该元素当中, 在该元素第一个子节点前面
+			//oDiv.insertAdjacentElement('afterbegin',elems);
+			
+			//只在该元素当中, 在该元素最后一个子节点前面
+			//oDiv.insertAdjacentElement('beforeend',elems);
+			
+			//'beforebegin': 在该元素本身的前面.
+			//oDiv.insertAdjacentElement('beforebegin',elems);
+			
+			//'afterend': 在该元素本身的后面.
+			oDiv.insertAdjacentElement('afterend',elems);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model='content' />
+			<div v-my-drag class="box">{{content}}</div>
+			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//在Vue的自定义指令中仅仅做底层DOM操作
+			//	自定义的创建方式：1.全局注册,2.局部注册
+			/*
+			 第一个参数：自定义指令名称，在使用是指令名为v-my-drag
+			 第二个参数：设置DOM操作逻辑的钩子函数对象
+			 * */
+			Vue.directive('myDrag',{
+				bind:function(el,binding){
+					//el参数表示：当前指令绑定的元素对象
+					//binding:包括指令的信息，比如：指令的名称，指令值，指令的修饰符，指令的参数
+					
+					//当指令第一次绑定到指定的元素时回调
+					console.log('bind');
+					console.log(el);
+					console.log(binding);
+				},
+				inserted:function(el,binding){
+					//当所在的元素插入到父节点时回调的钩子函数
+					console.log('inserted');
+				},
+				update:function(el,binding){
+					//当元素所在的模板更新时调用
+					console.log('update')
+				}				
+			});
+			
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					content:'hello'
+				}
+			});		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body ng-controller="myController">
+
+<p>{{content}}</p>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+
+<script>
+
+    //在Angularjs中，服务是一个对象或函数
+    //服务可以在控制器、指令、过滤器、另一个服务中使用,不管在哪里使用服务，都需要依赖注入
+
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$http', function ($scope, $http) {
+        //使用$http服务
+        //POST请求
+
+        $http({
+            url: '01-http.php',
+            method: 'post',
+            data: 'username=zhangsan&password=123344',//设置请求参数
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded'
+            }
+        }).success(function (data) {
+            console.log(data);
+        });
+
+        /* $http.post('01-http.php', 'username=zhangsan&password=123344', {
+         //修改请求头配置
+         headers: {
+         'content-type': 'application/x-www-form-urlencoded'
+         }
+         }).success(function (data) {
+         console.log(data);
+         });*/
+
+    }]);
+
+</script>
+</body>
+</html>

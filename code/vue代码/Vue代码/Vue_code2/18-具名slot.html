@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<my-component>
+				<template slot="foot">
+					<h3>要保留的标题</h3>
+					<p>要保留的内容</p>
+				</template>
+				<img src="imgs/1.jpg" slot="img"/>
+				<img src="imgs/0.jpg" />
+				<p>aaaaa</p>
+			</my-component>			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			Vue.component('my-component',{
+				//<slot></slot> 用于保留组件使用时内部的元素
+				template:'<div><slot></slot><h1>标题</h1><slot name="img"></slot><p>内容xxxxxx</p><slot name="foot"></slot></div>'
+			});
+			
+			var vm=new Vue({
+				el:'#app'
+			})
+			
+		</script>
+	</body>
+</html>

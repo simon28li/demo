@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			//自定义服务的第三种方式：通过service方法定义，也不能通过config进行配置
+			app.service('myService',function(){
+				//自定义服务的构造函数
+				this.name='张三';
+				this.show=function(){
+					alert(this.name);
+				}
+			});			
+			
+			//自定义服务和内置服务的使用完全一样
+			app.controller('myController',['$scope','myService',function($scope,myService){
+				console.log(myService);
+			}]);
+		</script>
+	</body>
+</html>

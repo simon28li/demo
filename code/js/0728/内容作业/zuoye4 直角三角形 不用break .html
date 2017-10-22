@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" onchange="a()">
+<script>
+
+    function a() {
+        var y = document.getElementsByTagName('input')[0].value;
+        for (var i = 0; i < y; i++) {
+            for (var j = 0; j <= i; j++) {
+                    document.write(y + ' ');
+            }
+            document.write('<br>');
+
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

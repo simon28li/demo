@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="123" autocomplete="on" />
+		<input type="button" value="刷新页面" id="input1" />
+		
+		<script>
+			//autocomplete 清除缓存属性 on是保留内容,off是不保留.同时给初始值-value
+			var aInput = document.getElementById("input1");
+			
+			aInput.onclick = function(){
+				window.location.reload();
+			}
+		</script>
+	</body>
+</html>

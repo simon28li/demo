@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.tips{width: 100px;border: 1px solid pink;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<p id="p1">
+			表示一个元素的左边框的宽度，以像素表示。如果元素的文本方向是从右向左（RTL, right-to-left），并且由于内容溢出导致左边出现了一个垂直滚动条，则该属性包括滚动条的宽度。<a href="#" tips="哦啦啦">clientLeft</a> 不包括左外边距和左内边距。<a href="#" tips="js方法">clientLeft</a> 是只读的。
+		</p>
+		<script>
+			var p1 = document.getElementById('p1');
+			var aA = document.getElementsByTagName("a");
+			var tips = null;
+			
+			for(var i = 0;i<aA.length;i++){
+				aA[i].onmouseover = function(){
+					//建立一个div对象
+					tips = document.createElement('div');
+					//tips.className = 'tips';
+					//让他的类名为tips
+					tips.setAttribute('class','tips');
+					var text = document.createTextNode(this.getAttribute('tips'));
+					tips.appendChild(text);
+					p1.appendChild(tips);
+					
+					//拿到tips偏移的位置应该是aA[i]的宽度加上距离左浏览器边框的宽度
+					tips.style.left = this.offsetLeft + this.offsetWidth + 'px';
+					//拿到tips偏移的位置是aA[i]的高度加上距离上浏览器边框的高度
+					tips.style.top = this.offsetTop + this.offsetHeight + 'px';
+				}
+				
+				aA[i].onmouseout = function(){
+					p1.removeChild(tips);
+				}
+			}
+		</script>
+	</body>
+</html>

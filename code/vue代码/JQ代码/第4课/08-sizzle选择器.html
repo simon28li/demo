@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*div:only-child{
+				background: red;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>1111</p>
+		</div>
+		<div>
+			<h1>2222</h1>
+			<p>3333</p>
+		</div>
+		<div>
+			<p>44444</p>
+			<h1>5555</h1>
+			<p>66666</p>
+		</div>
+		<div>
+			<p>88888</p>
+			<p>9999</p>
+		</div>
+		<p><span>77777</span></p>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//选中作为某个元素内唯一的子节点的p元素
+			$('p:only-child').css('background','red');
+			
+			//选中某父元素内p类型只有一个的p元素
+			$('p:only-of-type').css('background','blue');
+			
+		</script>
+	</body>
+</html>

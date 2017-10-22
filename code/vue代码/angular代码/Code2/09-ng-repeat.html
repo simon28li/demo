@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background:red}
+			.green{background:green}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<ul>
+		
+			<li ng-repeat="d in arr" class='{{$even?"red":"green"}}'>{{d}}</li>
+		</ul>
+		<hr />
+		<h1 ng-repeat-start="d in arr">{{d}}</h1>
+		<p ng-repeat-end>{{d}}</p>
+		<hr />
+		<ul>
+			<li ng-repeat="d in [1,2,3,4,5]"></li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=['aaa','bbb','cccc','dddd','eeee'];
+			}]);
+		</script>
+	</body>
+</html>

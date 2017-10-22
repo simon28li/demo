@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.firstStyle{
+				background: red;
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+	
+			<h1 ng-repeat-start="d in arr">{{d}}</h1>
+			<div>{{d}}</div>
+			<p ng-repeat-end>{{d}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			/*
+			 指令：
+			 ng-app
+			 ng-model
+			 ng-bind
+			 ng-click
+			 ng-repeat
+			 ng-init
+			 ng-controller
+			 * */
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.arr=['aaa','bbb','cccc','dddd','eeeee'];				
+			}]);			
+		</script>
+	</body>
+</html>

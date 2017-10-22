@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<div>
+				<span>xxxx</span>
+				<span>aaaa</span>
+			</div>
+			
+		</div>
+		<div>
+			<div>
+				<span>yyyy</span>
+				<span>bbbb</span>
+			</div>			
+		</div>
+		<div>
+			<span>cccc</span>
+		</div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//$('span').wrap('<p></p>');//逐个包装
+			
+			//$('span').wrapAll('<p></p>');//整体包装
+			
+			//$('span').wrapInner('<a href="#">');//内部包装
+			
+			//$('span').first().unwrap();
+			$('span').unwrap();
+			
+			$('span').unwrap();
+		</script>
+	</body>
+</html>

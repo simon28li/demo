@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('div').on('mousedown',function(ev){
+				var This=this;
+				var disX=ev.pageX-$(this).offset().left;
+				var disY=ev.pageY-$(this).offset().top;
+				
+				$(document).on('mousemove',function(ev){
+					//设置div的位置
+					var l=ev.pageX-disX;
+					var t=ev.pageY-disY;
+					$(This).css({
+						left:l,
+						top:t
+					});					
+				});
+				
+				$(document).on('mouseup',function(){
+					//取消事件
+					$(document).off();
+				});
+			});
+			
+			
+		</script>
+	</body>
+</html>

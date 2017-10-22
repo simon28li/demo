@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--<div onclick="show()"></div>
+		<div ng-click="c=a+b">{{c}}</div>-->
+		
+		<!--
+			ng-paste 当用户粘贴了文本（即按下快捷键Ctrl+V或者右击点击粘贴时）时触发
+		-->
+		<input type="text" ng-paste='myPaste()'/>
+		<input type="text" ng-copy='myCopy()'/>
+		<input type="text" ng-cut='myCut()'/>
+		
+		<!--
+			ng-change :(onchange) 
+			ng-input
+		-->
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.myPaste=function(){
+					alert('粘贴事件触发了。。。。');
+				}
+				$scope.myCopy=function(){
+					alert('复制事件触发了。。。。');
+				}
+				$scope.myCut=function(){
+					alert('剪切事件触发了。。。。');
+				}
+				
+			}]);			
+		</script>		
+	</body>
+</html>

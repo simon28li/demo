@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Animal(){
+				this.type = '动物';
+			}
+			Animal.prototype.move = function(){
+				console.log(this.type+"在动");
+			}
+			
+			function Cat(name, color){
+				Animal.apply(this, arguments);
+				this.name = name;
+				this.color = color;
+			}
+			Cat.prototype = new Animal();
+			Cat.prototype.eat = function(){
+				console.log(this.name+"在吃");
+			}
+			
+			Cat.prototype.sleep = function(){
+				console.log(this.name+"在睡")
+			}
+			
+			Cat.prototype.colorAndName = function(){
+				console.log("这只猫的名字叫"+this.name+",毛色是"+this.color+".");
+			}
+			
+			var cat1 = new Cat('大毛','黄色');
+			var cat2 = new Cat('二毛','白色');
+			cat1.eat();
+			cat2.sleep();
+			cat1.move();
+			cat1.colorAndName();
+		</script>
+	</body>
+</html>

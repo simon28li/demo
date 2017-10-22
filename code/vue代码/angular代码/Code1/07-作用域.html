@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="myController">
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+			<p>{{sex}}</p>
+			
+			<div ng-controller="myController2">
+				<p>{{name}}</p>
+				<p>{{age}}</p>
+			</div>
+		</div>		
+		<hr />
+		<div ng-controller="myController2">
+			<p>{{name}}</p>
+			<p>{{age}}</p>			
+		</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			//创建myApp模块
+			var app=angular.module('myApp',[]);
+			
+			//创建控制器
+			/*
+			 第一个参数：控制器名称
+			 第二个参数：控制器函数对象
+			 * */
+			app.controller('myController',['$scope',function($scope){
+				//$scope 作用域对象，数据要能够被视图访问，就一定要挂载在$scope上
+				$scope.name='hello';	//声明变量
+				$scope.age=20;
+			}]);
+			//创建控制器
+			app.controller('myController2',['$scope','$rootScope',function($scope,$rootScope){
+				$scope.name="lisi";				
+				$rootScope.age='1000';
+				$rootScope.sex='female';
+			}]);
+			/*
+			 $rootScope 根作用域
+			 * */
+		</script>
+	</body>
+</html>

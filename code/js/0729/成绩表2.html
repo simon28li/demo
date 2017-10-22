@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table border="1" cellpadding="0" cellspacing="0" id="table">
+    <caption>成绩表</caption>
+    <tr>
+        <th>语文</th>
+        <th scope="col">数学</th>
+        <th scope="col">英语</th>
+    </tr>
+    <tr>
+        <td>45</td>
+        <td>45</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>45</td>
+        <td>85</td>
+        <td>60</td>
+    </tr>
+    <tr>
+        <td>75</td>
+        <td>45</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>45</td>
+        <td>100</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>67</td>
+        <td>45</td>
+        <td>88</td>
+    </tr>
+</table>
+<script>
+    var x = document.getElementsByTagName("tr");
+    for (var i = 1; i < x.length; i++) {
+        for (var j = 0; j < x[i].children.length; j++) {
+            if (x[i].children[j].innerHTML < 60) {  //children读取子元素   childNodes
+                switch (j) {
+                    case 0:
+                        x[i].children[j].style.backgroundColor = "#ff0000";
+                        break;
+                    case 1:
+                        x[i].children[j].style.backgroundColor = "#ffff00";
+                        break;
+                    case 2:
+                        x[i].children[j].style.backgroundColor = "#00ffff";
+                        break;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

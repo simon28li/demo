@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="img1" src="img/iPhone.png" />
+		<script>
+			var img1 = document.getElementById('img1');
+			//console.log(img1.src);					//拿到的是绝对路径
+			
+			console.log(img1.getAttribute('src'));		//拿到的是相对路径
+		</script>
+	</body>
+</html>

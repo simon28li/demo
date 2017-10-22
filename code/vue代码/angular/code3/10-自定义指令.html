@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<div hello-web my-title="bbbb">1111</div>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script>
+    angular.module('app', [])
+            .directive('helloWeb', function () {
+                //自定义指令
+                return {
+                    restrict: 'ECMA',
+                    scope: {
+                        myClass: '@'  //这样写之后该jqLite对象就有了一个myClass的属性，不过值是undefined
+                    },
+                    link: function ($scope, element, attr) {	//link用于定义指令的操作的
+                        //第一个参数$scope：当前指令的作用域对象
+                        //第二个参数element：当前指令所在的元素对象，是一个jqLite对象
+                        //第三个参数attr：当前指令所在元素是属性
+                        console.log($scope);
+                        console.log(element);
+                        console.log(attr);
+
+                        element.on('click', function () {
+                            //console.log('aaaa');
+                            element.css('background', 'red');
+                        });
+                    }
+                }
+            })
+            .controller('myController', ['$scope', function ($scope) {
+
+            }])
+
+</script>
+</body>
+</html>

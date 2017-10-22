@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//get请求的简写方法
+			$.get('02-jq-ajax.php','username=张三&password=12455',function(result){
+				console.log(result);				
+			},'json');
+			
+			//post请求的简写方法
+			$.post('02-jq-ajax.php','username=李四&password=1243455',function(result){
+				console.log(result);
+			},'json');
+			
+		</script>
+	</body>
+</html>

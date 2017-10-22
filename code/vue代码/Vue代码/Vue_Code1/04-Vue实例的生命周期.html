@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				//生命周期的钩子函数
+				beforeCreate:function(){
+					console.log('Vue的生命周期钩子函数beforeCreate被调用了')
+				},
+				data:{
+					msg:'hello'
+				},
+				created:function(){
+					console.log('vue实例已经被创建了，created钩子函数被调用了');
+				},
+				beforeMount:function(){
+					console.log('beforeMount');
+					console.log(this.$el);
+				},
+//				el:'#app'
+				mounted:function(){
+					console.log('mounted钩子函数');
+					console.log(this.$el);
+				},
+				destroyed(){
+					alert('vm已经被销毁了');
+				}
+				
+			}).$mount('#app');//如果没有el属性也可以用vm.$mount绑定元素
+			
+			//延迟2s后销毁vm实例
+			setTimeout(function(){
+				vm.$destroy();
+				vm.msg='zhangsan';
+			},2000);
+			
+		</script>
+	</body>
+</html>

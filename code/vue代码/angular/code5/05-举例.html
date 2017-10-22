@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				transition: all 1s;
+			}
+			div.ng-enter{
+				opacity: 0;
+			}
+			div.ng-enter-active{
+				opacity: 1;
+			}
+			div.ng-leave{
+			/*	opacity: 0;*/
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<a href="#/home">主页</a>
+			<a href="#/product">产品</a>
+			<a href="#/about">关于</a>
+		</p>
+		<div ng-view></div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-route.js" ></script>
+		<script type="text/javascript" src="angular-animate.js" ></script>
+		<script>
+			var app=angular.module('app',['ngRoute','ngAnimate']);
+						
+			app.config(['$routeProvider',function($routeProvider){
+				$routeProvider.when('/home',{
+					template:'<h1>主页</h1><p>主页内容</p>'
+				})
+				.when('/product',{
+					template:'<h1>产品</h1><p>产品内容</p>'
+				})
+				.when('/about',{
+					template:'<h1>关于</h1><p>关于内容</p>'
+				})
+			}]);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			html{
+				font-size: 20px;
+			}
+			body{
+				font-size: 14px;
+			}
+			p{				
+				text-indent: 2em;
+			}
+			div:nth-of-type(1){
+				width: 160px;
+				height: 160px;
+				background: red;
+			}
+			div:nth-of-type(2){
+				font-size: 16px;
+				width: 10em;
+				height: 10em;
+				background: green;
+			}
+			div:nth-of-type(3){
+				width:8rem;
+				height: 8rem;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<!--px:像素，逻辑像素
+			物理像素：一个屏幕点
+			PC端：1个逻辑像素=1个物理像素
+			
+			移动端：
+			物理像素：屏幕分辨率
+			
+			IPhone5物理像素：1136*640
+				     逻辑像素：  568*320   ==物理像素/dpr
+					dpr=2
+			dpr:设备像素比
+			由PPI（单位英寸的像素数 Pixel pre Inch）计算得到：
+			PPI=Sqrt(横向像素个数^2+纵向的像素个数^2)/屏幕尺寸(对角线尺寸)
+			PPI=120   ->  dpr=0.75  ldpi
+			PPI=160   ->  dpr=1     mdpi
+			ppi=240   ->  dpr=1.5   hdpi
+			ppi=320   ->  dpr=2     xhdpi
+			ppi=480   ->  dpr=3     xxhdpi	
+		
+		    em:相对单位，1em=1 font-size
+		    相对是当前元素内的文本字体大小，如果当前元素没有设置font-size,会继承父级设置的font-size尺寸,如果都没有设置每个浏览器有各自默认的尺寸
+		    
+		    rem:是css3中新增的相对单位，相对的页面中的根元素(html)的字体大小
+		    1rem= 1 html的font-size
+		-->
+		<p>由PPI（单位英寸的像素数 Pixel pre Inch）计算得到：
+			PPI=Sqrt(横向像素个数^2+纵向的像素个数^2)/屏幕尺寸(对角线尺寸)
+		由PPI（单位英寸的像素数 Pixel pre Inch）计算得到：
+			PPI=Sqrt(横向像素个数^2+纵向的像素个数^2)/屏幕尺寸(对角线尺寸)
+		由PPI（单位英寸的像素数 Pixel pre Inch）计算得到：
+			PPI=Sqrt(横向像素个数^2+纵向的像素个数^2)/屏幕尺寸(对角线尺寸)</p>
+		<hr />
+		<div>160px</div>
+		<div>10em</div>
+		<div>8rem</div>
+	</body>
+</html>

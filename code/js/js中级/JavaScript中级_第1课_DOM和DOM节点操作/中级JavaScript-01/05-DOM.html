@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			sadsadsa
+			<li></li>
+			hello
+			<li></li>
+			<!-- -->
+			<li></li>
+			<!-- -->
+			<li></li>
+			<!-- -->
+		</ul>
+		<script>
+			var oUl = document.getElementById('ul1');
+			//var oLi = oUl.firstChild;				//获取的是空白节点
+			
+			//firstElementChild						获取第一个元素节点,但是IE6-8不支持
+			//var aaa = oUl.firstChild;	
+			var first = firstElement(oUl);
+			first.style.background = 'red';
+			
+			var last = lastElement(oUl);
+			last.style.background = 'blue';
+			
+			var next = nextElement(first);
+			next.style.background = 'green';
+			
+			var previous = previousElement(last);
+			previous.style.background = 'yellow';
+			
+			var a = 5 && 6;
+			/*
+			 a = 5;
+			 a = 6
+			 */
+			var b = 5 || 6;
+			//拿到第一个子元素节点
+			/*
+			 if(parE.firstChild.nodeType == 1){
+					parE.firstChild;
+				}else{
+					nextElement(parE.firstChild);
+				}
+			 */
+			function firstElement(parE){
+				
+				return parE.firstElementChild || 
+				(parE.firstChild.nodeType == 1?parE.firstChild:nextElement(parE.firstChild));
+			}
+			
+			//拿到最后一个子元素节点
+			function lastElement(parE){
+				return parE.lastElementChild || 
+				(parE.lastChild.nodeType == 1?parE.lastChild:previousElement(parE.lastChild));
+			}
+			
+			//拿到该对象的下一个元素节点
+			function nextElement(elem){
+				return elem.nextElementSibling || 
+				(elem.nextSibling.nodeType == 1?elem.nextSibling:nextElement(elem.nextSibling));
+			}
+			
+			//拿到该对象的上一个元素节点
+			function previousElement(elem){
+				return elem.previousElementSibling || 
+				(elem.previousSibling.nodeType == 1?elem.previousSibling:previousElement(elem.previousSibling));
+			}
+		</script>
+	</body>
+</html>

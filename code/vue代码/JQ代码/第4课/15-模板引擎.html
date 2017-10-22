@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jsrender.js" ></script>
+	</head>
+	<body>
+		<!--定义容器-->
+		<table id="table">
+		</table>
+		<!--创建模板-->
+		<script type="text/x-jsrender" id="theTmpl">
+			<tr>
+				<td class="box">{{:date}}</td>
+				<td>{{:temp}}</td>
+				<td>{{:weather}}</td>
+				<td>{{:wind}}</td>
+			</tr>			
+		</script>
+		<script>
+			//数据
+			$.ajax({
+				type:"get",
+				url:"http://api.asilu.com/weather/",
+				success:function(result){
+					var data=result.weather;					
+					//渲染模板
+					var htmlOutput=$('#theTmpl').render(data);
+					//将渲染结果加载到DOM中
+					$('#table').html(htmlOutput);					
+				},
+				dataType:'jsonp',
+				jsonp:'callback'
+			});
+			
+			
+		</script>
+		
+	</body>
+</html>

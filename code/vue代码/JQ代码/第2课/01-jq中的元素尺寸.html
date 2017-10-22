@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				padding: 100px;
+				margin: 50px;
+				background: red;
+				border: 5px solid #000;
+			}			
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//	oDiv.offsetWidth/offsetHeight	==width+border+padding
+		//	oDiv.clientWidth				==width+padding
+			
+			console.log($('div').width());	//得到元素的width值			
+			//$('div').width(300);//设置元素的width值
+			
+			//可视区域宽度
+			console.log($('div').innerWidth());//相当于clientWidth  ==width+padding
+			//$('div').innerWidth(600);	//设置元素的width值，使clientWidth为600
+			
+			//整个元素是盒子尺寸
+			console.log($('div').outerWidth());//相当于offsetWidth  ==width+padding+border
+			//$('div').outerWidth(600);//设置元素的width值，使offsetWidth为600
+			
+			//jq中可以获取width+padding+border+margin
+			console.log($('div').outerWidth(true));//width+padding+border+margin
+			$('div').outerWidth(600,true);//设置width值，使总和为600
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>5555</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		
+		<script>
+//			$('li').each(function(i,elem){
+//				console.log(this);
+//				console.log(elem);
+//				elem.style.backgroundColor='red';
+//			//	$(elem).css('background','red');
+//			
+//				console.log(i);
+//			});
+			var arr=[1111,2222,33333];
+			for(var i=0;i<arr.length;i++){}			
+			
+			$.each(arr, function(i,val) {
+		//		console.log(i+'/'+val);
+			});
+			angular.forEach(arr,function(val,i){
+		//		console.log(i+'/'+val)
+			});
+			
+			/*********************/
+			var obj={name:'zs',age:10,sex:"female"};
+			for(var i in obj){}
+			
+			$.each(obj, function(i,val) {
+				console.log(i+'/'+val);
+				//console.log(this);
+			});
+			angular.forEach(obj,function(val,i){
+				console.log(i+'/'+val);
+				console.log(this);
+			},document);
+		</script>
+	</body>
+</html>

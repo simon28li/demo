@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * 生产人的简单工厂
+			 * @param {Object} name
+			 * @param {Object} sex
+			 */
+			function Person(name, sex){
+				//1.创建对象
+				var obj = new Object();
+				
+				//2.赋值
+				obj.name = name;
+				obj.sex = sex;
+				
+				//3.方法
+				obj.getName = function(){
+					alert('我的名字:'+this.name);
+				}
+				
+				obj.getSex = function(){
+					alert('我的性别:'+this.sex);
+				}
+				
+				//4出厂
+				return obj;
+			}
+			
+			var p1 = Person('小明','男');
+			var p2 = Person('小红','女');
+			
+			p1.getName();
+			p1.getSex();
+			
+			p2.getName();
+			p2.getSex();
+			
+			/*
+			 发现有几个问题
+			 1.没有new
+			 2.每个对象都有他自己的函数
+			 */
+		</script>
+	</body>
+</html>

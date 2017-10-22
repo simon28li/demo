@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--ng-init指令：用于初始化变量,初始化的变量是全局变量，在整个ng-app中都可以访问	
+		-->
+		<div ng-init="obj={name:'zs',age:10}"></div>
+		<p>{{obj.name}}</p>
+		<p>{{obj.age}}</p>
+		<hr />
+		<div ng-init="objs=[{name:'zhangsan',age:10},{name:'lisi',age:20}]"></div>
+		<ul>
+			<li ng-repeat="p in objs">{{p.name}}</li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+	</body>
+</html>

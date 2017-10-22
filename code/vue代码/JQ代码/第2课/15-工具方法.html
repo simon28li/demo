@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			var a=10;
+			console.log(typeof a);	//number
+			console.log($.type(a));	//number
+			
+			 a=null;
+			console.log(typeof a);	//object
+			console.log($.type(a));	//null
+			
+			//判断数据的类型 typeof
+			var arr=[];
+			console.log(typeof arr);//object
+			console.log($.type(arr));//array			
+			
+			var date=new Date();
+			console.log(typeof date);//object
+			console.log($.type(date));//date
+			
+			function Person(){}
+			var p=new Person();
+			console.log($.type(p));
+			//instanceof
+			console.log(p instanceof Person)
+			
+		</script>
+	</body>
+</html>

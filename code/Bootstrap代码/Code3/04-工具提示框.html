@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<!--data-toggle='tooltip' 在工具提示条中data-toggle属性无效果，需要借助于js来实现交互效果			
+				 data-original-title='提示框的显示的内容' 和作业和title一样
+			-->
+			<button type="button" class="btn btn-primary" title='提示框的内容' data-placement='right' data-toggle='tooltip'>在右侧显示提示框</button>
+			<button type="button" class="btn btn-primary" data-original-title='提示框的显示的内容' data-placement='right' data-toggle='tooltip'>在右侧显示提示框</button>
+
+			<script>
+				$('[data-toggle=tooltip]').tooltip(
+					{placement:'bottom',
+//					title:'js中的提示框内容'
+					}
+				);
+				
+			</script>
+		</div>
+	</body>
+</html>

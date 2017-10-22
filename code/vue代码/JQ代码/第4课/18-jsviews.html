@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--容器-->
+		<div id="contianer"></div>
+		<!--模板-->
+		<script type="text/x-jsrender" id="theTmpl">
+			<input type="text" data-link='name'/>
+			<p>{^{:name}}</p>			
+		</script>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="jsviews.js" ></script>
+		<script>
+			var tpl=$.templates('#theTmpl');
+			tpl.link('#contianer',{name:''});	
+		</script>
+	</body>
+</html>

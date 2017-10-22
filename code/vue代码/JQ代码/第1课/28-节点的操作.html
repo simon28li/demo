@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul></ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			/*
+			 节点的操作：
+			 	节点创建		document.createElement
+			 	节点添加		oUl.appendChild(oLi);
+			 	节点插入		oUl.insertBefore(oLi,refLi);
+			 	节点删除		oUl.removeChild(oLi);
+			 	节点替换		oUl.replaceChild(newLi,oldLi);
+			 	节点克隆		oLi.cloneNode(true);
+			 * 
+			 * */
+			
+			//节点的创建
+			var li=$('<li>aaaa</li>');//创建了li节点
+			li.css('background','red');
+			
+			//节点的添加
+			$('ul').append(li);	//相当于appendChild
+			$('<li>bbbbb</li>').appendTo('ul');//将前面指定的节点添加到参数中选中的节点中			
+			$('ul').append('<li>cccc</li>');
+			
+			//将节点插入到指定元素的头部
+			$('ul').prepend('<li>1111</li>');//相当于insertBefore(li,aLi[0]);
+			$('<li>00000</li>').prependTo('ul');
+			
+			//节点的插入
+			$('ul').before('<div>ul前面的节点</div>');
+			$('<li>xxxxx</li>').insertBefore('ul');	//等效于before，只是参数的顺序颠倒
+			
+			$('ul').after('<li>yyyy</li>');
+			$('<li>zzzz</li>').insertAfter('ul');//等效于after,参数顺序颠倒
+		</script>
+	</body>
+</html>

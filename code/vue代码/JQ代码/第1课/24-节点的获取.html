@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li>2222</li>
+			<li>3333</li>
+			<li>4444</li>
+			<li>55555</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+		//获取指定集合中的第一个节点
+			$('li').first().css('background','red');
+			//获取指定集合中的最后一个节点
+			$('li').last().css('background','green');
+			
+			$('li').slice(2,4).css('background','yellow');
+			$('li').slice(1,-2).css('background','blue');			
+		</script>
+	</body>
+</html>

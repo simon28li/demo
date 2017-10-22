@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<!--ng-options要结合ng-model才有效果-->
+		<select ng-options="d.label for d in items"  ng-model="selected"></select>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.items = [{
+				  id: 1,
+				  label: 'aLabel',
+				  subItem: { name: 'aSubItem' }
+				}, {
+				  id: 2,
+				  label: 'bLabel',
+				  subItem: { name: 'bSubItem' }
+				}];				
+				$scope.selected=$scope.items[1];
+			}]);			
+		</script>		
+	</body>
+</html>

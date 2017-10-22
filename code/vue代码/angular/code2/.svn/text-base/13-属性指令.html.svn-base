@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{background: red;}
+			.green{background: green;}
+			.border{border: 5px solid #000;}
+			.size{width: 100px;height: 100px;}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<div class="{{cls}}">1111</div>
+		<!--ng-class 指令 代替 class属性-->
+		<div ng-class="cls">22222</div>
+		
+		<!--ng-class的值可以是字符串变量-->
+		<div ng-class="'green border size'">33333</div>
+		<!--ng-class的值可以是数组-->
+		<div ng-class="[cls,'border','size']">44444</div>
+		<!--ng-class的值也可以是对象-->
+		<div ng-class="{green:true,red:false,size:true}">555555</div>
+		<hr />
+		<ul>
+			<li ng-repeat="d in arr" ng-class="{green:$even,red:$odd,border:$first,size:$middle}">{{d}}</li>
+		</ul>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.cls='red';
+				$scope.arr=['aaaa','bbbbb','cccc','dddd','eeeee'];
+			}]);			
+		</script>		
+	</body>
+</html>

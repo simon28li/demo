@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1{ width:200px; position:relative;}
+#div1 span:first-of-type{ position:absolute; left:0; top:100px; display:block;}
+#div1 span:last-of-type{ position:absolute; right:0; top:100px; display:block;}
+#div1 div{ width:200px; height:200px; border:1px #000 solid; display:none;}
+#div1 input.active{ background:red;}
+#div2 div{ width:200px; height:200px; border:1px #000 solid; display:none;}
+#div2 input.active{ background:red;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	<input class="active" type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    
+    <div style="display:block">11111111</div>
+    <div>22222222</div>
+    <div>33333333</div>
+    
+    <span>←</span>
+    <span>→</span>
+</div>
+<script>
+
+	//函数调用
+	tab('div1');
+	
+	//函数声明
+	function tab(id){
+		var oParent=document.getElementById(id);
+		var aInput=oParent.getElementsByTagName('input');
+		var aDiv =oParent.getElementsByTagName('div');
+		
+		var aSpan = oParent.getElementsByTagName('span');
+		var iNow =0;
+		
+		
+		for(var i=0; i<aInput.length; i++)
+		{
+			//初始化
+			aInput[i].index=i;	
+			
+			aInput[i].onclick=function(){
+				change(this.index);
+				iNow=this.index;
+			};
+		}
+		
+		//←
+		aSpan[0].onclick = function(){
+			if(iNow==0)
+			{
+				iNow = aInput.length-1;	
+			}
+			else{
+				iNow--;
+			}
+			
+			change(iNow);
+			
+			
+		};
+		
+		//→
+		aSpan[1].onclick = function(){
+			if(iNow==aInput.length-1)
+			{
+				iNow = 0;	
+			}
+			else{
+				iNow++;
+			}
+			change(iNow);
+
+			
+		};
+		
+		function change(iNow){
+			//全部清除
+			for(var i=0; i<aInput.length; i++)
+			{
+				aInput[i].className = '';	
+				aDiv[i].style.display='none';
+			}
+						
+			aInput[iNow].className = 'active';	
+			aDiv[iNow].style.display= 'block';	
+		};
+		
+		
+	};
+	
+
+
+	
+	
+</script>

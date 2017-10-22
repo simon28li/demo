@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			var oDate = new Date();			//当前时间对象
+			console.log(oDate);				
+			console.log(oDate.getTime());	//时间戳1483582571065 代表着当时时间距离1970年1月1日 0时0分0秒
+			
+			//var arr = new Array('a', 'b', 'c');
+			var newDate = new Date(2017,1,1,0,0,0);
+			console.log(newDate);
+			
+			var dateTime = newDate - oDate;
+			console.log(dateTime);
+		</script>
+	</body>
+</html>

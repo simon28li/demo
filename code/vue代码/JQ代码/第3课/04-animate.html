@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="开始动画"/>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			$('input').click(function(){
+				//改变div的宽度为200px，高度为200px
+				/*
+				第一个参数：类型为Object对象，用于设置动画最终时刻的css属性值,必选项
+				第二个参数：动画执行的时间(duration),数字或字符串，单位是ms，可选
+				第三个参数:动画变化的快慢(easing),linear/swing，可选
+				第四个参数:动画完成后回调的函数，可选
+				 * */
+//				$('div').animate({width:200,height:'200px'},3000,'linear',function(){
+//					//动画完成后的回调函数
+//					alert('动画完成了');
+//				});
+
+				//上面的动画参数可以以键值对的形式设置
+				//第一个参数：动画改变的css属性值，几乎可以设置css任何属性，如果有多个字符时写法要以驼峰命名
+				//			 颜色动画核心JQ库没有内置，需要插件
+				//
+				$('div').animate({width:200,height:'200px'},{
+					duration:3000,
+					easing:'linear',
+					complete:function(){
+						alert('动画完成');
+					}				
+				});				
+			});
+			
+			
+		</script>
+	</body>
+</html>

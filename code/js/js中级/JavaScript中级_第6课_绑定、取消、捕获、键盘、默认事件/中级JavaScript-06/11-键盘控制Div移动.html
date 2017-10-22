@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 100px;height: 100px;background: pink;position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			
+			document.onkeydown = function(e){
+				var e = e || window.event;
+				
+				switch(e.keyCode){
+					//left
+					case 37:
+						oDiv.style.left = oDiv.offsetLeft - 100 + 'px';
+						break;
+					//up
+					case 38:
+						oDiv.style.top = oDiv.offsetTop - 100 + 'px';
+						break;
+					//right
+					case 39:
+						oDiv.style.left = oDiv.offsetLeft + 100 + 'px';
+						break;
+					//bottom
+					case 40:
+						oDiv.style.top = oDiv.offsetTop + 100 + 'px';
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

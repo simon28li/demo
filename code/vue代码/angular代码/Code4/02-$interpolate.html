@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		
+		<input type="text" ng-model="name"/>
+		<br />
+		<textarea ng-model="newName"></textarea>
+		<p>{{newName}}</p>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+		//	$interpolate 插值服务,内部使用的服务,作用是从字符串中将绑定的数据解析出来
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope','$interpolate',function($scope,$interpolate){
+				$scope.name='';
+				$scope.newName='';
+				
+				$scope.$watch('newName',function(newVal,oldVal){
+					var temp=$interpolate(newVal);//解析字符串中的绑定数据
+					$scope.newName=temp({name:$scope.name});
+				});
+			}]);
+			
+		</script>
+	</body>
+</html>

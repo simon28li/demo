@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+<!--
+    ng-app angular应用的入口,一个应用中只能有一个ng-app指令
+-->
+<div ng-app>
+    <!--
+        ng-model 指令,作用将变量绑定到输入框中的输入值
+    -->
+    <input type="text" ng-model="name"/>
+    <!--
+        {{表达式}}
+        name表示一个变量
+    -->
+    <p>{{name}}</p>
+    <!--
+        ng-bind：将变量绑定到所在元素的innerHTML
+    -->
+    <p ng-bind="name"></p>
+</div>
+<!--引入angularjs-->
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+</body>
+</html>

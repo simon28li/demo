@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg"/>
+			<!--
+				v-once 表示当前元素内的数据只渲染一次，数据渲染完成后不会在进行改变
+			-->
+			<p v-once>{{msg}}</p>			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'aaa'
+				}
+			});			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img class="timeImg" src="img/0.png" />
+		<img class="timeImg" src="img/0.png" />
+		
+		<img src="img/second.png" />
+		
+		<img class="timeImg" src="img/0.png" />
+		<img class="timeImg" src="img/0.png" />
+		
+		<img src="img/second.png" />
+		
+		<img class="timeImg" src="img/0.png" />
+		<img class="timeImg" src="img/0.png" />
+		<script>
+			var aImg = document.getElementsByClassName('timeImg');
+			var timer = null;
+			timer = setInterval(runtime, 1000);
+			
+			/**
+			 * 动态拿到当前的时间,每次调用一个Date对象,拿到当前的时分秒
+			 */
+			function runtime(){
+				var oDate = new Date();
+				
+				var iH = timeStyle(oDate.getHours());
+				var iM = timeStyle(oDate.getMinutes());
+				var iS = timeStyle(oDate.getSeconds());
+				
+				clock(iH, iM, iS);
+			}
+			
+			/*
+			 * 本方法用来规整当前时分秒是个位数的时候,在他的前面新增一个0
+			 */
+			function timeStyle(num){
+				if(num<10){
+					return "0" + num;
+				}
+				return num + "";
+			}
+			
+			/**
+			 * 渲染方法
+			 */
+			function clock(h, m, s){
+				var time = h+m+s;
+				for(var i = 0;i<time.length;i++){
+					aImg[i].src = 'img/' + time.charAt(i) + '.png';
+				}
+			}
+			
+		</script>
+	</body>
+</html>

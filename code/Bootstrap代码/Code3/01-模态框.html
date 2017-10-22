@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script>
+			$(function(){
+				$('#myBtn').on('click',function(){
+					//打开模态框
+					$('#myModal').modal();//相当于设置了按钮的data-toggle及data-target属性
+				});
+				
+				$('#myBtn2').on('click',function(){
+					//打开模态框
+					$('#myModal').modal({
+						//初始化模态框的参数
+						keyboard:false,
+						backdrop:false
+					});
+				});
+				
+				/*js事件*/
+				$('#myModal').on('show.bs.modal',function(){
+					//模态框即将显示时触发的事件
+					alert('对话框即将显示');
+				});
+				$('#myModal').on('shown.bs.modal',function(){
+					//模态框即将显示时触发的事件
+					alert('对话框已经显示');
+				});
+				$('#myModal').on('hide.bs.modal',function(){
+					//模态框即将显示时触发的事件
+					alert('对话框即将隐藏');
+				});
+				$('#myModal').on('hidden.bs.modal',function(){
+					//模态框即将显示时触发的事件
+					alert('对话框已经隐藏');
+				});
+			});			
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<button type="button" class="btn btn-primary" data-toggle='modal' data-target='#myModal'>打开对话框(模态框)</button>
+			<button type="button" class="btn btn-danger" id="myBtn">打开对话框</button>
+			<hr />
+			<a href="#myModal" class="btn btn-success" data-toggle='modal' data-backdrop='false' data-keyboard='false'>打开模态框</a>
+			<a href="#myModal" class="btn btn-warning" id="myBtn2">打开模态框</a>
+		</div>
+		
+		<!-- 对话框(模态框) 
+			.fade 动画效果			
+			tabindex="-1" 定义tab键切换的顺序，负数表示tab键切换时不选中
+		-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		    	<!--对话框的头部-->
+		      <div class="modal-header">
+		      	<!--关闭按钮-->
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      </div>
+		      <!--对话框主体-->
+		      <div class="modal-body">
+					<p>Overflowing text to show scroll behavior
+
+					Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+					
+					Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+					
+					Aenean lacinia bibendum nulla sed conse
+					</p>
+					<button class="btn btn-default" type="button">按钮</button>					
+		      </div>
+		     <!--对话框底部-->
+		      <div class="modal-footer">
+		      	<!--按钮自动向右浮动-->
+		        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</body>
+</html>

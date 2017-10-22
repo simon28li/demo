@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = 'abcABC123 #__$%';
+			
+			var reg = /[^0-9_]/g;					//在中括号里面写一个尖号代表取他的非值
+			
+			console.log(str.match(reg));
+		</script>
+	</body>
+</html>

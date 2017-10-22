@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{margin: 0;padding: 0;}
+            #div1{width: 200px;height: 200px; background: red; overflow: hidden;margin: 20px;}
+            #div2{width: 100px;height: 100px; background: yellow;margin: 50px; position: relative;}
+            #fixDiv{
+                width:200px;
+                height:400px;
+                background:pink;
+                position:fixed;
+                top:50%;
+                right:0;
+            }
+            #div5{margin-top:1500px;}
+        </style>
+
+    </head>
+    <body style="height: 2000px;">
+        <div style="height: 300px;"></div>
+
+        <div id="div1">
+            <div id="div2"></div>
+        </div>
+        <div id="fixDiv">
+            <ul>
+                <li>前端</li>
+                <li>Java</li>
+                <li>UI</li>
+                <li>测试</li>
+            </ul>
+        </div>
+        <div id="div5">
+            <video id="audioElement" class="video-js vjs-default-skin" controls preload="none" width="640" height="264" data-setup="{}">
+                <source src="love.mp4" type='video/mp4' />
+            </video>
+        </div>
+
+        <script>
+            var oDiv2 = document.getElementById('div2');
+            var fixDiv = document.getElementById('fixDiv');
+            var div5 = document.getElementById('div5');
+
+      //    var audioElement = document.createElement('video');
+      //    audioElement.setAttribute('src', 'love.mp4');
+      //    audioElement.style.width = '1024px';
+      //    audioElement.style.height = '768px';
+            //console.log(postTop(oDiv2));                  //370
+
+            document.onscroll = function(){
+                console.log(oDiv2.getBoundingClientRect().top); //可视区是变化
+                //console.log(oDiv2.getBoundingClientRect().bottom);
+                if(oDiv2.getBoundingClientRect().top < -500){
+                    fixDiv.style.display = 'block';
+                    audioElement.play();
+                }else{
+                    fixDiv.style.display = 'none';
+                }
+            };
+
+
+            function postTop(obj){
+                var result=0;
+
+                while(obj)
+                {
+                    result += obj.offsetTop;
+                    obj     = obj.offsetParent;
+                }
+                return result;
+
+            };
+        </script>
+
+    </body>
+
+
+</html>

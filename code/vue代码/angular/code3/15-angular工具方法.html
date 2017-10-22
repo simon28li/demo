@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+
+<script>
+    var a = {name: 'zs'};
+    var b = {age: 10, sex: "female", room: {no: '100186', school: {num: 10000}}};
+
+    //	angular.copy(b,a);//将第1个参数指定的对象(源对象)深复制到第2个参数指定的对象(目标对象)，目标对象上原有的属性会被覆盖
+
+    angular.extend(a, b);//相当于$.extend(a,b)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body ng-controller="myController">
+
+<input type="checkbox" ng-model="isShow"/>
+<div ng-show="isShow" class="box"></div>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+<script type="text/javascript" src="angular-animate.js"></script>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+
+<script>
+    var app = angular.module('app', ['ngAnimate']);
+    app.animation('.box', function () {
+        //返回动画对象
+        return {
+            removeClass: function (elment, sClass, done) {
+                console.log(sClass);
+                //在元素显示过程回调的函数
+                //第一个参数：当前执行动画的元素对象
+                //第二个参数：当前移除的类名
+                //第三个参数：动画完成后要回调的函数，该函数会的在动画完成后，将元素所在的指令进行执行
+                $(elment).css({width: 0, height: 0});
+                $(elment).animate({width: 100, height: 100}, 1000, done);
+            },
+            addClass: function (elment, sClass, done) {
+                //在元素隐藏过程回调的函数
+                $(elment).animate({width: 0, height: 0}, 1000, done);
+            }
+        }
+    });
+
+    app.controller('myController', ['$scope', function ($scope) {
+        $scope.isShow = true;
+    }]);
+</script>
+</body>
+</html>

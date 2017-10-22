@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="myController">
+		<div>
+			<p>商品价格:<input type="text" ng-model="price"/></p>
+			<p>商品数量:<input type="text" ng-model="count"/></p>
+			<p>商品运费:{{fre}}</p>
+			<p>总价:{{total()}}</p>
+		</div>
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script>
+			var app=angular.module('app',[]);
+			app.controller('myController',['$scope',function($scope){
+				$scope.price=0;
+				$scope.count=0;
+				$scope.fre=10;
+				$scope.total=function(){
+					return this.price*this.count+this.fre;
+				}
+				$scope.$watch('price*count',function(newVal,oldVal){
+					$scope.fre=newVal>=500?0:10;
+				})
+			}]);
+		</script>
+	</body>
+</html>

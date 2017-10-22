@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="input1" type="text" value="苹果充值卡首发"/>
+		<script>
+			//苹果充值卡首发
+			var input1 = document.getElementById('input1');
+			input1.onfocus = function(){
+				if(this.value == "苹果充值卡首发"){
+					this.value = '';
+				}
+			}
+			
+			input1.onblur = function(){
+				if(this.value == ''){
+					this.value = '苹果充值卡首发';
+				}
+			}
+		</script>
+	</body>
+</html>

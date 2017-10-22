@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" style="background: pink; color: yellow;">div<span>我是span</span></div>
+		<span id="span1">span</span>
+		<script>
+			var oSpan = document.getElementById('span1');
+			var oDiv = document.getElementById('div1');
+			//cloneNode:克隆节点     true:克隆所有子孙节点
+			//				   	  false:仅克隆当前节点
+			var cloneDiv = oDiv.cloneNode(true);
+			oSpan.appendChild(cloneDiv);
+		</script>
+	</body>
+</html>

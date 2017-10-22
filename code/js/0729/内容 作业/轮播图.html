@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div.wrap {
+            width: 360px;
+            height: 190px;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            margin-left: -180px;
+        }
+
+        #slides {
+            width: 360px;
+            height: 190px;
+            position: relative;
+        }
+
+        img {
+            display: none;
+            width: 360px;
+            height: 190px;
+        }
+
+        img.active {
+            display: block;
+        }
+
+        ul {
+            position: absolute;
+            top: 105%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        li {
+            width: 12px;
+            height: 12px;
+            list-style: none;
+            background: #cae9e6;
+            border-radius: 50%;
+            margin-left: 10px;
+            float: left;
+            border: 1px solid #1625e2;
+            box-shadow: 0 0 1px 1px #e200ce inset;
+        }
+
+        li.active{
+            box-shadow: 0 0 4px 4px #e20e10 inset;
+        }
+
+        li:first-child {
+            margin-left: 0;
+        }
+
+        #left{
+            width: 25px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            left: -15%;
+            background: #c1ff69;
+            border: 1px solid #c1ff69;
+            border-radius: 25px 5px 5px 25px ;
+        }
+
+       #left:hover{
+           background: #58ff0d;
+           border: 1px solid #2effc7;
+       }
+
+       #left:hover span{
+         background: #ffab50;
+       }
+
+      #right{
+         width: 25px;
+         height: 50px;
+         position: absolute;
+         top: 50%;
+         margin-top: -30px;
+         right: -15%;
+         background: #c1ff69;
+          border: 1px solid #c1ff69;
+         border-radius: 5px 25px 25px 5px ;
+      }
+
+        #right:hover{
+            background: #58ff0d;
+            border: 1px solid #2effc7;
+        }
+
+        #right:hover span{
+            background: #ffab50;
+        }
+
+        #left p,#right p{
+            width: 30px;
+            height: 30px;
+            float: left;
+            position: relative;
+        }
+
+        span{
+            position: absolute;
+            /*border: 1px dotted #00aae9;*/
+            width: 5px;
+            height: 30px;
+            background: #ffa547;
+        }
+        span.t{
+            margin-top: -27%;
+        }
+        #left span{
+            right: 45%;
+        }
+         #right span{
+            left: 30%;
+        }
+
+        #left span.o,#right span.t{
+            transform: rotate(35deg);
+
+        }
+
+        #left span.t,#right span.o{
+            transform: rotate(145deg);
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div id="slides">
+        <img src="images/1.gif" class="active">
+        <img src="images/2.gif">
+        <img src="images/3.jpg">
+        <img src="images/4.jpg">
+        <img src="images/5.gif">
+        <img src="images/6.jpg">
+        <ul>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="left">
+            <p>
+                <span class="o"></span>
+            </p>
+            <p>
+                <span class="t"></span>
+            </p>
+        </div>
+        <div id="right">
+            <p>
+                <span class="o"></span>
+            </p>
+            <p>
+                <span class="t"></span>
+            </p>
+        </div>
+
+    </div>
+</div>
+<script>
+    var img=document.getElementsByTagName('img'),
+        li=document.getElementsByTagName('li'),
+        slides=document.getElementById('slides'),
+        left=document.getElementById('left'),
+        right=document.getElementById('right'),
+        len=img.length,
+        index=0;
+    /*实现轮播*/
+    function lunbo(){
+        index++;
+        if(index==len){
+            index=0;
+        }
+       for(var i=0;i<len;i++){
+           if(i==index){
+               img[i].className='active';
+               li[i].className='active';
+
+           }else {
+               img[i].className='';
+               li[i].className='';
+           }
+       }
+    }
+    /*定时转换*/
+    function settime(){
+        d=setInterval('lunbo()',1500);
+    }
+    settime();
+
+
+   /*li绑定事件*/
+    for(var a=0;a<len;a++){
+        li[a].onmouseover= function(){
+            clearInterval(d);
+            for(var j=0;j<len;j++){
+                li[j].className='';
+                img[j].className='';
+                this.className='active';
+                if(li[j]==this){
+                    img[j].className='active';
+                    index=j;
+                }
+            }
+        };
+        li[a].onmouseout= function () {
+            settime();
+        }
+    }
+    /*img绑定事件*/
+    for(var i=0;i<len;i++){
+       img[i].onmouseover= function () {
+           clearInterval(d);
+       } ;
+       img[i].onmouseout= function () {
+           settime();
+       } ;
+    }
+
+
+    /*左箭头点击事件*/
+    left.onmouseover= function () {
+        clearInterval(d);
+    };
+    left.onmouseout= function () {
+        settime();
+    };
+    right.onmouseover= function () {
+        clearInterval(d);
+
+    };
+    right.onmouseout= function () {
+        settime();
+    };
+    left.onclick= function () {
+        index--;
+        var next=index+1;
+        if(index==-1){
+            index=len-1;
+            before=0;
+        }
+        img[index].className='active';
+        img[next].className='';
+        li[index].className='active';
+        li[next].className='';
+    };
+
+    /*右箭头点击事件*/
+    right.onclick= function () {
+        index++;
+        var before=index-1;
+        if(index==len){
+            index=0;
+            before=len-1
+        }
+        img[index].className='active';
+        img[before].className='';
+        li[index].className='active';
+        li[before].className='';
+    };
+
+</script>
+</body>
+</html>

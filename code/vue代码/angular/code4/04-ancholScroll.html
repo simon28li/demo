@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 600px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body ng-controller="myController">
+
+<p>
+    <span ng-repeat="i in [1,2,3]" ng-click="change(i)">bbbb{{i}}&nbsp;&nbsp;</span>
+</p>
+<div id="div{{i}}" ng-repeat="i in [1,2,3]">aaaaaa{{i}}</div>
+
+<script type="text/javascript" src="angular-1.4.8.js"></script>
+
+<script>
+
+    var app = angular.module('app', []);
+    app.controller('myController', ['$scope', '$anchorScroll', '$location', function ($scope, $anchorScroll, $location) {
+        $scope.change = function (i) {
+            //设置页面hash值为对应元素的id
+            $location.hash('div' + i);
+            $anchorScroll('div' + i);//初始化锚点
+
+        }
+    }]);
+
+</script>
+
+</body>
+
+</html>

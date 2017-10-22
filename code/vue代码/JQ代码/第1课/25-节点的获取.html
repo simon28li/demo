@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">0000
+			<div>1111
+				<div>22222</div>
+			</div>
+			<div>33333</div>
+			<p>4444</p>
+		</div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			
+			$('#box').children('div').css('background','red');//获取指定节点内的后代子元素
+			
+			//选中指定元素内的所有子元素,注意find中的参数不能省略，如果是全部选中，则要设置通配符
+			$('#box').find("div").css('background','blue');
+			
+		</script>
+	</body>
+</html>

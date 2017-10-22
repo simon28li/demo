@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>123</div>
+		<div>456</div>
+		<div>789</div>
+	</body>
+	<script>
+		var a = document.getElementsByTagName("div");
+		
+		for(var i = 0;i<a.length;i++){
+			a[i].onclick = function(){
+				this.style.background = 'red';
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<style>
+			div[class*=col-]{
+				background: #ccc;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<!--
+					.col-md-offset-3  指定元素在中等屏幕上偏移3列
+					offset列偏移会将后续的元素往后挤，当尺寸不够时会换行显示
+				-->
+				<div class="col-md-6 col-md-offset-3">offset居中</div>
+				<div class="col-md-5">offset右侧元素</div>
+			</div>
+			
+			<div class="row">
+				<!--
+					.col-md-push-3 指定元素在中等屏幕上往后移3列,只移动自身，不影响其他元素
+				-->
+				<div class="col-md-6 col-md-push-3">push居中</div>	
+				<div class="col-md-2">push右侧元素</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-md-offset-10">offset偏移</div>
+				<div class="col-md-5">offset右侧元素</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-push-10">push偏移</div>
+				<div class="col-md-2">push右侧元素</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">左侧列</div>
+				<!--
+					.col-md-pull-3 将所在元素在中等屏幕以上往前移动3列
+				-->
+				<div class="col-md-6 col-md-pull-3">中间列</div>
+			</div>
+		</div>
+	</body>
+</html>

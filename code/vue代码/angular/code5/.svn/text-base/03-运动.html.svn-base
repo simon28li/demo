@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{width: 100px;
+				height: 100px;
+				background: red;				
+			}
+		</style>
+	</head>
+	<body ng-controller="myController">
+		<input type="checkbox" ng-model="isShow"/>
+		<div ng-if="isShow" class="box"></div>
+	
+		
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="angular-animate.js" ></script>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		
+		<!--
+			元素显示和隐藏时：
+				通过DOM操作控制元素的显示和隐藏：ng-if / ng-repeat /ng-view
+					通过这种方式控制的显示和隐藏的元素，ng-animate会给对应的元素添加：
+						.ng-enter			当元素即将显示(但是没有显示)时添加
+						.ng-enter-active	当元素已经显示完成时添加
+						.ng-leave			当元素即将隐藏(没有隐藏)时添加
+						.ng-leave-active	当元素已经隐藏完成是添加
+					这种显示隐藏的控制方式还可以在js中通过animation方法，设置enter/leave属性来控制动画显示
+					
+				通过样式控制元素的显示和隐藏：ng-show /ng-hide
+					通过这种方式控制的显示和隐藏的元素，ng-animate会给对应的元素添加：
+						.ng-hide-add		 当元素即将隐藏时添加
+						.ng-hide-add-active	当元素隐藏完成时添加
+						.ng-hide-remove		当元素即将显示时添加
+						.ng-hide-remove-active	当元素显示完成时添加
+		-->
+		
+		<script>
+			var app=angular.module('app',['ngAnimate']);
+			/*第一个参数:要设置动画的元素选泽符
+			 * 第二个参数：设置动画的函数
+			 */
+			app.animation('.box',function(){
+				//返回动画对象
+				return {
+					enter:function(elment,done){
+						//在元素显示过程回调的函数
+						//第一个参数：当前执行动画的元素对象
+						//第二个参数：动画完成后要回调的函数，该函数会的在动画完成后，将元素所在的指令进行执行
+						$(elment).css({width:0,height:0});
+						$(elment).animate({width:100,height:100},1000,done);
+					},
+					leave:function(elment,done){
+						//在元素隐藏过程回调的函数
+						$(elment).animate({width:0,height:0},1000,done);
+					}					
+				}
+			});
+			
+			app.controller('myController',['$scope',function($scope){
+				$scope.isShow=true;				
+			}]);			
+		</script>
+	</body>
+</html>

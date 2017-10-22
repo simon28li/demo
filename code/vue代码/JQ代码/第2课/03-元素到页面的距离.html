@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				padding: 100px;
+				margin: 50px;
+				background: red;
+				border: 5px solid #000;
+				position: absolute;
+				top: 30%;
+				left: 20%;
+			}		
+		</style>
+	</head>
+	<body>	
+		<div></div>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			//获取指定元素到整个页面的顶部距离/左侧距离
+			console.log('元素到页面的顶部距离：'+$('div').offset().top);	//在没有定位的父元素时相当于 oDiv.offsetTop
+			console.log('元素到页面的左侧距离：'+$('div').offset().left);
+			
+		</script>
+	</body>
+</html>

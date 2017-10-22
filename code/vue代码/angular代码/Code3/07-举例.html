@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div my-drag></div>
+		
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="angular-1.4.8.js" ></script>
+		<script type="text/javascript" src="js/myDrag.js" ></script>
+		<script src="angular-sanitize.js"></script>
+		
+		<script>
+			//添加myDragModule为当前模块所依赖的模块，这样在app模块上就可以使用myDragModule上定义的所有内容
+			angular.module('app',['myDragModule','ngSanitize']);
+			
+		</script>
+	</body>
+</html>

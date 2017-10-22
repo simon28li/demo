@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			console.log(window.navigator.userAgent);			//查询浏览器版本
+			var str = window.navigator.userAgent;
+			if(str.search(/firefox/i) != -1){
+				alert('firefox');
+			}else if(str.search(/chrome/i) != -1){
+				alert('chrome');
+			}else if(str.search(/msie 10/i) != -1){
+				alert('ie 10');
+			}
+		</script>
+	</body>
+</html>

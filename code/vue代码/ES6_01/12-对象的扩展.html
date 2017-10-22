@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var a='name';
+			var obj={
+				'name':'zhangsan'
+			}
+			var p1={
+				//允许字面变量来定义对象的属性
+				[a]:'lisi',
+				['age']:'10',
+				['show'](){
+					alert('aaaa');
+				}
+			}
+			var fn='show';
+			var p2={
+				[a]:'wanger',
+				[fn](){
+					alert('aaaa');
+				}				
+			}
+			
+			console.log(p2.name);
+			console.log(p2['name']);
+			console.log(p2[a]);
+			
+		</script>
+	</body>
+</html>

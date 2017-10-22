@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li id="box">2222</li>
+			<li>33333</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+		<script>
+			/*
+			 节点的操作：
+			 	节点创建		document.createElement
+			 	节点添加		oUl.appendChild(oLi);
+			 	节点插入		oUl.insertBefore(oLi,refLi);
+			 	节点删除		oUl.removeChild(oLi);
+			 	节点替换		oUl.replaceChild(newLi,oldLi);
+			 	节点克隆		oLi.cloneNode(true);
+			 * 
+			 * */			
+		//	$('#box').remove();	//删除指定的节点
+			
+		//	$('<li>aaaaa</li>').replaceAll('#box');		
+			$('#box').replaceWith('<li>bbbbb</li>');//等效于replaceAll, 只是参数顺序颠倒
+		
+		</script>
+	</body>
+</html>

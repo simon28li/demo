@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//使用工厂方式构造对象
+			
+			/**
+			 * 生产人的简单工厂
+			 * @param {Object} name
+			 * @param {Object} sex
+			 */
+			function Person(name, sex){
+				//1.创建对象
+				//var obj = new Object();
+				
+				//2.赋值
+				this.name = name;
+				this.sex = sex;
+				
+				//3.方法
+				this.getName = function(){
+					alert('我的名字:'+this.name);
+				}
+				
+				this.getSex = function(){
+					alert('我的性别:'+this.sex);
+				}
+				
+				//4出厂
+				return this;
+			}
+			
+			var p1 = new Person('小明','男');
+			
+			debugger
+			p1.getName();
+			p1.getSex();
+		</script>
+	</body>
+</html>

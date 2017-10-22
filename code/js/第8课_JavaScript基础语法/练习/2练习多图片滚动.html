@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+img{ border:none; display:block}
+li{ width:60px; height:40px; overflow:hidden; position:relative; float:left; margin:5px;}
+li div{ position:absolute; top:0px;}
+li img{ width:60px; height:40px; overflow:hidden;}
+</style>
+</head>
+
+<body>
+<ul>
+	<li>
+    	<div>
+        	<img src="img/1.gif">
+            <img src="img/2.gif">
+        </div>
+    </li>
+    <li>
+    	<div>
+        	<img src="img/3.gif">
+            <img src="img/4.gif">
+        </div>
+    </li>
+    <li>
+    	<div>
+        	<img src="img/5.gif">
+            <img src="img/6.gif">
+        </div>
+    </li>
+</ul>
+<script>
+
+var aDiv = document.getElementsByTagName('div');
+
+for(var i=0;i<aDiv.length;i++){
+	aDiv[i].step = -2;
+	change( aDiv[i] );
+}
+
+
+function change(obj){
+	
+	setTimeout(function(){
+		
+		var timer = setInterval(function(){
+			
+			//alert(parseInt(getStyle(obj,'top')));
+			
+			obj.style.top = parseInt(getStyle(obj,'top')) + obj.step + 'px';
+			
+			if( parseInt(getStyle(obj,'top')) == -40 ){
+				clearInterval(timer);
+				obj.step = 2;
+				change(obj);
+			}
+			else if( parseInt(getStyle(obj,'top')) == 0 ){
+				clearInterval(timer);
+				obj.step = -2;
+				change(obj);
+			}
+			
+		},30);
+		
+	}, Math.floor(Math.random()*9)*1000 );  
+	
+}
+
+
+function getStyle(obj,attr){
+	
+	//console.log(attr);
+	if( obj.currentStyle ){
+		return obj.currentStyle[attr];
+	}
+	else{
+		return getComputedStyle(obj)[attr];
+	}
+}
+
+
+</script>
+</body>
+</html>

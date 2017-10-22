@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<div>                                     <!--父级-->
+    <div ng-controller="SelfCtrl" ng-click="click1()">               <!--自己-->
+        <a>click me1</a>
+    </div>
+    <hr>
+    <div ng-controller="BroCtrl" ng-click="click2()">
+        <a>click me2</a>
+    </div>                              <!--平级-->
+</div>
+
+</body>
+
+</html>
+<script src="angular-1.4.8.js"></script>
+<script>
+
+    //http://blog.csdn.net/z18842589113/article/details/58596679
+    var app = angular.module('app', []);
+    app.constant('aa', {
+        name: "黄维新",
+        age: '29'
+    });
+
+    app.controller('SelfCtrl', function ($scope, aa) {
+        $scope.aa = {
+            name: "黄维新",
+            age: '29'
+        };
+        $scope.click1 = function () {
+            aa.name = '1111111111111111';
+            console.log(aa.name + '点击改变aa.name的值');
+        };
+
+        /* app.config(['aa', function (aa) { //这种写法只能写在外面
+         aa.name = '黄维新2222';
+         console.log(aa.name);
+         }]);*/
+    });
+
+    app.controller('BroCtrl', function ($scope, aa) {
+        console.log(aa.name + '：点击1之前发现aa的值没有变');
+        $scope.click2 = function () {
+            console.log(aa.name + '此时aa.name的值已经改变')
+        }
+    });
+
+</script>

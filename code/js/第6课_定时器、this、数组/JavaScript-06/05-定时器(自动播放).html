@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 div,#div2 div{width: 200px;height:200px; border:1px solid black;display:none}
+			#div1 input.active,#div2 input.active{background:red;}
+			#div1{position: absolute;}
+			.left-span{position: absolute;top:100px;left:0;}
+			.right-span{position: absolute;top:100px;right: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<input class="active" type="button" value="1"/>
+			<input type="button" value="2" />
+			<input type="button" value="3"/>
+			
+			<div style="display: block;">111111</div>
+			<div>222222</div>
+			<div>33333333</div>
+			
+			<span class="left-span">←</span>
+			<span class="right-span">→</span>
+		</div>
+	</body>
+	<script>
+		function tab(parent){
+			//1.选择元素
+			var oParent = document.getElementById(parent);
+			var aInput = oParent.getElementsByTagName('input');
+			var aDiv = oParent.getElementsByTagName('div');
+			
+			var aSpan = oParent.getElementsByTagName('span');
+			//用来存当前展现的是那个下标
+			var iNow = 0;
+			var timer = null;
+			
+			//2.绑定事件,触发方法
+			for(var i = 0;i<aInput.length;i++){
+				aInput[i].index = i;
+				aInput[i].onclick = function(){
+					change(this.index);
+					iNow = this.index;
+				}
+			}
+			//点击向左的时候
+			aSpan[0].onclick = function(){
+				if(iNow == 0){
+					iNow = aInput.length - 1;
+				}else{
+					iNow --;
+				}
+				change(iNow);
+			}
+			
+			//点击向右的时候
+			aSpan[1].onclick = function(){
+				if(iNow == aInput.length - 1){
+					iNow = 0
+				}else{
+					iNow ++;
+				}
+				change(iNow);
+			}
+			
+			timer = setInterval(run, 500);
+			
+			oParent.onmouseover = function(){
+				clearInterval(timer);	
+			}
+			oParent.onmouseout = function(){
+				timer = setInterval(run, 500);
+			}
+			//每隔一段时间就将渲染div,从前面一个div渲染到下一个
+			function run(){
+				if(iNow == aInput.length - 1){
+					iNow = 0
+				}else{
+					iNow ++;
+				}
+				change(iNow);
+			}
+			//3.渲染
+			//点击input也好,点击span也好都会触发一个改变方法
+			function change(iNow){
+				for(var j = 0;j<aInput.length;j++){
+					aInput[j].className = '';
+					aDiv[j].style.display = 'none';
+				}
+				aInput[iNow].className = 'active';
+				aDiv[iNow].style.display = 'block';
+			}
+		}
+		tab('div1');
+
+	</script>
+</html>

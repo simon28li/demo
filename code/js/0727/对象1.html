@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <p></p>
+        <script>
+
+        //    String Date Array    /*   可以实例化   */
+
+        var y1= 'yyyyyyyyyyy' ; /* 实例化一个对象   就是把它具体化  */
+        console.log(y1);             /*yyyyyyyyyyy*/
+        console.log(typeof (y1));    /*String*/
+        var y1= new String( 'aaaa');        /* 实例化一个对象      */
+        console.log(y1);   /*String {length: 0, [[PrimitiveValue]]: ""}*/
+        console.log(typeof (y1));
+
+        console.log('----------------------------------');
+        var y1= new String( 'y1');        /* 实例化一个对象      */
+        console.log(y1);         /* String {0: "y", 1: "1", length: 2, [[PrimitiveValue]]: "y1"}*/
+        console.log(typeof (y1));       /*Object*/
+
+        console.log('----------------------------------');
+        var z=new Date();  /* Date() new之后就会有很多方法 */
+        var z1= z.getDay();
+        console.log(z1);  /* 星期几*/
+
+console.log('----------------------------------');
+        /*以下是创建对象的两种方式*/
+        var w={name:'小噶',old:'28'};
+        console.log(w);
+        var w= new Object();
+        w.name='小噶';
+        w.old='28';
+        console.log(w);
+        console.log(w['old']); /* 取得对象值的两种方法 */
+        console.log(w.old);
+
+ console.log('----------------------------------');
+    /*以下是创建数组的两种方式*/
+        var h =[1,2];
+        console.log(h);
+
+        var h=new Array();
+        h[0]=1;
+        h[1]=2;
+        console.log(h);
+
+
+
+        </script>
+</body>
+</html>

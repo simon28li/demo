@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+//			Promise是一种异步编程方案,用于代替回调函数
+//			Promise对象的状态有三种:Pending(正在进行中),Resolved(成功状态，回调resolve方法),Rejected(失败状态，回调reject方法)
+			
+			var imgSrc=['http://www.7160.com//uploads/allimg/140521/9-1405211111060-L.jpg',
+					'http://www.7160.com//uploads/allimg/140619/9-140619121T70-L.jpg',
+					'http://www.7160.com//uploads/allimg/140508/9-14050Q202250-L.jpg'
+					];
+
+			//创建promise对象,用于存储异步操作
+			function loadImg(url){
+				var p=new Promise(function(resolve,reject){
+					//异步操作
+					var img=new Image();
+					img.onload=function(){
+						//异步操作成功  pending--->resolve
+						resolve(img);
+					}
+					img.onerror=function(err){
+						//异步操作失败  pending---reject
+						reject(err);
+					}
+					img.src=url;
+				});
+				return p;
+			}
+			var p0=loadImg(imgSrc[0]);
+			var p1=loadImg(imgSrc[1]);
+			var p2=loadImg(imgSrc[2]);
+			//当三张图片都加载成功，才进行图片添加
+			Promise.all([p0,p1,p2]).then(function(res){
+				//参数中异步对象中的异步操作都成功，则回调该函数
+				console.log(res);
+				res.forEach(function(val,i){
+					oBox.appendChild(val);
+					
+				});
+			}).catch(function(err){
+				//只有有一个异步操作失败，则回调该函数
+				console.log(err);
+			})
+			
+		</script>
+	</body>
+</html>

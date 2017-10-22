@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1.let、const命令
+			//let 用于声明一个变量，和var非常类似
+			//const用于声明一个常量
+			
+			//2.let声明的变量只在代码块中有效	,代码块不限定var的作用域	
+			//3.let声明变量不会预解析
+			//4.let在同一个作用域不允许重复定义
+			//5.在全局作用域上，let定义的变量不在window对象，var定义的变量在window对象
+			//const定义的常量也具有上面2，3，4，5特点
+			
+			//6.let在for中可以将变量保存
+			
+			const a=10;	//const声明的常量不能够再改变，只可以赋值一次
+			//a=20;
+			
+			const obj={name:'zs',age:20};//对象的引用不能改
+			obj.name='lisi';
+			
+			if(true){
+				const c=0;//常量在定义时一定要初始化
+			}
+			console.log(c);
+			
+			
+			
+		</script>
+	</body>
+</html>

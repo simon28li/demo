@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="txt1" type="text" />
+		<input id="btn1" type="button"  value="校验"/>
+		<script>
+			/*
+			//hupiao@zelinonline.com
+			//hu_piao@zelinonline.com
+			//123214214@qq.com
+			邮箱的规则 一串数字/字母/下划线  + @ + 一串英文或数字 + . + 一串英文
+			*/
+			var reg = /^\w+@[a-zA-Z0-9]+\.[a-z]{2,4}$/;				//^行首   $行尾
+			
+			var oText = document.getElementById('txt1');
+			var oBtn = document.getElementById('btn1');
+			
+			oBtn.onclick = function(){
+				if(reg.test(oText.value)){
+					console.log("对了");
+				}else{
+					console.log("错了");
+				}
+			}
+		</script>
+	</body>
+</html>
