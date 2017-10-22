@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			price
+			count,
+			fre
+			total		
+		-->
+		<div id="app">	
+			<my-input my-title="价格" :my-num="price"></my-input>
+			<my-input my-title="数量" :my-num="count"></my-input>
+			<p>运费：{{fre}}</p>
+			<p>{{total}}</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vuex.js" ></script>
+		<script>
+			const store=new Vuex.Store({
+				state:{
+					price:0,
+					count:0,
+					fre:10
+				},
+				getters:{
+					total:function(state){
+						return parseFloat(state.price)*parseFloat(state.count)+state.fre;
+					}
+				},
+				mutations:{
+					setPrice(state,payload){
+						state.price=payload.price;//设置价格
+					},
+					setCount(state,payload){
+						state.count=payload.count;//设置价格
+					},
+					setFre(state){
+						//设置运费
+						if(state.count*state.price>=500){
+							state.fre=0
+						}else{
+							state.fre=10;
+						}
+					}
+				},
+				actions:{
+					changePrice(store,obj){
+						store.commit('setPrice',obj);
+						//查看总价是否大于500，如果大于将运费取消
+						store.commit('setFre');
+					},
+					changeCount(store,obj){
+						store.commit('setCount',obj);
+						//查看总价是否大于500，如果大于将运费取消
+						store.commit('setFre');
+					}
+				}
+			});
+			//注册组件
+			var vm=new Vue({
+				el:'#app',
+				store,
+				computed:{
+					total:function(){
+						return this.$store.getters.total;
+					},
+					price(){
+						return this.$store.state.price;
+					},
+					count(){
+						return this.$store.state.count;
+					},
+					fre(){
+						return this.$store.state.fre;
+					}
+				},
+				components:{
+					'my-input':{
+						template:'<div><label>{{myTitle}}</label>:&nbsp<input :value="myNum" v-on:input="change($event.target.value)"/></div>',
+						props:['myTitle','myNum'],
+						methods:{
+							change(val){
+								//触发对应的数据发生改变
+								switch(this.myTitle){
+									case '价格':
+										//修改价格
+										this.$store.dispatch('changePrice',{price:val});
+									break;
+									case '数量':
+										//修改价格
+										this.$store.dispatch('changeCount',{count:val});
+									break;
+								}
+							}
+						}
+					}
+				}
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

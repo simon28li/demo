@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{countApp}}
+			<input type="button" value="递增" @click="show"/>
+			
+			<!--组件-->
+			<hello></hello>
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vuex.js" ></script>
+		<script>
+			//假设有一个数据count,要所有组件(view)进行共享，并且组件（view)可以修改count	
+			//将count进行集中存储在容器中，整个容器是Vuex提供
+			
+			//创建存储数据的容器
+			const store=new Vuex.Store({
+				//存储容器中定义：state,actions,mutations
+				state:{	//存放共享数据的属性
+					count:0	
+				},
+				mutations:{//mutations的方法不能直接调用，通过store对象调用commit('add')调用
+				//mutations中的方法必须是同步的，不能有异步操作
+					add(state){	//每一个mutations方法都默认接受一个参数，
+						//修改state状态
+						state.count++;						
+					},
+					sub(state){
+						state.count--;
+					}
+				},
+				actions:{
+					//数据操作需要经过一系列的复杂操作，不能将这些复杂操作写在mutations中，只能封装在actions中
+					actionAdd(store){	//第一个参数接受一个和store一样的对象
+						//让数据递增
+						store.commit('add');//等效于调用了mutations内的add方法
+					},
+					actionSub(store){
+						setTimeout(()=>{store.commit('sub')},1000);
+					}
+				}				
+			});
+			//全局注册
+			Vue.component('hello',{
+				template:'<div>{{count}}<input type="button" value="递减" @click="decrement"/></div>',
+				computed:{
+					count:function(){
+						return this.$store.state.count;
+					}
+				},
+				methods:{
+					decrement(){
+						//将store中的state的count递减
+						console.log(this.$store);
+						this.$store.dispatch('actionSub');
+					}
+				}
+			});
+			
+			var vm=new Vue({
+				el:"#app",
+				store,
+				//通过计算属性将store中的state映射到当前组件的某个属性上
+				computed:{
+					countApp:function(){
+						return this.$store.state.count;
+					}
+				},
+				methods:{
+					show(){
+						//触发state中count++
+						//在组件中调用actions方法是通过store.dispatch('actionAdd');
+						this.$store.dispatch('actionAdd');	//触发store中的actions执行						
+					}
+				}				
+			});			
+		</script>
+	</body>
+</html>

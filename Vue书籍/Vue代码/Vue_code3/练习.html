@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <router-link to="/home">home</router-link>
+        <router-link to="/about">about</router-link>
+        <router-link to="/product">product</router-link>
+    </div>
+    <router-view></router-view>
+</div>
+
+
+</body>
+</html>
+
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var aa = new VueRouter({
+        routes: [
+            {
+                path: '/home',
+                component: {
+                    template: '<h1>home</h1>'
+                }
+            },
+            {
+                path: '/about',
+                component: {
+                    template: '<h1>about</h1>'
+                }
+            },
+            {
+                path: '/product',
+                component: {
+                    template: '<h1>product</h1>'
+                }
+            },
+            {
+                path: '/',
+                redirect: '/home'
+
+            }
+
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        router: aa
+    });
+
+</script>

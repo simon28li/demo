@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{count}}
+			<input type="button" value="递增" @click="show"/>
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vuex.js" ></script>
+		<script>
+			//假设有一个数据count,要所有组件(view)进行共享，并且组件（view)可以修改count	
+			//将count进行集中存储在容器中，整个容器是Vuex提供
+			
+			//创建存储数据的容器
+			const store=new Vuex.Store({
+				state:{
+					count:2
+				},
+				mutations:{
+					add(state){
+						state.count++;
+					}
+				},
+				actions:{
+					addFn(store){
+						store.commit('add');
+					}
+				}
+			});
+		
+			var vm=new Vue({
+				el:"#app",
+				store,
+//				computed:{
+//					count:function(){
+//						return this.$store.state.count;
+//					}
+//				}
+				//mapState是用于将store容器上的state中的各个属性映射到当前组件的computed属性上
+				computed:Vuex.mapState({	
+					count:state=>state.count,		
+				//	subA:state=>state.a;	//function(state){return state.a}
+				}),
+//				computed:Vuex.mapGetters({
+//					num:getter=>getter.num
+//				})				
+				//mapActions是用于将store容器上的actions的各个方法映射到methods属性上
+				methods:Vuex.mapActions({
+					show:'addFn'	//等效于：show(){this.$store.dispatch('addFn')}
+				})
+			});			
+		</script>
+	</body>
+</html>

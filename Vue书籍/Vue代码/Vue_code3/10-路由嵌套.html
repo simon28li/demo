@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>10</title>
+</head>
+<body>
+<div id="app">
+    <p>
+        <router-link to="/home">主页</router-link>
+        <router-link to="/product">产品</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript" src="vue-router.js"></script>
+<script>
+    const router = new VueRouter({
+        routes: [
+            //主页路由
+            {
+                path: '/home',
+                component: {
+                    template: `<div><p>
+											<router-link to='/home/contact'>联系</router-link>
+										</p>
+										<router-view></router-view>
+								  </div>`,
+
+                },
+                //如果有子路由,就添加children属性，相当于设置当前子组件内的routes属性
+                children: [{
+                    path: 'contact',
+                    component: {
+                        template: '<div>这是home内部的子路由内容---联系</div>'
+                    }
+                }]
+            }, {
+                path: '/product',
+                component: {
+                    template: '<div>产品页面</div>'
+                }
+            }
+        ]
+
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        router
+    });
+
+
+</script>
+</body>
+</html>

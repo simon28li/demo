@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>6</title>
+</head>
+<body>
+<div id="app">
+    <!--3.设置导航
+        router-link组件会被Vue-router自动解析成a标签
+    -->
+    <p>
+        <a href="#/home">主页</a>
+        <router-link to="/home"><span>Home</span></router-link>
+        <router-link to="/about"><span>About</span></router-link>
+    </p>
+    <!--视图容器：将路由匹配的组件渲染在容器-->
+    <!--4.指定路由入口-->
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<!--引入Vue-Router-->
+<script type="text/javascript" src="vue-router.js"></script>
+
+<script>
+    //1.创建路由对象
+    var router = new VueRouter({
+        routes: [	//配置路由的选项
+            {
+                path: '/home',
+                component: {//注册组件
+                    template: '<div><h1>主页</h1><p>主页内容</p></div>'
+                }
+            }, {
+                path: '/about',
+                component: {
+                    template: '<div><h2>关于</h2><p>关于。。。。。</p></div>'
+                }
+            }, {
+                path: '/',      	// 默认页面 表示点击之后，/后面没有值得时候就重定向
+                redirect: '/home'	      //重定向到home页
+            }
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        //2.将VueRouter对象注册到Vue实例上
+        router//等效于：router:router
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--组件使用以标签对使用-->
+			<my-component></my-component>
+			<table>
+				<my-component></my-component>
+				<!--某些只能识别特定元素的父元素内，直接使用自定义组件会导致无法解析，这时候可以使用is属性来加载组件-->
+				<tr is="my-component"></tr>
+			</table>
+		</div>
+	
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//组件：全局注册，局部注册
+			/*
+			 第一个参数：组件名称,命名可以camelCase,kebab-case,或TitleCase命名
+			 第二个参数：定义组件的选项			 
+			 * */
+			Vue.component('my-component',{
+				//组件内部的作用域是隔离的
+				template:'<div><h1>{{title}}</h1><p v-on:click="show()">{{content}}</p></div>',
+				data:function(){
+					//组件中的data选项必须是函数
+					return {
+						title:'组件的标题',
+						content:'组件的内容'
+					}
+				},
+				methods:{
+					show:function(){
+						alert('66666');
+					}
+				},
+				created:function(){
+					console.log('组件被创建....');
+				},
+				mounted:function(){
+					console.log('组件被挂载')
+				}
+				
+			});
+			
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					title:'My标题',
+					content:'my内容'
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model='msg'/>
+			<p>{{msg}}</p>
+			<br />
+			<!--
+				v-model在语法糖：
+				<input v-bind:value="msg" v-on:input="msg=$event.target.value"/>
+			-->
+			
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'hello'
+				}
+			});
+		</script>
+	</body>
+</html>

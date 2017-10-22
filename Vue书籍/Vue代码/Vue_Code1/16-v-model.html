@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+				v-model 将输入框中的value值绑定指定的变量上
+			-->
+			<input type="text" v-model="msg"/>
+			<p>{{msg}}</p>
+			<hr />
+			<!--
+				对于单选框或复选框，如果没有指定value值，v-model绑定的变量在选中时取true,未选中时去false
+			-->
+			<input type="checkbox" v-model="cb"/>
+			<p>{{cb}}</p>
+			<hr />
+			<!--
+				如果给checkbox设置value值，并且希望将value绑定指定的变量上，则需要通过v-model绑定数组对象
+			-->
+			<input type="checkbox" v-model="cb1" value='male'/>男
+			<input type="checkbox" v-model="cb1" value="female"/>女
+			<p>{{cb1}}</p>
+			<hr />
+			<!--
+				可以指定true值和false值
+			-->
+			<input type="checkbox" v-model="cb2" v-bind:true-value="a" v-bind:false-value="b"/>
+			<p>{{cb2}}</p>
+			<hr />
+			<!--v-model的修饰符-->
+			<hr />
+			<!--
+				v-model的修饰符：
+				.number 自动使用parseFloat将数据转换成Number类型，如果转换结果为NaN,则保留原值
+				.lazy  设置失去光标的时候绑定数据
+				.trim 去掉输入框中的前后空格
+			-->
+			<input type="text" v-model.number.lazy="name"/>
+			<p>{{name}}</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'',
+					cb:'',
+					cb1:[],
+					cb2:'',
+					a:'aaaa',
+					b:'bbbbb',
+					name:0
+				}
+			});
+		</script>
+	</body>
+</html>

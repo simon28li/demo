@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+				v-on 也必须接受一个参数，用于指定要绑定的事件类型
+				v-on:可以简写成@ (v-bind:简写成:)
+			-->
+			<input type="button" value="按钮" v-on:click="show()"/>
+			<input type="button" value="简写按钮" @click="show"/>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				methods:{
+					//方法一定要定义在methods属性中
+					show:function(){
+						alert('66666');
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

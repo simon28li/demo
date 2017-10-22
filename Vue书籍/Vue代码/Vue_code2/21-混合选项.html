@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cmp-a></cmp-a>
+			<cmp-b></cmp-b>
+			<p @click="show">aaaa</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//使用混合对象来定义组件的共有的属性，将共用的属性进行抽象封装，达到更好的复用效果
+			var myMix={	//混合对象
+				data:function(){
+					return {
+						msg:'hello'
+					}					
+				},
+				methods:{
+					show:function(){
+						alert('66666')
+					}
+				},
+				created(){
+					alert('created....');
+				}
+			}
+			
+			//定义组件A: msg数据、show方法，created函数，。。。。
+			Vue.component('cmp-a',{
+				template:'<div><h1 @click="show">组件A</h1><p>组件a的数据：{{msg}}</p></div>',
+				mixins:[myMix],		//在组件中使用混合对象
+				data:function(){
+					return {
+						msg:'zhangsan'
+					}	
+				},
+				methods:{
+					aa:function(){
+						alert('aaaa');
+					}
+				}
+			});			
+			
+			//定义组件B： msg数据、show方法，created函数 ，。。。。
+			//组件A和组件B中的msg数据、show方法，created函数是一样的
+			Vue.component('cmp-b',{
+				template:'<div><h1>组件B</h1><p>组件B的数据：{{msg}}</p></div>',
+				mixins:[myMix]		
+			})
+			
+			var vm=new Vue({
+				el:'#app',	
+				mixins:[myMix]	//在Vue实例中也可以使用混合对象
+			})
+		</script>
+	</body>
+</html>

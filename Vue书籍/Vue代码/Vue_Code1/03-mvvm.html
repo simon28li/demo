@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model 将变量绑定到输入框的输入值 -->
+			<input type="text" v-model="msg"/>
+			<p>{{msg}}</p>	
+			<!--
+				v-on指令用于绑定事件
+			-->
+			<input  type="button" value="显示数据" v-on:click="show"/>
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//M--->V	V--->M
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					//data属性上的所有属性都会被Vue实例代理 
+					msg:'hello'
+				},
+				methods:{
+					//methods属性上的所有方法也会被Vue实例代理
+					show(){
+						alert(this.msg);
+					}
+				}
+			});
+			console.log(vm);
+		</script>
+	</body>
+</html>

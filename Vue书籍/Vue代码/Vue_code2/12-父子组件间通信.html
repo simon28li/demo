@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <my-component :data="msg"></my-component>
+</div>
+<script type="text/javascript" src="vue.js"></script>
+<script>
+    //注册组件
+    /*
+     父组件如果要将数据传递给组件内部，通过自定义属性传递
+     1.在组件使用时定义自定义属性，并且将父组件的数据赋值给自定义属性
+     2.在子组件中通过props属性接收自定义的属性，该自定义属性名即为子组件内部的变量
+     3.在子组件内部模版中可以通过上面的变量名获取外部的数据
+     如果子组件内部需要修改props属性值，可以给组件的data或computed属性定义对应的局部变量
+     *
+     * */
+    Vue.component('my-component', {
+        template: '<div><input type="text" v-model="myMsg"/><p>{{myMsg}}</p></div>',
+        //父组件要将数据传递给子组件时，通过props属性
+	    props: ['data'],
+        data: function () {
+            return {
+                myMsg: this.data
+            }
+        }
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        }
+
+    })
+
+</script>
+</body>
+</html>

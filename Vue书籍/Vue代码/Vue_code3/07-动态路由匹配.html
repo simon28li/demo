@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>7</title>
+</head>
+<body>
+
+<div id="app">
+    <!--3.设置导航
+        router-link组件会被Vue-router自动解析成a标签
+    -->
+    <p>
+        <router-link to="/home"><span>Home</span></router-link>
+        <router-link to="/home/about"><span>About</span></router-link>
+        <router-link to="/home/contact">Contact</router-link>
+    </p>
+    <!--视图容器：将路由匹配的组件渲染在容器-->
+    <!--4.指定路由入口-->
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<!--引入Vue-Router-->
+<script type="text/javascript" src="vue-router.js"></script>
+<script type="text/javascript" src="axios.min.js"></script>
+
+<script>
+    //1.创建路由对象
+    var router = new VueRouter({
+        routes: [	//配置路由的选项
+            {
+                path: '/home',
+                component: {//注册组件
+                    template: '<div><h1>主页</h1><p>主页内容</p></div>'
+                }
+            }, {
+                path: '/home/:name',
+                component: {
+                    template: '<div><h2>{{title}}</h2><p>{{content}}。。。。。</p></div>',
+                    data: function () {
+                        return {
+                            title: '',
+                            content: ''
+                        }
+                    },
+                    created(){
+                        var This = this;
+                        console.log(this.$route.params);
+                        //设置数据
+                        //根据不同的参数请求不同文件数据
+                        axios.get('json/' + this.$route.params.name + '.json').then(function (res) {
+                            console.log(res);
+                            This.title = res.data.title;
+                            This.content = res.data.content;
+                        });
+                    },
+                    watch: {
+                        '$route': function (to, from) {
+                            console.log(to);
+                            console.log(from);
+                            var This = this;
+                            axios.get('json/' + to.params.name + '.json').then(function (res) {
+                                console.log(res);
+                                This.title = res.data.title;
+                                This.content = res.data.content;
+                            });
+                        }
+
+                    }
+
+                }
+            }, {
+                path: '/',	//默认页面
+                redirect: '/home'	//重定向到home页
+            }
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        //2.将VueRouter对象注册到Vue实例上
+        router	//等效于：router:router
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			.red{
+				background: red;
+			}
+			.green{
+				background: green;
+			}			
+			.border{
+				border: 5px solid #000;
+			}
+			.size{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">			
+			<!--
+				v-bind针对class和style属性进行专门的增强
+				v-bind可以将变量、数组、对象、或者数组对象的组合绑定到class属性上
+			-->
+			<p v-bind:class="cls">11111</p>
+			<p v-bind:class="[myG,'border','size']">22222</p>
+			<p v-bind:class="{red:true,green:false,border:true}">33333</p>
+			<p v-bind:class="['border',{size:true},{green:false,red:true}]">4444</p>
+			<hr />
+			<!--
+				v-bind:class可以和class属性共存
+			-->
+			<p class="box" v-bind:class="{border:true}">55555</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					cls:'box',
+					flag:true,
+					mHref:'http://www.baidu.com',
+					myG:'green'
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

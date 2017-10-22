@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vue-resource.js" ></script>
+		<script>
+			//jsonp的请求
+			Vue.http.jsonp('01-vue.php?username=zhangsan&password=12345',{
+				jsonp:'cb'	//修改后台回调的接口名称	
+			})
+			.then(function(res){
+				console.log(res);
+			})
+			.catch(function(err){
+				console.log(err);				
+			});			
+		</script>
+	</body>
+</html>

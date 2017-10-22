@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{msg}}</p>		
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//M--->V	V--->M
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					//data属性上的所有属性都会被Vue实例代理 
+					msg:'hello'
+				}				
+			});
+			
+			//延迟一段时间，修改msg数据
+//			console.log(vm);
+//			console.log(vm.$data);
+//			console.log(vm.msg===vm.$data.msg);//true
+			
+			setTimeout(function(){
+				vm.msg='zhangsan';	//修改model数据，可以更新视图
+			},1000);
+
+			
+		</script>
+	</body>
+</html>

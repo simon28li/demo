@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{msg}}</p>
+			<!--
+				v-html可以将带标签的文本进行解析
+			-->
+			<div v-html="msg"></div>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					name:'hello',
+					msg:`<h1>标题</h1><p>内容{{name}}</p>`
+				}
+			});			
+		</script>
+	</body>
+</html>

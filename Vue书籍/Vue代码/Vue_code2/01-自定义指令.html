@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-my-drag.x="myoption" class="box"></div>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script>
+    //在Vue的自定义指令中仅仅做底层DOM操作
+    //	自定义的创建方式：1.全局注册,2.局部注册
+    /*
+     第一个参数：自定义指令名称，在使用是指令名为v-my-drag
+     第二个参数：设置DOM操作逻辑的钩子函数对象
+     * */
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            content: 'hello',
+            myoption: {
+                curOffset: {
+                    left: '0px',
+                    top: '0px'
+                },
+                curPoint: 'pointer'
+            }
+        },
+        directives: {
+            //局部注册
+            'my-drag': {
+                bind: function (el, binding) {
+                    console.log(binding.value);
+                    console.log(binding.modifiers);
+
+                    //el参数表示：当前指令绑定的元素对象
+                    //binding:包括指令的信息，比如：指令的名称，指令值，指令的修饰符，指令的参数
+                    //当指令第一次绑定到指定的元素时回调
+                    //设置元素的鼠标按下事件
+                    el.onmousedown = function (ev) {
+                        if (binding.value.curPoint) {
+                            el.style.cursor = binding.value.curPoint;
+                        }
+
+                        this.style.position = 'absolute';
+                        //鼠标按下
+                        var disX = ev.pageX - this.offsetLeft;
+                        var disY = ev.pageY - this.offsetTop;
+                        //鼠标移动事件
+                        document.onmousemove = function (ev) {
+                            if (binding.modifiers.y) {
+                                //沿y轴移动
+                                if (binding.value.curOffset) {
+                                    el.style.top = ev.pageY - parseInt(binding.value.curOffset.top) + 'px';
+                                } else {
+                                    //设置元素的位置
+                                    el.style.top = ev.pageY - disY + 'px';
+                                }
+                            } else if (binding.modifiers.x) {
+                                //沿着x轴移动
+                                if (binding.value.curOffset) {
+                                    el.style.left = ev.pageX - parseInt(binding.value.curOffset.left) + 'px';
+                                } else {
+                                    //设置元素的位置
+                                    el.style.left = ev.pageX - disX + 'px';
+                                }
+                            } else {
+                                //默认
+                                if (binding.value.curOffset) {
+                                    el.style.left = ev.pageX - parseInt(binding.value.curOffset.left) + 'px';
+                                    el.style.top = ev.pageY - parseInt(binding.value.curOffset.top) + 'px';
+                                } else {
+                                    //设置元素的位置
+                                    el.style.left = ev.pageX - disX + 'px';
+                                    el.style.top = ev.pageY - disY + 'px';
+                                }
+                            }
+                        };
+                        //鼠标抬起事件
+                        document.onmouseup = function () {
+                            document.onmousemove = null;//取消鼠标移动事件
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

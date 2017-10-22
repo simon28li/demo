@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg"/>
+			<p>原始数据：{{msg}}</p>
+			<p>计算属性：{{revMsg}}</p>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'Hello'
+				},
+				//计算属性上的所有属性也都会被Vue实例代理
+				computed:{
+					//当我们需要获取某一个原始数据进行处理后的结果时，这时候就需用到计算属性
+					//计算属性虽然必须赋值为函数对象，但是它本身实际的值是该函数的返回值
+					revMsg:{
+						get:function(){
+							//用于获取计算属性
+							return this.msg.split('').reverse().join('');
+						},
+						set:function(newVal){
+							this.msg=newVal;
+						}
+					}
+				}
+				/*
+				 计算属性和方法不同之处：
+				 	计算属性是给予所依赖的原始值进行缓存的，如果它的相关原始数据发生变化时，计算属性就会重新求值
+				 	相反，如果原始的相关数据不发生变化，计算属性就不会重新计算，每次使用都立即返回之前计算的结果
+				 方法属性是没有缓存，所依赖的数据不管是否发生变化，只有调用就会重复计算
+				 * */
+			});
+			
+			console.log(vm.revMsg);//获取计算属性
+			vm.revMsg='lisi';
+			
+		</script>
+	</body>
+</html>

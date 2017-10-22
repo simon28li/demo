@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{total}}</p>
+			<my-button v-on:increment="myShow"></my-button>
+			<my-button v-on:increment="myShow"></my-button>
+		</div>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			//注册组件
+			Vue.component('my-button',{
+				template:'<div><input type="text" v-model="num"/><button v-on:click="subIncrement">{{count}}</button></div>',
+				data:function(){
+					return {
+						count:0,
+						num:0
+					}
+				},
+				methods:{
+					subIncrement:function(){
+						//让自身的count++
+						this.count+=+this.num;
+						/*
+						 第一个参数：触发的父组件的事件类型，该类型为自定义类型
+						 从第二个参数开始为：发送给对应事件的数据						 
+						 * */						
+						this.$emit('increment',this.num,'myname');//触发父组件的自定义事件
+					}
+				}
+			});
+			
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					total:0
+				},
+				methods:{
+					myShow:function(subNum,str){
+						console.log(subNum);
+						console.log(str);
+						this.total+=parseInt(subNum);
+					}
+				}
+			});
+			
+		</script>
+	</body>
+</html>

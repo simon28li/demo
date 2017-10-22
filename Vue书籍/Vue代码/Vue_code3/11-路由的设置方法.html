@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>11</title>
+</head>
+<body>
+<div id="app">
+    <p>
+    <li @click="changePath('home')">主页</li>
+    <li @click="changePath('about')">关于</li>
+    </p>
+    <input type="button" value="返回上一页" @click="back"/>
+    <input type="button" value="下一页" @click="goHead"/>
+
+    <router-view></router-view>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript" src="vue-router.js"></script>
+
+<script>
+    var Home = {
+        template: '<h1>主页</h1>'
+    };
+    var About = {
+        template: '<h3>关于</h3>'
+    };
+    const router = new VueRouter({
+     mode: 'history',	//设置路由模式
+        routes: [
+            {
+                path: '/home',
+                component: Home
+            },
+            {
+                path: '/about',
+                component: About
+            }
+        ]
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        router,
+        methods: {
+            changePath(mypath){
+                //	console.log(router);//路由对象
+                router.push(mypath);//设置路由,等效于<router-link to="xxx"></router-link>
+//						router.push({path:'home',
+//									 params:{id:'aaaa'},
+//									 query:{username:'zhangsan'}
+//									});
+
+            },
+            back(){
+                router.go(-1);//返回上一条历史记录
+            },
+            goHead(){
+                router.go(1);//前进一页
+                router.go(100);//前进100项
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

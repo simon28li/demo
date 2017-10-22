@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>count:{{count}}</p>
+			<p>num：{{num}}</p>
+			<input type="button" value="递增" @click="increment"/>
+		</div>
+		
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vuex.js" ></script>
+		<script>
+			//创建Store容器
+			const store=new Vuex.Store({
+				//容器中包含：
+				//	state	存储数据的状态
+				//	mutations 修改数据的方法
+				//	actions	   触发数据改变的动作
+				//	getters	 state的计算属性
+				state:{
+					count:1
+				},
+				getters:{
+					num:function(state){	//getters的计算属性的方法都默认接受参数，参数值为state
+						return state.count*5;
+					}
+				},
+				mutations:{
+					add(state){
+						state.count++;
+					}
+				},
+				actions:{
+					addCount(store){
+						store.commit('add');//提交改变
+					}
+				}				
+			});
+			
+			//使用vuex
+			var vm=new Vue({
+				el:"#app",
+				store,	//挂载存储容器到Vue实例
+				computed:{
+					count:function(){
+						return this.$store.state.count;
+					},
+					num:function(){
+						return this.$store.getters.num;
+					}					
+				},
+				methods:{
+					increment(){
+						this.$store.dispatch('addCount');
+					}
+				}
+			});			
+		</script>
+	</body>
+</html>
